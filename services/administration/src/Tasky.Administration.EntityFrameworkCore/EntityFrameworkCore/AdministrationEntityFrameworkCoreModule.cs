@@ -1,6 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Modularity;
+using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 
 namespace Tasky.Administration.EntityFrameworkCore;
 
@@ -8,7 +9,8 @@ namespace Tasky.Administration.EntityFrameworkCore;
     typeof(AdministrationDomainModule),
     typeof(AbpEntityFrameworkCoreModule)
 )]
-public class AdministrationEntityFrameworkCoreModule : AbpModule
+[DependsOn(typeof(AbpPermissionManagementEntityFrameworkCoreModule))]
+    public class AdministrationEntityFrameworkCoreModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {

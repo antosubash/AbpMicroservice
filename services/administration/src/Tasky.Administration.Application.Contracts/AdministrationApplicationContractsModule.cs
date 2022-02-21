@@ -1,6 +1,7 @@
-﻿using Volo.Abp.Application;
+using Volo.Abp.Application;
 using Volo.Abp.Modularity;
 using Volo.Abp.Authorization;
+using Volo.Abp.PermissionManagement;
 
 namespace Tasky.Administration;
 
@@ -9,7 +10,8 @@ namespace Tasky.Administration;
     typeof(AbpDddApplicationContractsModule),
     typeof(AbpAuthorizationModule)
     )]
-public class AdministrationApplicationContractsModule : AbpModule
+[DependsOn(typeof(AbpPermissionManagementApplicationContractsModule))]
+    public class AdministrationApplicationContractsModule : AbpModule
 {
 
 }

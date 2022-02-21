@@ -1,5 +1,6 @@
-﻿using Volo.Abp.Domain;
+using Volo.Abp.Domain;
 using Volo.Abp.Modularity;
+using Volo.Abp.PermissionManagement;
 
 namespace Tasky.Administration;
 
@@ -7,7 +8,8 @@ namespace Tasky.Administration;
     typeof(AbpDddDomainModule),
     typeof(AdministrationDomainSharedModule)
 )]
-public class AdministrationDomainModule : AbpModule
+[DependsOn(typeof(AbpPermissionManagementDomainModule))]
+    public class AdministrationDomainModule : AbpModule
 {
 
 }

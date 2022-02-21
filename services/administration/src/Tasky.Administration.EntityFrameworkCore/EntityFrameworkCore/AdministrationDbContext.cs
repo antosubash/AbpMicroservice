@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 
 namespace Tasky.Administration.EntityFrameworkCore;
 
@@ -22,5 +23,6 @@ public class AdministrationDbContext : AbpDbContext<AdministrationDbContext>, IA
         base.OnModelCreating(builder);
 
         builder.ConfigureAdministration();
-    }
+        builder.ConfigurePermissionManagement();
+        }
 }

@@ -1,7 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
 using Volo.Abp.Application;
+using Volo.Abp.PermissionManagement;
 
 namespace Tasky.Administration;
 
@@ -11,7 +12,8 @@ namespace Tasky.Administration;
     typeof(AbpDddApplicationModule),
     typeof(AbpAutoMapperModule)
     )]
-public class AdministrationApplicationModule : AbpModule
+[DependsOn(typeof(AbpPermissionManagementApplicationModule))]
+    public class AdministrationApplicationModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
