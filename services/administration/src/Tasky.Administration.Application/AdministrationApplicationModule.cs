@@ -4,6 +4,7 @@ using Volo.Abp.Modularity;
 using Volo.Abp.Application;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.SettingManagement;
+using Volo.Abp.FeatureManagement;
 
 namespace Tasky.Administration;
 
@@ -15,6 +16,7 @@ namespace Tasky.Administration;
     )]
 [DependsOn(typeof(AbpPermissionManagementApplicationModule))]
     [DependsOn(typeof(AbpSettingManagementApplicationModule))]
+    [DependsOn(typeof(AbpFeatureManagementApplicationModule))]
     public class AdministrationApplicationModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)

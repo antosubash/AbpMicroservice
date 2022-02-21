@@ -28,6 +28,7 @@ using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using Volo.Abp.VirtualFileSystem;
+using Volo.Abp.Data;
 
 namespace Tasky.Administration;
 
@@ -122,6 +123,17 @@ public class AdministrationHttpApiHostModule : AbpModule
         Configure<AbpDistributedCacheOptions>(options =>
         {
             options.KeyPrefix = "Administration:";
+        });
+
+        Configure<AbpDbConnectionOptions>(options =>
+        {
+            options.Databases.Configure("Administration", database =>
+            {
+                database.MappedConnections.Add("AbpAuditLogging");
+                database.MappedConnections.Add("AbpPermissionManagement");
+                database.MappedConnections.Add("AbpSettingManagement");
+                database.MappedConnections.Add("AbpFeatureManagement");
+            });
         });
 
         var dataProtectionBuilder = context.Services.AddDataProtection().SetApplicationName("Administration");
