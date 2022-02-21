@@ -1,16 +1,18 @@
-﻿using Localization.Resources.AbpUi;
+using Localization.Resources.AbpUi;
 using Tasky.IdentityService.Localization;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Microsoft.Extensions.DependencyInjection;
+using Volo.Abp.Identity;
 
 namespace Tasky.IdentityService;
 
 [DependsOn(
     typeof(IdentityServiceApplicationContractsModule),
     typeof(AbpAspNetCoreMvcModule))]
-public class IdentityServiceHttpApiModule : AbpModule
+[DependsOn(typeof(AbpIdentityHttpApiModule))]
+    public class IdentityServiceHttpApiModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {

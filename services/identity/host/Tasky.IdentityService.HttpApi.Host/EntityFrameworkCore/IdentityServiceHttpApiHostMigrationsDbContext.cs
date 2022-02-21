@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.Identity.EntityFrameworkCore;
+using Volo.Abp.IdentityServer.EntityFrameworkCore;
 
 namespace Tasky.IdentityService.EntityFrameworkCore;
 
@@ -16,5 +18,7 @@ public class IdentityServiceHttpApiHostMigrationsDbContext : AbpDbContext<Identi
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.ConfigureIdentityService();
+        modelBuilder.ConfigureIdentity();
+        modelBuilder.ConfigureIdentityServer();
     }
 }

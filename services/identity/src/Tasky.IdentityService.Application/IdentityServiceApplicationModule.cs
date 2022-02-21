@@ -1,7 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
 using Volo.Abp.Application;
+using Volo.Abp.Identity;
 
 namespace Tasky.IdentityService;
 
@@ -11,7 +12,8 @@ namespace Tasky.IdentityService;
     typeof(AbpDddApplicationModule),
     typeof(AbpAutoMapperModule)
     )]
-public class IdentityServiceApplicationModule : AbpModule
+[DependsOn(typeof(AbpIdentityApplicationModule))]
+    public class IdentityServiceApplicationModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {

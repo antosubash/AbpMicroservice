@@ -24,6 +24,7 @@ using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.VirtualFileSystem;
+using Volo.Abp.Data;
 
 namespace Tasky.IdentityService;
 
@@ -101,6 +102,29 @@ public class IdentityServiceHttpApiHostModule : AbpModule
             options.Languages.Add(new LanguageInfo("zh-Hant", "zh-Hant", "繁體中文"));
             options.Languages.Add(new LanguageInfo("de-DE", "de-DE", "Deutsch"));
             options.Languages.Add(new LanguageInfo("es", "es", "Español"));
+        });
+
+        Configure<AbpDbConnectionOptions>(options =>
+        {
+            options.Databases.Configure("SaasService", database =>
+            {
+                database.MappedConnections.Add("AbpTenantManagement");
+                database.IsUsedByTenants = false;
+            });
+
+            options.Databases.Configure("Administration", database =>
+            {
+                database.MappedConnections.Add("AbpAuditLogging");
+                database.MappedConnections.Add("AbpPermissionManagement");
+                database.MappedConnections.Add("AbpSettingManagement");
+                database.MappedConnections.Add("AbpFeatureManagement");
+            });
+
+            options.Databases.Configure("IdentityService", database =>
+            {
+                database.MappedConnections.Add("AbpIdentity");
+                database.MappedConnections.Add("AbpIdentityServer");
+            });
         });
 
         context.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
