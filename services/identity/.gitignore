@@ -251,9 +251,9 @@ paket-files/
 .idea/
 *.sln.iml
 
-# Identity
-host/Tasky.Identity.IdentityServer/Logs/logs.txt
-host/Tasky.Identity.HttpApi.Host/Logs/logs.txt
-host/Tasky.Identity.Web.Host/Logs/logs.txt
-host/Tasky.Identity.Web.Unified/Logs/logs.txt
-host/Tasky.Identity.Blazor.Server.Host/Logs/logs.txt
+# IdentityService
+host/Tasky.IdentityService.IdentityServer/Logs/logs.txt
+host/Tasky.IdentityService.HttpApi.Host/Logs/logs.txt
+host/Tasky.IdentityService.Web.Host/Logs/logs.txt
+host/Tasky.IdentityService.Web.Unified/Logs/logs.txt
+host/Tasky.IdentityService.Blazor.Server.Host/Logs/logs.txt

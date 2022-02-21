@@ -1,0 +1,7 @@
+{
+  "culture": "tr",
+  "texts": {
+    "MyAccount":  "Hesabım",
+    "SamplePageMessage": "IdentityService modulünden örnek bir sayfa"
+  }
+}

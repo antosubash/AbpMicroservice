@@ -13,10 +13,10 @@ services:
     depends_on:
       - sqlserver      
   
-  identity:
+  identity-service:
     build:
       context: ../../
-      dockerfile: templates/service/host/Tasky.Identity.Host/Dockerfile
+      dockerfile: templates/service/host/Tasky.IdentityService.Host/Dockerfile
     depends_on:
       - sqlserver
       - identity-server
