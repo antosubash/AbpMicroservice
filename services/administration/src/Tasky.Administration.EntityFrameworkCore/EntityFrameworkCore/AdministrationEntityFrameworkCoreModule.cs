@@ -13,18 +13,18 @@ namespace Tasky.Administration.EntityFrameworkCore;
     typeof(AbpEntityFrameworkCoreModule)
 )]
 [DependsOn(typeof(AbpPermissionManagementEntityFrameworkCoreModule))]
-    [DependsOn(typeof(AbpSettingManagementEntityFrameworkCoreModule))]
-    [DependsOn(typeof(AbpAuditLoggingEntityFrameworkCoreModule))]
-    [DependsOn(typeof(AbpFeatureManagementEntityFrameworkCoreModule))]
-    public class AdministrationEntityFrameworkCoreModule : AbpModule
+[DependsOn(typeof(AbpSettingManagementEntityFrameworkCoreModule))]
+[DependsOn(typeof(AbpAuditLoggingEntityFrameworkCoreModule))]
+[DependsOn(typeof(AbpFeatureManagementEntityFrameworkCoreModule))]
+public class AdministrationEntityFrameworkCoreModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         context.Services.AddAbpDbContext<AdministrationDbContext>(options =>
         {
-                /* Add custom repositories here. Example:
-                 * options.AddRepository<Question, EfCoreQuestionRepository>();
-                 */
+            /* Add custom repositories here. Example:
+             * options.AddRepository<Question, EfCoreQuestionRepository>();
+             */
         });
     }
 }
