@@ -6,6 +6,7 @@ using Volo.Abp.Modularity;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.SettingManagement;
+using Volo.Abp.FeatureManagement;
 
 namespace Tasky.Administration;
 
@@ -14,6 +15,7 @@ namespace Tasky.Administration;
     typeof(AbpAspNetCoreMvcModule))]
 [DependsOn(typeof(AbpPermissionManagementHttpApiModule))]
     [DependsOn(typeof(AbpSettingManagementHttpApiModule))]
+    [DependsOn(typeof(AbpFeatureManagementHttpApiModule))]
     public class AdministrationHttpApiModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)

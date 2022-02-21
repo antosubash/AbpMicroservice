@@ -4,6 +4,7 @@ using Volo.Abp.Modularity;
 using Volo.Abp.VirtualFileSystem;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.SettingManagement;
+using Volo.Abp.FeatureManagement;
 
 namespace Tasky.Administration;
 
@@ -12,6 +13,7 @@ namespace Tasky.Administration;
     typeof(AbpHttpClientModule))]
 [DependsOn(typeof(AbpPermissionManagementHttpApiClientModule))]
     [DependsOn(typeof(AbpSettingManagementHttpApiClientModule))]
+    [DependsOn(typeof(AbpFeatureManagementHttpApiClientModule))]
     public class AdministrationHttpApiClientModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
