@@ -66,7 +66,7 @@ public class AdministrationHttpApiHostModule : AbpModule
 
         Configure<AbpMultiTenancyOptions>(options =>
         {
-            options.IsEnabled = MultiTenancyConsts.IsEnabled;
+            options.IsEnabled = true;
         });
 
         if (hostingEnvironment.IsDevelopment())
