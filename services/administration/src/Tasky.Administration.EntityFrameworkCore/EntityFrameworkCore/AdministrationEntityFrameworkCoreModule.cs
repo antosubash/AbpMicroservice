@@ -3,6 +3,7 @@ using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
+using Volo.Abp.AuditLogging.EntityFrameworkCore;
 
 namespace Tasky.Administration.EntityFrameworkCore;
 
@@ -12,6 +13,7 @@ namespace Tasky.Administration.EntityFrameworkCore;
 )]
 [DependsOn(typeof(AbpPermissionManagementEntityFrameworkCoreModule))]
     [DependsOn(typeof(AbpSettingManagementEntityFrameworkCoreModule))]
+    [DependsOn(typeof(AbpAuditLoggingEntityFrameworkCoreModule))]
     public class AdministrationEntityFrameworkCoreModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)

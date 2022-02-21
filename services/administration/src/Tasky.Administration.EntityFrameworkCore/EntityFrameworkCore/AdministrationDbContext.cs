@@ -3,6 +3,7 @@ using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
+using Volo.Abp.AuditLogging.EntityFrameworkCore;
 
 namespace Tasky.Administration.EntityFrameworkCore;
 
@@ -26,5 +27,6 @@ public class AdministrationDbContext : AbpDbContext<AdministrationDbContext>, IA
         builder.ConfigureAdministration();
         builder.ConfigurePermissionManagement();
             builder.ConfigureSettingManagement();
+            builder.ConfigureAuditLogging();
         }
 }
