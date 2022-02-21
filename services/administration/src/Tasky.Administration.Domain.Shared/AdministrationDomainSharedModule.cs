@@ -6,6 +6,7 @@ using Volo.Abp.Validation;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
 using Volo.Abp.PermissionManagement;
+using Volo.Abp.SettingManagement;
 
 namespace Tasky.Administration;
 
@@ -13,6 +14,7 @@ namespace Tasky.Administration;
     typeof(AbpValidationModule)
 )]
 [DependsOn(typeof(AbpPermissionManagementDomainSharedModule))]
+    [DependsOn(typeof(AbpSettingManagementDomainSharedModule))]
     public class AdministrationDomainSharedModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
