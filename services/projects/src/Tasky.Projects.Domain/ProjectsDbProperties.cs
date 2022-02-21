@@ -1,0 +1,10 @@
+﻿namespace Tasky.Projects;
+
+public static class ProjectsDbProperties
+{
+    public static string DbTablePrefix { get; set; } = "Projects";
+
+    public static string DbSchema { get; set; } = null;
+
+    public const string ConnectionStringName = "Projects";
+}

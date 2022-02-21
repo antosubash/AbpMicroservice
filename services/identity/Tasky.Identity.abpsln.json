@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "Tasky.Identity": {
+      "path": "Tasky.Identity.abpmdl.json"
+    }
+  }
+}
