@@ -32,7 +32,6 @@
     <ProjectReference Include="..\..\src\Tasky.SaaS.HttpApi\Tasky.SaaS.HttpApi.csproj" />
     <ProjectReference Include="..\..\src\Tasky.SaaS.Application\Tasky.SaaS.Application.csproj" />
     <ProjectReference Include="..\..\src\Tasky.SaaS.EntityFrameworkCore\Tasky.SaaS.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\Tasky.SaaS.Host.Shared\Tasky.SaaS.Host.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

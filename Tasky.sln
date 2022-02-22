@@ -1,14 +1,44 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{ED0A7918-04FA-4040-B641-4CA249074083}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasky.Administration.HttpApi.Host", "services\administration\host\Tasky.Administration.HttpApi.Host\Tasky.Administration.HttpApi.Host.csproj", "{CADB7619-5AB5-46D1-84C4-7EEDFD18509F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasky.IdentityService.HttpApi.Host", "services\identity\host\Tasky.IdentityService.HttpApi.Host\Tasky.IdentityService.HttpApi.Host.csproj", "{1D43BBF7-CB00-4D5B-9846-8BE2FA479F47}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasky.SaaS.HttpApi.Host", "services\saas\host\Tasky.SaaS.HttpApi.Host\Tasky.SaaS.HttpApi.Host.csproj", "{C4CCD733-6236-4A1B-8F1A-C9315CD43A16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CADB7619-5AB5-46D1-84C4-7EEDFD18509F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CADB7619-5AB5-46D1-84C4-7EEDFD18509F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CADB7619-5AB5-46D1-84C4-7EEDFD18509F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CADB7619-5AB5-46D1-84C4-7EEDFD18509F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D43BBF7-CB00-4D5B-9846-8BE2FA479F47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D43BBF7-CB00-4D5B-9846-8BE2FA479F47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D43BBF7-CB00-4D5B-9846-8BE2FA479F47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D43BBF7-CB00-4D5B-9846-8BE2FA479F47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4CCD733-6236-4A1B-8F1A-C9315CD43A16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4CCD733-6236-4A1B-8F1A-C9315CD43A16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4CCD733-6236-4A1B-8F1A-C9315CD43A16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4CCD733-6236-4A1B-8F1A-C9315CD43A16}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CADB7619-5AB5-46D1-84C4-7EEDFD18509F} = {ED0A7918-04FA-4040-B641-4CA249074083}
+		{1D43BBF7-CB00-4D5B-9846-8BE2FA479F47} = {ED0A7918-04FA-4040-B641-4CA249074083}
+		{C4CCD733-6236-4A1B-8F1A-C9315CD43A16} = {ED0A7918-04FA-4040-B641-4CA249074083}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ECFA44F4-824C-4405-82F5-F62F2DCBCD5E}
 	EndGlobalSection
 EndGlobal
