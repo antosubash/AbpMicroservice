@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Tasky.Data;
 using Serilog;
 using Volo.Abp;
 
@@ -31,10 +30,10 @@ public class DbMigratorHostedService : IHostedService
         {
             await application.InitializeAsync();
 
-            await application
-                .ServiceProvider
-                .GetRequiredService<TaskyDbMigrationService>()
-                .MigrateAsync();
+            //await application
+            //    .ServiceProvider
+            //    .GetRequiredService<TaskyDbMigrationService>()
+            //    .MigrateAsync();
 
             await application.ShutdownAsync();
 

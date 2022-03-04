@@ -1,19 +1,19 @@
-﻿using Tasky.EntityFrameworkCore;
+﻿using Tasky.Administration;
+using Tasky.Administration.EntityFrameworkCore;
 using Volo.Abp.Autofac;
-using Volo.Abp.BackgroundJobs;
 using Volo.Abp.Modularity;
 
 namespace Tasky.DbMigrator;
 
 [DependsOn(
     typeof(AbpAutofacModule),
-    typeof(TaskyEntityFrameworkCoreModule),
-    typeof(TaskyApplicationContractsModule)
+    typeof(AdministrationEntityFrameworkCoreModule),
+    typeof(AdministrationApplicationContractsModule)
     )]
 public class TaskyDbMigratorModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
-        Configure<AbpBackgroundJobOptions>(options => options.IsJobExecutionEnabled = false);
+        //Configure<AbpBackgroundJobOptions>(options => options.IsJobExecutionEnabled = false);
     }
 }
