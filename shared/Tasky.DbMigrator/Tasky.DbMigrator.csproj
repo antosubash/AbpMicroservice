@@ -28,8 +28,6 @@
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Autofac" Version="5.1.4" />
-    <ProjectReference Include="..\Tasky.Application.Contracts\Tasky.Application.Contracts.csproj" />
-    <ProjectReference Include="..\Tasky.EntityFrameworkCore\Tasky.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +35,11 @@
     <Content Remove="Logs\**" />
     <EmbeddedResource Remove="Logs\**" />
     <None Remove="Logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\services\administration\src\Tasky.Administration.Application.Contracts\Tasky.Administration.Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\services\administration\src\Tasky.Administration.EntityFrameworkCore\Tasky.Administration.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
 </Project>
