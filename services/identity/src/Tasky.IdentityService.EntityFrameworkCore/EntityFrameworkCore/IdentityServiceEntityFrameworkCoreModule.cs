@@ -16,11 +16,12 @@ public class IdentityServiceEntityFrameworkCoreModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
-        context.Services.AddAbpDbContext<IdentityServiceDbContext>(options =>
-        {
-            /* Add custom repositories here. Example:
-             * options.AddRepository<Question, EfCoreQuestionRepository>();
-             */
-        });
+            context.Services.AddAbpDbContext<IdentityServiceDbContext>(options =>
+            {
+                options.ReplaceDbContext<IIdentityDbContext>();
+                options.ReplaceDbContext<IIdentityServerDbContext>();
+
+                options.AddDefaultRepositories(includeAllEntities: true);
+            });
     }
 }

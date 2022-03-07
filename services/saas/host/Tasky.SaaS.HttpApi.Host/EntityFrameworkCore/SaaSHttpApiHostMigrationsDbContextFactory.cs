@@ -12,7 +12,7 @@ public class SaaSHttpApiHostMigrationsDbContextFactory : IDesignTimeDbContextFac
         var configuration = BuildConfiguration();
 
         var builder = new DbContextOptionsBuilder<SaaSHttpApiHostMigrationsDbContext>()
-            .UseNpgsql(configuration.GetConnectionString("SaaS"));
+            .UseNpgsql(configuration.GetConnectionString("SaasService"));
 
         return new SaaSHttpApiHostMigrationsDbContext(builder.Options);
     }

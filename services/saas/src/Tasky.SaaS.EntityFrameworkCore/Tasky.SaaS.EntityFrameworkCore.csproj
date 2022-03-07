@@ -10,6 +10,7 @@
   <ItemGroup>
     <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="5.1.4" />
     <ProjectReference Include="..\Tasky.SaaS.Domain\Tasky.SaaS.Domain.csproj" />
+    <PackageReference Include="Volo.Abp.TenantManagement.EntityFrameworkCore" Version="5.1.4" />
   </ItemGroup>
 
 </Project>

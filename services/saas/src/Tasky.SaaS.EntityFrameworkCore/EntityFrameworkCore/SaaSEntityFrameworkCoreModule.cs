@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Modularity;
+using Volo.Abp.TenantManagement.EntityFrameworkCore;
 
 namespace Tasky.SaaS.EntityFrameworkCore;
 
@@ -14,9 +15,10 @@ public class SaaSEntityFrameworkCoreModule : AbpModule
     {
         context.Services.AddAbpDbContext<SaaSDbContext>(options =>
         {
-                /* Add custom repositories here. Example:
-                 * options.AddRepository<Question, EfCoreQuestionRepository>();
-                 */
+            options.ReplaceDbContext<ITenantManagementDbContext>();
+            
+            /* includeAllEntities: true allows to use IRepository<TEntity, TKey> also for non aggregate root entities */
+            options.AddDefaultRepositories(includeAllEntities: true);
         });
     }
 }
