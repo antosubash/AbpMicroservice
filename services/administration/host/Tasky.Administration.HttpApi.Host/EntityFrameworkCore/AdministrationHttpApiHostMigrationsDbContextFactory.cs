@@ -12,7 +12,7 @@ public class AdministrationHttpApiHostMigrationsDbContextFactory : IDesignTimeDb
         var configuration = BuildConfiguration();
 
         var builder = new DbContextOptionsBuilder<AdministrationHttpApiHostMigrationsDbContext>()
-            .UseSqlServer(configuration.GetConnectionString("Administration"));
+            .UseNpgsql(configuration.GetConnectionString("Administration"));
 
         return new AdministrationHttpApiHostMigrationsDbContext(builder.Options);
     }

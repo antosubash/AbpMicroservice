@@ -12,7 +12,7 @@ public class IdentityServiceHttpApiHostMigrationsDbContextFactory : IDesignTimeD
         var configuration = BuildConfiguration();
 
         var builder = new DbContextOptionsBuilder<IdentityServiceHttpApiHostMigrationsDbContext>()
-            .UseSqlServer(configuration.GetConnectionString("IdentityService"));
+            .UseNpgsql(configuration.GetConnectionString("IdentityService"));
 
         return new IdentityServiceHttpApiHostMigrationsDbContext(builder.Options);
     }
