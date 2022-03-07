@@ -28,11 +28,11 @@ using Volo.Abp.Swashbuckle;
 using Volo.Abp.VirtualFileSystem;
 using Tasky.Microservice.Shared;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
+using Volo.Abp.Data;
 
 namespace Tasky.Administration;
 
 [DependsOn(
-    typeof(TaskyMicroserviceModule),
     typeof(AdministrationApplicationModule),
     typeof(AdministrationEntityFrameworkCoreModule),
     typeof(AdministrationHttpApiModule),
@@ -45,7 +45,8 @@ namespace Tasky.Administration;
     typeof(AbpSettingManagementEntityFrameworkCoreModule),
     typeof(AbpFeatureManagementEntityFrameworkCoreModule),
     typeof(AbpAspNetCoreSerilogModule),
-    typeof(AbpSwashbuckleModule)
+    typeof(AbpSwashbuckleModule),
+    typeof(TaskyMicroserviceModule)
     )]
 public class AdministrationHttpApiHostModule : AbpModule
 {
@@ -59,7 +60,6 @@ public class AdministrationHttpApiHostModule : AbpModule
         {
             options.UseNpgsql();
         });
-
 
         if (hostingEnvironment.IsDevelopment())
         {
