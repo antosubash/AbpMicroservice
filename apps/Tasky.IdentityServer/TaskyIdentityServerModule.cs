@@ -26,6 +26,8 @@ using Tasky.Administration.EntityFrameworkCore;
 using Tasky.IdentityService.EntityFrameworkCore;
 using Tasky.Microservice.Shared;
 using Volo.Abp.MultiTenancy;
+using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.EntityFrameworkCore.PostgreSql;
 
 namespace Tasky;
 
@@ -37,6 +39,7 @@ namespace Tasky;
     typeof(AbpAccountHttpApiModule),
     typeof(AbpAspNetCoreMvcUiBasicThemeModule),
     typeof(AbpAspNetCoreSerilogModule),
+    typeof(AbpEntityFrameworkCorePostgreSqlModule),
     typeof(AdministrationEntityFrameworkCoreModule),
     typeof(SaaSEntityFrameworkCoreModule),
     typeof(IdentityServiceEntityFrameworkCoreModule),
@@ -58,6 +61,11 @@ public class TaskyIdentityServerModule : AbpModule
                     bundle.AddFiles("/global-styles.css");
                 }
             );
+        });
+
+        Configure<AbpDbContextOptions>(options =>
+        {
+            options.UseNpgsql();
         });
 
         Configure<AbpMultiTenancyOptions>(options =>
