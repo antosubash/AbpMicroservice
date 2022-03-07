@@ -7,6 +7,12 @@ public class TaskyMicroserviceModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
+
+        Configure<AbpMultiTenancyOptions>(options =>
+        {
+            options.IsEnabled = true;
+        });
+
         Configure<AbpDbConnectionOptions>(options =>
         {
             options.Databases.Configure("Administration", database =>

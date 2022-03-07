@@ -11,7 +11,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Tasky.Projects.EntityFrameworkCore;
-using Tasky.Projects.MultiTenancy;
 using StackExchange.Redis;
 using Microsoft.OpenApi.Models;
 using Volo.Abp;
@@ -66,7 +65,7 @@ public class ProjectsHttpApiHostModule : AbpModule
 
         Configure<AbpMultiTenancyOptions>(options =>
         {
-            options.IsEnabled = MultiTenancyConsts.IsEnabled;
+            options.IsEnabled = true;
         });
 
         if (hostingEnvironment.IsDevelopment())
@@ -176,10 +175,9 @@ public class ProjectsHttpApiHostModule : AbpModule
         app.UseRouting();
         app.UseCors();
         app.UseAuthentication();
-        if (MultiTenancyConsts.IsEnabled)
-        {
-            app.UseMultiTenancy();
-        }
+
+        app.UseMultiTenancy();
+
         app.UseAbpRequestLocalization();
         app.UseAuthorization();
         app.UseSwagger();
