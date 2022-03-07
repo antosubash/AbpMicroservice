@@ -1,15 +1,17 @@
-﻿using Localization.Resources.AbpUi;
+using Localization.Resources.AbpUi;
 using Tasky.SaaS.Localization;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Microsoft.Extensions.DependencyInjection;
+using Volo.Abp.TenantManagement;
 
 namespace Tasky.SaaS;
 
 [DependsOn(
     typeof(SaaSApplicationContractsModule),
     typeof(AbpAspNetCoreMvcModule))]
+[DependsOn(typeof(AbpTenantManagementHttpApiModule))]
 public class SaaSHttpApiModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)

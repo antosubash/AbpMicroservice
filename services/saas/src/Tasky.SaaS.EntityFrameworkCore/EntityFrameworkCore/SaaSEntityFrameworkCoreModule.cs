@@ -7,6 +7,7 @@ namespace Tasky.SaaS.EntityFrameworkCore;
 
 [DependsOn(
     typeof(SaaSDomainModule),
+    typeof(AbpTenantManagementEntityFrameworkCoreModule),
     typeof(AbpEntityFrameworkCoreModule)
 )]
 public class SaaSEntityFrameworkCoreModule : AbpModule

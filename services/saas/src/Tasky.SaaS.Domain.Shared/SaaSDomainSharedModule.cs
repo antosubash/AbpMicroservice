@@ -1,17 +1,19 @@
-﻿using Volo.Abp.Modularity;
+using Volo.Abp.Modularity;
 using Volo.Abp.Localization;
 using Tasky.SaaS.Localization;
 using Volo.Abp.Localization.ExceptionHandling;
 using Volo.Abp.Validation;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
+using Volo.Abp.TenantManagement;
 
 namespace Tasky.SaaS;
 
 [DependsOn(
     typeof(AbpValidationModule)
 )]
-public class SaaSDomainSharedModule : AbpModule
+[DependsOn(typeof(AbpTenantManagementDomainSharedModule))]
+    public class SaaSDomainSharedModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {

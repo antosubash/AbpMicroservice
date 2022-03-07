@@ -7,9 +7,12 @@
     <RootNamespace>Tasky.IdentityService</RootNamespace>
     <PreserveCompilationReferences>true</PreserveCompilationReferences>
     <UserSecretsId>Tasky.IdentityService-c2d31439-b723-48e2-b061-5ebd7aeb6010</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..\..</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
     <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
     <PackageReference Include="IdentityModel" Version="5.1.0" />
@@ -22,13 +25,12 @@
     <PackageReference Include="Volo.Abp.EntityFrameworkCore.PostgreSql" Version="5.1.4" />
     <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="5.1.4" />
     <PackageReference Include="Volo.Abp.Swashbuckle" Version="5.1.4" />
-    <PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="5.1.4" />
-    <PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="5.1.4" />
-    <PackageReference Include="Volo.Abp.AuditLogging.EntityFrameworkCore" Version="5.1.4" />
-    <PackageReference Include="Volo.Abp.TenantManagement.EntityFrameworkCore" Version="5.1.4" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\shared\Tasky.Microservice.Shared\Tasky.Microservice.Shared.csproj" />
+    <ProjectReference Include="..\..\..\administration\src\Tasky.Administration.EntityFrameworkCore\Tasky.Administration.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\saas\src\Tasky.SaaS.EntityFrameworkCore\Tasky.SaaS.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\src\Tasky.IdentityService.HttpApi\Tasky.IdentityService.HttpApi.csproj" />
     <ProjectReference Include="..\..\src\Tasky.IdentityService.Application\Tasky.IdentityService.Application.csproj" />
     <ProjectReference Include="..\..\src\Tasky.IdentityService.EntityFrameworkCore\Tasky.IdentityService.EntityFrameworkCore.csproj" />

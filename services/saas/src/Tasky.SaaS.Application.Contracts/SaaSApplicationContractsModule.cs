@@ -1,6 +1,7 @@
-﻿using Volo.Abp.Application;
+using Volo.Abp.Application;
 using Volo.Abp.Modularity;
 using Volo.Abp.Authorization;
+using Volo.Abp.TenantManagement;
 
 namespace Tasky.SaaS;
 
@@ -9,7 +10,8 @@ namespace Tasky.SaaS;
     typeof(AbpDddApplicationContractsModule),
     typeof(AbpAuthorizationModule)
     )]
-public class SaaSApplicationContractsModule : AbpModule
+[DependsOn(typeof(AbpTenantManagementApplicationContractsModule))]
+    public class SaaSApplicationContractsModule : AbpModule
 {
 
 }

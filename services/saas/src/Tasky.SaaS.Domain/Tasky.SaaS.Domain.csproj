@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Ddd.Domain" Version="5.1.4" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Domain" Version="5.1.4" />
     <ProjectReference Include="..\Tasky.SaaS.Domain.Shared\Tasky.SaaS.Domain.Shared.csproj" />
   </ItemGroup>
 

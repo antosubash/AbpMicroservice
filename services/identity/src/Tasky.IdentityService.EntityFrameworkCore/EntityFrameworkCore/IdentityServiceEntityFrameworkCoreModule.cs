@@ -7,11 +7,11 @@ using Volo.Abp.IdentityServer.EntityFrameworkCore;
 namespace Tasky.IdentityService.EntityFrameworkCore;
 
 [DependsOn(
-    typeof(IdentityServiceDomainModule),
-    typeof(AbpEntityFrameworkCoreModule)
+        typeof(IdentityServiceDomainModule),
+        typeof(AbpEntityFrameworkCoreModule),
+        typeof(AbpIdentityEntityFrameworkCoreModule),
+        typeof(AbpIdentityServerEntityFrameworkCoreModule)
 )]
-[DependsOn(typeof(AbpIdentityEntityFrameworkCoreModule))]
-[DependsOn(typeof(AbpIdentityServerEntityFrameworkCoreModule))]
 public class IdentityServiceEntityFrameworkCoreModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
