@@ -257,3 +257,6 @@ host/Tasky.Administration.HttpApi.Host/Logs/logs.txt
 host/Tasky.Administration.Web.Host/Logs/logs.txt
 host/Tasky.Administration.Web.Unified/Logs/logs.txt
 host/Tasky.Administration.Blazor.Server.Host/Logs/logs.txt
+
+.vs/
+.tye

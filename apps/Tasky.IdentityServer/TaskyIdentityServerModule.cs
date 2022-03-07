@@ -1,7 +1,5 @@
 using System;
-using System.IO;
 using System.Linq;
-using Localization.Resources.AbpUi;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection;
@@ -11,8 +9,6 @@ using StackExchange.Redis;
 using Volo.Abp;
 using Volo.Abp.Account;
 using Volo.Abp.Account.Web;
-using Volo.Abp.AspNetCore.Mvc.UI;
-using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap;
 using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
@@ -23,11 +19,13 @@ using Volo.Abp.Autofac;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.Caching;
 using Volo.Abp.Caching.StackExchangeRedis;
-using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation.Urls;
-using Volo.Abp.UI;
-using Volo.Abp.VirtualFileSystem;
+using Tasky.SaaS.EntityFrameworkCore;
+using Tasky.Administration.EntityFrameworkCore;
+using Tasky.IdentityService.EntityFrameworkCore;
+using Tasky.Microservice.Shared;
+using Volo.Abp.MultiTenancy;
 
 namespace Tasky;
 
@@ -38,7 +36,11 @@ namespace Tasky;
     typeof(AbpAccountApplicationModule),
     typeof(AbpAccountHttpApiModule),
     typeof(AbpAspNetCoreMvcUiBasicThemeModule),
-    typeof(AbpAspNetCoreSerilogModule)
+    typeof(AbpAspNetCoreSerilogModule),
+    typeof(AdministrationEntityFrameworkCoreModule),
+    typeof(SaaSEntityFrameworkCoreModule),
+    typeof(IdentityServiceEntityFrameworkCoreModule),
+    typeof(TaskyMicroserviceModule)
     )]
 public class TaskyIdentityServerModule : AbpModule
 {
@@ -58,10 +60,16 @@ public class TaskyIdentityServerModule : AbpModule
             );
         });
 
+        Configure<AbpMultiTenancyOptions>(options =>
+        {
+            options.IsEnabled = true;
+        });
+
+
         Configure<AbpAuditingOptions>(options =>
         {
-                //options.IsEnabledForGetRequests = true;
-                options.ApplicationName = "AuthServer";
+            //options.IsEnabledForGetRequests = true;
+            options.ApplicationName = "AuthServer";
         });
 
         Configure<AppUrlOptions>(options =>

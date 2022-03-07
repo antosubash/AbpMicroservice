@@ -44,4 +44,10 @@
     <PackageReference Include="Volo.Abp.Account.HttpApi" Version="5.1.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\services\administration\src\Tasky.Administration.EntityFrameworkCore\Tasky.Administration.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\services\identity\src\Tasky.IdentityService.EntityFrameworkCore\Tasky.IdentityService.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\services\saas\src\Tasky.SaaS.EntityFrameworkCore\Tasky.SaaS.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
 </Project>

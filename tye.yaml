@@ -8,9 +8,21 @@ name: tasky
 services:
 - name: tasky-administration-httpapi-host
   project: services/administration/host/Tasky.Administration.HttpApi.Host/Tasky.Administration.HttpApi.Host.csproj
+  bindings:
+    - protocol: https
+      port: 44394
 - name: tasky-identityservice-httpapi-host
   project: services/identity/host/Tasky.IdentityService.HttpApi.Host/Tasky.IdentityService.HttpApi.Host.csproj
+  bindings:
+    - protocol: https
+      port: 44365
 - name: tasky-saas-httpapi-host
   project: services/saas/host/Tasky.SaaS.HttpApi.Host/Tasky.SaaS.HttpApi.Host.csproj
-- name: tasky-projects-httpapi-host
-  project: services/projects/host/Tasky.Projects.HttpApi.Host/Tasky.Projects.HttpApi.Host.csproj
+  bindings:
+    - protocol: https
+      port: 44316
+- name: tasky-identityserver
+  project: apps/Tasky.IdentityServer/Tasky.IdentityServer.csproj
+  bindings:
+    - protocol: https
+      port: 44379

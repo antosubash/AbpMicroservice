@@ -1,5 +1,4 @@
 using System;
-using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
@@ -7,17 +6,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
-using Tasky.Localization;
-using Tasky.MultiTenancy;
 using Tasky.Web.Menus;
 using StackExchange.Redis;
 using Microsoft.OpenApi.Models;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Authentication.OpenIdConnect;
 using Volo.Abp.AspNetCore.Mvc.Client;
-using Volo.Abp.AspNetCore.Mvc.Localization;
-using Volo.Abp.AspNetCore.Mvc.UI;
-using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap;
 using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
@@ -33,20 +27,16 @@ using Volo.Abp.Http.Client.Web;
 using Volo.Abp.Identity.Web;
 using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
-using Volo.Abp.PermissionManagement.Web;
 using Volo.Abp.SettingManagement.Web;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.TenantManagement.Web;
 using Volo.Abp.UI.Navigation.Urls;
-using Volo.Abp.UI;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
 
 namespace Tasky.Web;
 
 [DependsOn(
-    typeof(TaskyHttpApiClientModule),
-    typeof(TaskyHttpApiModule),
     typeof(AbpAspNetCoreAuthenticationOpenIdConnectModule),
     typeof(AbpAspNetCoreMvcClientModule),
     typeof(AbpHttpClientWebModule),
@@ -64,15 +54,7 @@ public class TaskyWebModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
-        context.Services.PreConfigure<AbpMvcDataAnnotationsLocalizationOptions>(options =>
-        {
-            options.AddAssemblyResource(
-                typeof(TaskyResource),
-                typeof(TaskyDomainSharedModule).Assembly,
-                typeof(TaskyApplicationContractsModule).Assembly,
-                typeof(TaskyWebModule).Assembly
-            );
-        });
+
     }
 
     public override void ConfigureServices(ServiceConfigurationContext context)
@@ -126,7 +108,7 @@ public class TaskyWebModule : AbpModule
     {
         Configure<AbpMultiTenancyOptions>(options =>
         {
-            options.IsEnabled = MultiTenancyConsts.IsEnabled;
+            options.IsEnabled = true;
         });
     }
 
@@ -174,8 +156,6 @@ public class TaskyWebModule : AbpModule
         {
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.ReplaceEmbeddedByPhysical<TaskyDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}Tasky.Domain"));
-                options.FileSets.ReplaceEmbeddedByPhysical<TaskyApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}Tasky.Application.Contracts"));
                 options.FileSets.ReplaceEmbeddedByPhysical<TaskyWebModule>(hostingEnvironment.ContentRootPath);
             });
         }
@@ -240,11 +220,7 @@ public class TaskyWebModule : AbpModule
         app.UseStaticFiles();
         app.UseRouting();
         app.UseAuthentication();
-
-        if (MultiTenancyConsts.IsEnabled)
-        {
-            app.UseMultiTenancy();
-        }
+        app.UseMultiTenancy();
 
         app.UseAuthorization();
         app.UseSwagger();
