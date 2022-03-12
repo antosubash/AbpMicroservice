@@ -26,3 +26,8 @@ services:
   bindings:
     - protocol: https
       port: 44379
+- name: tasky-web
+  project: apps/Tasky.Web/Tasky.Web.csproj
+  bindings:
+    - protocol: https
+      port: 44396

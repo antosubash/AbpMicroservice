@@ -41,10 +41,6 @@ public class TaskyMicroserviceModule : AbpModule
                     database.MappedConnections.Add("AbpIdentityServer");
                 });
                 
-                options.Databases.Configure("ProjectService", database =>
-                {
-                    database.MappedConnections.Add("ProjectService");
-                });
         });
 
         Configure<AbpLocalizationOptions>(options =>
