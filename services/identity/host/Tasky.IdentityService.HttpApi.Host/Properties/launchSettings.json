@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "https://localhost:44365",
-      "sslPort": 44365
+      "applicationUrl": "https://localhost:7002",
+      "sslPort": 7002
     }
   },
   "profiles": {
@@ -15,13 +15,13 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Tasky.IdentityService.DemoApp": {
+    "Tasky.IdentityService.Host": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:44365"
+      "applicationUrl": "https://localhost:7002"
     },
     "Docker": {
       "commandName": "Docker",

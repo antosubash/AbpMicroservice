@@ -3,8 +3,8 @@
     "windowsAuthentication": false, 
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "https://localhost:44396",
-      "sslPort": 44396
+      "applicationUrl": "https://localhost:7004",
+      "sslPort": 7004
     }
   },
   "profiles": {
@@ -18,7 +18,7 @@
     "Tasky.Web": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:44396",
+      "applicationUrl": "https://localhost:7004",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

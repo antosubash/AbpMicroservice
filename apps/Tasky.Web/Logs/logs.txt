@@ -1063,3 +1063,578 @@ PermissionRequirement: SettingManagement.Emailing
 2022-03-12 15:58:25.499 +01:00 [INF] Executed endpoint 'Tasky.Web.Controllers.AccountController.Login (Tasky.Web)'
 2022-03-12 15:58:25.500 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44396/Account/Login - - - 302 0 - 2799.1230ms
 2022-03-12 18:12:06.743 +01:00 [INF] Application is shutting down...
+2022-03-12 20:32:24.877 +01:00 [INF] Starting web host.
+2022-03-12 20:32:29.862 +01:00 [INF] Loaded ABP modules:
+2022-03-12 20:32:29.863 +01:00 [INF] - Tasky.Web.TaskyWebModule
+2022-03-12 20:32:29.863 +01:00 [INF]   - Volo.Abp.AspNetCore.Authentication.OpenIdConnect.AbpAspNetCoreAuthenticationOpenIdConnectModule
+2022-03-12 20:32:29.863 +01:00 [INF]     - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.Data.AbpDataModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2022-03-12 20:32:29.863 +01:00 [INF]           - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2022-03-12 20:32:29.863 +01:00 [INF]           - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.Uow.AbpUnitOfWorkModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.EventBus.Abstractions.AbpEventBusAbstractionsModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.Security.AbpSecurityModule
+2022-03-12 20:32:29.863 +01:00 [INF]     - Volo.Abp.AspNetCore.Authentication.OAuth.AbpAspNetCoreAuthenticationOAuthModule
+2022-03-12 20:32:29.863 +01:00 [INF]   - Volo.Abp.AspNetCore.Mvc.Client.AbpAspNetCoreMvcClientModule
+2022-03-12 20:32:29.863 +01:00 [INF]     - Volo.Abp.AspNetCore.Mvc.Client.AbpAspNetCoreMvcClientCommonModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.Http.Client.AbpHttpClientModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.Http.AbpHttpModule
+2022-03-12 20:32:29.863 +01:00 [INF]           - Volo.Abp.Http.AbpHttpAbstractionsModule
+2022-03-12 20:32:29.863 +01:00 [INF]           - Volo.Abp.Json.AbpJsonModule
+2022-03-12 20:32:29.863 +01:00 [INF]             - Volo.Abp.Timing.AbpTimingModule
+2022-03-12 20:32:29.863 +01:00 [INF]               - Volo.Abp.Localization.AbpLocalizationModule
+2022-03-12 20:32:29.863 +01:00 [INF]                 - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2022-03-12 20:32:29.863 +01:00 [INF]                 - Volo.Abp.Settings.AbpSettingsModule
+2022-03-12 20:32:29.863 +01:00 [INF]           - Volo.Abp.Minify.AbpMinifyModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.Castle.AbpCastleCoreModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.Threading.AbpThreadingModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.Validation.AbpValidationModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.ExceptionHandling.AbpExceptionHandlingModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcContractsModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.Application.AbpDddApplicationContractsModule
+2022-03-12 20:32:29.863 +01:00 [INF]           - Volo.Abp.Auditing.AbpAuditingContractsModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.Caching.AbpCachingModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.Serialization.AbpSerializationModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.Authorization.AbpAuthorizationModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.Authorization.AbpAuthorizationAbstractionsModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.Features.AbpFeaturesModule
+2022-03-12 20:32:29.863 +01:00 [INF]     - Volo.Abp.EventBus.AbpEventBusModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.Guids.AbpGuidsModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.BackgroundWorkers.AbpBackgroundWorkersModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.DistributedLocking.AbpDistributedLockingAbstractionsModule
+2022-03-12 20:32:29.863 +01:00 [INF]   - Volo.Abp.Http.Client.Web.AbpHttpClientWebModule
+2022-03-12 20:32:29.863 +01:00 [INF]     - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.Auditing.AbpAuditingModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.ApiVersioning.AbpApiVersioningAbstractionsModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.UI.Navigation.AbpUiNavigationModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.UI.AbpUiModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.GlobalFeatures.AbpGlobalFeaturesModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.Application.AbpDddApplicationModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.Domain.AbpDddDomainModule
+2022-03-12 20:32:29.863 +01:00 [INF]           - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2022-03-12 20:32:29.863 +01:00 [INF]           - Volo.Abp.Specifications.AbpSpecificationsModule
+2022-03-12 20:32:29.863 +01:00 [INF]   - Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.AbpAspNetCoreMvcUiBasicThemeModule
+2022-03-12 20:32:29.863 +01:00 [INF]     - Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.AbpAspNetCoreMvcUiThemeSharedModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.AbpAspNetCoreMvcUiBootstrapModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.AspNetCore.Mvc.UI.AbpAspNetCoreMvcUiModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.AspNetCore.Mvc.UI.Packages.AbpAspNetCoreMvcUiPackagesModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.AspNetCore.Mvc.UI.Bundling.AbpAspNetCoreMvcUiBundlingAbstractionsModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.AspNetCore.Mvc.UI.Widgets.AbpAspNetCoreMvcUiWidgetsModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.AspNetCore.Mvc.UI.Bundling.AbpAspNetCoreMvcUiBundlingModule
+2022-03-12 20:32:29.863 +01:00 [INF]     - Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy.AbpAspNetCoreMvcUiMultiTenancyModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.AspNetCore.MultiTenancy.AbpAspNetCoreMultiTenancyModule
+2022-03-12 20:32:29.863 +01:00 [INF]   - Volo.Abp.Autofac.AbpAutofacModule
+2022-03-12 20:32:29.863 +01:00 [INF]   - Volo.Abp.Caching.StackExchangeRedis.AbpCachingStackExchangeRedisModule
+2022-03-12 20:32:29.863 +01:00 [INF]   - Volo.Abp.SettingManagement.Web.AbpSettingManagementWebModule
+2022-03-12 20:32:29.863 +01:00 [INF]     - Volo.Abp.SettingManagement.AbpSettingManagementApplicationContractsModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.SettingManagement.AbpSettingManagementDomainSharedModule
+2022-03-12 20:32:29.863 +01:00 [INF]   - Volo.Abp.Http.Client.IdentityModel.Web.AbpHttpClientIdentityModelWebModule
+2022-03-12 20:32:29.863 +01:00 [INF]     - Volo.Abp.Http.Client.IdentityModel.AbpHttpClientIdentityModelModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.IdentityModel.AbpIdentityModelModule
+2022-03-12 20:32:29.863 +01:00 [INF]   - Volo.Abp.Identity.Web.AbpIdentityWebModule
+2022-03-12 20:32:29.863 +01:00 [INF]     - Volo.Abp.Identity.AbpIdentityApplicationContractsModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.Identity.AbpIdentityDomainSharedModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.Users.AbpUsersDomainSharedModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.Users.AbpUsersAbstractionModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.PermissionManagement.AbpPermissionManagementApplicationContractsModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainSharedModule
+2022-03-12 20:32:29.863 +01:00 [INF]     - Volo.Abp.AutoMapper.AbpAutoMapperModule
+2022-03-12 20:32:29.863 +01:00 [INF]     - Volo.Abp.PermissionManagement.Web.AbpPermissionManagementWebModule
+2022-03-12 20:32:29.863 +01:00 [INF]   - Volo.Abp.TenantManagement.Web.AbpTenantManagementWebModule
+2022-03-12 20:32:29.863 +01:00 [INF]     - Volo.Abp.TenantManagement.AbpTenantManagementApplicationContractsModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.TenantManagement.AbpTenantManagementDomainSharedModule
+2022-03-12 20:32:29.863 +01:00 [INF]     - Volo.Abp.FeatureManagement.AbpFeatureManagementWebModule
+2022-03-12 20:32:29.863 +01:00 [INF]       - Volo.Abp.FeatureManagement.AbpFeatureManagementApplicationContractsModule
+2022-03-12 20:32:29.863 +01:00 [INF]         - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainSharedModule
+2022-03-12 20:32:29.863 +01:00 [INF]   - Volo.Abp.AspNetCore.Serilog.AbpAspNetCoreSerilogModule
+2022-03-12 20:32:29.863 +01:00 [INF]   - Volo.Abp.Swashbuckle.AbpSwashbuckleModule
+2022-03-12 20:32:30.903 +01:00 [INF] User profile is available. Using 'C:\Users\antos\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-03-12 20:32:31.182 +01:00 [INF] Initialized all ABP modules.
+2022-03-12 20:32:31.313 +01:00 [INF] Now listening on: https://localhost:44396
+2022-03-12 20:32:31.314 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-03-12 20:32:31.314 +01:00 [INF] Hosting environment: Development
+2022-03-12 20:32:31.314 +01:00 [INF] Content root path: C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\
+2022-03-12 20:33:09.991 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44396/ - -
+2022-03-12 20:33:10.272 +01:00 [WRN] Could not find IdentityClientConfiguration for AbpMvcClient. Either define a configuration for AbpMvcClient or set a default configuration.
+2022-03-12 20:33:10.279 +01:00 [INF] Start processing HTTP request GET "https://localhost:44365/api/abp/application-configuration?api-version=1.0"
+2022-03-12 20:33:10.279 +01:00 [INF] Sending HTTP request GET "https://localhost:44365/api/abp/application-configuration?api-version=1.0"
+2022-03-12 20:33:13.016 +01:00 [INF] Received HTTP response headers after 2733.6035ms - 200
+2022-03-12 20:33:13.016 +01:00 [INF] End processing HTTP request after 2741.9056ms - 200
+2022-03-12 20:33:21.387 +01:00 [INF] Executing endpoint '/Index'
+2022-03-12 20:33:21.399 +01:00 [INF] Route matched with {page = "/Index", action = "", controller = "", area = ""}. Executing page /Index
+2022-03-12 20:33:21.400 +01:00 [INF] Skipping the execution of current filter as its not the most effective filter implementing the policy Microsoft.AspNetCore.Mvc.ViewFeatures.IAntiforgeryPolicy
+2022-03-12 20:33:21.420 +01:00 [INF] Executing handler method Tasky.Web.Pages.IndexModel.OnGet - ModelState is "Valid"
+2022-03-12 20:33:21.420 +01:00 [INF] Executed handler method OnGet, returned result .
+2022-03-12 20:33:21.422 +01:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-03-12 20:33:21.422 +01:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-03-12 20:33:21.544 +01:00 [DBG] Added bundle 'Basic.Global' to the page in 13.46 ms.
+2022-03-12 20:33:21.551 +01:00 [DBG] Added bundle 'Pages.Index' to the page in 0.50 ms.
+2022-03-12 20:33:21.582 +01:00 [WRN] Could not find IdentityClientConfiguration for AbpMvcClient. Either define a configuration for AbpMvcClient or set a default configuration.
+2022-03-12 20:33:21.582 +01:00 [INF] Start processing HTTP request GET "https://localhost:44365/api/abp/application-configuration?api-version=1.0"
+2022-03-12 20:33:21.582 +01:00 [INF] Sending HTTP request GET "https://localhost:44365/api/abp/application-configuration?api-version=1.0"
+2022-03-12 20:33:21.623 +01:00 [INF] Received HTTP response headers after 40.572ms - 200
+2022-03-12 20:33:21.623 +01:00 [INF] End processing HTTP request after 40.732ms - 200
+2022-03-12 20:33:21.660 +01:00 [INF] Authorization failed. These requirements were not met:
+PermissionRequirement: SettingManagement.Emailing
+2022-03-12 20:33:21.876 +01:00 [DBG] Added bundle 'Basic.Global' to the page in 5.58 ms.
+2022-03-12 20:33:21.880 +01:00 [DBG] Added bundle 'Pages.Index' to the page in 0.38 ms.
+2022-03-12 20:33:21.886 +01:00 [INF] Executed page /Index in 484.8281ms
+2022-03-12 20:33:21.887 +01:00 [INF] Executed endpoint '/Index'
+2022-03-12 20:33:21.893 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44396/ - - - 200 - text/html;+charset=utf-8 11901.8948ms
+2022-03-12 20:33:21.957 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44396/Abp/ApplicationConfigurationScript - -
+2022-03-12 20:33:21.957 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44396/Abp/ServiceProxyScript - -
+2022-03-12 20:33:21.959 +01:00 [INF] Executing endpoint 'Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc)'
+2022-03-12 20:33:21.959 +01:00 [INF] Executing endpoint 'Volo.Abp.AspNetCore.Mvc.ProxyScripting.AbpServiceProxyScriptController.GetAll (Volo.Abp.AspNetCore.Mvc)'
+2022-03-12 20:33:21.966 +01:00 [INF] Route matched with {area = "Abp", action = "Get", controller = "AbpApplicationConfigurationScript", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Get() on controller Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController (Volo.Abp.AspNetCore.Mvc).
+2022-03-12 20:33:21.975 +01:00 [INF] Route matched with {area = "Abp", action = "GetAll", controller = "AbpServiceProxyScript", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult GetAll(Volo.Abp.AspNetCore.Mvc.ProxyScripting.ServiceProxyGenerationModel) on controller Volo.Abp.AspNetCore.Mvc.ProxyScripting.AbpServiceProxyScriptController (Volo.Abp.AspNetCore.Mvc).
+2022-03-12 20:33:21.995 +01:00 [INF] Executing action method Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc) - Validation state: "Valid"
+2022-03-12 20:33:21.995 +01:00 [INF] Executing action method Volo.Abp.AspNetCore.Mvc.ProxyScripting.AbpServiceProxyScriptController.GetAll (Volo.Abp.AspNetCore.Mvc) - Validation state: "Valid"
+2022-03-12 20:33:22.011 +01:00 [DBG] ActionApiDescriptionModel.Create: AbpTenant.FindTenantByNameAsyncByName
+2022-03-12 20:33:22.018 +01:00 [DBG] ActionApiDescriptionModel.Create: AbpTenant.FindTenantByIdAsyncById
+2022-03-12 20:33:22.018 +01:00 [DBG] ActionApiDescriptionModel.Create: AbpApplicationConfiguration.GetAsync
+2022-03-12 20:33:22.018 +01:00 [DBG] ActionApiDescriptionModel.Create: AbpApiDefinition.GetByModel
+2022-03-12 20:33:22.019 +01:00 [DBG] Executing AbpApplicationConfigurationAppService.GetAsync()...
+2022-03-12 20:33:22.031 +01:00 [INF] Executed action method Volo.Abp.AspNetCore.Mvc.ProxyScripting.AbpServiceProxyScriptController.GetAll (Volo.Abp.AspNetCore.Mvc), returned result Microsoft.AspNetCore.Mvc.ContentResult in 31.7682ms.
+2022-03-12 20:33:22.032 +01:00 [INF] Executing ContentResult with HTTP Response ContentType of application/javascript
+2022-03-12 20:33:22.032 +01:00 [INF] Executed action Volo.Abp.AspNetCore.Mvc.ProxyScripting.AbpServiceProxyScriptController.GetAll (Volo.Abp.AspNetCore.Mvc) in 57.3762ms
+2022-03-12 20:33:22.032 +01:00 [INF] Executed endpoint 'Volo.Abp.AspNetCore.Mvc.ProxyScripting.AbpServiceProxyScriptController.GetAll (Volo.Abp.AspNetCore.Mvc)'
+2022-03-12 20:33:22.033 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44396/Abp/ServiceProxyScript - - - 200 1936 application/javascript 76.2202ms
+2022-03-12 20:33:22.145 +01:00 [DBG] Executed AbpApplicationConfigurationAppService.GetAsync().
+2022-03-12 20:33:22.157 +01:00 [INF] Executed action method Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc), returned result Microsoft.AspNetCore.Mvc.ContentResult in 162.0476ms.
+2022-03-12 20:33:22.160 +01:00 [INF] Executing ContentResult with HTTP Response ContentType of application/javascript
+2022-03-12 20:33:22.163 +01:00 [INF] Executed action Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc) in 196.8246ms
+2022-03-12 20:33:22.163 +01:00 [INF] Executed endpoint 'Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc)'
+2022-03-12 20:33:22.166 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44396/Abp/ApplicationConfigurationScript - - - 200 45193 application/javascript 209.4012ms
+2022-03-12 20:33:25.492 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44396/Account/Login - -
+2022-03-12 20:33:25.494 +01:00 [INF] Executing endpoint 'Tasky.Web.Controllers.AccountController.Login (Tasky.Web)'
+2022-03-12 20:33:25.495 +01:00 [INF] Route matched with {action = "Login", controller = "Account", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Login(System.String, System.String) on controller Tasky.Web.Controllers.AccountController (Tasky.Web).
+2022-03-12 20:33:25.497 +01:00 [INF] Executing action method Tasky.Web.Controllers.AccountController.Login (Tasky.Web) - Validation state: "Valid"
+2022-03-12 20:33:25.497 +01:00 [INF] Executed action method Tasky.Web.Controllers.AccountController.Login (Tasky.Web), returned result Microsoft.AspNetCore.Mvc.ChallengeResult in 0.4847ms.
+2022-03-12 20:33:25.499 +01:00 [INF] Executing ChallengeResult with authentication schemes (["oidc"]).
+2022-03-12 20:33:25.864 +01:00 [INF] AuthenticationScheme: oidc was challenged.
+2022-03-12 20:33:25.866 +01:00 [INF] Executed action Tasky.Web.Controllers.AccountController.Login (Tasky.Web) in 370.029ms
+2022-03-12 20:33:25.866 +01:00 [INF] Executed endpoint 'Tasky.Web.Controllers.AccountController.Login (Tasky.Web)'
+2022-03-12 20:33:25.867 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44396/Account/Login - - - 302 0 - 374.6758ms
+2022-03-12 20:33:27.808 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44396/Abp/ApplicationConfigurationScript - -
+2022-03-12 20:33:27.810 +01:00 [INF] Executing endpoint 'Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc)'
+2022-03-12 20:33:27.811 +01:00 [INF] Route matched with {area = "Abp", action = "Get", controller = "AbpApplicationConfigurationScript", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Get() on controller Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController (Volo.Abp.AspNetCore.Mvc).
+2022-03-12 20:33:27.813 +01:00 [INF] Executing action method Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc) - Validation state: "Valid"
+2022-03-12 20:33:27.814 +01:00 [DBG] Executing AbpApplicationConfigurationAppService.GetAsync()...
+2022-03-12 20:33:27.832 +01:00 [DBG] Executed AbpApplicationConfigurationAppService.GetAsync().
+2022-03-12 20:33:27.843 +01:00 [INF] Executed action method Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc), returned result Microsoft.AspNetCore.Mvc.ContentResult in 30.0393ms.
+2022-03-12 20:33:27.843 +01:00 [INF] Executing ContentResult with HTTP Response ContentType of application/javascript
+2022-03-12 20:33:27.843 +01:00 [INF] Executed action Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc) in 32.6586ms
+2022-03-12 20:33:27.844 +01:00 [INF] Executed endpoint 'Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc)'
+2022-03-12 20:33:27.844 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44396/Abp/ApplicationConfigurationScript - - - 200 45193 application/javascript 35.8792ms
+2022-03-12 23:05:23.126 +01:00 [INF] Application is shutting down...
+2022-03-12 23:05:54.392 +01:00 [INF] Starting web host.
+2022-03-12 23:06:00.155 +01:00 [INF] Loaded ABP modules:
+2022-03-12 23:06:00.157 +01:00 [INF] - Tasky.Web.TaskyWebModule
+2022-03-12 23:06:00.157 +01:00 [INF]   - Volo.Abp.AspNetCore.Authentication.OpenIdConnect.AbpAspNetCoreAuthenticationOpenIdConnectModule
+2022-03-12 23:06:00.157 +01:00 [INF]     - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.Data.AbpDataModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2022-03-12 23:06:00.157 +01:00 [INF]           - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2022-03-12 23:06:00.157 +01:00 [INF]           - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.Uow.AbpUnitOfWorkModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.EventBus.Abstractions.AbpEventBusAbstractionsModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.Security.AbpSecurityModule
+2022-03-12 23:06:00.157 +01:00 [INF]     - Volo.Abp.AspNetCore.Authentication.OAuth.AbpAspNetCoreAuthenticationOAuthModule
+2022-03-12 23:06:00.157 +01:00 [INF]   - Volo.Abp.AspNetCore.Mvc.Client.AbpAspNetCoreMvcClientModule
+2022-03-12 23:06:00.157 +01:00 [INF]     - Volo.Abp.AspNetCore.Mvc.Client.AbpAspNetCoreMvcClientCommonModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.Http.Client.AbpHttpClientModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.Http.AbpHttpModule
+2022-03-12 23:06:00.157 +01:00 [INF]           - Volo.Abp.Http.AbpHttpAbstractionsModule
+2022-03-12 23:06:00.157 +01:00 [INF]           - Volo.Abp.Json.AbpJsonModule
+2022-03-12 23:06:00.157 +01:00 [INF]             - Volo.Abp.Timing.AbpTimingModule
+2022-03-12 23:06:00.157 +01:00 [INF]               - Volo.Abp.Localization.AbpLocalizationModule
+2022-03-12 23:06:00.157 +01:00 [INF]                 - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2022-03-12 23:06:00.157 +01:00 [INF]                 - Volo.Abp.Settings.AbpSettingsModule
+2022-03-12 23:06:00.157 +01:00 [INF]           - Volo.Abp.Minify.AbpMinifyModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.Castle.AbpCastleCoreModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.Threading.AbpThreadingModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.Validation.AbpValidationModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.ExceptionHandling.AbpExceptionHandlingModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcContractsModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.Application.AbpDddApplicationContractsModule
+2022-03-12 23:06:00.157 +01:00 [INF]           - Volo.Abp.Auditing.AbpAuditingContractsModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.Caching.AbpCachingModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.Serialization.AbpSerializationModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.Authorization.AbpAuthorizationModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.Authorization.AbpAuthorizationAbstractionsModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.Features.AbpFeaturesModule
+2022-03-12 23:06:00.157 +01:00 [INF]     - Volo.Abp.EventBus.AbpEventBusModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.Guids.AbpGuidsModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.BackgroundWorkers.AbpBackgroundWorkersModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.DistributedLocking.AbpDistributedLockingAbstractionsModule
+2022-03-12 23:06:00.157 +01:00 [INF]   - Volo.Abp.Http.Client.Web.AbpHttpClientWebModule
+2022-03-12 23:06:00.157 +01:00 [INF]     - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.Auditing.AbpAuditingModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.ApiVersioning.AbpApiVersioningAbstractionsModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.UI.Navigation.AbpUiNavigationModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.UI.AbpUiModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.GlobalFeatures.AbpGlobalFeaturesModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.Application.AbpDddApplicationModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.Domain.AbpDddDomainModule
+2022-03-12 23:06:00.157 +01:00 [INF]           - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2022-03-12 23:06:00.157 +01:00 [INF]           - Volo.Abp.Specifications.AbpSpecificationsModule
+2022-03-12 23:06:00.157 +01:00 [INF]   - Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.AbpAspNetCoreMvcUiBasicThemeModule
+2022-03-12 23:06:00.157 +01:00 [INF]     - Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.AbpAspNetCoreMvcUiThemeSharedModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.AbpAspNetCoreMvcUiBootstrapModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.AspNetCore.Mvc.UI.AbpAspNetCoreMvcUiModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.AspNetCore.Mvc.UI.Packages.AbpAspNetCoreMvcUiPackagesModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.AspNetCore.Mvc.UI.Bundling.AbpAspNetCoreMvcUiBundlingAbstractionsModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.AspNetCore.Mvc.UI.Widgets.AbpAspNetCoreMvcUiWidgetsModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.AspNetCore.Mvc.UI.Bundling.AbpAspNetCoreMvcUiBundlingModule
+2022-03-12 23:06:00.157 +01:00 [INF]     - Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy.AbpAspNetCoreMvcUiMultiTenancyModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.AspNetCore.MultiTenancy.AbpAspNetCoreMultiTenancyModule
+2022-03-12 23:06:00.157 +01:00 [INF]   - Volo.Abp.Autofac.AbpAutofacModule
+2022-03-12 23:06:00.157 +01:00 [INF]   - Volo.Abp.Caching.StackExchangeRedis.AbpCachingStackExchangeRedisModule
+2022-03-12 23:06:00.157 +01:00 [INF]   - Volo.Abp.SettingManagement.Web.AbpSettingManagementWebModule
+2022-03-12 23:06:00.157 +01:00 [INF]     - Volo.Abp.SettingManagement.AbpSettingManagementApplicationContractsModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.SettingManagement.AbpSettingManagementDomainSharedModule
+2022-03-12 23:06:00.157 +01:00 [INF]   - Volo.Abp.Http.Client.IdentityModel.Web.AbpHttpClientIdentityModelWebModule
+2022-03-12 23:06:00.157 +01:00 [INF]     - Volo.Abp.Http.Client.IdentityModel.AbpHttpClientIdentityModelModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.IdentityModel.AbpIdentityModelModule
+2022-03-12 23:06:00.157 +01:00 [INF]   - Volo.Abp.Identity.Web.AbpIdentityWebModule
+2022-03-12 23:06:00.157 +01:00 [INF]     - Volo.Abp.Identity.AbpIdentityApplicationContractsModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.Identity.AbpIdentityDomainSharedModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.Users.AbpUsersDomainSharedModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.Users.AbpUsersAbstractionModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.PermissionManagement.AbpPermissionManagementApplicationContractsModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainSharedModule
+2022-03-12 23:06:00.157 +01:00 [INF]     - Volo.Abp.AutoMapper.AbpAutoMapperModule
+2022-03-12 23:06:00.157 +01:00 [INF]     - Volo.Abp.PermissionManagement.Web.AbpPermissionManagementWebModule
+2022-03-12 23:06:00.157 +01:00 [INF]   - Volo.Abp.TenantManagement.Web.AbpTenantManagementWebModule
+2022-03-12 23:06:00.157 +01:00 [INF]     - Volo.Abp.TenantManagement.AbpTenantManagementApplicationContractsModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.TenantManagement.AbpTenantManagementDomainSharedModule
+2022-03-12 23:06:00.157 +01:00 [INF]     - Volo.Abp.FeatureManagement.AbpFeatureManagementWebModule
+2022-03-12 23:06:00.157 +01:00 [INF]       - Volo.Abp.FeatureManagement.AbpFeatureManagementApplicationContractsModule
+2022-03-12 23:06:00.157 +01:00 [INF]         - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainSharedModule
+2022-03-12 23:06:00.157 +01:00 [INF]   - Volo.Abp.AspNetCore.Serilog.AbpAspNetCoreSerilogModule
+2022-03-12 23:06:00.157 +01:00 [INF]   - Volo.Abp.Swashbuckle.AbpSwashbuckleModule
+2022-03-12 23:06:01.087 +01:00 [INF] User profile is available. Using 'C:\Users\antos\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-03-12 23:06:01.314 +01:00 [INF] Initialized all ABP modules.
+2022-03-12 23:06:01.419 +01:00 [INF] Now listening on: https://localhost:7004
+2022-03-12 23:06:01.419 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-03-12 23:06:01.419 +01:00 [INF] Hosting environment: Development
+2022-03-12 23:06:01.419 +01:00 [INF] Content root path: C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\
+2022-03-12 23:06:45.972 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/ - -
+2022-03-12 23:06:46.281 +01:00 [WRN] Could not find IdentityClientConfiguration for AbpMvcClient. Either define a configuration for AbpMvcClient or set a default configuration.
+2022-03-12 23:06:46.289 +01:00 [INF] Start processing HTTP request GET "https://localhost:44365/api/abp/application-configuration?api-version=1.0"
+2022-03-12 23:06:46.290 +01:00 [INF] Sending HTTP request GET "https://localhost:44365/api/abp/application-configuration?api-version=1.0"
+2022-03-12 23:06:50.445 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+Volo.Abp.Http.Client.AbpRemoteCallException: An error occurred during the ABP remote HTTP request. (No connection could be made because the target machine actively refused it. (localhost:44365)) See the inner exception for details.
+ ---> System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it. (localhost:44365)
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at Volo.Abp.Http.Client.ClientProxying.ClientProxyBase`1.RequestAsync(ClientProxyRequestContext requestContext)
+   --- End of inner exception stack trace ---
+   at Volo.Abp.Http.Client.ClientProxying.ClientProxyBase`1.RequestAsync(ClientProxyRequestContext requestContext)
+   at Volo.Abp.Http.Client.ClientProxying.ClientProxyBase`1.RequestAsync[T](ClientProxyRequestContext requestContext)
+   at Volo.Abp.Http.Client.ClientProxying.ClientProxyBase`1.RequestAsync[T](String methodName, ClientProxyRequestTypeValue arguments)
+   at Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ClientProxies.AbpApplicationConfigurationClientProxy.GetAsync()
+   at Volo.Abp.AspNetCore.Mvc.Client.MvcCachedApplicationConfigurationClient.<GetAsync>b__14_0()
+   at Volo.Abp.Caching.DistributedCache`2.GetOrAddAsync(TCacheKey key, Func`1 factory, Func`1 optionsFactory, Nullable`1 hideErrors, Boolean considerUow, CancellationToken token)
+   at Volo.Abp.AspNetCore.Mvc.Client.MvcCachedApplicationConfigurationClient.GetAsync()
+   at Volo.Abp.AspNetCore.Mvc.Client.RemoteLanguageProvider.GetLanguagesAsync()
+   at Microsoft.AspNetCore.RequestLocalization.DefaultAbpRequestLocalizationOptionsProvider.GetLocalizationOptionsAsync()
+   at Microsoft.AspNetCore.RequestLocalization.AbpRequestLocalizationMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-03-12 23:06:50.490 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/ - - - 500 - text/html;+charset=utf-8 4517.7081ms
+2022-03-12 23:06:51.136 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/favicon.ico - -
+2022-03-12 23:06:51.140 +01:00 [WRN] Could not find IdentityClientConfiguration for AbpMvcClient. Either define a configuration for AbpMvcClient or set a default configuration.
+2022-03-12 23:06:51.141 +01:00 [INF] Start processing HTTP request GET "https://localhost:44365/api/abp/application-configuration?api-version=1.0"
+2022-03-12 23:06:51.141 +01:00 [INF] Sending HTTP request GET "https://localhost:44365/api/abp/application-configuration?api-version=1.0"
+2022-03-12 23:06:55.228 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+Volo.Abp.Http.Client.AbpRemoteCallException: An error occurred during the ABP remote HTTP request. (No connection could be made because the target machine actively refused it. (localhost:44365)) See the inner exception for details.
+ ---> System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it. (localhost:44365)
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at Volo.Abp.Http.Client.ClientProxying.ClientProxyBase`1.RequestAsync(ClientProxyRequestContext requestContext)
+   --- End of inner exception stack trace ---
+   at Volo.Abp.Http.Client.ClientProxying.ClientProxyBase`1.RequestAsync(ClientProxyRequestContext requestContext)
+   at Volo.Abp.Http.Client.ClientProxying.ClientProxyBase`1.RequestAsync[T](ClientProxyRequestContext requestContext)
+   at Volo.Abp.Http.Client.ClientProxying.ClientProxyBase`1.RequestAsync[T](String methodName, ClientProxyRequestTypeValue arguments)
+   at Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ClientProxies.AbpApplicationConfigurationClientProxy.GetAsync()
+   at Volo.Abp.AspNetCore.Mvc.Client.MvcCachedApplicationConfigurationClient.<GetAsync>b__14_0()
+   at Volo.Abp.Caching.DistributedCache`2.GetOrAddAsync(TCacheKey key, Func`1 factory, Func`1 optionsFactory, Nullable`1 hideErrors, Boolean considerUow, CancellationToken token)
+   at Volo.Abp.AspNetCore.Mvc.Client.MvcCachedApplicationConfigurationClient.GetAsync()
+   at Volo.Abp.AspNetCore.Mvc.Client.RemoteLanguageProvider.GetLanguagesAsync()
+   at Microsoft.AspNetCore.RequestLocalization.DefaultAbpRequestLocalizationOptionsProvider.GetLocalizationOptionsAsync()
+   at Microsoft.AspNetCore.RequestLocalization.AbpRequestLocalizationMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-03-12 23:06:55.231 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/favicon.ico - - - 500 - text/plain;+charset=utf-8 4095.2885ms
+2022-03-12 23:08:55.432 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/ - -
+2022-03-12 23:08:55.436 +01:00 [WRN] Could not find IdentityClientConfiguration for AbpMvcClient. Either define a configuration for AbpMvcClient or set a default configuration.
+2022-03-12 23:08:55.436 +01:00 [INF] Start processing HTTP request GET "https://localhost:7001/api/abp/application-configuration?api-version=1.0"
+2022-03-12 23:08:55.436 +01:00 [INF] Sending HTTP request GET "https://localhost:7001/api/abp/application-configuration?api-version=1.0"
+2022-03-12 23:08:55.977 +01:00 [INF] Received HTTP response headers after 538.3316ms - 200
+2022-03-12 23:08:55.977 +01:00 [INF] End processing HTTP request after 540.9825ms - 200
+2022-03-12 23:09:04.458 +01:00 [INF] Executing endpoint '/Index'
+2022-03-12 23:09:04.467 +01:00 [INF] Route matched with {page = "/Index", action = "", controller = "", area = ""}. Executing page /Index
+2022-03-12 23:09:04.468 +01:00 [INF] Skipping the execution of current filter as its not the most effective filter implementing the policy Microsoft.AspNetCore.Mvc.ViewFeatures.IAntiforgeryPolicy
+2022-03-12 23:09:04.489 +01:00 [INF] Executing handler method Tasky.Web.Pages.IndexModel.OnGet - ModelState is "Valid"
+2022-03-12 23:09:04.489 +01:00 [INF] Executed handler method OnGet, returned result .
+2022-03-12 23:09:04.492 +01:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-03-12 23:09:04.492 +01:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-03-12 23:09:04.618 +01:00 [DBG] Added bundle 'Basic.Global' to the page in 13.17 ms.
+2022-03-12 23:09:04.627 +01:00 [DBG] Added bundle 'Pages.Index' to the page in 0.46 ms.
+2022-03-12 23:09:04.658 +01:00 [WRN] Could not find IdentityClientConfiguration for AbpMvcClient. Either define a configuration for AbpMvcClient or set a default configuration.
+2022-03-12 23:09:04.658 +01:00 [INF] Start processing HTTP request GET "https://localhost:7001/api/abp/application-configuration?api-version=1.0"
+2022-03-12 23:09:04.658 +01:00 [INF] Sending HTTP request GET "https://localhost:7001/api/abp/application-configuration?api-version=1.0"
+2022-03-12 23:09:04.681 +01:00 [INF] Received HTTP response headers after 23.0667ms - 200
+2022-03-12 23:09:04.681 +01:00 [INF] End processing HTTP request after 23.1926ms - 200
+2022-03-12 23:09:04.715 +01:00 [INF] Authorization failed. These requirements were not met:
+PermissionRequirement: SettingManagement.Emailing
+2022-03-12 23:09:04.716 +01:00 [WRN] Could not find the localization resource AbpIdentity on the remote server!
+2022-03-12 23:09:04.722 +01:00 [WRN] Could not find the localization resource AbpIdentity on the remote server!
+2022-03-12 23:09:04.724 +01:00 [WRN] Could not find the localization resource AbpIdentity on the remote server!
+2022-03-12 23:09:04.724 +01:00 [WRN] Could not find the localization resource AbpTenantManagement on the remote server!
+2022-03-12 23:09:04.725 +01:00 [WRN] Could not find the localization resource AbpTenantManagement on the remote server!
+2022-03-12 23:09:04.948 +01:00 [DBG] Added bundle 'Basic.Global' to the page in 5.00 ms.
+2022-03-12 23:09:04.952 +01:00 [DBG] Added bundle 'Pages.Index' to the page in 0.30 ms.
+2022-03-12 23:09:04.958 +01:00 [INF] Executed page /Index in 486.8498ms
+2022-03-12 23:09:04.958 +01:00 [INF] Executed endpoint '/Index'
+2022-03-12 23:09:04.960 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/ - - - 200 - text/html;+charset=utf-8 9527.9651ms
+2022-03-12 23:09:04.991 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/abp/core/abp.css?_v=637810773586167777 - -
+2022-03-12 23:09:04.991 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/bootstrap/css/bootstrap.css?_v=637810773586825441 - -
+2022-03-12 23:09:04.991 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/@fortawesome/fontawesome-free/css/all.css?_v=637810773585342579 - -
+2022-03-12 23:09:05.004 +01:00 [INF] Sending file. Request path: '/libs/abp/core/abp.css'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\abp\core\abp.css'
+2022-03-12 23:09:05.005 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/abp/core/abp.css?_v=637810773586167777 - - - 200 1275 text/css 13.7275ms
+2022-03-12 23:09:05.010 +01:00 [INF] Sending file. Request path: '/libs/@fortawesome/fontawesome-free/css/all.css'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\@fortawesome\fontawesome-free\css\all.css'
+2022-03-12 23:09:05.011 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/@fortawesome/fontawesome-free/css/all.css?_v=637810773585342579 - - - 200 73117 text/css 19.1121ms
+2022-03-12 23:09:05.012 +01:00 [INF] Sending file. Request path: '/libs/bootstrap/css/bootstrap.css'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\bootstrap\css\bootstrap.css'
+2022-03-12 23:09:05.013 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/bootstrap/css/bootstrap.css?_v=637810773586825441 - - - 200 205484 text/css 21.6984ms
+2022-03-12 23:09:05.086 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/@fortawesome/fontawesome-free/css/v4-shims.css?_v=637810773585352570 - -
+2022-03-12 23:09:05.086 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/toastr/toastr.min.css?_v=637810773589381546 - -
+2022-03-12 23:09:05.089 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/select2/css/select2.min.css?_v=637810773588291543 - -
+2022-03-12 23:09:05.089 +01:00 [INF] Sending file. Request path: '/libs/toastr/toastr.min.css'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\toastr\toastr.min.css'
+2022-03-12 23:09:05.090 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/toastr/toastr.min.css?_v=637810773589381546 - - - 200 6454 text/css 3.9425ms
+2022-03-12 23:09:05.096 +01:00 [INF] Sending file. Request path: '/libs/@fortawesome/fontawesome-free/css/v4-shims.css'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\@fortawesome\fontawesome-free\css\v4-shims.css'
+2022-03-12 23:09:05.096 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/@fortawesome/fontawesome-free/css/v4-shims.css?_v=637810773585352570 - - - 200 41312 text/css 10.6908ms
+2022-03-12 23:09:05.098 +01:00 [INF] Sending file. Request path: '/libs/select2/css/select2.min.css'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\select2\css\select2.min.css'
+2022-03-12 23:09:05.098 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/select2/css/select2.min.css?_v=637810773588291543 - - - 200 14966 text/css 8.5799ms
+2022-03-12 23:09:05.119 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css?_v=637810773588241519 - -
+2022-03-12 23:09:05.120 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/datatables.net-bs5/css/dataTables.bootstrap5.css?_v=637810773587186998 - -
+2022-03-12 23:09:05.120 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/bootstrap-datepicker/bootstrap-datepicker.min.css?_v=637810773586252176 - -
+2022-03-12 23:09:05.127 +01:00 [INF] Sending file. Request path: '/libs/datatables.net-bs5/css/dataTables.bootstrap5.css'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\datatables.net-bs5\css\dataTables.bootstrap5.css'
+2022-03-12 23:09:05.127 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/datatables.net-bs5/css/dataTables.bootstrap5.css?_v=637810773587186998 - - - 200 8829 text/css 7.3794ms
+2022-03-12 23:09:05.127 +01:00 [INF] Sending file. Request path: '/libs/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\malihu-custom-scrollbar-plugin\jquery.mCustomScrollbar.css'
+2022-03-12 23:09:05.127 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css?_v=637810773588241519 - - - 200 54850 text/css 8.5649ms
+2022-03-12 23:09:05.128 +01:00 [INF] Sending file. Request path: '/libs/bootstrap-datepicker/bootstrap-datepicker.min.css'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\bootstrap-datepicker\bootstrap-datepicker.min.css'
+2022-03-12 23:09:05.128 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/bootstrap-datepicker/bootstrap-datepicker.min.css?_v=637810773586252176 - - - 200 15731 text/css 7.4176ms
+2022-03-12 23:09:05.131 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/datatables/datatables-styles.css?_v=637816560100000000 - -
+2022-03-12 23:09:05.132 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/themes/basic/layout.css?_v=637816575540000000 - -
+2022-03-12 23:09:05.132 +01:00 [INF] Sending file. Request path: '/themes/basic/layout.css'. Physical path: 'N/A'
+2022-03-12 23:09:05.132 +01:00 [INF] Sending file. Request path: '/libs/abp/aspnetcore-mvc-ui-theme-shared/datatables/datatables-styles.css'. Physical path: 'N/A'
+2022-03-12 23:09:05.132 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/themes/basic/layout.css?_v=637816575540000000 - - - 200 1735 text/css 0.5379ms
+2022-03-12 23:09:05.132 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/datatables/datatables-styles.css?_v=637816560100000000 - - - 200 464 text/css 1.1488ms
+2022-03-12 23:09:05.133 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/global-styles.css?_v=637810773585320684 - -
+2022-03-12 23:09:05.135 +01:00 [INF] Sending file. Request path: '/global-styles.css'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\global-styles.css'
+2022-03-12 23:09:05.135 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/global-styles.css?_v=637810773585320684 - - - 200 25 text/css 2.0662ms
+2022-03-12 23:09:05.136 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/Pages/Index.css?_v=637810773585240699 - -
+2022-03-12 23:09:05.136 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/abp/utils/abp-utils.umd.min.js?_v=637810773586217785 - -
+2022-03-12 23:09:05.137 +01:00 [INF] Sending file. Request path: '/Pages/Index.css'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\Pages\Index.css'
+2022-03-12 23:09:05.137 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/Pages/Index.css?_v=637810773585240699 - - - 200 14 text/css 0.6904ms
+2022-03-12 23:09:05.139 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/abp/core/abp.js?_v=637810773586177778 - -
+2022-03-12 23:09:05.142 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/jquery/jquery.js?_v=637810773588094787 - -
+2022-03-12 23:09:05.153 +01:00 [INF] Sending file. Request path: '/libs/abp/utils/abp-utils.umd.min.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\abp\utils\abp-utils.umd.min.js'
+2022-03-12 23:09:05.153 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/abp/utils/abp-utils.umd.min.js?_v=637810773586217785 - - - 200 8256 application/javascript 16.4654ms
+2022-03-12 23:09:05.153 +01:00 [INF] Sending file. Request path: '/libs/abp/core/abp.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\abp\core\abp.js'
+2022-03-12 23:09:05.153 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/abp/core/abp.js?_v=637810773586177778 - - - 200 22495 application/javascript 13.6659ms
+2022-03-12 23:09:05.184 +01:00 [INF] Sending file. Request path: '/libs/jquery/jquery.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\jquery\jquery.js'
+2022-03-12 23:09:05.184 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/jquery/jquery.js?_v=637810773588094787 - - - 200 280364 application/javascript 41.7054ms
+2022-03-12 23:09:05.241 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2 - -
+2022-03-12 23:09:05.242 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2 - -
+2022-03-12 23:09:05.243 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/abp/jquery/abp.jquery.js?_v=637810773586187765 - -
+2022-03-12 23:09:05.251 +01:00 [INF] Sending file. Request path: '/libs/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\@fortawesome\fontawesome-free\webfonts\fa-brands-400.woff2'
+2022-03-12 23:09:05.251 +01:00 [INF] Sending file. Request path: '/libs/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\@fortawesome\fontawesome-free\webfonts\fa-solid-900.woff2'
+2022-03-12 23:09:05.251 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2 - - - 200 77444 font/woff2 9.4161ms
+2022-03-12 23:09:05.251 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2 - - - 200 80328 font/woff2 9.9208ms
+2022-03-12 23:09:05.256 +01:00 [INF] Sending file. Request path: '/libs/abp/jquery/abp.jquery.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\abp\jquery\abp.jquery.js'
+2022-03-12 23:09:05.256 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/abp/jquery/abp.jquery.js?_v=637810773586187765 - - - 200 12766 application/javascript 13.5576ms
+2022-03-12 23:09:05.260 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/bootstrap/js/bootstrap.bundle.js?_v=637810773587063863 - -
+2022-03-12 23:09:05.263 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/bootstrap/js/bootstrap.enable.tooltips.everywhere.js?_v=637810773587176731 - -
+2022-03-12 23:09:05.267 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/bootstrap/js/bootstrap.enable.popovers.everywhere.js?_v=637810773587173876 - -
+2022-03-12 23:09:05.269 +01:00 [INF] Sending file. Request path: '/libs/bootstrap/js/bootstrap.enable.popovers.everywhere.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\bootstrap\js\bootstrap.enable.popovers.everywhere.js'
+2022-03-12 23:09:05.269 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/bootstrap/js/bootstrap.enable.popovers.everywhere.js?_v=637810773587173876 - - - 200 190 application/javascript 2.2329ms
+2022-03-12 23:09:05.271 +01:00 [INF] Sending file. Request path: '/libs/bootstrap/js/bootstrap.enable.tooltips.everywhere.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\bootstrap\js\bootstrap.enable.tooltips.everywhere.js'
+2022-03-12 23:09:05.271 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/bootstrap/js/bootstrap.enable.tooltips.everywhere.js?_v=637810773587176731 - - - 200 193 application/javascript 7.5926ms
+2022-03-12 23:09:05.273 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/lodash/lodash.min.js?_v=637810773588111530 - -
+2022-03-12 23:09:05.278 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/jquery-validation/jquery.validate.js?_v=637810773587287005 - -
+2022-03-12 23:09:05.294 +01:00 [INF] Sending file. Request path: '/libs/jquery-validation/jquery.validate.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\jquery-validation\jquery.validate.js'
+2022-03-12 23:09:05.294 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/jquery-validation/jquery.validate.js?_v=637810773587287005 - - - 200 50679 application/javascript 16.0704ms
+2022-03-12 23:09:05.295 +01:00 [INF] Sending file. Request path: '/libs/bootstrap/js/bootstrap.bundle.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\bootstrap\js\bootstrap.bundle.js'
+2022-03-12 23:09:05.295 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/bootstrap/js/bootstrap.bundle.js?_v=637810773587063863 - - - 200 209719 application/javascript 34.7045ms
+2022-03-12 23:09:05.302 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js?_v=637810773587277007 - -
+2022-03-12 23:09:05.303 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/jquery-form/jquery.form.min.js?_v=637810773587266996 - -
+2022-03-12 23:09:05.308 +01:00 [INF] Sending file. Request path: '/libs/lodash/lodash.min.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\lodash\lodash.min.js'
+2022-03-12 23:09:05.308 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/lodash/lodash.min.js?_v=637810773588111530 - - - 200 73261 application/javascript 34.3916ms
+2022-03-12 23:09:05.313 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/select2/js/select2.min.js?_v=637810773588731554 - -
+2022-03-12 23:09:05.316 +01:00 [INF] Sending file. Request path: '/libs/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js'
+2022-03-12 23:09:05.316 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js?_v=637810773587277007 - - - 200 19366 application/javascript 14.0142ms
+2022-03-12 23:09:05.319 +01:00 [INF] Sending file. Request path: '/libs/jquery-form/jquery.form.min.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\jquery-form\jquery.form.min.js'
+2022-03-12 23:09:05.319 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/jquery-form/jquery.form.min.js?_v=637810773587266996 - - - 200 17094 application/javascript 16.0501ms
+2022-03-12 23:09:05.323 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/datatables.net/js/jquery.dataTables.js?_v=637810773587256986 - -
+2022-03-12 23:09:05.325 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/datatables.net-bs5/js/dataTables.bootstrap5.js?_v=637810773587197005 - -
+2022-03-12 23:09:05.328 +01:00 [INF] Sending file. Request path: '/libs/datatables.net-bs5/js/dataTables.bootstrap5.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\datatables.net-bs5\js\dataTables.bootstrap5.js'
+2022-03-12 23:09:05.328 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/datatables.net-bs5/js/dataTables.bootstrap5.js?_v=637810773587197005 - - - 200 4666 application/javascript 2.4645ms
+2022-03-12 23:09:05.332 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/sweetalert2/sweetalert2.all.min.js?_v=637810773588771550 - -
+2022-03-12 23:09:05.342 +01:00 [INF] Sending file. Request path: '/libs/select2/js/select2.min.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\select2\js\select2.min.js'
+2022-03-12 23:09:05.342 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/select2/js/select2.min.js?_v=637810773588731554 - - - 200 70851 application/javascript 28.7968ms
+2022-03-12 23:09:05.349 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/toastr/toastr.min.js?_v=637810773589391554 - -
+2022-03-12 23:09:05.351 +01:00 [INF] Sending file. Request path: '/libs/toastr/toastr.min.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\toastr\toastr.min.js'
+2022-03-12 23:09:05.351 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/toastr/toastr.min.js?_v=637810773589391554 - - - 200 5251 application/javascript 2.4716ms
+2022-03-12 23:09:05.353 +01:00 [INF] Sending file. Request path: '/libs/sweetalert2/sweetalert2.all.min.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\sweetalert2\sweetalert2.all.min.js'
+2022-03-12 23:09:05.353 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/sweetalert2/sweetalert2.all.min.js?_v=637810773588771550 - - - 200 67488 application/javascript 21.0903ms
+2022-03-12 23:09:05.355 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js?_v=637810773588231528 - -
+2022-03-12 23:09:05.360 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/luxon/luxon.min.js?_v=637810773588191528 - -
+2022-03-12 23:09:05.362 +01:00 [INF] Sending file. Request path: '/libs/datatables.net/js/jquery.dataTables.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\datatables.net\js\jquery.dataTables.js'
+2022-03-12 23:09:05.362 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/datatables.net/js/jquery.dataTables.js?_v=637810773587256986 - - - 200 447929 application/javascript 39.8263ms
+2022-03-12 23:09:05.369 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/abp/luxon/abp.luxon.js?_v=637810773586187765 - -
+2022-03-12 23:09:05.371 +01:00 [INF] Sending file. Request path: '/libs/abp/luxon/abp.luxon.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\abp\luxon\abp.luxon.js'
+2022-03-12 23:09:05.371 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/abp/luxon/abp.luxon.js?_v=637810773586187765 - - - 200 1315 application/javascript 2.0945ms
+2022-03-12 23:09:05.381 +01:00 [INF] Sending file. Request path: '/libs/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\malihu-custom-scrollbar-plugin\jquery.mCustomScrollbar.concat.min.js'
+2022-03-12 23:09:05.381 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js?_v=637810773588231528 - - - 200 45483 application/javascript 25.1982ms
+2022-03-12 23:09:05.395 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/timeago/jquery.timeago.js?_v=637810773588841558 - -
+2022-03-12 23:09:05.395 +01:00 [INF] Sending file. Request path: '/libs/luxon/luxon.min.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\luxon\luxon.min.js'
+2022-03-12 23:09:05.396 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/luxon/luxon.min.js?_v=637810773588191528 - - - 200 70063 application/javascript 35.9364ms
+2022-03-12 23:09:05.397 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/bootstrap-datepicker/bootstrap-datepicker.min.js?_v=637810773586272186 - -
+2022-03-12 23:09:05.398 +01:00 [INF] Sending file. Request path: '/libs/timeago/jquery.timeago.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\timeago\jquery.timeago.js'
+2022-03-12 23:09:05.398 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/timeago/jquery.timeago.js?_v=637810773588841558 - - - 200 7404 application/javascript 3.0436ms
+2022-03-12 23:09:05.402 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/ui-extensions.js?_v=637816560100000000 - -
+2022-03-12 23:09:05.402 +01:00 [INF] Sending file. Request path: '/libs/abp/aspnetcore-mvc-ui-theme-shared/ui-extensions.js'. Physical path: 'N/A'
+2022-03-12 23:09:05.403 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/ui-extensions.js?_v=637816560100000000 - - - 200 10589 application/javascript 0.8169ms
+2022-03-12 23:09:05.406 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/jquery/jquery-extensions.js?_v=637816560100000000 - -
+2022-03-12 23:09:05.407 +01:00 [INF] Sending file. Request path: '/libs/abp/aspnetcore-mvc-ui-theme-shared/jquery/jquery-extensions.js'. Physical path: 'N/A'
+2022-03-12 23:09:05.407 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/jquery/jquery-extensions.js?_v=637816560100000000 - - - 200 5904 application/javascript 0.9844ms
+2022-03-12 23:09:05.408 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/jquery-form/jquery-form-extensions.js?_v=637816560100000000 - -
+2022-03-12 23:09:05.408 +01:00 [INF] Sending file. Request path: '/libs/abp/aspnetcore-mvc-ui-theme-shared/jquery-form/jquery-form-extensions.js'. Physical path: 'N/A'
+2022-03-12 23:09:05.409 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/jquery-form/jquery-form-extensions.js?_v=637816560100000000 - - - 200 3605 application/javascript 0.7520ms
+2022-03-12 23:09:05.412 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/jquery/widget-manager.js?_v=637816560100000000 - -
+2022-03-12 23:09:05.412 +01:00 [INF] Sending file. Request path: '/libs/abp/aspnetcore-mvc-ui-theme-shared/jquery/widget-manager.js'. Physical path: 'N/A'
+2022-03-12 23:09:05.412 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/jquery/widget-manager.js?_v=637816560100000000 - - - 200 4790 application/javascript 0.5403ms
+2022-03-12 23:09:05.413 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/bootstrap/dom-event-handlers.js?_v=637816560100000000 - -
+2022-03-12 23:09:05.414 +01:00 [INF] Sending file. Request path: '/libs/abp/aspnetcore-mvc-ui-theme-shared/bootstrap/dom-event-handlers.js'. Physical path: 'N/A'
+2022-03-12 23:09:05.414 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/bootstrap/dom-event-handlers.js?_v=637816560100000000 - - - 200 8710 application/javascript 0.5148ms
+2022-03-12 23:09:05.416 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/bootstrap/modal-manager.js?_v=637816560100000000 - -
+2022-03-12 23:09:05.417 +01:00 [INF] Sending file. Request path: '/libs/abp/aspnetcore-mvc-ui-theme-shared/bootstrap/modal-manager.js'. Physical path: 'N/A'
+2022-03-12 23:09:05.417 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/bootstrap/modal-manager.js?_v=637816560100000000 - - - 200 6823 application/javascript 0.5729ms
+2022-03-12 23:09:05.418 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/datatables/datatables-extensions.js?_v=637816560100000000 - -
+2022-03-12 23:09:05.418 +01:00 [INF] Sending file. Request path: '/libs/abp/aspnetcore-mvc-ui-theme-shared/datatables/datatables-extensions.js'. Physical path: 'N/A'
+2022-03-12 23:09:05.418 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/datatables/datatables-extensions.js?_v=637816560100000000 - - - 200 20452 application/javascript 0.6323ms
+2022-03-12 23:09:05.419 +01:00 [INF] Sending file. Request path: '/libs/bootstrap-datepicker/bootstrap-datepicker.min.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\bootstrap-datepicker\bootstrap-datepicker.min.js'
+2022-03-12 23:09:05.419 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/bootstrap-datepicker/bootstrap-datepicker.min.js?_v=637810773586272186 - - - 200 33693 application/javascript 22.4542ms
+2022-03-12 23:09:05.422 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/sweetalert2/abp-sweetalert2.js?_v=637816560100000000 - -
+2022-03-12 23:09:05.425 +01:00 [INF] Sending file. Request path: '/libs/abp/aspnetcore-mvc-ui-theme-shared/sweetalert2/abp-sweetalert2.js'. Physical path: 'N/A'
+2022-03-12 23:09:05.425 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/sweetalert2/abp-sweetalert2.js?_v=637816560100000000 - - - 200 3213 application/javascript 3.7468ms
+2022-03-12 23:09:05.427 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/toastr/abp-toastr.js?_v=637816560100000000 - -
+2022-03-12 23:09:05.428 +01:00 [INF] Sending file. Request path: '/libs/abp/aspnetcore-mvc-ui-theme-shared/toastr/abp-toastr.js'. Physical path: 'N/A'
+2022-03-12 23:09:05.428 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/abp/aspnetcore-mvc-ui-theme-shared/toastr/abp-toastr.js?_v=637816560100000000 - - - 200 951 application/javascript 0.9012ms
+2022-03-12 23:09:05.430 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/Pages/Abp/MultiTenancy/tenant-switch.js?_v=637816560140000000 - -
+2022-03-12 23:09:05.431 +01:00 [INF] Sending file. Request path: '/Pages/Abp/MultiTenancy/tenant-switch.js'. Physical path: 'N/A'
+2022-03-12 23:09:05.431 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/Pages/Abp/MultiTenancy/tenant-switch.js?_v=637816560140000000 - - - 200 414 application/javascript 1.3883ms
+2022-03-12 23:09:05.436 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/themes/basic/layout.js?_v=637816575540000000 - -
+2022-03-12 23:09:05.436 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/libs/timeago/locales/jquery.timeago.en.js?_v=637810773588981523 - -
+2022-03-12 23:09:05.437 +01:00 [INF] Sending file. Request path: '/themes/basic/layout.js'. Physical path: 'N/A'
+2022-03-12 23:09:05.437 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/themes/basic/layout.js?_v=637816575540000000 - - - 200 543 application/javascript 0.9291ms
+2022-03-12 23:09:05.440 +01:00 [INF] Sending file. Request path: '/libs/timeago/locales/jquery.timeago.en.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\wwwroot\libs\timeago\locales\jquery.timeago.en.js'
+2022-03-12 23:09:05.440 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/libs/timeago/locales/jquery.timeago.en.js?_v=637810773588981523 - - - 200 778 application/javascript 3.9051ms
+2022-03-12 23:09:05.445 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/Abp/ServiceProxyScript - -
+2022-03-12 23:09:05.445 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/Abp/ApplicationConfigurationScript - -
+2022-03-12 23:09:05.445 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/Pages/Index.js?_v=637810773585240699 - -
+2022-03-12 23:09:05.446 +01:00 [INF] Sending file. Request path: '/Pages/Index.js'. Physical path: 'C:\repos\GitHub\AbpMicroservice\apps\Tasky.Web\Pages\Index.js'
+2022-03-12 23:09:05.446 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/Pages/Index.js?_v=637810773585240699 - - - 200 63 application/javascript 0.6035ms
+2022-03-12 23:09:05.447 +01:00 [INF] Executing endpoint 'Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc)'
+2022-03-12 23:09:05.447 +01:00 [INF] Executing endpoint 'Volo.Abp.AspNetCore.Mvc.ProxyScripting.AbpServiceProxyScriptController.GetAll (Volo.Abp.AspNetCore.Mvc)'
+2022-03-12 23:09:05.451 +01:00 [INF] Route matched with {area = "Abp", action = "Get", controller = "AbpApplicationConfigurationScript", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Get() on controller Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController (Volo.Abp.AspNetCore.Mvc).
+2022-03-12 23:09:05.458 +01:00 [INF] Route matched with {area = "Abp", action = "GetAll", controller = "AbpServiceProxyScript", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult GetAll(Volo.Abp.AspNetCore.Mvc.ProxyScripting.ServiceProxyGenerationModel) on controller Volo.Abp.AspNetCore.Mvc.ProxyScripting.AbpServiceProxyScriptController (Volo.Abp.AspNetCore.Mvc).
+2022-03-12 23:09:05.477 +01:00 [INF] Executing action method Volo.Abp.AspNetCore.Mvc.ProxyScripting.AbpServiceProxyScriptController.GetAll (Volo.Abp.AspNetCore.Mvc) - Validation state: "Valid"
+2022-03-12 23:09:05.477 +01:00 [INF] Executing action method Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc) - Validation state: "Valid"
+2022-03-12 23:09:05.492 +01:00 [DBG] ActionApiDescriptionModel.Create: AbpTenant.FindTenantByNameAsyncByName
+2022-03-12 23:09:05.498 +01:00 [DBG] ActionApiDescriptionModel.Create: AbpTenant.FindTenantByIdAsyncById
+2022-03-12 23:09:05.498 +01:00 [DBG] ActionApiDescriptionModel.Create: AbpApplicationConfiguration.GetAsync
+2022-03-12 23:09:05.498 +01:00 [DBG] ActionApiDescriptionModel.Create: AbpApiDefinition.GetByModel
+2022-03-12 23:09:05.501 +01:00 [DBG] Executing AbpApplicationConfigurationAppService.GetAsync()...
+2022-03-12 23:09:05.511 +01:00 [INF] Executed action method Volo.Abp.AspNetCore.Mvc.ProxyScripting.AbpServiceProxyScriptController.GetAll (Volo.Abp.AspNetCore.Mvc), returned result Microsoft.AspNetCore.Mvc.ContentResult in 30.5013ms.
+2022-03-12 23:09:05.512 +01:00 [INF] Executing ContentResult with HTTP Response ContentType of application/javascript
+2022-03-12 23:09:05.512 +01:00 [INF] Executed action Volo.Abp.AspNetCore.Mvc.ProxyScripting.AbpServiceProxyScriptController.GetAll (Volo.Abp.AspNetCore.Mvc) in 54.1583ms
+2022-03-12 23:09:05.512 +01:00 [INF] Executed endpoint 'Volo.Abp.AspNetCore.Mvc.ProxyScripting.AbpServiceProxyScriptController.GetAll (Volo.Abp.AspNetCore.Mvc)'
+2022-03-12 23:09:05.512 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/Abp/ServiceProxyScript - - - 200 1936 application/javascript 67.0702ms
+2022-03-12 23:09:05.538 +01:00 [WRN] Could not find the localization resource AbpIdentity on the remote server!
+2022-03-12 23:09:05.538 +01:00 [WRN] Could not find the localization resource AbpIdentity on the remote server!
+2022-03-12 23:09:05.538 +01:00 [WRN] Could not find the localization resource AbpTenantManagement on the remote server!
+2022-03-12 23:09:05.538 +01:00 [WRN] Could not find the localization resource AbpTenantManagement on the remote server!
+2022-03-12 23:09:05.604 +01:00 [DBG] Executed AbpApplicationConfigurationAppService.GetAsync().
+2022-03-12 23:09:05.617 +01:00 [INF] Executed action method Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc), returned result Microsoft.AspNetCore.Mvc.ContentResult in 140.4577ms.
+2022-03-12 23:09:05.620 +01:00 [INF] Executing ContentResult with HTTP Response ContentType of application/javascript
+2022-03-12 23:09:05.621 +01:00 [INF] Executed action Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc) in 169.3075ms
+2022-03-12 23:09:05.621 +01:00 [INF] Executed endpoint 'Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc)'
+2022-03-12 23:09:05.623 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/Abp/ApplicationConfigurationScript - - - 200 52140 application/javascript 177.6281ms
+2022-03-12 23:09:06.001 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/favicon.ico - -
+2022-03-12 23:09:06.005 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/favicon.ico - - - 404 0 - 3.6532ms
+2022-03-12 23:09:10.361 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/Account/Login - -
+2022-03-12 23:09:10.362 +01:00 [INF] Executing endpoint 'Tasky.Web.Controllers.AccountController.Login (Tasky.Web)'
+2022-03-12 23:09:10.363 +01:00 [INF] Route matched with {action = "Login", controller = "Account", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Login(System.String, System.String) on controller Tasky.Web.Controllers.AccountController (Tasky.Web).
+2022-03-12 23:09:10.364 +01:00 [INF] Executing action method Tasky.Web.Controllers.AccountController.Login (Tasky.Web) - Validation state: "Valid"
+2022-03-12 23:09:10.364 +01:00 [INF] Executed action method Tasky.Web.Controllers.AccountController.Login (Tasky.Web), returned result Microsoft.AspNetCore.Mvc.ChallengeResult in 0.4203ms.
+2022-03-12 23:09:10.366 +01:00 [INF] Executing ChallengeResult with authentication schemes (["oidc"]).
+2022-03-12 23:09:11.130 +01:00 [INF] AuthenticationScheme: oidc was challenged.
+2022-03-12 23:09:11.132 +01:00 [INF] Executed action Tasky.Web.Controllers.AccountController.Login (Tasky.Web) in 768.3809ms
+2022-03-12 23:09:11.132 +01:00 [INF] Executed endpoint 'Tasky.Web.Controllers.AccountController.Login (Tasky.Web)'
+2022-03-12 23:09:11.132 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/Account/Login - - - 302 0 - 770.7813ms
+2022-03-12 23:09:14.175 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7004/Abp/ApplicationConfigurationScript - -
+2022-03-12 23:09:14.177 +01:00 [INF] Executing endpoint 'Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc)'
+2022-03-12 23:09:14.178 +01:00 [INF] Route matched with {area = "Abp", action = "Get", controller = "AbpApplicationConfigurationScript", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Get() on controller Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController (Volo.Abp.AspNetCore.Mvc).
+2022-03-12 23:09:14.179 +01:00 [INF] Executing action method Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc) - Validation state: "Valid"
+2022-03-12 23:09:14.180 +01:00 [DBG] Executing AbpApplicationConfigurationAppService.GetAsync()...
+2022-03-12 23:09:14.198 +01:00 [WRN] Could not find the localization resource AbpIdentity on the remote server!
+2022-03-12 23:09:14.198 +01:00 [WRN] Could not find the localization resource AbpIdentity on the remote server!
+2022-03-12 23:09:14.198 +01:00 [WRN] Could not find the localization resource AbpTenantManagement on the remote server!
+2022-03-12 23:09:14.198 +01:00 [WRN] Could not find the localization resource AbpTenantManagement on the remote server!
+2022-03-12 23:09:14.199 +01:00 [DBG] Executed AbpApplicationConfigurationAppService.GetAsync().
+2022-03-12 23:09:14.208 +01:00 [INF] Executed action method Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc), returned result Microsoft.AspNetCore.Mvc.ContentResult in 28.6356ms.
+2022-03-12 23:09:14.208 +01:00 [INF] Executing ContentResult with HTTP Response ContentType of application/javascript
+2022-03-12 23:09:14.208 +01:00 [INF] Executed action Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc) in 30.7197ms
+2022-03-12 23:09:14.208 +01:00 [INF] Executed endpoint 'Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc)'
+2022-03-12 23:09:14.208 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7004/Abp/ApplicationConfigurationScript - - - 200 52140 application/javascript 33.7798ms

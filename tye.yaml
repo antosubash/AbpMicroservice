@@ -10,24 +10,24 @@ services:
   project: services/administration/host/Tasky.Administration.HttpApi.Host/Tasky.Administration.HttpApi.Host.csproj
   bindings:
     - protocol: https
-      port: 44394
+      port: 7001
 - name: tasky-identityservice-httpapi-host
   project: services/identity/host/Tasky.IdentityService.HttpApi.Host/Tasky.IdentityService.HttpApi.Host.csproj
   bindings:
     - protocol: https
-      port: 44365
+      port: 7002
 - name: tasky-saas-httpapi-host
   project: services/saas/host/Tasky.SaaS.HttpApi.Host/Tasky.SaaS.HttpApi.Host.csproj
   bindings:
     - protocol: https
-      port: 44316
+      port: 7003
 - name: tasky-identityserver
   project: apps/Tasky.IdentityServer/Tasky.IdentityServer.csproj
   bindings:
     - protocol: https
-      port: 44379
+      port: 7000
 - name: tasky-web
   project: apps/Tasky.Web/Tasky.Web.csproj
   bindings:
     - protocol: https
-      port: 44396
+      port: 7004

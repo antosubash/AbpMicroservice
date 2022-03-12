@@ -30,7 +30,7 @@ public class TaskyMicroserviceModule : AbpModule
 
         Configure<AbpDbConnectionOptions>(options =>
         {
-                options.Databases.Configure("SaasService", database =>
+                options.Databases.Configure("SaaS", database =>
                 {
                     database.MappedConnections.Add("AbpTenantManagement");
                     database.IsUsedByTenants = false;
@@ -43,13 +43,12 @@ public class TaskyMicroserviceModule : AbpModule
                     database.MappedConnections.Add("AbpSettingManagement");
                     database.MappedConnections.Add("AbpFeatureManagement");
                 });
-                
+
                 options.Databases.Configure("IdentityService", database =>
                 {
                     database.MappedConnections.Add("AbpIdentity");
                     database.MappedConnections.Add("AbpIdentityServer");
                 });
-                
         });
 
         Configure<AbpLocalizationOptions>(options =>
