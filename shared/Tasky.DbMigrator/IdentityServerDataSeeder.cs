@@ -7,7 +7,6 @@ using Microsoft.Extensions.Configuration;
 using Volo.Abp.Authorization.Permissions;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.Guids;
-using Volo.Abp.Identity;
 using Volo.Abp.IdentityServer.ApiResources;
 using Volo.Abp.IdentityServer.ApiScopes;
 using Volo.Abp.IdentityServer.Clients;
@@ -21,7 +20,7 @@ using Client = Volo.Abp.IdentityServer.Clients.Client;
 
 namespace Tasky.DbMigrator
 {
- public class IdentityServerDataSeeder : ITransientDependency
+    public class IdentityServerDataSeeder : ITransientDependency
     {
         private readonly IApiResourceRepository _apiResourceRepository;
         private readonly IApiScopeRepository _apiScopeRepository;
@@ -60,10 +59,38 @@ namespace Tasky.DbMigrator
                 await _identityResourceDataSeeder.CreateStandardResourcesAsync();
                 await CreateApiResourcesAsync();
                 await CreateApiScopesAsync();
-                await CreateSwaggerClientsAsync();
                 await CreateClientsAsync();
             }
         }
+
+        private async Task CreateClientsAsync()
+        {
+            var clients = _configuration.GetSection("Clients").Get<List<ServiceClient>>();
+            var commonScopes = new[]
+            {
+                "email",
+                "openid",
+                "profile",
+                "role",
+                "phone",
+                "address"
+            };
+
+            foreach (var client in clients)
+            {
+                await CreateClientAsync(
+                    name: client.ClientId,
+                    scopes: commonScopes.Union(client.Scopes),
+                    grantTypes: client.GrantTypes,
+                    secret: client.ClientSecret.Sha256(),
+                    requireClientSecret: false,
+                    redirectUris: client.RedirectUris,
+                    postLogoutRedirectUris: client.PostLogoutRedirectUris,
+                    corsOrigins: client.AllowedCorsOrigins
+                );
+            }
+        }
+
 
         private async Task CreateApiResourcesAsync()
         {
@@ -77,57 +104,20 @@ namespace Tasky.DbMigrator
                 "role"
             };
 
-            await CreateApiResourceAsync("AuthServer", commonApiUserClaims);
-            await CreateApiResourceAsync("IdentityService", commonApiUserClaims);
-            await CreateApiResourceAsync("AdministrationService", commonApiUserClaims);
-            await CreateApiResourceAsync("SaasService", commonApiUserClaims);
+            var apiResources = _configuration.GetSection("ApiResource").Get<string[]>();
+
+            foreach (var item in apiResources)
+            {
+                await CreateApiResourceAsync(item, commonApiUserClaims);
+            }
         }
 
         private async Task CreateApiScopesAsync()
         {
-            await CreateApiScopeAsync("AuthServer");
-            await CreateApiScopeAsync("IdentityService");
-            await CreateApiScopeAsync("AdministrationService");
-            await CreateApiScopeAsync("SaasService");
-
-        }
-
-        private async Task CreateSwaggerClientsAsync()
-        {
-            await CreateSwaggerClientAsync("Administration", new []{ "AuthServer", "AdministrationService" });
-            await CreateSwaggerClientAsync("IdentityService", new []{ "AuthServer", "IdentityService"});
-            await CreateSwaggerClientAsync("SaaS", new []{ "AuthServer", "SaasService" });
-        }
-
-        private async Task CreateSwaggerClientAsync(string name, string[] scopes = null)
-        {
-            var commonScopes = new[]
+            var apiScopes = _configuration.GetSection("ApiScope").Get<string[]>();
+            foreach (var item in apiScopes)
             {
-                "email",
-                "openid",
-                "profile",
-                "role",
-                "phone",
-                "address"
-            };
-            scopes ??= new[] {name};
-
-            // Swagger Client
-            var swaggerClientId = $"{name}_Swagger";
-            if (!swaggerClientId.IsNullOrWhiteSpace())
-            {
-                string sectionName = $"IdentityServerClients:{name}:RootUrl";
-                var swaggerRootUrls = _configuration.GetSection(sectionName).Get<string[]>().Select(x => x.TrimEnd('/'));
-
-                await CreateClientAsync(
-                    name: swaggerClientId,
-                    scopes: commonScopes.Union(scopes),
-                    grantTypes: new[] { "authorization_code" },
-                    secret: "1q2w3e*".Sha256(),
-                    requireClientSecret: false,
-                    redirectUris: swaggerRootUrls.Select( x => $"{x}/swagger/oauth2-redirect.html" ),
-                    corsOrigins: swaggerRootUrls.Select( x => x.RemovePostFix("/") )
-                );
+                await CreateApiScopeAsync(item);
             }
         }
 
@@ -173,143 +163,6 @@ namespace Tasky.DbMigrator
             }
 
             return apiScope;
-        }
-
-        private async Task CreateClientsAsync()
-        {
-            var commonScopes = new[]
-            {
-                "email",
-                "openid",
-                "profile",
-                "role",
-                "phone",
-                "address"
-            };
-
-            //Web Client
-            var webClientRootUrl =
-                _configuration["IdentityServerClients:ZW_Web:RootUrl"].EnsureEndsWith('/');
-            await CreateClientAsync(
-                name: "ZW_Web",
-                //Add references to new microservice services
-                scopes: commonScopes.Union(new[]
-                {
-                    "AuthServer",
-                    "IdentityService",
-                    "AdministrationService",
-                    "SaasService",
-                    "ProductService",
-                    "LeaveMgmtSvc"
-                }),
-                grantTypes: new[] {"hybrid"},
-                secret: "1q2w3e*".Sha256(),
-                redirectUris: new [] { $"{webClientRootUrl}signin-oidc" },
-                postLogoutRedirectUris: new [] { $"{webClientRootUrl}signout-callback-oidc" },
-                frontChannelLogoutUri: $"{webClientRootUrl}Account/FrontChannelLogout",
-                corsOrigins: new[] {webClientRootUrl.RemovePostFix("/")}
-            );
-
-            //Blazor Client
-            var blazorClientRootUrl =
-                _configuration["IdentityServerClients:ZW_Blazor:RootUrl"].EnsureEndsWith('/');
-            await CreateClientAsync(
-                name: "ZW_Blazor",
-                //Add references to new microservice services
-                scopes: commonScopes.Union(new[]
-                {
-                    "AuthServer",
-                    "IdentityService",
-                    "AdministrationService",
-                    "SaasService",
-                    "ProductService",
-                    "LeaveMgmtSvc"
-                }),
-                grantTypes: new[] {"authorization_code"},
-                secret: "1q2w3e*".Sha256(),
-                requireClientSecret: false,
-                redirectUris: new [] { $"{blazorClientRootUrl}authentication/login-callback" },
-                postLogoutRedirectUris: new [] { $"{blazorClientRootUrl}authentication/logout-callback" },
-                corsOrigins: new[] {blazorClientRootUrl.RemovePostFix("/")}
-            );
-
-            //Blazr Server Client
-            var blazorServerClientRootUrl =
-                _configuration["IdentityServerClients:ZW_BlazorServer:RootUrl"].EnsureEndsWith('/');
-            await CreateClientAsync(
-                name: "ZW_BlazorServer",
-                //Add references to new microservice services
-                scopes: commonScopes.Union(new[]
-                {
-                    "AuthServer",
-                    "IdentityService",
-                    "AdministrationService",
-                    "SaasService",
-                    "ProductService",
-                    "LeaveMgmtSvc"
-                }),
-                grantTypes: new[] {"hybrid"},
-                secret: "1q2w3e*".Sha256(),
-                redirectUris: new [] { $"{blazorServerClientRootUrl}signin-oidc" },
-                postLogoutRedirectUris: new [] {$"{blazorServerClientRootUrl}signout-callback-oidc" },
-                frontChannelLogoutUri: $"{blazorServerClientRootUrl}Account/FrontChannelLogout",
-                corsOrigins: new[] {blazorServerClientRootUrl.RemovePostFix("/")}
-            );
-
-            //Public Web Client
-            var publicWebClientRootUrl = _configuration["IdentityServerClients:ZW_PublicWeb:RootUrl"]
-                .EnsureEndsWith('/');
-            await CreateClientAsync(
-                name: "ZW_PublicWeb",
-                //Add references to new microservice services
-                scopes: commonScopes.Union(new[]
-                {
-                    "AdministrationService",
-                    "ProductService",
-                    "LeaveMgmtSvc"
-                }),
-                grantTypes: new[] {"hybrid"},
-                secret: "1q2w3e*".Sha256(),
-                redirectUris: new []{ $"{publicWebClientRootUrl}signin-oidc" },
-                postLogoutRedirectUris: new [] { $"{publicWebClientRootUrl}signout-callback-oidc" },
-                frontChannelLogoutUri: $"{publicWebClientRootUrl}Account/FrontChannelLogout",
-                corsOrigins: new[] { publicWebClientRootUrl.RemovePostFix("/") }
-            );
-
-            //Angular Client
-            var angularClientRootUrl =
-                _configuration["IdentityServerClients:ZW_Angular:RootUrl"].TrimEnd('/');
-            await CreateClientAsync(
-                name: "ZW_Angular",
-                //Add references to new microservice services
-                scopes: commonScopes.Union(new[]
-                {
-                    "AuthServer",
-                    "IdentityService",
-                    "AdministrationService",
-                    "SaasService",
-                    "ProductService",
-                    "LeaveMgmtSvc"
-                }),
-                grantTypes: new[] {"authorization_code", "LinkLogin"},
-                secret: "1q2w3e*".Sha256(),
-                requireClientSecret: false,
-                redirectUris: new[] { $"{angularClientRootUrl}" },
-                postLogoutRedirectUris: new [] { $"{angularClientRootUrl}" },
-                corsOrigins: new[] { angularClientRootUrl }
-            );
-
-            //Administration Service Client
-            await CreateClientAsync(
-                name: "ZW_AdministrationService",
-                scopes: commonScopes.Union(new[]
-                {
-                    "IdentityService"
-                }),
-                grantTypes: new[] {"client_credentials"},
-                secret: "1q2w3e*".Sha256(),
-                permissions: new[] {IdentityPermissions.Users.Default}
-            );
         }
 
         private async Task<Client> CreateClientAsync(
@@ -391,7 +244,7 @@ namespace Tasky.DbMigrator
                     client.AddPostLogoutRedirectUri(postLogoutRedirectUri);
                 }
             }
-            
+
             if (permissions != null)
             {
                 await _permissionDataSeeder.SeedAsync(
