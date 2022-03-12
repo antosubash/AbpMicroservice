@@ -259,3 +259,4 @@ host/Tasky.Administration.Web.Unified/Logs/logs.txt
 host/Tasky.Administration.Blazor.Server.Host/Logs/logs.txt
 
 .tye
+shared/Tasky.DbMigrator/Logs/logs.txt
