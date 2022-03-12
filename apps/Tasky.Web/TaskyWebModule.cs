@@ -138,7 +138,7 @@ public class TaskyWebModule : AbpModule
                 options.Scope.Add("role");
                 options.Scope.Add("email");
                 options.Scope.Add("phone");
-                options.Scope.Add("Tasky");
+                options.Scope.Add("IdentityService");
             });
     }
 
