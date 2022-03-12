@@ -5,6 +5,7 @@ using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
+using System;
 
 namespace Tasky.Administration.EntityFrameworkCore;
 
@@ -20,7 +21,22 @@ public class AdministrationEntityFrameworkCoreModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
-            context.Services.AddAbpDbContext<AdministrationDbContext>(options =>
+
+        Configure<AbpDbContextOptions>(options =>
+        {
+            options.UseNpgsql();
+        });
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+        context.Services.AddAbpDbContext<AdministrationDbContext>(options =>
+        {
+            /* Add custom repositories here. Example:
+             * options.AddRepository<Question, EfCoreQuestionRepository>();
+             */
+
+            options.AddDefaultRepositories(includeAllEntities: true);
+        });
+
+        context.Services.AddAbpDbContext<AdministrationDbContext>(options =>
             {
                 options.ReplaceDbContext<IPermissionManagementDbContext>();
                 options.ReplaceDbContext<ISettingManagementDbContext>();

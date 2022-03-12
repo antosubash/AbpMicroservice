@@ -12,8 +12,8 @@ using Volo.Abp.EntityFrameworkCore;
 
 namespace Tasky.Administration.Migrations
 {
-    [DbContext(typeof(AdministrationHttpApiHostMigrationsDbContext))]
-    [Migration("20220307182828_Init")]
+    [DbContext(typeof(AdministrationDbContext))]
+    [Migration("20220312182243_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,7 +29,6 @@ namespace Tasky.Administration.Migrations
             modelBuilder.Entity("Volo.Abp.AuditLogging.AuditLog", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("ApplicationName")
@@ -149,7 +148,6 @@ namespace Tasky.Administration.Migrations
             modelBuilder.Entity("Volo.Abp.AuditLogging.AuditLogAction", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("AuditLogId")
@@ -199,7 +197,6 @@ namespace Tasky.Administration.Migrations
             modelBuilder.Entity("Volo.Abp.AuditLogging.EntityChange", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("AuditLogId")
@@ -249,7 +246,6 @@ namespace Tasky.Administration.Migrations
             modelBuilder.Entity("Volo.Abp.AuditLogging.EntityPropertyChange", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("EntityChangeId")
@@ -291,7 +287,6 @@ namespace Tasky.Administration.Migrations
             modelBuilder.Entity("Volo.Abp.FeatureManagement.FeatureValue", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("Name")
@@ -323,7 +318,6 @@ namespace Tasky.Administration.Migrations
             modelBuilder.Entity("Volo.Abp.PermissionManagement.PermissionGrant", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("Name")
@@ -356,7 +350,6 @@ namespace Tasky.Administration.Migrations
             modelBuilder.Entity("Volo.Abp.SettingManagement.Setting", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("Name")

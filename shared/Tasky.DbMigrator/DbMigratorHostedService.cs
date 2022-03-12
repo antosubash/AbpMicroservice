@@ -30,10 +30,10 @@ public class DbMigratorHostedService : IHostedService
         {
             await application.InitializeAsync();
 
-            //await application
-            //    .ServiceProvider
-            //    .GetRequiredService<TaskyDbMigrationService>()
-            //    .MigrateAsync();
+            await application
+               .ServiceProvider
+               .GetRequiredService<TaskyDbMigrationService>()
+               .MigrateAsync(cancellationToken);
 
             await application.ShutdownAsync();
 

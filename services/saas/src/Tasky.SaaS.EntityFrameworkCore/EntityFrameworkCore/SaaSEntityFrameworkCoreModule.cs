@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
@@ -14,6 +15,13 @@ public class SaaSEntityFrameworkCoreModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
+        Configure<AbpDbContextOptions>(options =>
+        {
+            options.UseNpgsql();
+        });
+
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
         context.Services.AddAbpDbContext<SaaSDbContext>(options =>
         {
             options.ReplaceDbContext<ITenantManagementDbContext>();

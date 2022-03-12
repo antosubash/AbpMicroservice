@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Tasky.SaaS.EntityFrameworkCore;
@@ -11,10 +12,11 @@ using Volo.Abp.EntityFrameworkCore;
 
 namespace Tasky.SaaS.Migrations
 {
-    [DbContext(typeof(SaaSHttpApiHostMigrationsDbContext))]
-    partial class SaaSHttpApiHostMigrationsDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(SaaSDbContext))]
+    [Migration("20220312184243_Init")]
+    partial class Init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,7 +29,6 @@ namespace Tasky.SaaS.Migrations
             modelBuilder.Entity("Volo.Abp.TenantManagement.Tenant", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("ConcurrencyStamp")

@@ -1,5 +1,7 @@
 ﻿using Volo.Abp.Autofac;
 using Volo.Abp.Data;
+using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.EntityFrameworkCore.PostgreSql;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
@@ -7,12 +9,19 @@ using Volo.Abp.MultiTenancy;
 namespace Tasky.Microservice.Shared;
 
 [DependsOn(
-    typeof(AbpAutofacModule)
+    typeof(AbpAutofacModule),
+    typeof(AbpEntityFrameworkCoreModule),
+    typeof(AbpEntityFrameworkCorePostgreSqlModule)
 )]
 public class TaskyMicroserviceModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
+        
+        Configure<AbpDbContextOptions>(options =>
+        {
+            options.UseNpgsql();
+        });
 
         Configure<AbpMultiTenancyOptions>(options =>
         {

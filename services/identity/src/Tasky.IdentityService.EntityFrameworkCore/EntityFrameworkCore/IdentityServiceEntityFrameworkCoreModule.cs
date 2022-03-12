@@ -3,6 +3,7 @@ using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 using Volo.Abp.Identity.EntityFrameworkCore;
 using Volo.Abp.IdentityServer.EntityFrameworkCore;
+using System;
 
 namespace Tasky.IdentityService.EntityFrameworkCore;
 
@@ -16,7 +17,13 @@ public class IdentityServiceEntityFrameworkCoreModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
-            context.Services.AddAbpDbContext<IdentityServiceDbContext>(options =>
+
+        Configure<AbpDbContextOptions>(options =>
+        {
+            options.UseNpgsql();
+        });
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+        context.Services.AddAbpDbContext<IdentityServiceDbContext>(options =>
             {
                 options.ReplaceDbContext<IIdentityDbContext>();
                 options.ReplaceDbContext<IIdentityServerDbContext>();

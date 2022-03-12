@@ -11,8 +11,8 @@ using Volo.Abp.EntityFrameworkCore;
 
 namespace Tasky.IdentityService.Migrations
 {
-    [DbContext(typeof(IdentityServiceHttpApiHostMigrationsDbContext))]
-    partial class IdentityServiceHttpApiHostMigrationsDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(IdentityServiceDbContext))]
+    partial class IdentityServiceDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -27,7 +27,6 @@ namespace Tasky.IdentityService.Migrations
             modelBuilder.Entity("Volo.Abp.Identity.IdentityClaimType", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -74,7 +73,6 @@ namespace Tasky.IdentityService.Migrations
             modelBuilder.Entity("Volo.Abp.Identity.IdentityLinkUser", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<Guid?>("SourceTenantId")
@@ -100,7 +98,6 @@ namespace Tasky.IdentityService.Migrations
             modelBuilder.Entity("Volo.Abp.Identity.IdentityRole", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -177,7 +174,6 @@ namespace Tasky.IdentityService.Migrations
             modelBuilder.Entity("Volo.Abp.Identity.IdentitySecurityLog", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("Action")
@@ -252,7 +248,6 @@ namespace Tasky.IdentityService.Migrations
             modelBuilder.Entity("Volo.Abp.Identity.IdentityUser", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<int>("AccessFailedCount")
@@ -535,7 +530,6 @@ namespace Tasky.IdentityService.Migrations
             modelBuilder.Entity("Volo.Abp.Identity.OrganizationUnit", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("Code")
@@ -636,7 +630,6 @@ namespace Tasky.IdentityService.Migrations
             modelBuilder.Entity("Volo.Abp.IdentityServer.ApiResources.ApiResource", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("AllowedAccessTokenSigningAlgorithms")
@@ -781,7 +774,6 @@ namespace Tasky.IdentityService.Migrations
             modelBuilder.Entity("Volo.Abp.IdentityServer.ApiScopes.ApiScope", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -889,7 +881,6 @@ namespace Tasky.IdentityService.Migrations
             modelBuilder.Entity("Volo.Abp.IdentityServer.Clients.Client", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<int>("AbsoluteRefreshTokenLifetime")
@@ -1218,7 +1209,6 @@ namespace Tasky.IdentityService.Migrations
             modelBuilder.Entity("Volo.Abp.IdentityServer.Devices.DeviceFlowCodes", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("ClientId")
@@ -1356,7 +1346,6 @@ namespace Tasky.IdentityService.Migrations
             modelBuilder.Entity("Volo.Abp.IdentityServer.IdentityResources.IdentityResource", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("ConcurrencyStamp")
