@@ -123,7 +123,7 @@ namespace Tasky.DbMigrator
         {
             await _dataSeeder.SeedAsync(
                 new DataSeedContext(_currentTenant.Id)
-                    .WithProperty(IdentityDataSeedContributor.AdminEmailPropertyName, "antosubash@live.com")
+                    .WithProperty(IdentityDataSeedContributor.AdminEmailPropertyName, "admin@abp.io")
                     .WithProperty(IdentityDataSeedContributor.AdminPasswordPropertyName, "1q2w3E*")
             );
         }
