@@ -31,6 +31,8 @@ using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Tasky.IdentityService;
 using Tasky.SaaS;
+using Volo.Abp.Http.Client.IdentityModel.Web;
+using Volo.Abp.Identity;
 
 namespace Tasky.Administration;
 
@@ -47,6 +49,8 @@ namespace Tasky.Administration;
     typeof(AbpSettingManagementEntityFrameworkCoreModule),
     typeof(AbpFeatureManagementEntityFrameworkCoreModule),
     typeof(IdentityServiceApplicationContractsModule),
+    typeof(AbpHttpClientIdentityModelWebModule),
+    typeof(AbpIdentityHttpApiClientModule),
     typeof(SaaSApplicationContractsModule),
     typeof(AbpAspNetCoreSerilogModule),
     typeof(AbpSwashbuckleModule),
