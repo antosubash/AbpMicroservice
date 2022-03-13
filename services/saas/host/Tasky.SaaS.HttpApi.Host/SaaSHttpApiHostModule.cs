@@ -25,7 +25,8 @@ using Volo.Abp.MultiTenancy;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using Volo.Abp.VirtualFileSystem;
-
+using Tasky.Microservice.Shared;
+using Tasky.Administration.EntityFrameworkCore;
 namespace Tasky.SaaS;
 
 [DependsOn(
@@ -37,8 +38,10 @@ namespace Tasky.SaaS;
     typeof(AbpCachingStackExchangeRedisModule),
     typeof(AbpEntityFrameworkCorePostgreSqlModule),
     typeof(AbpTenantManagementEntityFrameworkCoreModule),
+    typeof(AdministrationEntityFrameworkCoreModule),
     typeof(AbpAspNetCoreSerilogModule),
-    typeof(AbpSwashbuckleModule)
+    typeof(AbpSwashbuckleModule),
+    typeof(TaskyMicroserviceModule)
     )]
 public class SaaSHttpApiHostModule : AbpModule
 {
@@ -110,7 +113,7 @@ public class SaaSHttpApiHostModule : AbpModule
             {
                 options.Authority = configuration["AuthServer:Authority"];
                 options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
-                options.Audience = "SaaS";
+                options.Audience = "SaasService";
             });
 
         Configure<AbpDistributedCacheOptions>(options =>
@@ -178,7 +181,6 @@ public class SaaSHttpApiHostModule : AbpModule
             var configuration = context.GetConfiguration();
             options.OAuthClientId(configuration["AuthServer:SwaggerClientId"]);
             options.OAuthClientSecret(configuration["AuthServer:SwaggerClientSecret"]);
-            options.OAuthScopes("SaaS");
         });
         app.UseAuditing();
         app.UseAbpSerilogEnrichers();

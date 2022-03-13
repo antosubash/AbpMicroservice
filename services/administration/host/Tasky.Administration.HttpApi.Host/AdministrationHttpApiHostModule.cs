@@ -29,6 +29,8 @@ using Volo.Abp.VirtualFileSystem;
 using Tasky.Microservice.Shared;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Data;
+using Tasky.IdentityService;
+using Tasky.SaaS;
 
 namespace Tasky.Administration;
 
@@ -44,6 +46,8 @@ namespace Tasky.Administration;
     typeof(AbpPermissionManagementEntityFrameworkCoreModule),
     typeof(AbpSettingManagementEntityFrameworkCoreModule),
     typeof(AbpFeatureManagementEntityFrameworkCoreModule),
+    typeof(IdentityServiceApplicationContractsModule),
+    typeof(SaaSApplicationContractsModule),
     typeof(AbpAspNetCoreSerilogModule),
     typeof(AbpSwashbuckleModule),
     typeof(TaskyMicroserviceModule)

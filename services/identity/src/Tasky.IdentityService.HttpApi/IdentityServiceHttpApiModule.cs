@@ -5,6 +5,7 @@ using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Identity;
+using Volo.Abp.Account;
 
 namespace Tasky.IdentityService;
 
@@ -12,6 +13,7 @@ namespace Tasky.IdentityService;
     typeof(IdentityServiceApplicationContractsModule),
     typeof(AbpAspNetCoreMvcModule))]
 [DependsOn(typeof(AbpIdentityHttpApiModule))]
+    [DependsOn(typeof(AbpAccountHttpApiModule))]
     public class IdentityServiceHttpApiModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
