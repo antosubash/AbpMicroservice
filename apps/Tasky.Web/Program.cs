@@ -14,7 +14,7 @@ public class Program
     {
         Log.Logger = new LoggerConfiguration()
 #if DEBUG
-            .MinimumLevel.Debug()
+            .MinimumLevel.Verbose()
 #else
             .MinimumLevel.Information()
 #endif

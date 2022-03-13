@@ -33,6 +33,7 @@ using Volo.Abp.TenantManagement.Web;
 using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
+using Volo.Abp.AspNetCore.Mvc.Localization;
 
 namespace Tasky.Web;
 
@@ -54,7 +55,13 @@ public class TaskyWebModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
-
+        context.Services.PreConfigure<AbpMvcDataAnnotationsLocalizationOptions>(options =>
+        {
+            options.AddAssemblyResource(
+                typeof(TaskySharedLocalizationModule),
+                typeof(TaskyWebModule).Assembly
+            );
+        });
     }
 
     public override void ConfigureServices(ServiceConfigurationContext context)

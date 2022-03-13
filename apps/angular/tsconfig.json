@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.prod.json",
+  "compilerOptions": {
+    "paths": {
+      "@tasky": [
+        "projects/tasky/src/public-api.ts"
+      ],
+      "@tasky/config": [
+        "projects/tasky/config/src/public-api.ts"
+      ],
+      "@proxy": ["projects/tasky/src/lib/proxy/index.ts"],
+      "@proxy/*": ["projects/tasky/src/lib/proxy/*"]
+    }
+  }
+}
