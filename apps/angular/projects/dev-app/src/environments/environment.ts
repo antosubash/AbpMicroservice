@@ -14,7 +14,7 @@ export const environment = {
     redirectUri: baseUrl,
     clientId: 'Tasky_App',
     responseType: 'code',
-    scope: 'offline_access IdentityService role email openid profile',
+    scope: 'offline_access IdentityService AdministrationService SaasService role email openid profile',
     requireHttps: true
   },
   apis: {

@@ -122,6 +122,7 @@ public class IdentityServiceHttpApiHostModule : AbpModule
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
     {
+        Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;
         var app = context.GetApplicationBuilder();
         var env = context.GetEnvironment();
 

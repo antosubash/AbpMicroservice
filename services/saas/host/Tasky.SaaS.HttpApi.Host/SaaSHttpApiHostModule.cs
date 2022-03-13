@@ -73,7 +73,7 @@ public class SaaSHttpApiHostModule : AbpModule
             configuration["AuthServer:Authority"],
             new Dictionary<string, string>
             {
-                {"SaaS", "SaaS API"}
+                {"SaasService", "SaasService API"}
             },
             options =>
             {
@@ -147,6 +147,7 @@ public class SaaSHttpApiHostModule : AbpModule
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
     {
+        Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;
         var app = context.GetApplicationBuilder();
         var env = context.GetEnvironment();
 

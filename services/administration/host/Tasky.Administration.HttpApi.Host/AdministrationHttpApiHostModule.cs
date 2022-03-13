@@ -76,7 +76,7 @@ public class AdministrationHttpApiHostModule : AbpModule
             configuration["AuthServer:Authority"],
             new Dictionary<string, string>
             {
-                {"Administration", "Administration API"}
+                {"AdministrationService", "AdministrationService API"}
             },
             options =>
             {
@@ -91,7 +91,7 @@ public class AdministrationHttpApiHostModule : AbpModule
             {
                 options.Authority = configuration["AuthServer:Authority"];
                 options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
-                options.Audience = "Administration";
+                options.Audience = "AdministrationService";
             });
 
         Configure<AbpDistributedCacheOptions>(options =>
@@ -128,6 +128,7 @@ public class AdministrationHttpApiHostModule : AbpModule
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
     {
+        Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;
         var app = context.GetApplicationBuilder();
         var env = context.GetEnvironment();
 
