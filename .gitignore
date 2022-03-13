@@ -261,10 +261,4 @@ host/Tasky.Administration.Blazor.Server.Host/Logs/logs.txt
 .tye
 shared/Tasky.DbMigrator/Logs/logs.txt
 apps/Tasky.Web/Logs/logs.txt
-apps/Tasky.Web/Logs/logs.txt
-apps/Tasky.IdentityServer/Logs/logs.txt
-apps/Tasky.Web/Logs/logs.txt
-shared/Tasky.DbMigrator/Logs/logs.txt
-apps/Tasky.IdentityServer/Logs/logs.txt
-*.txt
 apps/Tasky.IdentityServer/Logs/logs.txt
