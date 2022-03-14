@@ -26,12 +26,10 @@ namespace Tasky.SaaS;
     typeof(SaaSApplicationModule),
     typeof(SaaSEntityFrameworkCoreModule),
     typeof(SaaSHttpApiModule),
-    typeof(AbpTenantManagementEntityFrameworkCoreModule),
     typeof(AdministrationEntityFrameworkCoreModule)
     )]
 public class SaaSHttpApiHostModule : AbpModule
 {
-
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         var hostingEnvironment = context.Services.GetHostingEnvironment();
