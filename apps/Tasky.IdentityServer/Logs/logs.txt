@@ -13008,3 +13008,1243 @@ System.OperationCanceledException: The operation was canceled.
 2022-03-14 00:44:34.360 +01:00 [INF] {"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":null,"Endpoint":"Token","SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","Scopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","GrantType":"authorization_code","Tokens":[{"TokenType":"id_token","TokenValue":"****EI6A","$type":"Token"},{"TokenType":"refresh_token","TokenValue":"****B243","$type":"Token"},{"TokenType":"access_token","TokenValue":"****DuMQ","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HMG599M22RLL:00000017","TimeStamp":"2022-03-13T23:44:34.0000000Z","ProcessId":15072,"LocalIpAddress":"::1:7000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
 2022-03-14 00:44:34.360 +01:00 [DBG] Token request success.
 2022-03-14 00:44:34.397 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7000/connect/token application/x-www-form-urlencoded 237 - 200 - application/json;+charset=UTF-8 856.8100ms
+2022-03-14 15:33:54.080 +01:00 [INF] Starting Tasky.IdentityServer.
+2022-03-14 15:34:01.338 +01:00 [INF] Loaded ABP modules:
+2022-03-14 15:34:01.339 +01:00 [INF] - Tasky.TaskyIdentityServerModule
+2022-03-14 15:34:01.339 +01:00 [INF]   - Volo.Abp.Autofac.AbpAutofacModule
+2022-03-14 15:34:01.339 +01:00 [INF]     - Volo.Abp.Castle.AbpCastleCoreModule
+2022-03-14 15:34:01.339 +01:00 [INF]   - Volo.Abp.Caching.StackExchangeRedis.AbpCachingStackExchangeRedisModule
+2022-03-14 15:34:01.339 +01:00 [INF]     - Volo.Abp.Caching.AbpCachingModule
+2022-03-14 15:34:01.339 +01:00 [INF]       - Volo.Abp.Threading.AbpThreadingModule
+2022-03-14 15:34:01.339 +01:00 [INF]       - Volo.Abp.Serialization.AbpSerializationModule
+2022-03-14 15:34:01.339 +01:00 [INF]       - Volo.Abp.Uow.AbpUnitOfWorkModule
+2022-03-14 15:34:01.339 +01:00 [INF]       - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2022-03-14 15:34:01.339 +01:00 [INF]         - Volo.Abp.Data.AbpDataModule
+2022-03-14 15:34:01.339 +01:00 [INF]           - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2022-03-14 15:34:01.339 +01:00 [INF]             - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2022-03-14 15:34:01.339 +01:00 [INF]             - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2022-03-14 15:34:01.339 +01:00 [INF]           - Volo.Abp.EventBus.Abstractions.AbpEventBusAbstractionsModule
+2022-03-14 15:34:01.339 +01:00 [INF]         - Volo.Abp.Security.AbpSecurityModule
+2022-03-14 15:34:01.339 +01:00 [INF]       - Volo.Abp.Json.AbpJsonModule
+2022-03-14 15:34:01.339 +01:00 [INF]         - Volo.Abp.Timing.AbpTimingModule
+2022-03-14 15:34:01.339 +01:00 [INF]           - Volo.Abp.Localization.AbpLocalizationModule
+2022-03-14 15:34:01.339 +01:00 [INF]             - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2022-03-14 15:34:01.339 +01:00 [INF]             - Volo.Abp.Settings.AbpSettingsModule
+2022-03-14 15:34:01.339 +01:00 [INF]   - Volo.Abp.Account.Web.AbpAccountWebIdentityServerModule
+2022-03-14 15:34:01.339 +01:00 [INF]     - Volo.Abp.Account.Web.AbpAccountWebModule
+2022-03-14 15:34:01.339 +01:00 [INF]       - Volo.Abp.Account.AbpAccountApplicationContractsModule
+2022-03-14 15:34:01.339 +01:00 [INF]         - Volo.Abp.Identity.AbpIdentityApplicationContractsModule
+2022-03-14 15:34:01.339 +01:00 [INF]           - Volo.Abp.Identity.AbpIdentityDomainSharedModule
+2022-03-14 15:34:01.339 +01:00 [INF]             - Volo.Abp.Users.AbpUsersDomainSharedModule
+2022-03-14 15:34:01.339 +01:00 [INF]             - Volo.Abp.Validation.AbpValidationModule
+2022-03-14 15:34:01.339 +01:00 [INF]             - Volo.Abp.Features.AbpFeaturesModule
+2022-03-14 15:34:01.339 +01:00 [INF]               - Volo.Abp.Authorization.AbpAuthorizationAbstractionsModule
+2022-03-14 15:34:01.339 +01:00 [INF]           - Volo.Abp.Users.AbpUsersAbstractionModule
+2022-03-14 15:34:01.339 +01:00 [INF]             - Volo.Abp.EventBus.AbpEventBusModule
+2022-03-14 15:34:01.339 +01:00 [INF]               - Volo.Abp.Guids.AbpGuidsModule
+2022-03-14 15:34:01.339 +01:00 [INF]               - Volo.Abp.BackgroundWorkers.AbpBackgroundWorkersModule
+2022-03-14 15:34:01.339 +01:00 [INF]               - Volo.Abp.DistributedLocking.AbpDistributedLockingAbstractionsModule
+2022-03-14 15:34:01.339 +01:00 [INF]           - Volo.Abp.Authorization.AbpAuthorizationModule
+2022-03-14 15:34:01.339 +01:00 [INF]           - Volo.Abp.PermissionManagement.AbpPermissionManagementApplicationContractsModule
+2022-03-14 15:34:01.339 +01:00 [INF]             - Volo.Abp.Application.AbpDddApplicationContractsModule
+2022-03-14 15:34:01.339 +01:00 [INF]               - Volo.Abp.Auditing.AbpAuditingContractsModule
+2022-03-14 15:34:01.339 +01:00 [INF]             - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainSharedModule
+2022-03-14 15:34:01.339 +01:00 [INF]       - Volo.Abp.Identity.AspNetCore.AbpIdentityAspNetCoreModule
+2022-03-14 15:34:01.339 +01:00 [INF]         - Volo.Abp.Identity.AbpIdentityDomainModule
+2022-03-14 15:34:01.339 +01:00 [INF]           - Volo.Abp.Domain.AbpDddDomainModule
+2022-03-14 15:34:01.339 +01:00 [INF]             - Volo.Abp.Auditing.AbpAuditingModule
+2022-03-14 15:34:01.339 +01:00 [INF]             - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2022-03-14 15:34:01.339 +01:00 [INF]             - Volo.Abp.ExceptionHandling.AbpExceptionHandlingModule
+2022-03-14 15:34:01.339 +01:00 [INF]             - Volo.Abp.Specifications.AbpSpecificationsModule
+2022-03-14 15:34:01.339 +01:00 [INF]           - Volo.Abp.Users.AbpUsersDomainModule
+2022-03-14 15:34:01.339 +01:00 [INF]           - Volo.Abp.AutoMapper.AbpAutoMapperModule
+2022-03-14 15:34:01.339 +01:00 [INF]       - Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.AbpAspNetCoreMvcUiThemeSharedModule
+2022-03-14 15:34:01.340 +01:00 [INF]         - Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.AbpAspNetCoreMvcUiBootstrapModule
+2022-03-14 15:34:01.340 +01:00 [INF]           - Volo.Abp.AspNetCore.Mvc.UI.AbpAspNetCoreMvcUiModule
+2022-03-14 15:34:01.340 +01:00 [INF]             - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcModule
+2022-03-14 15:34:01.340 +01:00 [INF]               - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2022-03-14 15:34:01.340 +01:00 [INF]                 - Volo.Abp.Http.AbpHttpModule
+2022-03-14 15:34:01.340 +01:00 [INF]                   - Volo.Abp.Http.AbpHttpAbstractionsModule
+2022-03-14 15:34:01.340 +01:00 [INF]                   - Volo.Abp.Minify.AbpMinifyModule
+2022-03-14 15:34:01.340 +01:00 [INF]               - Volo.Abp.ApiVersioning.AbpApiVersioningAbstractionsModule
+2022-03-14 15:34:01.340 +01:00 [INF]               - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcContractsModule
+2022-03-14 15:34:01.340 +01:00 [INF]               - Volo.Abp.UI.Navigation.AbpUiNavigationModule
+2022-03-14 15:34:01.340 +01:00 [INF]                 - Volo.Abp.UI.AbpUiModule
+2022-03-14 15:34:01.340 +01:00 [INF]               - Volo.Abp.GlobalFeatures.AbpGlobalFeaturesModule
+2022-03-14 15:34:01.340 +01:00 [INF]               - Volo.Abp.Application.AbpDddApplicationModule
+2022-03-14 15:34:01.340 +01:00 [INF]         - Volo.Abp.AspNetCore.Mvc.UI.Packages.AbpAspNetCoreMvcUiPackagesModule
+2022-03-14 15:34:01.340 +01:00 [INF]           - Volo.Abp.AspNetCore.Mvc.UI.Bundling.AbpAspNetCoreMvcUiBundlingAbstractionsModule
+2022-03-14 15:34:01.340 +01:00 [INF]         - Volo.Abp.AspNetCore.Mvc.UI.Widgets.AbpAspNetCoreMvcUiWidgetsModule
+2022-03-14 15:34:01.340 +01:00 [INF]           - Volo.Abp.AspNetCore.Mvc.UI.Bundling.AbpAspNetCoreMvcUiBundlingModule
+2022-03-14 15:34:01.340 +01:00 [INF]     - Volo.Abp.IdentityServer.AbpIdentityServerDomainModule
+2022-03-14 15:34:01.340 +01:00 [INF]       - Volo.Abp.IdentityServer.AbpIdentityServerDomainSharedModule
+2022-03-14 15:34:01.340 +01:00 [INF]   - Volo.Abp.Account.AbpAccountApplicationModule
+2022-03-14 15:34:01.340 +01:00 [INF]     - Volo.Abp.Identity.AbpIdentityApplicationModule
+2022-03-14 15:34:01.340 +01:00 [INF]       - Volo.Abp.PermissionManagement.AbpPermissionManagementApplicationModule
+2022-03-14 15:34:01.340 +01:00 [INF]         - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainModule
+2022-03-14 15:34:01.340 +01:00 [INF]     - Volo.Abp.Emailing.AbpEmailingModule
+2022-03-14 15:34:01.340 +01:00 [INF]       - Volo.Abp.BackgroundJobs.AbpBackgroundJobsAbstractionsModule
+2022-03-14 15:34:01.340 +01:00 [INF]       - Volo.Abp.TextTemplating.AbpTextTemplatingModule
+2022-03-14 15:34:01.340 +01:00 [INF]         - Volo.Abp.TextTemplating.Scriban.AbpTextTemplatingScribanModule
+2022-03-14 15:34:01.340 +01:00 [INF]           - Volo.Abp.TextTemplating.AbpTextTemplatingCoreModule
+2022-03-14 15:34:01.340 +01:00 [INF]   - Volo.Abp.Account.AbpAccountHttpApiModule
+2022-03-14 15:34:01.340 +01:00 [INF]     - Volo.Abp.Identity.AbpIdentityHttpApiModule
+2022-03-14 15:34:01.340 +01:00 [INF]   - Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.AbpAspNetCoreMvcUiBasicThemeModule
+2022-03-14 15:34:01.340 +01:00 [INF]     - Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy.AbpAspNetCoreMvcUiMultiTenancyModule
+2022-03-14 15:34:01.340 +01:00 [INF]       - Volo.Abp.AspNetCore.MultiTenancy.AbpAspNetCoreMultiTenancyModule
+2022-03-14 15:34:01.340 +01:00 [INF]   - Volo.Abp.AspNetCore.Serilog.AbpAspNetCoreSerilogModule
+2022-03-14 15:34:01.340 +01:00 [INF]   - Volo.Abp.EntityFrameworkCore.PostgreSql.AbpEntityFrameworkCorePostgreSqlModule
+2022-03-14 15:34:01.340 +01:00 [INF]     - Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule
+2022-03-14 15:34:01.340 +01:00 [INF]   - Tasky.Administration.EntityFrameworkCore.AdministrationEntityFrameworkCoreModule
+2022-03-14 15:34:01.340 +01:00 [INF]     - Tasky.Administration.AdministrationDomainModule
+2022-03-14 15:34:01.340 +01:00 [INF]       - Tasky.Administration.AdministrationDomainSharedModule
+2022-03-14 15:34:01.340 +01:00 [INF]         - Volo.Abp.SettingManagement.AbpSettingManagementDomainSharedModule
+2022-03-14 15:34:01.340 +01:00 [INF]         - Volo.Abp.AuditLogging.AbpAuditLoggingDomainSharedModule
+2022-03-14 15:34:01.340 +01:00 [INF]         - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainSharedModule
+2022-03-14 15:34:01.340 +01:00 [INF]       - Volo.Abp.PermissionManagement.IdentityServer.AbpPermissionManagementDomainIdentityServerModule
+2022-03-14 15:34:01.340 +01:00 [INF]       - Volo.Abp.PermissionManagement.Identity.AbpPermissionManagementDomainIdentityModule
+2022-03-14 15:34:01.340 +01:00 [INF]       - Volo.Abp.SettingManagement.AbpSettingManagementDomainModule
+2022-03-14 15:34:01.340 +01:00 [INF]       - Volo.Abp.AuditLogging.AbpAuditLoggingDomainModule
+2022-03-14 15:34:01.340 +01:00 [INF]       - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainModule
+2022-03-14 15:34:01.340 +01:00 [INF]     - Volo.Abp.PermissionManagement.EntityFrameworkCore.AbpPermissionManagementEntityFrameworkCoreModule
+2022-03-14 15:34:01.340 +01:00 [INF]     - Volo.Abp.SettingManagement.EntityFrameworkCore.AbpSettingManagementEntityFrameworkCoreModule
+2022-03-14 15:34:01.340 +01:00 [INF]     - Volo.Abp.AuditLogging.EntityFrameworkCore.AbpAuditLoggingEntityFrameworkCoreModule
+2022-03-14 15:34:01.340 +01:00 [INF]     - Volo.Abp.FeatureManagement.EntityFrameworkCore.AbpFeatureManagementEntityFrameworkCoreModule
+2022-03-14 15:34:01.340 +01:00 [INF]   - Tasky.SaaS.EntityFrameworkCore.SaaSEntityFrameworkCoreModule
+2022-03-14 15:34:01.340 +01:00 [INF]     - Tasky.SaaS.SaaSDomainModule
+2022-03-14 15:34:01.340 +01:00 [INF]       - Tasky.SaaS.SaaSDomainSharedModule
+2022-03-14 15:34:01.340 +01:00 [INF]         - Volo.Abp.TenantManagement.AbpTenantManagementDomainSharedModule
+2022-03-14 15:34:01.340 +01:00 [INF]       - Volo.Abp.TenantManagement.AbpTenantManagementDomainModule
+2022-03-14 15:34:01.340 +01:00 [INF]     - Volo.Abp.TenantManagement.EntityFrameworkCore.AbpTenantManagementEntityFrameworkCoreModule
+2022-03-14 15:34:01.340 +01:00 [INF]   - Tasky.IdentityService.EntityFrameworkCore.IdentityServiceEntityFrameworkCoreModule
+2022-03-14 15:34:01.340 +01:00 [INF]     - Tasky.IdentityService.IdentityServiceDomainModule
+2022-03-14 15:34:01.340 +01:00 [INF]       - Tasky.IdentityService.IdentityServiceDomainSharedModule
+2022-03-14 15:34:01.340 +01:00 [INF]     - Volo.Abp.Identity.EntityFrameworkCore.AbpIdentityEntityFrameworkCoreModule
+2022-03-14 15:34:01.340 +01:00 [INF]       - Volo.Abp.Users.EntityFrameworkCore.AbpUsersEntityFrameworkCoreModule
+2022-03-14 15:34:01.340 +01:00 [INF]     - Volo.Abp.IdentityServer.EntityFrameworkCore.AbpIdentityServerEntityFrameworkCoreModule
+2022-03-14 15:34:01.340 +01:00 [INF]   - Tasky.Microservice.Shared.TaskyMicroserviceModule
+2022-03-14 15:34:01.390 +01:00 [DBG] Started background worker: Volo.Abp.IdentityServer.Tokens.TokenCleanupBackgroundWorker
+2022-03-14 15:34:01.393 +01:00 [INF] Starting IdentityServer4 version 4.1.2+997a6cdd643e46cd5762b710c4ddc43574cbec2e
+2022-03-14 15:34:01.908 +01:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2022-03-14 15:34:01.908 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2022-03-14 15:34:01.908 +01:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2022-03-14 15:34:01.908 +01:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2022-03-14 15:34:01.908 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2022-03-14 15:34:01.908 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2022-03-14 15:34:02.423 +01:00 [INF] User profile is available. Using 'C:\Users\antos\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-03-14 15:34:02.563 +01:00 [INF] Initialized all ABP modules.
+2022-03-14 15:34:02.659 +01:00 [INF] Now listening on: https://localhost:7000
+2022-03-14 15:34:02.659 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-03-14 15:34:02.659 +01:00 [INF] Hosting environment: Development
+2022-03-14 15:34:02.659 +01:00 [INF] Content root path: C:\repos\GitHub\AbpMicroservice\apps\Tasky.IdentityServer\
+2022-03-14 15:34:02.886 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 15:34:04.861 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:34:04.873 +01:00 [DBG] Login Url: /Account/Login
+2022-03-14 15:34:04.873 +01:00 [DBG] Login Return Url Parameter: ReturnUrl
+2022-03-14 15:34:04.873 +01:00 [DBG] Logout Url: /Account/Logout
+2022-03-14 15:34:04.873 +01:00 [DBG] ConsentUrl Url: /Consent
+2022-03-14 15:34:04.873 +01:00 [DBG] Consent Return Url Parameter: returnUrl
+2022-03-14 15:34:04.873 +01:00 [DBG] Error Url: /Account/Error
+2022-03-14 15:34:04.873 +01:00 [DBG] Error Id Parameter: errorId
+2022-03-14 15:34:04.909 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration from origin: http://localhost:4200
+2022-03-14 15:34:05.328 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 15:34:05.329 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:34:05.335 +01:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2022-03-14 15:34:05.434 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2022-03-14 15:34:05.434 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2022-03-14 15:34:05.435 +01:00 [DBG] Start discovery request
+2022-03-14 15:34:05.995 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - - - 200 - application/json;+charset=UTF-8 3109.2037ms
+2022-03-14 15:34:06.008 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 15:34:06.010 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:34:06.011 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration/jwks from origin: http://localhost:4200
+2022-03-14 15:34:06.014 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 15:34:06.014 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:34:06.014 +01:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2022-03-14 15:34:06.017 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2022-03-14 15:34:06.017 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2022-03-14 15:34:06.017 +01:00 [DBG] Start key discovery request
+2022-03-14 15:34:06.074 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - - - 200 - application/json;+charset=UTF-8 65.2784ms
+2022-03-14 15:34:10.873 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/connect/authorize?response_type=code&client_id=Tasky_App&state=ZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK&redirect_uri=http%3A%2F%2Flocalhost%3A4200&scope=offline_access%20IdentityService%20AdministrationService%20SaasService%20role%20email%20openid%20profile&code_challenge=j8eSSNGO6CfZ-yJImkJo7QVic5ikqqYFWLc3fy-RBr4&code_challenge_method=S256&nonce=ZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK&culture=en&ui-culture=en - -
+2022-03-14 15:34:10.880 +01:00 [DBG] Request path /connect/authorize matched to endpoint type Authorize
+2022-03-14 15:34:10.889 +01:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeEndpoint
+2022-03-14 15:34:10.889 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+2022-03-14 15:34:10.890 +01:00 [DBG] Start authorize request
+2022-03-14 15:34:10.894 +01:00 [DBG] No user present in authorize request
+2022-03-14 15:34:10.895 +01:00 [DBG] Start authorize request protocol validation
+2022-03-14 15:34:11.284 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 15:34:11.290 +01:00 [DBG] Checking for PKCE parameters
+2022-03-14 15:34:11.565 +01:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2022-03-14 15:34:11.571 +01:00 [DBG] ValidatedAuthorizeRequest
+{"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":"http://localhost:4200","AllowedRedirectUris":["http://localhost:4200"],"SubjectId":"anonymous","ResponseType":"code","ResponseMode":"query","GrantType":"authorization_code","RequestedScopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","State":"ZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK","UiLocales":null,"Nonce":"ZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK","AuthenticationContextReferenceClasses":null,"DisplayMode":null,"PromptMode":"","MaxAge":null,"LoginHint":null,"SessionId":"","Raw":{"response_type":"code","client_id":"Tasky_App","state":"ZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK","redirect_uri":"http://localhost:4200","scope":"offline_access IdentityService AdministrationService SaasService role email openid profile","code_challenge":"j8eSSNGO6CfZ-yJImkJo7QVic5ikqqYFWLc3fy-RBr4","code_challenge_method":"S256","nonce":"ZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK","culture":"en","ui-culture":"en"},"$type":"AuthorizeRequestValidationLog"}
+2022-03-14 15:34:11.573 +01:00 [INF] Showing login: User is not authenticated
+2022-03-14 15:34:11.602 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/connect/authorize?response_type=code&client_id=Tasky_App&state=ZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK&redirect_uri=http%3A%2F%2Flocalhost%3A4200&scope=offline_access%20IdentityService%20AdministrationService%20SaasService%20role%20email%20openid%20profile&code_challenge=j8eSSNGO6CfZ-yJImkJo7QVic5ikqqYFWLc3fy-RBr4&code_challenge_method=S256&nonce=ZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK&culture=en&ui-culture=en - - - 302 0 - 728.5659ms
+2022-03-14 15:34:11.606 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fresponse_type%3Dcode%26client_id%3DTasky_App%26state%3DZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A4200%26scope%3Doffline_access%2520IdentityService%2520AdministrationService%2520SaasService%2520role%2520email%2520openid%2520profile%26code_challenge%3Dj8eSSNGO6CfZ-yJImkJo7QVic5ikqqYFWLc3fy-RBr4%26code_challenge_method%3DS256%26nonce%3DZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK%26culture%3Den%26ui-culture%3Den - -
+2022-03-14 15:34:11.630 +01:00 [INF] Executing endpoint '/Account/Login'
+2022-03-14 15:34:11.653 +01:00 [INF] Route matched with {page = "/Account/Login", area = "", action = "", controller = ""}. Executing page /Account/Login
+2022-03-14 15:34:11.654 +01:00 [INF] Skipping the execution of current filter as its not the most effective filter implementing the policy Microsoft.AspNetCore.Mvc.ViewFeatures.IAntiforgeryPolicy
+2022-03-14 15:34:11.688 +01:00 [INF] Executing handler method Volo.Abp.Account.Web.Pages.Account.LoginModel.OnGetAsync - ModelState is "Valid"
+2022-03-14 15:34:11.693 +01:00 [DBG] Start authorize request protocol validation
+2022-03-14 15:34:11.709 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 15:34:11.709 +01:00 [DBG] Checking for PKCE parameters
+2022-03-14 15:34:11.811 +01:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2022-03-14 15:34:11.828 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 15:34:11.829 +01:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-03-14 15:34:11.834 +01:00 [DBG] Added 0 entity changes to the current audit log
+2022-03-14 15:34:12.084 +01:00 [DBG] Added bundle 'Basic.Global' to the page in 12.91 ms.
+2022-03-14 15:34:12.157 +01:00 [DBG] Added bundle 'Basic.Global' to the page in 5.10 ms.
+2022-03-14 15:34:12.168 +01:00 [INF] Executed page /Account/Login in 511.6916ms
+2022-03-14 15:34:12.168 +01:00 [INF] Executed endpoint '/Account/Login'
+2022-03-14 15:34:12.171 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fresponse_type%3Dcode%26client_id%3DTasky_App%26state%3DZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A4200%26scope%3Doffline_access%2520IdentityService%2520AdministrationService%2520SaasService%2520role%2520email%2520openid%2520profile%26code_challenge%3Dj8eSSNGO6CfZ-yJImkJo7QVic5ikqqYFWLc3fy-RBr4%26code_challenge_method%3DS256%26nonce%3DZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK%26culture%3Den%26ui-culture%3Den - - - 200 - text/html;+charset=utf-8 565.5770ms
+2022-03-14 15:34:12.250 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/Abp/ApplicationConfigurationScript - -
+2022-03-14 15:34:12.252 +01:00 [INF] Executing endpoint 'Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc)'
+2022-03-14 15:34:12.255 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/Abp/ServiceProxyScript - -
+2022-03-14 15:34:12.259 +01:00 [INF] Executing endpoint 'Volo.Abp.AspNetCore.Mvc.ProxyScripting.AbpServiceProxyScriptController.GetAll (Volo.Abp.AspNetCore.Mvc)'
+2022-03-14 15:34:12.260 +01:00 [INF] Route matched with {area = "Abp", action = "Get", controller = "AbpApplicationConfigurationScript", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Get() on controller Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController (Volo.Abp.AspNetCore.Mvc).
+2022-03-14 15:34:12.263 +01:00 [INF] Route matched with {area = "Abp", action = "GetAll", controller = "AbpServiceProxyScript", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult GetAll(Volo.Abp.AspNetCore.Mvc.ProxyScripting.ServiceProxyGenerationModel) on controller Volo.Abp.AspNetCore.Mvc.ProxyScripting.AbpServiceProxyScriptController (Volo.Abp.AspNetCore.Mvc).
+2022-03-14 15:34:12.274 +01:00 [INF] Executing action method Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc) - Validation state: "Valid"
+2022-03-14 15:34:12.277 +01:00 [INF] Executing action method Volo.Abp.AspNetCore.Mvc.ProxyScripting.AbpServiceProxyScriptController.GetAll (Volo.Abp.AspNetCore.Mvc) - Validation state: "Valid"
+2022-03-14 15:34:12.282 +01:00 [DBG] Executing AbpApplicationConfigurationAppService.GetAsync()...
+2022-03-14 15:34:12.301 +01:00 [DBG] ActionApiDescriptionModel.Create: Account.RegisterAsyncByInput
+2022-03-14 15:34:12.307 +01:00 [DBG] ActionApiDescriptionModel.Create: Account.SendPasswordResetCodeAsyncByInput
+2022-03-14 15:34:12.307 +01:00 [DBG] ActionApiDescriptionModel.Create: Account.ResetPasswordAsyncByInput
+2022-03-14 15:34:12.307 +01:00 [DBG] ActionApiDescriptionModel.Create: Account.LoginByLogin
+2022-03-14 15:34:12.307 +01:00 [DBG] ActionApiDescriptionModel.Create: Account.Logout
+2022-03-14 15:34:12.307 +01:00 [DBG] ActionApiDescriptionModel.Create: Account.CheckPasswordByLogin
+2022-03-14 15:34:12.307 +01:00 [DBG] ActionApiDescriptionModel.Create: Profile.GetAsync
+2022-03-14 15:34:12.308 +01:00 [DBG] ActionApiDescriptionModel.Create: Profile.UpdateAsyncByInput
+2022-03-14 15:34:12.308 +01:00 [DBG] ActionApiDescriptionModel.Create: Profile.ChangePasswordAsyncByInput
+2022-03-14 15:34:12.308 +01:00 [DBG] ActionApiDescriptionModel.Create: AbpTenant.FindTenantByNameAsyncByName
+2022-03-14 15:34:12.308 +01:00 [DBG] ActionApiDescriptionModel.Create: AbpTenant.FindTenantByIdAsyncById
+2022-03-14 15:34:12.308 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityRole.GetAllListAsync
+2022-03-14 15:34:12.308 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityRole.GetListAsyncByInput
+2022-03-14 15:34:12.308 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityRole.GetAsyncById
+2022-03-14 15:34:12.308 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityRole.CreateAsyncByInput
+2022-03-14 15:34:12.308 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityRole.UpdateAsyncByIdAndInput
+2022-03-14 15:34:12.309 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityRole.DeleteAsyncById
+2022-03-14 15:34:12.309 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityUser.GetAsyncById
+2022-03-14 15:34:12.309 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityUser.GetListAsyncByInput
+2022-03-14 15:34:12.309 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityUser.CreateAsyncByInput
+2022-03-14 15:34:12.309 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityUser.UpdateAsyncByIdAndInput
+2022-03-14 15:34:12.309 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityUser.DeleteAsyncById
+2022-03-14 15:34:12.309 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityUser.GetRolesAsyncById
+2022-03-14 15:34:12.310 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityUser.GetAssignableRolesAsync
+2022-03-14 15:34:12.310 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityUser.UpdateRolesAsyncByIdAndInput
+2022-03-14 15:34:12.310 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityUser.FindByUsernameAsyncByUserName
+2022-03-14 15:34:12.310 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityUser.FindByEmailAsyncByEmail
+2022-03-14 15:34:12.310 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityUserLookup.FindByIdAsyncById
+2022-03-14 15:34:12.310 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityUserLookup.FindByUserNameAsyncByUserName
+2022-03-14 15:34:12.310 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityUserLookup.SearchAsyncByInput
+2022-03-14 15:34:12.310 +01:00 [DBG] ActionApiDescriptionModel.Create: IdentityUserLookup.GetCountAsyncByInput
+2022-03-14 15:34:12.311 +01:00 [DBG] ActionApiDescriptionModel.Create: AbpApplicationConfiguration.GetAsync
+2022-03-14 15:34:12.311 +01:00 [DBG] ActionApiDescriptionModel.Create: AbpApiDefinition.GetByModel
+2022-03-14 15:34:12.323 +01:00 [INF] Executed action method Volo.Abp.AspNetCore.Mvc.ProxyScripting.AbpServiceProxyScriptController.GetAll (Volo.Abp.AspNetCore.Mvc), returned result Microsoft.AspNetCore.Mvc.ContentResult in 43.3753ms.
+2022-03-14 15:34:12.325 +01:00 [INF] Executing ContentResult with HTTP Response ContentType of application/javascript
+2022-03-14 15:34:12.325 +01:00 [INF] Executed action Volo.Abp.AspNetCore.Mvc.ProxyScripting.AbpServiceProxyScriptController.GetAll (Volo.Abp.AspNetCore.Mvc) in 61.8351ms
+2022-03-14 15:34:12.325 +01:00 [INF] Executed endpoint 'Volo.Abp.AspNetCore.Mvc.ProxyScripting.AbpServiceProxyScriptController.GetAll (Volo.Abp.AspNetCore.Mvc)'
+2022-03-14 15:34:12.325 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/Abp/ServiceProxyScript - - - 200 8196 application/javascript 70.5312ms
+2022-03-14 15:34:12.554 +01:00 [DBG] Executed AbpApplicationConfigurationAppService.GetAsync().
+2022-03-14 15:34:12.568 +01:00 [INF] Executed action method Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc), returned result Microsoft.AspNetCore.Mvc.ContentResult in 294.8435ms.
+2022-03-14 15:34:12.570 +01:00 [DBG] Added 0 entity changes to the current audit log
+2022-03-14 15:34:12.571 +01:00 [INF] Executing ContentResult with HTTP Response ContentType of application/javascript
+2022-03-14 15:34:12.572 +01:00 [INF] Executed action Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc) in 312.2179ms
+2022-03-14 15:34:12.572 +01:00 [INF] Executed endpoint 'Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc)'
+2022-03-14 15:34:12.574 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/Abp/ApplicationConfigurationScript - - - 200 73165 application/javascript 324.1932ms
+2022-03-14 15:34:12.882 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/favicon.ico - -
+2022-03-14 15:34:12.884 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/favicon.ico - - - 404 0 - 2.1432ms
+2022-03-14 15:34:19.031 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7000/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fresponse_type%3Dcode%26client_id%3DTasky_App%26state%3DZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A4200%26scope%3Doffline_access%2520IdentityService%2520AdministrationService%2520SaasService%2520role%2520email%2520openid%2520profile%26code_challenge%3Dj8eSSNGO6CfZ-yJImkJo7QVic5ikqqYFWLc3fy-RBr4%26code_challenge_method%3DS256%26nonce%3DZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK%26culture%3Den%26ui-culture%3Den application/x-www-form-urlencoded 291
+2022-03-14 15:34:19.034 +01:00 [INF] CORS policy execution failed.
+2022-03-14 15:34:19.034 +01:00 [INF] Request origin https://localhost:7000 does not have permission to access the resource.
+2022-03-14 15:34:19.038 +01:00 [INF] No CORS policy found for the specified request.
+2022-03-14 15:34:19.038 +01:00 [INF] Executing endpoint '/Account/Login'
+2022-03-14 15:34:19.039 +01:00 [INF] Route matched with {page = "/Account/Login", area = "", action = "", controller = ""}. Executing page /Account/Login
+2022-03-14 15:34:19.039 +01:00 [INF] Skipping the execution of current filter as its not the most effective filter implementing the policy Microsoft.AspNetCore.Mvc.ViewFeatures.IAntiforgeryPolicy
+2022-03-14 15:34:19.088 +01:00 [INF] Executing handler method Volo.Abp.Account.Web.Pages.Account.LoginModel.OnPostAsync - ModelState is "Valid"
+2022-03-14 15:34:19.090 +01:00 [DBG] Start authorize request protocol validation
+2022-03-14 15:34:19.097 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 15:34:19.097 +01:00 [DBG] Checking for PKCE parameters
+2022-03-14 15:34:19.169 +01:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2022-03-14 15:34:19.596 +01:00 [DBG] Augmenting SignInContext
+2022-03-14 15:34:19.596 +01:00 [DBG] Adding idp claim with value: local
+2022-03-14 15:34:19.596 +01:00 [DBG] Adding auth_time claim with value: 1647268459
+2022-03-14 15:34:19.599 +01:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2022-03-14 15:34:19.757 +01:00 [DBG] Added 0 entity changes to the current audit log
+2022-03-14 15:34:19.765 +01:00 [DBG] Added 0 entity changes to the current audit log
+2022-03-14 15:34:19.769 +01:00 [INF] {"Username":"admin","Provider":null,"ProviderUserId":null,"SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","DisplayName":"admin","Endpoint":"UI","ClientId":null,"Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HMG5OUNOK909:0000000B","TimeStamp":"2022-03-14T14:34:19.0000000Z","ProcessId":45980,"LocalIpAddress":"::1:7000","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2022-03-14 15:34:19.770 +01:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RedirectResult.
+2022-03-14 15:34:19.770 +01:00 [DBG] Added 0 entity changes to the current audit log
+2022-03-14 15:34:19.770 +01:00 [INF] Executing RedirectResult, redirecting to /connect/authorize/callback?response_type=code&client_id=Tasky_App&state=ZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK&redirect_uri=http%3A%2F%2Flocalhost%3A4200&scope=offline_access%20IdentityService%20AdministrationService%20SaasService%20role%20email%20openid%20profile&code_challenge=j8eSSNGO6CfZ-yJImkJo7QVic5ikqqYFWLc3fy-RBr4&code_challenge_method=S256&nonce=ZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK&culture=en&ui-culture=en.
+2022-03-14 15:34:19.771 +01:00 [INF] Executed page /Account/Login in 731.9008ms
+2022-03-14 15:34:19.771 +01:00 [INF] Executed endpoint '/Account/Login'
+2022-03-14 15:34:19.771 +01:00 [DBG] Added 0 entity changes to the current audit log
+2022-03-14 15:34:19.913 +01:00 [DBG] Added 0 entity changes to the current audit log
+2022-03-14 15:34:19.914 +01:00 [DBG] Added 0 entity changes to the current audit log
+2022-03-14 15:34:19.920 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7000/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fresponse_type%3Dcode%26client_id%3DTasky_App%26state%3DZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A4200%26scope%3Doffline_access%2520IdentityService%2520AdministrationService%2520SaasService%2520role%2520email%2520openid%2520profile%26code_challenge%3Dj8eSSNGO6CfZ-yJImkJo7QVic5ikqqYFWLc3fy-RBr4%26code_challenge_method%3DS256%26nonce%3DZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK%26culture%3Den%26ui-culture%3Den application/x-www-form-urlencoded 291 - 302 0 - 888.6835ms
+2022-03-14 15:34:19.924 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/connect/authorize/callback?response_type=code&client_id=Tasky_App&state=ZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK&redirect_uri=http%3A%2F%2Flocalhost%3A4200&scope=offline_access%20IdentityService%20AdministrationService%20SaasService%20role%20email%20openid%20profile&code_challenge=j8eSSNGO6CfZ-yJImkJo7QVic5ikqqYFWLc3fy-RBr4&code_challenge_method=S256&nonce=ZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK&culture=en&ui-culture=en - -
+2022-03-14 15:34:19.932 +01:00 [DBG] Request path /connect/authorize/callback matched to endpoint type Authorize
+2022-03-14 15:34:19.934 +01:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint
+2022-03-14 15:34:19.934 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint for /connect/authorize/callback
+2022-03-14 15:34:19.935 +01:00 [DBG] Start authorize callback request
+2022-03-14 15:34:19.936 +01:00 [DBG] User in authorize request: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a
+2022-03-14 15:34:19.936 +01:00 [DBG] Start authorize request protocol validation
+2022-03-14 15:34:19.943 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 15:34:19.943 +01:00 [DBG] Checking for PKCE parameters
+2022-03-14 15:34:20.053 +01:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2022-03-14 15:34:20.053 +01:00 [DBG] ValidatedAuthorizeRequest
+{"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":"http://localhost:4200","AllowedRedirectUris":["http://localhost:4200"],"SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","ResponseType":"code","ResponseMode":"query","GrantType":"authorization_code","RequestedScopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","State":"ZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK","UiLocales":null,"Nonce":"ZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK","AuthenticationContextReferenceClasses":null,"DisplayMode":null,"PromptMode":"","MaxAge":null,"LoginHint":null,"SessionId":"B187EC8F30B2A2A4283B1717E8D79634","Raw":{"response_type":"code","client_id":"Tasky_App","state":"ZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK","redirect_uri":"http://localhost:4200","scope":"offline_access IdentityService AdministrationService SaasService role email openid profile","code_challenge":"j8eSSNGO6CfZ-yJImkJo7QVic5ikqqYFWLc3fy-RBr4","code_challenge_method":"S256","nonce":"ZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK","culture":"en","ui-culture":"en"},"$type":"AuthorizeRequestValidationLog"}
+2022-03-14 15:34:20.168 +01:00 [DBG] Client is configured to not require consent, no consent is required
+2022-03-14 15:34:20.169 +01:00 [DBG] Creating Authorization Code Flow response.
+2022-03-14 15:34:20.278 +01:00 [INF] {"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":"http://localhost:4200","Endpoint":"Authorize","SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","Scopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","GrantType":"authorization_code","Tokens":[{"TokenType":"code","TokenValue":"****472E","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HMG5OUNOK909:0000000D","TimeStamp":"2022-03-14T14:34:20.0000000Z","ProcessId":45980,"LocalIpAddress":"::1:7000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2022-03-14 15:34:20.278 +01:00 [DBG] Authorize endpoint response
+{"SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","ClientId":"Tasky_App","RedirectUri":"http://localhost:4200","State":"ZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK","Scope":"offline_access IdentityService AdministrationService SaasService role email openid profile","Error":null,"ErrorDescription":null,"$type":"AuthorizeResponseLog"}
+2022-03-14 15:34:20.281 +01:00 [DBG] Augmenting SignInContext
+2022-03-14 15:34:20.281 +01:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2022-03-14 15:34:20.328 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/connect/authorize/callback?response_type=code&client_id=Tasky_App&state=ZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK&redirect_uri=http%3A%2F%2Flocalhost%3A4200&scope=offline_access%20IdentityService%20AdministrationService%20SaasService%20role%20email%20openid%20profile&code_challenge=j8eSSNGO6CfZ-yJImkJo7QVic5ikqqYFWLc3fy-RBr4&code_challenge_method=S256&nonce=ZUpnMnJjdmctV3Iwa1piU2hVenpEZ3BnMUY1emVwOW5ZblJoaX5OX0p2VndK&culture=en&ui-culture=en - - - 302 0 - 403.9036ms
+2022-03-14 15:34:20.788 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 15:34:20.789 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:34:20.789 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration from origin: http://localhost:4200
+2022-03-14 15:34:20.791 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 15:34:20.791 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:34:20.792 +01:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2022-03-14 15:34:20.793 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2022-03-14 15:34:20.793 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2022-03-14 15:34:20.793 +01:00 [DBG] Start discovery request
+2022-03-14 15:34:20.799 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - - - 200 - application/json;+charset=UTF-8 11.0366ms
+2022-03-14 15:34:20.922 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 15:34:20.922 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:34:20.923 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration/jwks from origin: http://localhost:4200
+2022-03-14 15:34:20.925 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 15:34:20.925 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:34:20.925 +01:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2022-03-14 15:34:20.927 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2022-03-14 15:34:20.927 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2022-03-14 15:34:20.927 +01:00 [DBG] Start key discovery request
+2022-03-14 15:34:20.927 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - - - 200 - application/json;+charset=UTF-8 5.1038ms
+2022-03-14 15:34:21.101 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7000/connect/token application/x-www-form-urlencoded 237
+2022-03-14 15:34:21.101 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:34:21.102 +01:00 [DBG] CORS request made for path: /connect/token from origin: http://localhost:4200
+2022-03-14 15:34:21.104 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 15:34:21.104 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:34:21.105 +01:00 [DBG] Request path /connect/token matched to endpoint type Token
+2022-03-14 15:34:21.132 +01:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2022-03-14 15:34:21.132 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2022-03-14 15:34:21.134 +01:00 [DBG] Start token request.
+2022-03-14 15:34:21.135 +01:00 [DBG] Start client validation
+2022-03-14 15:34:21.137 +01:00 [DBG] Start parsing Basic Authentication secret
+2022-03-14 15:34:21.138 +01:00 [DBG] Start parsing for secret in post body
+2022-03-14 15:34:21.138 +01:00 [DBG] client id without secret found
+2022-03-14 15:34:21.138 +01:00 [DBG] Parser found secret: PostBodySecretParser
+2022-03-14 15:34:21.138 +01:00 [DBG] Secret id found: Tasky_App
+2022-03-14 15:34:21.146 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 15:34:21.146 +01:00 [DBG] Public Client - skipping secret validation success
+2022-03-14 15:34:21.146 +01:00 [DBG] Client validation success
+2022-03-14 15:34:21.146 +01:00 [INF] {"ClientId":"Tasky_App","AuthenticationMethod":"NoSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HMG5OUNOK907:00000009","TimeStamp":"2022-03-14T14:34:21.0000000Z","ProcessId":45980,"LocalIpAddress":"127.0.0.1:7000","RemoteIpAddress":"127.0.0.1","$type":"ClientAuthenticationSuccessEvent"}
+2022-03-14 15:34:21.148 +01:00 [DBG] Start token request validation
+2022-03-14 15:34:21.150 +01:00 [DBG] Start validation of authorization code token request
+2022-03-14 15:34:21.245 +01:00 [DBG] Client required a proof key for code exchange. Starting PKCE validation
+2022-03-14 15:34:21.291 +01:00 [DBG] Validation of authorization code token request success
+2022-03-14 15:34:21.292 +01:00 [INF] Token request validation success, {"ClientId":"Tasky_App","ClientName":"Tasky_App","GrantType":"authorization_code","Scopes":null,"AuthorizationCode":"****472E","RefreshToken":"********","UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"authorization_code","code":"34395723951430E0A46FD4BB407239D0B53A8579D5B2437A23A2B2EB61A6472E","redirect_uri":"http://localhost:4200","code_verifier":"cTJWbldxfk9TQWlqLmQ1bEhadG9fMmdIU21QeEgzdGdTWDB4UURiY0hFUFpy","client_id":"Tasky_App"},"$type":"TokenRequestValidationLog"}
+2022-03-14 15:34:21.302 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 15:34:21.419 +01:00 [DBG] Getting claims for access token for client: Tasky_App
+2022-03-14 15:34:21.419 +01:00 [DBG] Getting claims for access token for subject: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a
+2022-03-14 15:34:21.738 +01:00 [DBG] Creating refresh token
+2022-03-14 15:34:21.738 +01:00 [DBG] Setting an absolute lifetime: 31536000
+2022-03-14 15:34:21.784 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 15:34:21.893 +01:00 [DBG] Getting claims for identity token for subject: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a and client: Tasky_App
+2022-03-14 15:34:22.097 +01:00 [INF] {"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":null,"Endpoint":"Token","SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","Scopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","GrantType":"authorization_code","Tokens":[{"TokenType":"id_token","TokenValue":"****40-A","$type":"Token"},{"TokenType":"refresh_token","TokenValue":"****FAF0","$type":"Token"},{"TokenType":"access_token","TokenValue":"****uGeg","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HMG5OUNOK907:00000009","TimeStamp":"2022-03-14T14:34:22.0000000Z","ProcessId":45980,"LocalIpAddress":"127.0.0.1:7000","RemoteIpAddress":"127.0.0.1","$type":"TokenIssuedSuccessEvent"}
+2022-03-14 15:34:22.098 +01:00 [DBG] Token request success.
+2022-03-14 15:34:22.149 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7000/connect/token application/x-www-form-urlencoded 237 - 200 - application/json;+charset=UTF-8 1048.3133ms
+2022-03-14 15:34:22.223 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 15:34:22.224 +01:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2022-03-14 15:34:22.226 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2022-03-14 15:34:22.226 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2022-03-14 15:34:22.226 +01:00 [DBG] Start discovery request
+2022-03-14 15:34:22.232 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration - - - 200 - application/json;+charset=UTF-8 8.6040ms
+2022-03-14 15:34:22.320 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 15:34:22.321 +01:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2022-03-14 15:34:22.323 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2022-03-14 15:34:22.323 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2022-03-14 15:34:22.323 +01:00 [DBG] Start key discovery request
+2022-03-14 15:34:22.323 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration/jwks - - - 200 - application/json;+charset=UTF-8 2.5828ms
+2022-03-14 15:34:27.022 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 15:34:27.023 +01:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2022-03-14 15:34:27.025 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2022-03-14 15:34:27.025 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2022-03-14 15:34:27.025 +01:00 [DBG] Start discovery request
+2022-03-14 15:34:27.031 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration - - - 200 - application/json;+charset=UTF-8 9.3281ms
+2022-03-14 15:34:27.053 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 15:34:27.054 +01:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2022-03-14 15:34:27.055 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2022-03-14 15:34:27.055 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2022-03-14 15:34:27.055 +01:00 [DBG] Start key discovery request
+2022-03-14 15:34:27.056 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration/jwks - - - 200 - application/json;+charset=UTF-8 2.5274ms
+2022-03-14 15:34:53.871 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/connect/authorize?response_type=code&client_id=Tasky_App&state=SjNiM3E0d1h-dzVCU1ZZd2pfNVRRYi1IZ0xUMFNIUHVqUnBkTlc3YnNUVmps&redirect_uri=http%3A%2F%2Flocalhost%3A4200&scope=offline_access%20IdentityService%20AdministrationService%20SaasService%20role%20email%20openid%20profile&code_challenge=3f1eWJR_DkGSrrch3TfgIyZdC_MlOSXvW52iDl78N2U&code_challenge_method=S256&nonce=SjNiM3E0d1h-dzVCU1ZZd2pfNVRRYi1IZ0xUMFNIUHVqUnBkTlc3YnNUVmps&culture=en&ui-culture=en - -
+2022-03-14 15:34:53.875 +01:00 [DBG] Request path /connect/authorize matched to endpoint type Authorize
+2022-03-14 15:34:53.878 +01:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeEndpoint
+2022-03-14 15:34:53.878 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+2022-03-14 15:34:53.878 +01:00 [DBG] Start authorize request
+2022-03-14 15:34:53.878 +01:00 [DBG] User in authorize request: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a
+2022-03-14 15:34:53.878 +01:00 [DBG] Start authorize request protocol validation
+2022-03-14 15:34:53.887 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 15:34:53.887 +01:00 [DBG] Checking for PKCE parameters
+2022-03-14 15:34:54.007 +01:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2022-03-14 15:34:54.007 +01:00 [DBG] ValidatedAuthorizeRequest
+{"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":"http://localhost:4200","AllowedRedirectUris":["http://localhost:4200"],"SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","ResponseType":"code","ResponseMode":"query","GrantType":"authorization_code","RequestedScopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","State":"SjNiM3E0d1h-dzVCU1ZZd2pfNVRRYi1IZ0xUMFNIUHVqUnBkTlc3YnNUVmps","UiLocales":null,"Nonce":"SjNiM3E0d1h-dzVCU1ZZd2pfNVRRYi1IZ0xUMFNIUHVqUnBkTlc3YnNUVmps","AuthenticationContextReferenceClasses":null,"DisplayMode":null,"PromptMode":"","MaxAge":null,"LoginHint":null,"SessionId":"B187EC8F30B2A2A4283B1717E8D79634","Raw":{"response_type":"code","client_id":"Tasky_App","state":"SjNiM3E0d1h-dzVCU1ZZd2pfNVRRYi1IZ0xUMFNIUHVqUnBkTlc3YnNUVmps","redirect_uri":"http://localhost:4200","scope":"offline_access IdentityService AdministrationService SaasService role email openid profile","code_challenge":"3f1eWJR_DkGSrrch3TfgIyZdC_MlOSXvW52iDl78N2U","code_challenge_method":"S256","nonce":"SjNiM3E0d1h-dzVCU1ZZd2pfNVRRYi1IZ0xUMFNIUHVqUnBkTlc3YnNUVmps","culture":"en","ui-culture":"en"},"$type":"AuthorizeRequestValidationLog"}
+2022-03-14 15:34:54.052 +01:00 [DBG] Client is configured to not require consent, no consent is required
+2022-03-14 15:34:54.052 +01:00 [DBG] Creating Authorization Code Flow response.
+2022-03-14 15:34:54.084 +01:00 [INF] {"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":"http://localhost:4200","Endpoint":"Authorize","SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","Scopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","GrantType":"authorization_code","Tokens":[{"TokenType":"code","TokenValue":"****2C31","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HMG5OUNOK909:0000000F","TimeStamp":"2022-03-14T14:34:54.0000000Z","ProcessId":45980,"LocalIpAddress":"::1:7000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2022-03-14 15:34:54.084 +01:00 [DBG] Authorize endpoint response
+{"SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","ClientId":"Tasky_App","RedirectUri":"http://localhost:4200","State":"SjNiM3E0d1h-dzVCU1ZZd2pfNVRRYi1IZ0xUMFNIUHVqUnBkTlc3YnNUVmps","Scope":"offline_access IdentityService AdministrationService SaasService role email openid profile","Error":null,"ErrorDescription":null,"$type":"AuthorizeResponseLog"}
+2022-03-14 15:34:54.119 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/connect/authorize?response_type=code&client_id=Tasky_App&state=SjNiM3E0d1h-dzVCU1ZZd2pfNVRRYi1IZ0xUMFNIUHVqUnBkTlc3YnNUVmps&redirect_uri=http%3A%2F%2Flocalhost%3A4200&scope=offline_access%20IdentityService%20AdministrationService%20SaasService%20role%20email%20openid%20profile&code_challenge=3f1eWJR_DkGSrrch3TfgIyZdC_MlOSXvW52iDl78N2U&code_challenge_method=S256&nonce=SjNiM3E0d1h-dzVCU1ZZd2pfNVRRYi1IZ0xUMFNIUHVqUnBkTlc3YnNUVmps&culture=en&ui-culture=en - - - 302 0 - 248.1699ms
+2022-03-14 15:34:54.698 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 15:34:54.699 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:34:54.699 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration - - - 204 - - 0.7273ms
+2022-03-14 15:34:54.700 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 15:34:54.700 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:34:54.701 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration from origin: http://localhost:4200
+2022-03-14 15:34:54.703 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 15:34:54.703 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:34:54.703 +01:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2022-03-14 15:34:54.705 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2022-03-14 15:34:54.705 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2022-03-14 15:34:54.705 +01:00 [DBG] Start discovery request
+2022-03-14 15:34:54.711 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - - - 200 - application/json;+charset=UTF-8 11.0451ms
+2022-03-14 15:34:54.750 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 15:34:54.751 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:34:54.751 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration/jwks - - - 204 - - 0.3712ms
+2022-03-14 15:34:54.752 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 15:34:54.752 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:34:54.753 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration/jwks from origin: http://localhost:4200
+2022-03-14 15:34:54.754 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 15:34:54.754 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:34:54.755 +01:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2022-03-14 15:34:54.756 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2022-03-14 15:34:54.756 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2022-03-14 15:34:54.756 +01:00 [DBG] Start key discovery request
+2022-03-14 15:34:54.757 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - - - 200 - application/json;+charset=UTF-8 4.5374ms
+2022-03-14 15:34:54.858 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7000/connect/token - -
+2022-03-14 15:34:54.858 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:34:54.858 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7000/connect/token - - - 204 - - 0.3580ms
+2022-03-14 15:34:54.860 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7000/connect/token application/x-www-form-urlencoded 237
+2022-03-14 15:34:54.860 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:34:54.861 +01:00 [DBG] CORS request made for path: /connect/token from origin: http://localhost:4200
+2022-03-14 15:34:54.863 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 15:34:54.863 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:34:54.864 +01:00 [DBG] Request path /connect/token matched to endpoint type Token
+2022-03-14 15:34:54.868 +01:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2022-03-14 15:34:54.868 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2022-03-14 15:34:54.868 +01:00 [DBG] Start token request.
+2022-03-14 15:34:54.868 +01:00 [DBG] Start client validation
+2022-03-14 15:34:54.868 +01:00 [DBG] Start parsing Basic Authentication secret
+2022-03-14 15:34:54.868 +01:00 [DBG] Start parsing for secret in post body
+2022-03-14 15:34:54.869 +01:00 [DBG] client id without secret found
+2022-03-14 15:34:54.869 +01:00 [DBG] Parser found secret: PostBodySecretParser
+2022-03-14 15:34:54.869 +01:00 [DBG] Secret id found: Tasky_App
+2022-03-14 15:34:54.875 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 15:34:54.875 +01:00 [DBG] Public Client - skipping secret validation success
+2022-03-14 15:34:54.875 +01:00 [DBG] Client validation success
+2022-03-14 15:34:54.875 +01:00 [INF] {"ClientId":"Tasky_App","AuthenticationMethod":"NoSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HMG5OUNOK907:00000015","TimeStamp":"2022-03-14T14:34:54.0000000Z","ProcessId":45980,"LocalIpAddress":"127.0.0.1:7000","RemoteIpAddress":"127.0.0.1","$type":"ClientAuthenticationSuccessEvent"}
+2022-03-14 15:34:54.875 +01:00 [DBG] Start token request validation
+2022-03-14 15:34:54.875 +01:00 [DBG] Start validation of authorization code token request
+2022-03-14 15:34:54.941 +01:00 [DBG] Client required a proof key for code exchange. Starting PKCE validation
+2022-03-14 15:34:54.995 +01:00 [DBG] Validation of authorization code token request success
+2022-03-14 15:34:54.996 +01:00 [INF] Token request validation success, {"ClientId":"Tasky_App","ClientName":"Tasky_App","GrantType":"authorization_code","Scopes":null,"AuthorizationCode":"****2C31","RefreshToken":"********","UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"authorization_code","code":"EE68C56B0CFB3337BA1940EB52839E4809F61D0214283C025829B9D5A8292C31","redirect_uri":"http://localhost:4200","code_verifier":"SWNNcjVZRGxia09TelVyU0JSLi4uSUJhMkJKV3NKZDJrVWtkMVowU012c084","client_id":"Tasky_App"},"$type":"TokenRequestValidationLog"}
+2022-03-14 15:34:55.002 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 15:34:55.114 +01:00 [DBG] Getting claims for access token for client: Tasky_App
+2022-03-14 15:34:55.114 +01:00 [DBG] Getting claims for access token for subject: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a
+2022-03-14 15:34:55.332 +01:00 [DBG] Creating refresh token
+2022-03-14 15:34:55.332 +01:00 [DBG] Setting an absolute lifetime: 31536000
+2022-03-14 15:34:55.370 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 15:34:55.471 +01:00 [DBG] Getting claims for identity token for subject: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a and client: Tasky_App
+2022-03-14 15:34:55.692 +01:00 [INF] {"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":null,"Endpoint":"Token","SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","Scopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","GrantType":"authorization_code","Tokens":[{"TokenType":"id_token","TokenValue":"****6h8w","$type":"Token"},{"TokenType":"refresh_token","TokenValue":"****AFA9","$type":"Token"},{"TokenType":"access_token","TokenValue":"****H0GA","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HMG5OUNOK907:00000015","TimeStamp":"2022-03-14T14:34:55.0000000Z","ProcessId":45980,"LocalIpAddress":"127.0.0.1:7000","RemoteIpAddress":"127.0.0.1","$type":"TokenIssuedSuccessEvent"}
+2022-03-14 15:34:55.692 +01:00 [DBG] Token request success.
+2022-03-14 15:34:55.729 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7000/connect/token application/x-www-form-urlencoded 237 - 200 - application/json;+charset=UTF-8 869.5370ms
+2022-03-14 15:35:39.875 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/connect/authorize?response_type=code&client_id=Tasky_App&state=LVN4U1ZFVUhfMGJDMlRZNU1ROUw1UWN4RHJsUHkzWERmUlpqRXVfbXFicERW&redirect_uri=http%3A%2F%2Flocalhost%3A4200&scope=offline_access%20IdentityService%20AdministrationService%20SaasService%20role%20email%20openid%20profile&code_challenge=dPYN1ZSV76jAbfTHsGawvVaRCJ1vkxGo_67TpQHBCo4&code_challenge_method=S256&nonce=LVN4U1ZFVUhfMGJDMlRZNU1ROUw1UWN4RHJsUHkzWERmUlpqRXVfbXFicERW&culture=en&ui-culture=en - -
+2022-03-14 15:35:39.881 +01:00 [DBG] Request path /connect/authorize matched to endpoint type Authorize
+2022-03-14 15:35:39.885 +01:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeEndpoint
+2022-03-14 15:35:39.885 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+2022-03-14 15:35:39.885 +01:00 [DBG] Start authorize request
+2022-03-14 15:35:39.885 +01:00 [DBG] User in authorize request: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a
+2022-03-14 15:35:39.885 +01:00 [DBG] Start authorize request protocol validation
+2022-03-14 15:35:39.894 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 15:35:39.894 +01:00 [DBG] Checking for PKCE parameters
+2022-03-14 15:35:40.012 +01:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2022-03-14 15:35:40.012 +01:00 [DBG] ValidatedAuthorizeRequest
+{"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":"http://localhost:4200","AllowedRedirectUris":["http://localhost:4200"],"SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","ResponseType":"code","ResponseMode":"query","GrantType":"authorization_code","RequestedScopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","State":"LVN4U1ZFVUhfMGJDMlRZNU1ROUw1UWN4RHJsUHkzWERmUlpqRXVfbXFicERW","UiLocales":null,"Nonce":"LVN4U1ZFVUhfMGJDMlRZNU1ROUw1UWN4RHJsUHkzWERmUlpqRXVfbXFicERW","AuthenticationContextReferenceClasses":null,"DisplayMode":null,"PromptMode":"","MaxAge":null,"LoginHint":null,"SessionId":"B187EC8F30B2A2A4283B1717E8D79634","Raw":{"response_type":"code","client_id":"Tasky_App","state":"LVN4U1ZFVUhfMGJDMlRZNU1ROUw1UWN4RHJsUHkzWERmUlpqRXVfbXFicERW","redirect_uri":"http://localhost:4200","scope":"offline_access IdentityService AdministrationService SaasService role email openid profile","code_challenge":"dPYN1ZSV76jAbfTHsGawvVaRCJ1vkxGo_67TpQHBCo4","code_challenge_method":"S256","nonce":"LVN4U1ZFVUhfMGJDMlRZNU1ROUw1UWN4RHJsUHkzWERmUlpqRXVfbXFicERW","culture":"en","ui-culture":"en"},"$type":"AuthorizeRequestValidationLog"}
+2022-03-14 15:35:40.058 +01:00 [DBG] Client is configured to not require consent, no consent is required
+2022-03-14 15:35:40.058 +01:00 [DBG] Creating Authorization Code Flow response.
+2022-03-14 15:35:40.088 +01:00 [INF] {"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":"http://localhost:4200","Endpoint":"Authorize","SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","Scopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","GrantType":"authorization_code","Tokens":[{"TokenType":"code","TokenValue":"****C8B9","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HMG5OUNOK909:00000011","TimeStamp":"2022-03-14T14:35:40.0000000Z","ProcessId":45980,"LocalIpAddress":"::1:7000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2022-03-14 15:35:40.088 +01:00 [DBG] Authorize endpoint response
+{"SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","ClientId":"Tasky_App","RedirectUri":"http://localhost:4200","State":"LVN4U1ZFVUhfMGJDMlRZNU1ROUw1UWN4RHJsUHkzWERmUlpqRXVfbXFicERW","Scope":"offline_access IdentityService AdministrationService SaasService role email openid profile","Error":null,"ErrorDescription":null,"$type":"AuthorizeResponseLog"}
+2022-03-14 15:35:40.120 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/connect/authorize?response_type=code&client_id=Tasky_App&state=LVN4U1ZFVUhfMGJDMlRZNU1ROUw1UWN4RHJsUHkzWERmUlpqRXVfbXFicERW&redirect_uri=http%3A%2F%2Flocalhost%3A4200&scope=offline_access%20IdentityService%20AdministrationService%20SaasService%20role%20email%20openid%20profile&code_challenge=dPYN1ZSV76jAbfTHsGawvVaRCJ1vkxGo_67TpQHBCo4&code_challenge_method=S256&nonce=LVN4U1ZFVUhfMGJDMlRZNU1ROUw1UWN4RHJsUHkzWERmUlpqRXVfbXFicERW&culture=en&ui-culture=en - - - 302 0 - 244.1838ms
+2022-03-14 15:35:40.790 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 15:35:40.791 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:35:40.791 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration - - - 204 - - 0.4167ms
+2022-03-14 15:35:40.792 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 15:35:40.792 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:35:40.793 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration from origin: http://localhost:4200
+2022-03-14 15:35:40.795 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 15:35:40.795 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:35:40.795 +01:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2022-03-14 15:35:40.797 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2022-03-14 15:35:40.797 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2022-03-14 15:35:40.797 +01:00 [DBG] Start discovery request
+2022-03-14 15:35:40.804 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - - - 200 - application/json;+charset=UTF-8 11.5408ms
+2022-03-14 15:35:41.034 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 15:35:41.034 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:35:41.034 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration/jwks - - - 204 - - 0.5082ms
+2022-03-14 15:35:41.035 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 15:35:41.036 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:35:41.036 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration/jwks from origin: http://localhost:4200
+2022-03-14 15:35:41.038 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 15:35:41.038 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:35:41.039 +01:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2022-03-14 15:35:41.040 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2022-03-14 15:35:41.040 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2022-03-14 15:35:41.040 +01:00 [DBG] Start key discovery request
+2022-03-14 15:35:41.041 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - - - 200 - application/json;+charset=UTF-8 5.3879ms
+2022-03-14 15:35:41.244 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7000/connect/token - -
+2022-03-14 15:35:41.244 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:35:41.244 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7000/connect/token - - - 204 - - 0.4153ms
+2022-03-14 15:35:41.246 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7000/connect/token application/x-www-form-urlencoded 237
+2022-03-14 15:35:41.247 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:35:41.248 +01:00 [DBG] CORS request made for path: /connect/token from origin: http://localhost:4200
+2022-03-14 15:35:41.254 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 15:35:41.254 +01:00 [INF] CORS policy execution successful.
+2022-03-14 15:35:41.255 +01:00 [DBG] Request path /connect/token matched to endpoint type Token
+2022-03-14 15:35:41.265 +01:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2022-03-14 15:35:41.265 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2022-03-14 15:35:41.265 +01:00 [DBG] Start token request.
+2022-03-14 15:35:41.265 +01:00 [DBG] Start client validation
+2022-03-14 15:35:41.265 +01:00 [DBG] Start parsing Basic Authentication secret
+2022-03-14 15:35:41.265 +01:00 [DBG] Start parsing for secret in post body
+2022-03-14 15:35:41.265 +01:00 [DBG] client id without secret found
+2022-03-14 15:35:41.265 +01:00 [DBG] Parser found secret: PostBodySecretParser
+2022-03-14 15:35:41.265 +01:00 [DBG] Secret id found: Tasky_App
+2022-03-14 15:35:41.274 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 15:35:41.274 +01:00 [DBG] Public Client - skipping secret validation success
+2022-03-14 15:35:41.274 +01:00 [DBG] Client validation success
+2022-03-14 15:35:41.274 +01:00 [INF] {"ClientId":"Tasky_App","AuthenticationMethod":"NoSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HMG5OUNOK907:00000021","TimeStamp":"2022-03-14T14:35:41.0000000Z","ProcessId":45980,"LocalIpAddress":"127.0.0.1:7000","RemoteIpAddress":"127.0.0.1","$type":"ClientAuthenticationSuccessEvent"}
+2022-03-14 15:35:41.274 +01:00 [DBG] Start token request validation
+2022-03-14 15:35:41.274 +01:00 [DBG] Start validation of authorization code token request
+2022-03-14 15:35:41.364 +01:00 [DBG] Client required a proof key for code exchange. Starting PKCE validation
+2022-03-14 15:35:41.427 +01:00 [DBG] Validation of authorization code token request success
+2022-03-14 15:35:41.428 +01:00 [INF] Token request validation success, {"ClientId":"Tasky_App","ClientName":"Tasky_App","GrantType":"authorization_code","Scopes":null,"AuthorizationCode":"****C8B9","RefreshToken":"********","UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"authorization_code","code":"6D9508FD6D5574193C627D5E4A741CB4A3CE55111034007AC350242D6DA4C8B9","redirect_uri":"http://localhost:4200","code_verifier":"SkdMQWItSFlfUVM3MkV4TERUamVSR0F2N3dFb3hwcXRlT1RCeW1NUUhEVEhr","client_id":"Tasky_App"},"$type":"TokenRequestValidationLog"}
+2022-03-14 15:35:41.436 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 15:35:41.544 +01:00 [DBG] Getting claims for access token for client: Tasky_App
+2022-03-14 15:35:41.544 +01:00 [DBG] Getting claims for access token for subject: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a
+2022-03-14 15:35:41.770 +01:00 [DBG] Creating refresh token
+2022-03-14 15:35:41.770 +01:00 [DBG] Setting an absolute lifetime: 31536000
+2022-03-14 15:35:41.809 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 15:35:41.920 +01:00 [DBG] Getting claims for identity token for subject: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a and client: Tasky_App
+2022-03-14 15:35:42.140 +01:00 [INF] {"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":null,"Endpoint":"Token","SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","Scopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","GrantType":"authorization_code","Tokens":[{"TokenType":"id_token","TokenValue":"****O-Tw","$type":"Token"},{"TokenType":"refresh_token","TokenValue":"****CF23","$type":"Token"},{"TokenType":"access_token","TokenValue":"****YETg","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HMG5OUNOK907:00000021","TimeStamp":"2022-03-14T14:35:42.0000000Z","ProcessId":45980,"LocalIpAddress":"127.0.0.1:7000","RemoteIpAddress":"127.0.0.1","$type":"TokenIssuedSuccessEvent"}
+2022-03-14 15:35:42.140 +01:00 [DBG] Token request success.
+2022-03-14 15:35:42.179 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7000/connect/token application/x-www-form-urlencoded 237 - 200 - application/json;+charset=UTF-8 932.5449ms
+2022-03-14 19:25:26.740 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/connect/authorize?response_type=code&client_id=Tasky_App&state=WFlhT2E0WFRVUm5sTFdVSDAxbFhHdzFsN0pwanMyZEZsc1VGTERYM0wtZlds&redirect_uri=http%3A%2F%2Flocalhost%3A4200&scope=offline_access%20IdentityService%20AdministrationService%20SaasService%20role%20email%20openid%20profile&code_challenge=07uFvt_sAJOxgbG2RmT3GLSiW7zRkz9lDeQpWg6JDjc&code_challenge_method=S256&nonce=WFlhT2E0WFRVUm5sTFdVSDAxbFhHdzFsN0pwanMyZEZsc1VGTERYM0wtZlds&culture=en&ui-culture=en - -
+2022-03-14 19:25:27.004 +01:00 [DBG] Request path /connect/authorize matched to endpoint type Authorize
+2022-03-14 19:25:27.006 +01:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeEndpoint
+2022-03-14 19:25:27.006 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+2022-03-14 19:25:27.006 +01:00 [DBG] Start authorize request
+2022-03-14 19:25:27.006 +01:00 [DBG] User in authorize request: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a
+2022-03-14 19:25:27.006 +01:00 [DBG] Start authorize request protocol validation
+2022-03-14 19:25:27.070 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 19:25:27.070 +01:00 [DBG] Checking for PKCE parameters
+2022-03-14 19:25:27.215 +01:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2022-03-14 19:25:27.216 +01:00 [DBG] ValidatedAuthorizeRequest
+{"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":"http://localhost:4200","AllowedRedirectUris":["http://localhost:4200"],"SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","ResponseType":"code","ResponseMode":"query","GrantType":"authorization_code","RequestedScopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","State":"WFlhT2E0WFRVUm5sTFdVSDAxbFhHdzFsN0pwanMyZEZsc1VGTERYM0wtZlds","UiLocales":null,"Nonce":"WFlhT2E0WFRVUm5sTFdVSDAxbFhHdzFsN0pwanMyZEZsc1VGTERYM0wtZlds","AuthenticationContextReferenceClasses":null,"DisplayMode":null,"PromptMode":"","MaxAge":null,"LoginHint":null,"SessionId":"B187EC8F30B2A2A4283B1717E8D79634","Raw":{"response_type":"code","client_id":"Tasky_App","state":"WFlhT2E0WFRVUm5sTFdVSDAxbFhHdzFsN0pwanMyZEZsc1VGTERYM0wtZlds","redirect_uri":"http://localhost:4200","scope":"offline_access IdentityService AdministrationService SaasService role email openid profile","code_challenge":"07uFvt_sAJOxgbG2RmT3GLSiW7zRkz9lDeQpWg6JDjc","code_challenge_method":"S256","nonce":"WFlhT2E0WFRVUm5sTFdVSDAxbFhHdzFsN0pwanMyZEZsc1VGTERYM0wtZlds","culture":"en","ui-culture":"en"},"$type":"AuthorizeRequestValidationLog"}
+2022-03-14 19:25:27.271 +01:00 [DBG] Client is configured to not require consent, no consent is required
+2022-03-14 19:25:27.272 +01:00 [DBG] Creating Authorization Code Flow response.
+2022-03-14 19:25:27.306 +01:00 [INF] {"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":"http://localhost:4200","Endpoint":"Authorize","SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","Scopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","GrantType":"authorization_code","Tokens":[{"TokenType":"code","TokenValue":"****37F0","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HMG5OUNOK90C:00000001","TimeStamp":"2022-03-14T18:25:27.0000000Z","ProcessId":45980,"LocalIpAddress":"::1:7000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2022-03-14 19:25:27.306 +01:00 [DBG] Authorize endpoint response
+{"SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","ClientId":"Tasky_App","RedirectUri":"http://localhost:4200","State":"WFlhT2E0WFRVUm5sTFdVSDAxbFhHdzFsN0pwanMyZEZsc1VGTERYM0wtZlds","Scope":"offline_access IdentityService AdministrationService SaasService role email openid profile","Error":null,"ErrorDescription":null,"$type":"AuthorizeResponseLog"}
+2022-03-14 19:25:27.359 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/connect/authorize?response_type=code&client_id=Tasky_App&state=WFlhT2E0WFRVUm5sTFdVSDAxbFhHdzFsN0pwanMyZEZsc1VGTERYM0wtZlds&redirect_uri=http%3A%2F%2Flocalhost%3A4200&scope=offline_access%20IdentityService%20AdministrationService%20SaasService%20role%20email%20openid%20profile&code_challenge=07uFvt_sAJOxgbG2RmT3GLSiW7zRkz9lDeQpWg6JDjc&code_challenge_method=S256&nonce=WFlhT2E0WFRVUm5sTFdVSDAxbFhHdzFsN0pwanMyZEZsc1VGTERYM0wtZlds&culture=en&ui-culture=en - - - 302 0 - 619.6021ms
+2022-03-14 19:25:28.370 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 19:25:28.371 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:25:28.371 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration - - - 204 - - 0.7483ms
+2022-03-14 19:25:28.372 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 19:25:28.372 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:25:28.372 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration from origin: http://localhost:4200
+2022-03-14 19:25:28.421 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 19:25:28.421 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:25:28.423 +01:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2022-03-14 19:25:28.426 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2022-03-14 19:25:28.426 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2022-03-14 19:25:28.426 +01:00 [DBG] Start discovery request
+2022-03-14 19:25:28.567 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - - - 200 - application/json;+charset=UTF-8 195.1835ms
+2022-03-14 19:25:28.619 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 19:25:28.619 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:25:28.620 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration/jwks - - - 204 - - 0.3943ms
+2022-03-14 19:25:28.621 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 19:25:28.621 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:25:28.622 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration/jwks from origin: http://localhost:4200
+2022-03-14 19:25:28.624 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 19:25:28.624 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:25:28.624 +01:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2022-03-14 19:25:28.627 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2022-03-14 19:25:28.627 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2022-03-14 19:25:28.627 +01:00 [DBG] Start key discovery request
+2022-03-14 19:25:28.627 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - - - 200 - application/json;+charset=UTF-8 6.5585ms
+2022-03-14 19:25:28.825 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7000/connect/token - -
+2022-03-14 19:25:28.825 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:25:28.825 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7000/connect/token - - - 204 - - 0.6823ms
+2022-03-14 19:25:28.828 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7000/connect/token application/x-www-form-urlencoded 237
+2022-03-14 19:25:28.828 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:25:28.829 +01:00 [DBG] CORS request made for path: /connect/token from origin: http://localhost:4200
+2022-03-14 19:25:28.835 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 19:25:28.835 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:25:28.836 +01:00 [DBG] Request path /connect/token matched to endpoint type Token
+2022-03-14 19:25:28.844 +01:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2022-03-14 19:25:28.844 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2022-03-14 19:25:28.844 +01:00 [DBG] Start token request.
+2022-03-14 19:25:28.844 +01:00 [DBG] Start client validation
+2022-03-14 19:25:28.844 +01:00 [DBG] Start parsing Basic Authentication secret
+2022-03-14 19:25:28.844 +01:00 [DBG] Start parsing for secret in post body
+2022-03-14 19:25:28.844 +01:00 [DBG] client id without secret found
+2022-03-14 19:25:28.844 +01:00 [DBG] Parser found secret: PostBodySecretParser
+2022-03-14 19:25:28.844 +01:00 [DBG] Secret id found: Tasky_App
+2022-03-14 19:25:28.853 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 19:25:28.853 +01:00 [DBG] Public Client - skipping secret validation success
+2022-03-14 19:25:28.853 +01:00 [DBG] Client validation success
+2022-03-14 19:25:28.853 +01:00 [INF] {"ClientId":"Tasky_App","AuthenticationMethod":"NoSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HMG5OUNOK90D:0000000B","TimeStamp":"2022-03-14T18:25:28.0000000Z","ProcessId":45980,"LocalIpAddress":"::1:7000","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2022-03-14 19:25:28.853 +01:00 [DBG] Start token request validation
+2022-03-14 19:25:28.853 +01:00 [DBG] Start validation of authorization code token request
+2022-03-14 19:25:28.932 +01:00 [DBG] Client required a proof key for code exchange. Starting PKCE validation
+2022-03-14 19:25:28.984 +01:00 [DBG] Validation of authorization code token request success
+2022-03-14 19:25:28.984 +01:00 [INF] Token request validation success, {"ClientId":"Tasky_App","ClientName":"Tasky_App","GrantType":"authorization_code","Scopes":null,"AuthorizationCode":"****37F0","RefreshToken":"********","UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"authorization_code","code":"9CAB0736D90A920050A1E6F15C433E8764D5E908F37FF454E38560631E8137F0","redirect_uri":"http://localhost:4200","code_verifier":"UVVLcFA5SmNyX0hKYWVJZUFzZ1YzY0RPSGh4VzVEM2Y4Q3JERDRJZ35STDNH","client_id":"Tasky_App"},"$type":"TokenRequestValidationLog"}
+2022-03-14 19:25:28.992 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 19:25:29.108 +01:00 [DBG] Getting claims for access token for client: Tasky_App
+2022-03-14 19:25:29.108 +01:00 [DBG] Getting claims for access token for subject: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a
+2022-03-14 19:25:29.341 +01:00 [DBG] Creating refresh token
+2022-03-14 19:25:29.341 +01:00 [DBG] Setting an absolute lifetime: 31536000
+2022-03-14 19:25:29.380 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 19:25:29.492 +01:00 [DBG] Getting claims for identity token for subject: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a and client: Tasky_App
+2022-03-14 19:25:29.705 +01:00 [INF] {"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":null,"Endpoint":"Token","SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","Scopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","GrantType":"authorization_code","Tokens":[{"TokenType":"id_token","TokenValue":"****BFRg","$type":"Token"},{"TokenType":"refresh_token","TokenValue":"****62F2","$type":"Token"},{"TokenType":"access_token","TokenValue":"****RPCQ","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HMG5OUNOK90D:0000000B","TimeStamp":"2022-03-14T18:25:29.0000000Z","ProcessId":45980,"LocalIpAddress":"::1:7000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2022-03-14 19:25:29.706 +01:00 [DBG] Token request success.
+2022-03-14 19:25:29.741 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7000/connect/token application/x-www-form-urlencoded 237 - 200 - application/json;+charset=UTF-8 912.7073ms
+2022-03-14 19:26:48.291 +01:00 [INF] Application is shutting down...
+2022-03-14 19:26:48.390 +01:00 [DBG] Stopped background worker: Volo.Abp.IdentityServer.Tokens.TokenCleanupBackgroundWorker
+2022-03-14 19:27:10.804 +01:00 [INF] Starting Tasky.IdentityServer.
+2022-03-14 19:27:12.175 +01:00 [INF] Loaded ABP modules:
+2022-03-14 19:27:12.176 +01:00 [INF] - Tasky.TaskyIdentityServerModule
+2022-03-14 19:27:12.177 +01:00 [INF]   - Volo.Abp.Autofac.AbpAutofacModule
+2022-03-14 19:27:12.177 +01:00 [INF]     - Volo.Abp.Castle.AbpCastleCoreModule
+2022-03-14 19:27:12.177 +01:00 [INF]   - Volo.Abp.Caching.StackExchangeRedis.AbpCachingStackExchangeRedisModule
+2022-03-14 19:27:12.177 +01:00 [INF]     - Volo.Abp.Caching.AbpCachingModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.Threading.AbpThreadingModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.Serialization.AbpSerializationModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.Uow.AbpUnitOfWorkModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2022-03-14 19:27:12.177 +01:00 [INF]         - Volo.Abp.Data.AbpDataModule
+2022-03-14 19:27:12.177 +01:00 [INF]           - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2022-03-14 19:27:12.177 +01:00 [INF]             - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2022-03-14 19:27:12.177 +01:00 [INF]             - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2022-03-14 19:27:12.177 +01:00 [INF]           - Volo.Abp.EventBus.Abstractions.AbpEventBusAbstractionsModule
+2022-03-14 19:27:12.177 +01:00 [INF]         - Volo.Abp.Security.AbpSecurityModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.Json.AbpJsonModule
+2022-03-14 19:27:12.177 +01:00 [INF]         - Volo.Abp.Timing.AbpTimingModule
+2022-03-14 19:27:12.177 +01:00 [INF]           - Volo.Abp.Localization.AbpLocalizationModule
+2022-03-14 19:27:12.177 +01:00 [INF]             - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2022-03-14 19:27:12.177 +01:00 [INF]             - Volo.Abp.Settings.AbpSettingsModule
+2022-03-14 19:27:12.177 +01:00 [INF]   - Volo.Abp.Account.Web.AbpAccountWebIdentityServerModule
+2022-03-14 19:27:12.177 +01:00 [INF]     - Volo.Abp.Account.Web.AbpAccountWebModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.Account.AbpAccountApplicationContractsModule
+2022-03-14 19:27:12.177 +01:00 [INF]         - Volo.Abp.Identity.AbpIdentityApplicationContractsModule
+2022-03-14 19:27:12.177 +01:00 [INF]           - Volo.Abp.Identity.AbpIdentityDomainSharedModule
+2022-03-14 19:27:12.177 +01:00 [INF]             - Volo.Abp.Users.AbpUsersDomainSharedModule
+2022-03-14 19:27:12.177 +01:00 [INF]             - Volo.Abp.Validation.AbpValidationModule
+2022-03-14 19:27:12.177 +01:00 [INF]             - Volo.Abp.Features.AbpFeaturesModule
+2022-03-14 19:27:12.177 +01:00 [INF]               - Volo.Abp.Authorization.AbpAuthorizationAbstractionsModule
+2022-03-14 19:27:12.177 +01:00 [INF]           - Volo.Abp.Users.AbpUsersAbstractionModule
+2022-03-14 19:27:12.177 +01:00 [INF]             - Volo.Abp.EventBus.AbpEventBusModule
+2022-03-14 19:27:12.177 +01:00 [INF]               - Volo.Abp.Guids.AbpGuidsModule
+2022-03-14 19:27:12.177 +01:00 [INF]               - Volo.Abp.BackgroundWorkers.AbpBackgroundWorkersModule
+2022-03-14 19:27:12.177 +01:00 [INF]               - Volo.Abp.DistributedLocking.AbpDistributedLockingAbstractionsModule
+2022-03-14 19:27:12.177 +01:00 [INF]           - Volo.Abp.Authorization.AbpAuthorizationModule
+2022-03-14 19:27:12.177 +01:00 [INF]           - Volo.Abp.PermissionManagement.AbpPermissionManagementApplicationContractsModule
+2022-03-14 19:27:12.177 +01:00 [INF]             - Volo.Abp.Application.AbpDddApplicationContractsModule
+2022-03-14 19:27:12.177 +01:00 [INF]               - Volo.Abp.Auditing.AbpAuditingContractsModule
+2022-03-14 19:27:12.177 +01:00 [INF]             - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainSharedModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.Identity.AspNetCore.AbpIdentityAspNetCoreModule
+2022-03-14 19:27:12.177 +01:00 [INF]         - Volo.Abp.Identity.AbpIdentityDomainModule
+2022-03-14 19:27:12.177 +01:00 [INF]           - Volo.Abp.Domain.AbpDddDomainModule
+2022-03-14 19:27:12.177 +01:00 [INF]             - Volo.Abp.Auditing.AbpAuditingModule
+2022-03-14 19:27:12.177 +01:00 [INF]             - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2022-03-14 19:27:12.177 +01:00 [INF]             - Volo.Abp.ExceptionHandling.AbpExceptionHandlingModule
+2022-03-14 19:27:12.177 +01:00 [INF]             - Volo.Abp.Specifications.AbpSpecificationsModule
+2022-03-14 19:27:12.177 +01:00 [INF]           - Volo.Abp.Users.AbpUsersDomainModule
+2022-03-14 19:27:12.177 +01:00 [INF]           - Volo.Abp.AutoMapper.AbpAutoMapperModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.AbpAspNetCoreMvcUiThemeSharedModule
+2022-03-14 19:27:12.177 +01:00 [INF]         - Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.AbpAspNetCoreMvcUiBootstrapModule
+2022-03-14 19:27:12.177 +01:00 [INF]           - Volo.Abp.AspNetCore.Mvc.UI.AbpAspNetCoreMvcUiModule
+2022-03-14 19:27:12.177 +01:00 [INF]             - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcModule
+2022-03-14 19:27:12.177 +01:00 [INF]               - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2022-03-14 19:27:12.177 +01:00 [INF]                 - Volo.Abp.Http.AbpHttpModule
+2022-03-14 19:27:12.177 +01:00 [INF]                   - Volo.Abp.Http.AbpHttpAbstractionsModule
+2022-03-14 19:27:12.177 +01:00 [INF]                   - Volo.Abp.Minify.AbpMinifyModule
+2022-03-14 19:27:12.177 +01:00 [INF]               - Volo.Abp.ApiVersioning.AbpApiVersioningAbstractionsModule
+2022-03-14 19:27:12.177 +01:00 [INF]               - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcContractsModule
+2022-03-14 19:27:12.177 +01:00 [INF]               - Volo.Abp.UI.Navigation.AbpUiNavigationModule
+2022-03-14 19:27:12.177 +01:00 [INF]                 - Volo.Abp.UI.AbpUiModule
+2022-03-14 19:27:12.177 +01:00 [INF]               - Volo.Abp.GlobalFeatures.AbpGlobalFeaturesModule
+2022-03-14 19:27:12.177 +01:00 [INF]               - Volo.Abp.Application.AbpDddApplicationModule
+2022-03-14 19:27:12.177 +01:00 [INF]         - Volo.Abp.AspNetCore.Mvc.UI.Packages.AbpAspNetCoreMvcUiPackagesModule
+2022-03-14 19:27:12.177 +01:00 [INF]           - Volo.Abp.AspNetCore.Mvc.UI.Bundling.AbpAspNetCoreMvcUiBundlingAbstractionsModule
+2022-03-14 19:27:12.177 +01:00 [INF]         - Volo.Abp.AspNetCore.Mvc.UI.Widgets.AbpAspNetCoreMvcUiWidgetsModule
+2022-03-14 19:27:12.177 +01:00 [INF]           - Volo.Abp.AspNetCore.Mvc.UI.Bundling.AbpAspNetCoreMvcUiBundlingModule
+2022-03-14 19:27:12.177 +01:00 [INF]     - Volo.Abp.IdentityServer.AbpIdentityServerDomainModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.IdentityServer.AbpIdentityServerDomainSharedModule
+2022-03-14 19:27:12.177 +01:00 [INF]   - Volo.Abp.Account.AbpAccountApplicationModule
+2022-03-14 19:27:12.177 +01:00 [INF]     - Volo.Abp.Identity.AbpIdentityApplicationModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.PermissionManagement.AbpPermissionManagementApplicationModule
+2022-03-14 19:27:12.177 +01:00 [INF]         - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainModule
+2022-03-14 19:27:12.177 +01:00 [INF]     - Volo.Abp.Emailing.AbpEmailingModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.BackgroundJobs.AbpBackgroundJobsAbstractionsModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.TextTemplating.AbpTextTemplatingModule
+2022-03-14 19:27:12.177 +01:00 [INF]         - Volo.Abp.TextTemplating.Scriban.AbpTextTemplatingScribanModule
+2022-03-14 19:27:12.177 +01:00 [INF]           - Volo.Abp.TextTemplating.AbpTextTemplatingCoreModule
+2022-03-14 19:27:12.177 +01:00 [INF]   - Volo.Abp.Account.AbpAccountHttpApiModule
+2022-03-14 19:27:12.177 +01:00 [INF]     - Volo.Abp.Identity.AbpIdentityHttpApiModule
+2022-03-14 19:27:12.177 +01:00 [INF]   - Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.AbpAspNetCoreMvcUiBasicThemeModule
+2022-03-14 19:27:12.177 +01:00 [INF]     - Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy.AbpAspNetCoreMvcUiMultiTenancyModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.AspNetCore.MultiTenancy.AbpAspNetCoreMultiTenancyModule
+2022-03-14 19:27:12.177 +01:00 [INF]   - Volo.Abp.AspNetCore.Serilog.AbpAspNetCoreSerilogModule
+2022-03-14 19:27:12.177 +01:00 [INF]   - Volo.Abp.EntityFrameworkCore.PostgreSql.AbpEntityFrameworkCorePostgreSqlModule
+2022-03-14 19:27:12.177 +01:00 [INF]     - Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule
+2022-03-14 19:27:12.177 +01:00 [INF]   - Tasky.Administration.EntityFrameworkCore.AdministrationEntityFrameworkCoreModule
+2022-03-14 19:27:12.177 +01:00 [INF]     - Tasky.Administration.AdministrationDomainModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Tasky.Administration.AdministrationDomainSharedModule
+2022-03-14 19:27:12.177 +01:00 [INF]         - Volo.Abp.SettingManagement.AbpSettingManagementDomainSharedModule
+2022-03-14 19:27:12.177 +01:00 [INF]         - Volo.Abp.AuditLogging.AbpAuditLoggingDomainSharedModule
+2022-03-14 19:27:12.177 +01:00 [INF]         - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainSharedModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.PermissionManagement.IdentityServer.AbpPermissionManagementDomainIdentityServerModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.PermissionManagement.Identity.AbpPermissionManagementDomainIdentityModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.SettingManagement.AbpSettingManagementDomainModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.AuditLogging.AbpAuditLoggingDomainModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainModule
+2022-03-14 19:27:12.177 +01:00 [INF]     - Volo.Abp.PermissionManagement.EntityFrameworkCore.AbpPermissionManagementEntityFrameworkCoreModule
+2022-03-14 19:27:12.177 +01:00 [INF]     - Volo.Abp.SettingManagement.EntityFrameworkCore.AbpSettingManagementEntityFrameworkCoreModule
+2022-03-14 19:27:12.177 +01:00 [INF]     - Volo.Abp.AuditLogging.EntityFrameworkCore.AbpAuditLoggingEntityFrameworkCoreModule
+2022-03-14 19:27:12.177 +01:00 [INF]     - Volo.Abp.FeatureManagement.EntityFrameworkCore.AbpFeatureManagementEntityFrameworkCoreModule
+2022-03-14 19:27:12.177 +01:00 [INF]   - Tasky.SaaS.EntityFrameworkCore.SaaSEntityFrameworkCoreModule
+2022-03-14 19:27:12.177 +01:00 [INF]     - Tasky.SaaS.SaaSDomainModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Tasky.SaaS.SaaSDomainSharedModule
+2022-03-14 19:27:12.177 +01:00 [INF]         - Volo.Abp.TenantManagement.AbpTenantManagementDomainSharedModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.TenantManagement.AbpTenantManagementDomainModule
+2022-03-14 19:27:12.177 +01:00 [INF]     - Volo.Abp.TenantManagement.EntityFrameworkCore.AbpTenantManagementEntityFrameworkCoreModule
+2022-03-14 19:27:12.177 +01:00 [INF]   - Tasky.IdentityService.EntityFrameworkCore.IdentityServiceEntityFrameworkCoreModule
+2022-03-14 19:27:12.177 +01:00 [INF]     - Tasky.IdentityService.IdentityServiceDomainModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Tasky.IdentityService.IdentityServiceDomainSharedModule
+2022-03-14 19:27:12.177 +01:00 [INF]     - Volo.Abp.Identity.EntityFrameworkCore.AbpIdentityEntityFrameworkCoreModule
+2022-03-14 19:27:12.177 +01:00 [INF]       - Volo.Abp.Users.EntityFrameworkCore.AbpUsersEntityFrameworkCoreModule
+2022-03-14 19:27:12.177 +01:00 [INF]     - Volo.Abp.IdentityServer.EntityFrameworkCore.AbpIdentityServerEntityFrameworkCoreModule
+2022-03-14 19:27:12.177 +01:00 [INF]   - Tasky.Microservice.Shared.TaskyMicroserviceModule
+2022-03-14 19:27:12.226 +01:00 [DBG] Started background worker: Volo.Abp.IdentityServer.Tokens.TokenCleanupBackgroundWorker
+2022-03-14 19:27:12.229 +01:00 [INF] Starting IdentityServer4 version 4.1.2+997a6cdd643e46cd5762b710c4ddc43574cbec2e
+2022-03-14 19:27:12.695 +01:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2022-03-14 19:27:12.695 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2022-03-14 19:27:12.695 +01:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2022-03-14 19:27:12.695 +01:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2022-03-14 19:27:12.695 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2022-03-14 19:27:12.695 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2022-03-14 19:27:12.862 +01:00 [INF] User profile is available. Using 'C:\Users\antos\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-03-14 19:27:13.003 +01:00 [INF] Initialized all ABP modules.
+2022-03-14 19:27:13.091 +01:00 [INF] Now listening on: https://localhost:7000
+2022-03-14 19:27:13.091 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-03-14 19:27:13.091 +01:00 [INF] Hosting environment: Development
+2022-03-14 19:27:13.091 +01:00 [INF] Content root path: C:\repos\GitHub\AbpMicroservice\apps\Tasky.IdentityServer\
+2022-03-14 19:27:25.302 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 19:27:26.845 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:27:26.851 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 19:27:26.853 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration - - - 204 - - 1551.0791ms
+2022-03-14 19:27:26.853 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:27:26.865 +01:00 [DBG] Login Url: /Account/Login
+2022-03-14 19:27:26.865 +01:00 [DBG] Login Return Url Parameter: ReturnUrl
+2022-03-14 19:27:26.865 +01:00 [DBG] Logout Url: /Account/Logout
+2022-03-14 19:27:26.865 +01:00 [DBG] ConsentUrl Url: /Consent
+2022-03-14 19:27:26.865 +01:00 [DBG] Consent Return Url Parameter: returnUrl
+2022-03-14 19:27:26.865 +01:00 [DBG] Error Url: /Account/Error
+2022-03-14 19:27:26.865 +01:00 [DBG] Error Id Parameter: errorId
+2022-03-14 19:27:26.900 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration from origin: http://localhost:4200
+2022-03-14 19:27:26.908 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 19:27:26.908 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:27:26.914 +01:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2022-03-14 19:27:27.019 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2022-03-14 19:27:27.019 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2022-03-14 19:27:27.020 +01:00 [DBG] Start discovery request
+2022-03-14 19:27:27.054 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - - - 200 - application/json;+charset=UTF-8 202.0767ms
+2022-03-14 19:27:27.059 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 19:27:27.060 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:27:27.060 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration/jwks - - - 204 - - 0.5972ms
+2022-03-14 19:27:27.061 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 19:27:27.062 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:27:27.062 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration/jwks from origin: http://localhost:4200
+2022-03-14 19:27:27.065 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 19:27:27.065 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:27:27.065 +01:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2022-03-14 19:27:27.067 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2022-03-14 19:27:27.067 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2022-03-14 19:27:27.068 +01:00 [DBG] Start key discovery request
+2022-03-14 19:27:27.074 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - - - 200 - application/json;+charset=UTF-8 12.9423ms
+2022-03-14 19:27:27.484 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 19:27:27.486 +01:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2022-03-14 19:27:27.490 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2022-03-14 19:27:27.490 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2022-03-14 19:27:27.490 +01:00 [DBG] Start discovery request
+2022-03-14 19:27:27.498 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration - - - 200 - application/json;+charset=UTF-8 13.6697ms
+2022-03-14 19:27:27.610 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 19:27:27.611 +01:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2022-03-14 19:27:27.613 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2022-03-14 19:27:27.613 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2022-03-14 19:27:27.613 +01:00 [DBG] Start key discovery request
+2022-03-14 19:27:27.613 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration/jwks - - - 200 - application/json;+charset=UTF-8 3.1274ms
+2022-03-14 19:27:31.907 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 19:27:31.908 +01:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2022-03-14 19:27:31.909 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2022-03-14 19:27:31.909 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2022-03-14 19:27:31.909 +01:00 [DBG] Start discovery request
+2022-03-14 19:27:31.915 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration - - - 200 - application/json;+charset=UTF-8 7.8856ms
+2022-03-14 19:27:31.937 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 19:27:31.938 +01:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2022-03-14 19:27:31.939 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2022-03-14 19:27:31.939 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2022-03-14 19:27:31.939 +01:00 [DBG] Start key discovery request
+2022-03-14 19:27:31.939 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration/jwks - - - 200 - application/json;+charset=UTF-8 2.1018ms
+2022-03-14 19:27:44.488 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/connect/authorize?response_type=code&client_id=Tasky_App&state=UDd6LVZFTWtDVnRMc0pBbE83U35PSVVQLTdWUkZzR2oyaHJMNDJza1BoSUtW&redirect_uri=http%3A%2F%2Flocalhost%3A4200&scope=offline_access%20IdentityService%20AdministrationService%20SaasService%20role%20email%20openid%20profile&code_challenge=UHKk0bi3Mqe9ZbapzJ19JwR3xP_ZqgtWr94Gvj6NCrc&code_challenge_method=S256&nonce=UDd6LVZFTWtDVnRMc0pBbE83U35PSVVQLTdWUkZzR2oyaHJMNDJza1BoSUtW&culture=en&ui-culture=en - -
+2022-03-14 19:27:44.504 +01:00 [DBG] Request path /connect/authorize matched to endpoint type Authorize
+2022-03-14 19:27:44.512 +01:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeEndpoint
+2022-03-14 19:27:44.512 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+2022-03-14 19:27:44.514 +01:00 [DBG] Start authorize request
+2022-03-14 19:27:44.518 +01:00 [DBG] User in authorize request: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a
+2022-03-14 19:27:44.519 +01:00 [DBG] Start authorize request protocol validation
+2022-03-14 19:27:44.557 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 19:27:44.565 +01:00 [DBG] Checking for PKCE parameters
+2022-03-14 19:27:45.132 +01:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2022-03-14 19:27:45.139 +01:00 [DBG] ValidatedAuthorizeRequest
+{"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":"http://localhost:4200","AllowedRedirectUris":["http://localhost:4200"],"SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","ResponseType":"code","ResponseMode":"query","GrantType":"authorization_code","RequestedScopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","State":"UDd6LVZFTWtDVnRMc0pBbE83U35PSVVQLTdWUkZzR2oyaHJMNDJza1BoSUtW","UiLocales":null,"Nonce":"UDd6LVZFTWtDVnRMc0pBbE83U35PSVVQLTdWUkZzR2oyaHJMNDJza1BoSUtW","AuthenticationContextReferenceClasses":null,"DisplayMode":null,"PromptMode":"","MaxAge":null,"LoginHint":null,"SessionId":"B187EC8F30B2A2A4283B1717E8D79634","Raw":{"response_type":"code","client_id":"Tasky_App","state":"UDd6LVZFTWtDVnRMc0pBbE83U35PSVVQLTdWUkZzR2oyaHJMNDJza1BoSUtW","redirect_uri":"http://localhost:4200","scope":"offline_access IdentityService AdministrationService SaasService role email openid profile","code_challenge":"UHKk0bi3Mqe9ZbapzJ19JwR3xP_ZqgtWr94Gvj6NCrc","code_challenge_method":"S256","nonce":"UDd6LVZFTWtDVnRMc0pBbE83U35PSVVQLTdWUkZzR2oyaHJMNDJza1BoSUtW","culture":"en","ui-culture":"en"},"$type":"AuthorizeRequestValidationLog"}
+2022-03-14 19:27:45.385 +01:00 [DBG] Client is configured to not require consent, no consent is required
+2022-03-14 19:27:45.386 +01:00 [DBG] Creating Authorization Code Flow response.
+2022-03-14 19:27:45.518 +01:00 [INF] {"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":"http://localhost:4200","Endpoint":"Authorize","SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","Scopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","GrantType":"authorization_code","Tokens":[{"TokenType":"code","TokenValue":"****6F3C","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HMG5T14Q1IRU:00000001","TimeStamp":"2022-03-14T18:27:45.0000000Z","ProcessId":33920,"LocalIpAddress":"::1:7000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2022-03-14 19:27:45.518 +01:00 [DBG] Authorize endpoint response
+{"SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","ClientId":"Tasky_App","RedirectUri":"http://localhost:4200","State":"UDd6LVZFTWtDVnRMc0pBbE83U35PSVVQLTdWUkZzR2oyaHJMNDJza1BoSUtW","Scope":"offline_access IdentityService AdministrationService SaasService role email openid profile","Error":null,"ErrorDescription":null,"$type":"AuthorizeResponseLog"}
+2022-03-14 19:27:45.649 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/connect/authorize?response_type=code&client_id=Tasky_App&state=UDd6LVZFTWtDVnRMc0pBbE83U35PSVVQLTdWUkZzR2oyaHJMNDJza1BoSUtW&redirect_uri=http%3A%2F%2Flocalhost%3A4200&scope=offline_access%20IdentityService%20AdministrationService%20SaasService%20role%20email%20openid%20profile&code_challenge=UHKk0bi3Mqe9ZbapzJ19JwR3xP_ZqgtWr94Gvj6NCrc&code_challenge_method=S256&nonce=UDd6LVZFTWtDVnRMc0pBbE83U35PSVVQLTdWUkZzR2oyaHJMNDJza1BoSUtW&culture=en&ui-culture=en - - - 302 0 - 1161.2064ms
+2022-03-14 19:27:46.327 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 19:27:46.327 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:27:46.327 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration - - - 204 - - 0.4497ms
+2022-03-14 19:27:46.329 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 19:27:46.329 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:27:46.330 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration from origin: http://localhost:4200
+2022-03-14 19:27:46.332 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 19:27:46.332 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:27:46.333 +01:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2022-03-14 19:27:46.336 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2022-03-14 19:27:46.336 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2022-03-14 19:27:46.336 +01:00 [DBG] Start discovery request
+2022-03-14 19:27:46.352 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - - - 200 - application/json;+charset=UTF-8 22.6406ms
+2022-03-14 19:27:46.658 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 19:27:46.658 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:27:46.658 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration/jwks - - - 204 - - 0.3911ms
+2022-03-14 19:27:46.660 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 19:27:46.660 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:27:46.660 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration/jwks from origin: http://localhost:4200
+2022-03-14 19:27:46.662 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 19:27:46.662 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:27:46.663 +01:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2022-03-14 19:27:46.667 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2022-03-14 19:27:46.667 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2022-03-14 19:27:46.667 +01:00 [DBG] Start key discovery request
+2022-03-14 19:27:46.667 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - - - 200 - application/json;+charset=UTF-8 7.6008ms
+2022-03-14 19:27:46.866 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7000/connect/token - -
+2022-03-14 19:27:46.866 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:27:46.866 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7000/connect/token - - - 204 - - 0.4558ms
+2022-03-14 19:27:46.868 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7000/connect/token application/x-www-form-urlencoded 237
+2022-03-14 19:27:46.868 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:27:46.872 +01:00 [DBG] CORS request made for path: /connect/token from origin: http://localhost:4200
+2022-03-14 19:27:46.874 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 19:27:46.874 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:27:46.875 +01:00 [DBG] Request path /connect/token matched to endpoint type Token
+2022-03-14 19:27:46.907 +01:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2022-03-14 19:27:46.907 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2022-03-14 19:27:46.908 +01:00 [DBG] Start token request.
+2022-03-14 19:27:46.909 +01:00 [DBG] Start client validation
+2022-03-14 19:27:46.912 +01:00 [DBG] Start parsing Basic Authentication secret
+2022-03-14 19:27:46.913 +01:00 [DBG] Start parsing for secret in post body
+2022-03-14 19:27:46.913 +01:00 [DBG] client id without secret found
+2022-03-14 19:27:46.913 +01:00 [DBG] Parser found secret: PostBodySecretParser
+2022-03-14 19:27:46.913 +01:00 [DBG] Secret id found: Tasky_App
+2022-03-14 19:27:46.921 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 19:27:46.921 +01:00 [DBG] Public Client - skipping secret validation success
+2022-03-14 19:27:46.921 +01:00 [DBG] Client validation success
+2022-03-14 19:27:46.921 +01:00 [INF] {"ClientId":"Tasky_App","AuthenticationMethod":"NoSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HMG5T14Q1IRR:00000013","TimeStamp":"2022-03-14T18:27:46.0000000Z","ProcessId":33920,"LocalIpAddress":"::1:7000","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2022-03-14 19:27:46.923 +01:00 [DBG] Start token request validation
+2022-03-14 19:27:46.925 +01:00 [DBG] Start validation of authorization code token request
+2022-03-14 19:27:47.029 +01:00 [DBG] Client required a proof key for code exchange. Starting PKCE validation
+2022-03-14 19:27:47.084 +01:00 [DBG] Validation of authorization code token request success
+2022-03-14 19:27:47.085 +01:00 [INF] Token request validation success, {"ClientId":"Tasky_App","ClientName":"Tasky_App","GrantType":"authorization_code","Scopes":null,"AuthorizationCode":"****6F3C","RefreshToken":"********","UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"authorization_code","code":"E356C8200B29B2260EF91C70160389CF987D52EB39EE8CD1A5E8386917D76F3C","redirect_uri":"http://localhost:4200","code_verifier":"RmNOMnNTWGlldEdpNC4uTURIUXVoMjZpcmV-MUZEYUQ0R0hUWVI1YU96YU52","client_id":"Tasky_App"},"$type":"TokenRequestValidationLog"}
+2022-03-14 19:27:47.095 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 19:27:47.216 +01:00 [DBG] Getting claims for access token for client: Tasky_App
+2022-03-14 19:27:47.216 +01:00 [DBG] Getting claims for access token for subject: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a
+2022-03-14 19:27:47.590 +01:00 [DBG] Creating refresh token
+2022-03-14 19:27:47.590 +01:00 [DBG] Setting an absolute lifetime: 31536000
+2022-03-14 19:27:47.637 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 19:27:47.750 +01:00 [DBG] Getting claims for identity token for subject: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a and client: Tasky_App
+2022-03-14 19:27:47.975 +01:00 [INF] {"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":null,"Endpoint":"Token","SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","Scopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","GrantType":"authorization_code","Tokens":[{"TokenType":"id_token","TokenValue":"****kWcQ","$type":"Token"},{"TokenType":"refresh_token","TokenValue":"****C02A","$type":"Token"},{"TokenType":"access_token","TokenValue":"****W_Nw","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HMG5T14Q1IRR:00000013","TimeStamp":"2022-03-14T18:27:47.0000000Z","ProcessId":33920,"LocalIpAddress":"::1:7000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2022-03-14 19:27:47.975 +01:00 [DBG] Token request success.
+2022-03-14 19:27:48.033 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7000/connect/token application/x-www-form-urlencoded 237 - 200 - application/json;+charset=UTF-8 1165.0050ms
+2022-03-14 19:27:51.376 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 19:27:51.377 +01:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2022-03-14 19:27:51.379 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2022-03-14 19:27:51.379 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2022-03-14 19:27:51.379 +01:00 [DBG] Start discovery request
+2022-03-14 19:27:51.385 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration - - - 200 - application/json;+charset=UTF-8 8.8099ms
+2022-03-14 19:27:51.489 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 19:27:51.490 +01:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2022-03-14 19:27:51.493 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2022-03-14 19:27:51.493 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2022-03-14 19:27:51.493 +01:00 [DBG] Start key discovery request
+2022-03-14 19:27:51.493 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration/jwks - - - 200 - application/json;+charset=UTF-8 4.2528ms
+2022-03-14 19:28:13.976 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/connect/authorize?response_type=code&client_id=Tasky_App&state=NG14Z0suWFItS0hZcERvd200RFl5WjM1WUpGay1WaVcuaS5sVmprQjZtTnFf&redirect_uri=http%3A%2F%2Flocalhost%3A4200&scope=offline_access%20IdentityService%20AdministrationService%20SaasService%20role%20email%20openid%20profile&code_challenge=v9YBZK8hQ61exG4c0856noJbtfXuX8HnGkB71-0bp2U&code_challenge_method=S256&nonce=NG14Z0suWFItS0hZcERvd200RFl5WjM1WUpGay1WaVcuaS5sVmprQjZtTnFf&culture=en&ui-culture=en - -
+2022-03-14 19:28:13.981 +01:00 [DBG] Request path /connect/authorize matched to endpoint type Authorize
+2022-03-14 19:28:13.984 +01:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeEndpoint
+2022-03-14 19:28:13.984 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+2022-03-14 19:28:13.984 +01:00 [DBG] Start authorize request
+2022-03-14 19:28:13.984 +01:00 [DBG] User in authorize request: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a
+2022-03-14 19:28:13.984 +01:00 [DBG] Start authorize request protocol validation
+2022-03-14 19:28:13.992 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 19:28:13.992 +01:00 [DBG] Checking for PKCE parameters
+2022-03-14 19:28:14.117 +01:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2022-03-14 19:28:14.118 +01:00 [DBG] ValidatedAuthorizeRequest
+{"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":"http://localhost:4200","AllowedRedirectUris":["http://localhost:4200"],"SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","ResponseType":"code","ResponseMode":"query","GrantType":"authorization_code","RequestedScopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","State":"NG14Z0suWFItS0hZcERvd200RFl5WjM1WUpGay1WaVcuaS5sVmprQjZtTnFf","UiLocales":null,"Nonce":"NG14Z0suWFItS0hZcERvd200RFl5WjM1WUpGay1WaVcuaS5sVmprQjZtTnFf","AuthenticationContextReferenceClasses":null,"DisplayMode":null,"PromptMode":"","MaxAge":null,"LoginHint":null,"SessionId":"B187EC8F30B2A2A4283B1717E8D79634","Raw":{"response_type":"code","client_id":"Tasky_App","state":"NG14Z0suWFItS0hZcERvd200RFl5WjM1WUpGay1WaVcuaS5sVmprQjZtTnFf","redirect_uri":"http://localhost:4200","scope":"offline_access IdentityService AdministrationService SaasService role email openid profile","code_challenge":"v9YBZK8hQ61exG4c0856noJbtfXuX8HnGkB71-0bp2U","code_challenge_method":"S256","nonce":"NG14Z0suWFItS0hZcERvd200RFl5WjM1WUpGay1WaVcuaS5sVmprQjZtTnFf","culture":"en","ui-culture":"en"},"$type":"AuthorizeRequestValidationLog"}
+2022-03-14 19:28:14.169 +01:00 [DBG] Client is configured to not require consent, no consent is required
+2022-03-14 19:28:14.169 +01:00 [DBG] Creating Authorization Code Flow response.
+2022-03-14 19:28:14.205 +01:00 [INF] {"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":"http://localhost:4200","Endpoint":"Authorize","SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","Scopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","GrantType":"authorization_code","Tokens":[{"TokenType":"code","TokenValue":"****95DD","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HMG5T14Q1IRU:00000003","TimeStamp":"2022-03-14T18:28:14.0000000Z","ProcessId":33920,"LocalIpAddress":"::1:7000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2022-03-14 19:28:14.205 +01:00 [DBG] Authorize endpoint response
+{"SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","ClientId":"Tasky_App","RedirectUri":"http://localhost:4200","State":"NG14Z0suWFItS0hZcERvd200RFl5WjM1WUpGay1WaVcuaS5sVmprQjZtTnFf","Scope":"offline_access IdentityService AdministrationService SaasService role email openid profile","Error":null,"ErrorDescription":null,"$type":"AuthorizeResponseLog"}
+2022-03-14 19:28:14.239 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/connect/authorize?response_type=code&client_id=Tasky_App&state=NG14Z0suWFItS0hZcERvd200RFl5WjM1WUpGay1WaVcuaS5sVmprQjZtTnFf&redirect_uri=http%3A%2F%2Flocalhost%3A4200&scope=offline_access%20IdentityService%20AdministrationService%20SaasService%20role%20email%20openid%20profile&code_challenge=v9YBZK8hQ61exG4c0856noJbtfXuX8HnGkB71-0bp2U&code_challenge_method=S256&nonce=NG14Z0suWFItS0hZcERvd200RFl5WjM1WUpGay1WaVcuaS5sVmprQjZtTnFf&culture=en&ui-culture=en - - - 302 0 - 263.1974ms
+2022-03-14 19:28:14.990 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 19:28:14.991 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:28:14.991 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration - - - 204 - - 0.6206ms
+2022-03-14 19:28:14.992 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 19:28:14.993 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:28:14.993 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration from origin: http://localhost:4200
+2022-03-14 19:28:14.995 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 19:28:14.995 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:28:14.996 +01:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2022-03-14 19:28:14.999 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2022-03-14 19:28:14.999 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2022-03-14 19:28:14.999 +01:00 [DBG] Start discovery request
+2022-03-14 19:28:15.005 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - - - 200 - application/json;+charset=UTF-8 12.2510ms
+2022-03-14 19:28:15.268 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 19:28:15.268 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:28:15.269 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7000/.well-known/openid-configuration/jwks - - - 204 - - 0.3208ms
+2022-03-14 19:28:15.270 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 19:28:15.271 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:28:15.271 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration/jwks from origin: http://localhost:4200
+2022-03-14 19:28:15.273 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 19:28:15.273 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:28:15.274 +01:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2022-03-14 19:28:15.276 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2022-03-14 19:28:15.276 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2022-03-14 19:28:15.276 +01:00 [DBG] Start key discovery request
+2022-03-14 19:28:15.276 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - - - 200 - application/json;+charset=UTF-8 5.7057ms
+2022-03-14 19:28:15.455 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7000/connect/token - -
+2022-03-14 19:28:15.455 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:28:15.456 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7000/connect/token - - - 204 - - 0.5618ms
+2022-03-14 19:28:15.457 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7000/connect/token application/x-www-form-urlencoded 237
+2022-03-14 19:28:15.457 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:28:15.458 +01:00 [DBG] CORS request made for path: /connect/token from origin: http://localhost:4200
+2022-03-14 19:28:15.461 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 19:28:15.461 +01:00 [INF] CORS policy execution successful.
+2022-03-14 19:28:15.461 +01:00 [DBG] Request path /connect/token matched to endpoint type Token
+2022-03-14 19:28:15.468 +01:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2022-03-14 19:28:15.468 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2022-03-14 19:28:15.468 +01:00 [DBG] Start token request.
+2022-03-14 19:28:15.468 +01:00 [DBG] Start client validation
+2022-03-14 19:28:15.468 +01:00 [DBG] Start parsing Basic Authentication secret
+2022-03-14 19:28:15.468 +01:00 [DBG] Start parsing for secret in post body
+2022-03-14 19:28:15.468 +01:00 [DBG] client id without secret found
+2022-03-14 19:28:15.468 +01:00 [DBG] Parser found secret: PostBodySecretParser
+2022-03-14 19:28:15.468 +01:00 [DBG] Secret id found: Tasky_App
+2022-03-14 19:28:15.477 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 19:28:15.477 +01:00 [DBG] Public Client - skipping secret validation success
+2022-03-14 19:28:15.477 +01:00 [DBG] Client validation success
+2022-03-14 19:28:15.477 +01:00 [INF] {"ClientId":"Tasky_App","AuthenticationMethod":"NoSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HMG5T14Q1IRR:0000001F","TimeStamp":"2022-03-14T18:28:15.0000000Z","ProcessId":33920,"LocalIpAddress":"::1:7000","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2022-03-14 19:28:15.477 +01:00 [DBG] Start token request validation
+2022-03-14 19:28:15.477 +01:00 [DBG] Start validation of authorization code token request
+2022-03-14 19:28:15.554 +01:00 [DBG] Client required a proof key for code exchange. Starting PKCE validation
+2022-03-14 19:28:15.613 +01:00 [DBG] Validation of authorization code token request success
+2022-03-14 19:28:15.613 +01:00 [INF] Token request validation success, {"ClientId":"Tasky_App","ClientName":"Tasky_App","GrantType":"authorization_code","Scopes":null,"AuthorizationCode":"****95DD","RefreshToken":"********","UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"authorization_code","code":"132369665C6109A79380C95441C3D93528112A8F55F4732867179FFC2D5295DD","redirect_uri":"http://localhost:4200","code_verifier":"a1JqcW5rbEN0Y194ZjB-cW5CRW8tZGotcHdzY2U5d2R4QUV5ZGRwVHFTMWx0","client_id":"Tasky_App"},"$type":"TokenRequestValidationLog"}
+2022-03-14 19:28:15.621 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 19:28:15.735 +01:00 [DBG] Getting claims for access token for client: Tasky_App
+2022-03-14 19:28:15.736 +01:00 [DBG] Getting claims for access token for subject: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a
+2022-03-14 19:28:15.962 +01:00 [DBG] Creating refresh token
+2022-03-14 19:28:15.962 +01:00 [DBG] Setting an absolute lifetime: 31536000
+2022-03-14 19:28:16.005 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 19:28:16.115 +01:00 [DBG] Getting claims for identity token for subject: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a and client: Tasky_App
+2022-03-14 19:28:16.361 +01:00 [INF] {"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":null,"Endpoint":"Token","SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","Scopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","GrantType":"authorization_code","Tokens":[{"TokenType":"id_token","TokenValue":"****bscw","$type":"Token"},{"TokenType":"refresh_token","TokenValue":"****34C6","$type":"Token"},{"TokenType":"access_token","TokenValue":"****C6hw","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HMG5T14Q1IRR:0000001F","TimeStamp":"2022-03-14T18:28:16.0000000Z","ProcessId":33920,"LocalIpAddress":"::1:7000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2022-03-14 19:28:16.361 +01:00 [DBG] Token request success.
+2022-03-14 19:28:16.399 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7000/connect/token application/x-www-form-urlencoded 237 - 200 - application/json;+charset=UTF-8 941.6306ms
+2022-03-14 21:02:27.722 +01:00 [INF] Application is shutting down...
+2022-03-14 21:02:27.743 +01:00 [DBG] Stopped background worker: Volo.Abp.IdentityServer.Tokens.TokenCleanupBackgroundWorker
+2022-03-14 21:02:48.911 +01:00 [INF] Starting Tasky.IdentityServer.
+2022-03-14 21:02:50.370 +01:00 [INF] Loaded ABP modules:
+2022-03-14 21:02:50.371 +01:00 [INF] - Tasky.TaskyIdentityServerModule
+2022-03-14 21:02:50.371 +01:00 [INF]   - Volo.Abp.Autofac.AbpAutofacModule
+2022-03-14 21:02:50.371 +01:00 [INF]     - Volo.Abp.Castle.AbpCastleCoreModule
+2022-03-14 21:02:50.371 +01:00 [INF]   - Volo.Abp.Caching.StackExchangeRedis.AbpCachingStackExchangeRedisModule
+2022-03-14 21:02:50.371 +01:00 [INF]     - Volo.Abp.Caching.AbpCachingModule
+2022-03-14 21:02:50.371 +01:00 [INF]       - Volo.Abp.Threading.AbpThreadingModule
+2022-03-14 21:02:50.371 +01:00 [INF]       - Volo.Abp.Serialization.AbpSerializationModule
+2022-03-14 21:02:50.371 +01:00 [INF]       - Volo.Abp.Uow.AbpUnitOfWorkModule
+2022-03-14 21:02:50.371 +01:00 [INF]       - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2022-03-14 21:02:50.371 +01:00 [INF]         - Volo.Abp.Data.AbpDataModule
+2022-03-14 21:02:50.371 +01:00 [INF]           - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2022-03-14 21:02:50.371 +01:00 [INF]             - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2022-03-14 21:02:50.371 +01:00 [INF]             - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2022-03-14 21:02:50.371 +01:00 [INF]           - Volo.Abp.EventBus.Abstractions.AbpEventBusAbstractionsModule
+2022-03-14 21:02:50.371 +01:00 [INF]         - Volo.Abp.Security.AbpSecurityModule
+2022-03-14 21:02:50.371 +01:00 [INF]       - Volo.Abp.Json.AbpJsonModule
+2022-03-14 21:02:50.371 +01:00 [INF]         - Volo.Abp.Timing.AbpTimingModule
+2022-03-14 21:02:50.371 +01:00 [INF]           - Volo.Abp.Localization.AbpLocalizationModule
+2022-03-14 21:02:50.371 +01:00 [INF]             - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2022-03-14 21:02:50.371 +01:00 [INF]             - Volo.Abp.Settings.AbpSettingsModule
+2022-03-14 21:02:50.371 +01:00 [INF]   - Volo.Abp.Account.Web.AbpAccountWebIdentityServerModule
+2022-03-14 21:02:50.371 +01:00 [INF]     - Volo.Abp.Account.Web.AbpAccountWebModule
+2022-03-14 21:02:50.371 +01:00 [INF]       - Volo.Abp.Account.AbpAccountApplicationContractsModule
+2022-03-14 21:02:50.371 +01:00 [INF]         - Volo.Abp.Identity.AbpIdentityApplicationContractsModule
+2022-03-14 21:02:50.371 +01:00 [INF]           - Volo.Abp.Identity.AbpIdentityDomainSharedModule
+2022-03-14 21:02:50.371 +01:00 [INF]             - Volo.Abp.Users.AbpUsersDomainSharedModule
+2022-03-14 21:02:50.371 +01:00 [INF]             - Volo.Abp.Validation.AbpValidationModule
+2022-03-14 21:02:50.371 +01:00 [INF]             - Volo.Abp.Features.AbpFeaturesModule
+2022-03-14 21:02:50.371 +01:00 [INF]               - Volo.Abp.Authorization.AbpAuthorizationAbstractionsModule
+2022-03-14 21:02:50.371 +01:00 [INF]           - Volo.Abp.Users.AbpUsersAbstractionModule
+2022-03-14 21:02:50.371 +01:00 [INF]             - Volo.Abp.EventBus.AbpEventBusModule
+2022-03-14 21:02:50.371 +01:00 [INF]               - Volo.Abp.Guids.AbpGuidsModule
+2022-03-14 21:02:50.371 +01:00 [INF]               - Volo.Abp.BackgroundWorkers.AbpBackgroundWorkersModule
+2022-03-14 21:02:50.371 +01:00 [INF]               - Volo.Abp.DistributedLocking.AbpDistributedLockingAbstractionsModule
+2022-03-14 21:02:50.371 +01:00 [INF]           - Volo.Abp.Authorization.AbpAuthorizationModule
+2022-03-14 21:02:50.371 +01:00 [INF]           - Volo.Abp.PermissionManagement.AbpPermissionManagementApplicationContractsModule
+2022-03-14 21:02:50.371 +01:00 [INF]             - Volo.Abp.Application.AbpDddApplicationContractsModule
+2022-03-14 21:02:50.371 +01:00 [INF]               - Volo.Abp.Auditing.AbpAuditingContractsModule
+2022-03-14 21:02:50.371 +01:00 [INF]             - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainSharedModule
+2022-03-14 21:02:50.371 +01:00 [INF]       - Volo.Abp.Identity.AspNetCore.AbpIdentityAspNetCoreModule
+2022-03-14 21:02:50.371 +01:00 [INF]         - Volo.Abp.Identity.AbpIdentityDomainModule
+2022-03-14 21:02:50.371 +01:00 [INF]           - Volo.Abp.Domain.AbpDddDomainModule
+2022-03-14 21:02:50.371 +01:00 [INF]             - Volo.Abp.Auditing.AbpAuditingModule
+2022-03-14 21:02:50.371 +01:00 [INF]             - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2022-03-14 21:02:50.371 +01:00 [INF]             - Volo.Abp.ExceptionHandling.AbpExceptionHandlingModule
+2022-03-14 21:02:50.371 +01:00 [INF]             - Volo.Abp.Specifications.AbpSpecificationsModule
+2022-03-14 21:02:50.371 +01:00 [INF]           - Volo.Abp.Users.AbpUsersDomainModule
+2022-03-14 21:02:50.371 +01:00 [INF]           - Volo.Abp.AutoMapper.AbpAutoMapperModule
+2022-03-14 21:02:50.371 +01:00 [INF]       - Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.AbpAspNetCoreMvcUiThemeSharedModule
+2022-03-14 21:02:50.371 +01:00 [INF]         - Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.AbpAspNetCoreMvcUiBootstrapModule
+2022-03-14 21:02:50.372 +01:00 [INF]           - Volo.Abp.AspNetCore.Mvc.UI.AbpAspNetCoreMvcUiModule
+2022-03-14 21:02:50.372 +01:00 [INF]             - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcModule
+2022-03-14 21:02:50.372 +01:00 [INF]               - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2022-03-14 21:02:50.372 +01:00 [INF]                 - Volo.Abp.Http.AbpHttpModule
+2022-03-14 21:02:50.372 +01:00 [INF]                   - Volo.Abp.Http.AbpHttpAbstractionsModule
+2022-03-14 21:02:50.372 +01:00 [INF]                   - Volo.Abp.Minify.AbpMinifyModule
+2022-03-14 21:02:50.372 +01:00 [INF]               - Volo.Abp.ApiVersioning.AbpApiVersioningAbstractionsModule
+2022-03-14 21:02:50.372 +01:00 [INF]               - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcContractsModule
+2022-03-14 21:02:50.372 +01:00 [INF]               - Volo.Abp.UI.Navigation.AbpUiNavigationModule
+2022-03-14 21:02:50.372 +01:00 [INF]                 - Volo.Abp.UI.AbpUiModule
+2022-03-14 21:02:50.372 +01:00 [INF]               - Volo.Abp.GlobalFeatures.AbpGlobalFeaturesModule
+2022-03-14 21:02:50.372 +01:00 [INF]               - Volo.Abp.Application.AbpDddApplicationModule
+2022-03-14 21:02:50.372 +01:00 [INF]         - Volo.Abp.AspNetCore.Mvc.UI.Packages.AbpAspNetCoreMvcUiPackagesModule
+2022-03-14 21:02:50.372 +01:00 [INF]           - Volo.Abp.AspNetCore.Mvc.UI.Bundling.AbpAspNetCoreMvcUiBundlingAbstractionsModule
+2022-03-14 21:02:50.372 +01:00 [INF]         - Volo.Abp.AspNetCore.Mvc.UI.Widgets.AbpAspNetCoreMvcUiWidgetsModule
+2022-03-14 21:02:50.372 +01:00 [INF]           - Volo.Abp.AspNetCore.Mvc.UI.Bundling.AbpAspNetCoreMvcUiBundlingModule
+2022-03-14 21:02:50.372 +01:00 [INF]     - Volo.Abp.IdentityServer.AbpIdentityServerDomainModule
+2022-03-14 21:02:50.372 +01:00 [INF]       - Volo.Abp.IdentityServer.AbpIdentityServerDomainSharedModule
+2022-03-14 21:02:50.372 +01:00 [INF]   - Volo.Abp.Account.AbpAccountApplicationModule
+2022-03-14 21:02:50.372 +01:00 [INF]     - Volo.Abp.Identity.AbpIdentityApplicationModule
+2022-03-14 21:02:50.372 +01:00 [INF]       - Volo.Abp.PermissionManagement.AbpPermissionManagementApplicationModule
+2022-03-14 21:02:50.372 +01:00 [INF]         - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainModule
+2022-03-14 21:02:50.372 +01:00 [INF]     - Volo.Abp.Emailing.AbpEmailingModule
+2022-03-14 21:02:50.372 +01:00 [INF]       - Volo.Abp.BackgroundJobs.AbpBackgroundJobsAbstractionsModule
+2022-03-14 21:02:50.372 +01:00 [INF]       - Volo.Abp.TextTemplating.AbpTextTemplatingModule
+2022-03-14 21:02:50.372 +01:00 [INF]         - Volo.Abp.TextTemplating.Scriban.AbpTextTemplatingScribanModule
+2022-03-14 21:02:50.372 +01:00 [INF]           - Volo.Abp.TextTemplating.AbpTextTemplatingCoreModule
+2022-03-14 21:02:50.372 +01:00 [INF]   - Volo.Abp.Account.AbpAccountHttpApiModule
+2022-03-14 21:02:50.372 +01:00 [INF]     - Volo.Abp.Identity.AbpIdentityHttpApiModule
+2022-03-14 21:02:50.372 +01:00 [INF]   - Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.AbpAspNetCoreMvcUiBasicThemeModule
+2022-03-14 21:02:50.372 +01:00 [INF]     - Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy.AbpAspNetCoreMvcUiMultiTenancyModule
+2022-03-14 21:02:50.372 +01:00 [INF]       - Volo.Abp.AspNetCore.MultiTenancy.AbpAspNetCoreMultiTenancyModule
+2022-03-14 21:02:50.372 +01:00 [INF]   - Volo.Abp.AspNetCore.Serilog.AbpAspNetCoreSerilogModule
+2022-03-14 21:02:50.372 +01:00 [INF]   - Volo.Abp.EntityFrameworkCore.PostgreSql.AbpEntityFrameworkCorePostgreSqlModule
+2022-03-14 21:02:50.372 +01:00 [INF]     - Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule
+2022-03-14 21:02:50.372 +01:00 [INF]   - Tasky.Administration.EntityFrameworkCore.AdministrationEntityFrameworkCoreModule
+2022-03-14 21:02:50.372 +01:00 [INF]     - Tasky.Administration.AdministrationDomainModule
+2022-03-14 21:02:50.372 +01:00 [INF]       - Tasky.Administration.AdministrationDomainSharedModule
+2022-03-14 21:02:50.372 +01:00 [INF]         - Volo.Abp.SettingManagement.AbpSettingManagementDomainSharedModule
+2022-03-14 21:02:50.372 +01:00 [INF]         - Volo.Abp.AuditLogging.AbpAuditLoggingDomainSharedModule
+2022-03-14 21:02:50.372 +01:00 [INF]         - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainSharedModule
+2022-03-14 21:02:50.372 +01:00 [INF]       - Volo.Abp.PermissionManagement.IdentityServer.AbpPermissionManagementDomainIdentityServerModule
+2022-03-14 21:02:50.372 +01:00 [INF]       - Volo.Abp.PermissionManagement.Identity.AbpPermissionManagementDomainIdentityModule
+2022-03-14 21:02:50.372 +01:00 [INF]       - Volo.Abp.SettingManagement.AbpSettingManagementDomainModule
+2022-03-14 21:02:50.372 +01:00 [INF]       - Volo.Abp.AuditLogging.AbpAuditLoggingDomainModule
+2022-03-14 21:02:50.372 +01:00 [INF]       - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainModule
+2022-03-14 21:02:50.372 +01:00 [INF]     - Volo.Abp.PermissionManagement.EntityFrameworkCore.AbpPermissionManagementEntityFrameworkCoreModule
+2022-03-14 21:02:50.372 +01:00 [INF]     - Volo.Abp.SettingManagement.EntityFrameworkCore.AbpSettingManagementEntityFrameworkCoreModule
+2022-03-14 21:02:50.372 +01:00 [INF]     - Volo.Abp.AuditLogging.EntityFrameworkCore.AbpAuditLoggingEntityFrameworkCoreModule
+2022-03-14 21:02:50.372 +01:00 [INF]     - Volo.Abp.FeatureManagement.EntityFrameworkCore.AbpFeatureManagementEntityFrameworkCoreModule
+2022-03-14 21:02:50.372 +01:00 [INF]   - Tasky.SaaS.EntityFrameworkCore.SaaSEntityFrameworkCoreModule
+2022-03-14 21:02:50.372 +01:00 [INF]     - Tasky.SaaS.SaaSDomainModule
+2022-03-14 21:02:50.372 +01:00 [INF]       - Tasky.SaaS.SaaSDomainSharedModule
+2022-03-14 21:02:50.372 +01:00 [INF]         - Volo.Abp.TenantManagement.AbpTenantManagementDomainSharedModule
+2022-03-14 21:02:50.372 +01:00 [INF]       - Volo.Abp.TenantManagement.AbpTenantManagementDomainModule
+2022-03-14 21:02:50.372 +01:00 [INF]     - Volo.Abp.TenantManagement.EntityFrameworkCore.AbpTenantManagementEntityFrameworkCoreModule
+2022-03-14 21:02:50.372 +01:00 [INF]   - Tasky.IdentityService.EntityFrameworkCore.IdentityServiceEntityFrameworkCoreModule
+2022-03-14 21:02:50.372 +01:00 [INF]     - Tasky.IdentityService.IdentityServiceDomainModule
+2022-03-14 21:02:50.372 +01:00 [INF]       - Tasky.IdentityService.IdentityServiceDomainSharedModule
+2022-03-14 21:02:50.372 +01:00 [INF]     - Volo.Abp.Identity.EntityFrameworkCore.AbpIdentityEntityFrameworkCoreModule
+2022-03-14 21:02:50.372 +01:00 [INF]       - Volo.Abp.Users.EntityFrameworkCore.AbpUsersEntityFrameworkCoreModule
+2022-03-14 21:02:50.372 +01:00 [INF]     - Volo.Abp.IdentityServer.EntityFrameworkCore.AbpIdentityServerEntityFrameworkCoreModule
+2022-03-14 21:02:50.372 +01:00 [INF]   - Tasky.Microservice.Shared.TaskyMicroserviceModule
+2022-03-14 21:02:50.433 +01:00 [DBG] Started background worker: Volo.Abp.IdentityServer.Tokens.TokenCleanupBackgroundWorker
+2022-03-14 21:02:50.436 +01:00 [INF] Starting IdentityServer4 version 4.1.2+997a6cdd643e46cd5762b710c4ddc43574cbec2e
+2022-03-14 21:02:50.994 +01:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2022-03-14 21:02:50.994 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2022-03-14 21:02:50.994 +01:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2022-03-14 21:02:50.994 +01:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2022-03-14 21:02:50.994 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2022-03-14 21:02:50.994 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2022-03-14 21:02:51.174 +01:00 [INF] User profile is available. Using 'C:\Users\antos\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-03-14 21:02:51.343 +01:00 [INF] Initialized all ABP modules.
+2022-03-14 21:02:51.450 +01:00 [INF] Now listening on: https://localhost:7000
+2022-03-14 21:02:51.450 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-03-14 21:02:51.450 +01:00 [INF] Hosting environment: Development
+2022-03-14 21:02:51.451 +01:00 [INF] Content root path: C:\repos\GitHub\AbpMicroservice\apps\Tasky.IdentityServer\
+2022-03-14 21:02:56.566 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 21:02:58.094 +01:00 [INF] CORS policy execution successful.
+2022-03-14 21:02:58.106 +01:00 [DBG] Login Url: /Account/Login
+2022-03-14 21:02:58.106 +01:00 [DBG] Login Return Url Parameter: ReturnUrl
+2022-03-14 21:02:58.106 +01:00 [DBG] Logout Url: /Account/Logout
+2022-03-14 21:02:58.106 +01:00 [DBG] ConsentUrl Url: /Consent
+2022-03-14 21:02:58.106 +01:00 [DBG] Consent Return Url Parameter: returnUrl
+2022-03-14 21:02:58.106 +01:00 [DBG] Error Url: /Account/Error
+2022-03-14 21:02:58.106 +01:00 [DBG] Error Id Parameter: errorId
+2022-03-14 21:02:58.139 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration from origin: http://localhost:4200
+2022-03-14 21:02:58.441 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 21:02:58.442 +01:00 [INF] CORS policy execution successful.
+2022-03-14 21:02:58.448 +01:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2022-03-14 21:02:58.549 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2022-03-14 21:02:58.549 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2022-03-14 21:02:58.550 +01:00 [DBG] Start discovery request
+2022-03-14 21:02:59.027 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - - - 200 - application/json;+charset=UTF-8 2460.6528ms
+2022-03-14 21:02:59.028 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 21:02:59.029 +01:00 [INF] CORS policy execution successful.
+2022-03-14 21:02:59.030 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration/jwks from origin: http://localhost:4200
+2022-03-14 21:02:59.033 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 21:02:59.033 +01:00 [INF] CORS policy execution successful.
+2022-03-14 21:02:59.033 +01:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2022-03-14 21:02:59.035 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2022-03-14 21:02:59.035 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2022-03-14 21:02:59.036 +01:00 [DBG] Start key discovery request
+2022-03-14 21:02:59.043 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - - - 200 - application/json;+charset=UTF-8 14.9969ms
+2022-03-14 21:03:04.142 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/connect/authorize?response_type=code&client_id=Tasky_App&state=Mk0wNmdTUEkzN20wVmJxamU2YklXd2RULmt1bTdIVUJnOGY1aE9oS3BIaWpR&redirect_uri=http%3A%2F%2Flocalhost%3A4200&scope=offline_access%20IdentityService%20AdministrationService%20SaasService%20role%20email%20openid%20profile&code_challenge=5-BSwVmo9t8bV3s8JxXvYU8Tqawl335_iWpeP83lQno&code_challenge_method=S256&nonce=Mk0wNmdTUEkzN20wVmJxamU2YklXd2RULmt1bTdIVUJnOGY1aE9oS3BIaWpR&culture=en&ui-culture=en - -
+2022-03-14 21:03:04.692 +01:00 [DBG] Request path /connect/authorize matched to endpoint type Authorize
+2022-03-14 21:03:04.702 +01:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeEndpoint
+2022-03-14 21:03:04.702 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+2022-03-14 21:03:04.703 +01:00 [DBG] Start authorize request
+2022-03-14 21:03:04.706 +01:00 [DBG] User in authorize request: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a
+2022-03-14 21:03:04.707 +01:00 [DBG] Start authorize request protocol validation
+2022-03-14 21:03:04.980 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 21:03:04.987 +01:00 [DBG] Checking for PKCE parameters
+2022-03-14 21:03:05.252 +01:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2022-03-14 21:03:05.259 +01:00 [DBG] ValidatedAuthorizeRequest
+{"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":"http://localhost:4200","AllowedRedirectUris":["http://localhost:4200"],"SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","ResponseType":"code","ResponseMode":"query","GrantType":"authorization_code","RequestedScopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","State":"Mk0wNmdTUEkzN20wVmJxamU2YklXd2RULmt1bTdIVUJnOGY1aE9oS3BIaWpR","UiLocales":null,"Nonce":"Mk0wNmdTUEkzN20wVmJxamU2YklXd2RULmt1bTdIVUJnOGY1aE9oS3BIaWpR","AuthenticationContextReferenceClasses":null,"DisplayMode":null,"PromptMode":"","MaxAge":null,"LoginHint":null,"SessionId":"B187EC8F30B2A2A4283B1717E8D79634","Raw":{"response_type":"code","client_id":"Tasky_App","state":"Mk0wNmdTUEkzN20wVmJxamU2YklXd2RULmt1bTdIVUJnOGY1aE9oS3BIaWpR","redirect_uri":"http://localhost:4200","scope":"offline_access IdentityService AdministrationService SaasService role email openid profile","code_challenge":"5-BSwVmo9t8bV3s8JxXvYU8Tqawl335_iWpeP83lQno","code_challenge_method":"S256","nonce":"Mk0wNmdTUEkzN20wVmJxamU2YklXd2RULmt1bTdIVUJnOGY1aE9oS3BIaWpR","culture":"en","ui-culture":"en"},"$type":"AuthorizeRequestValidationLog"}
+2022-03-14 21:03:05.327 +01:00 [DBG] Client is configured to not require consent, no consent is required
+2022-03-14 21:03:05.329 +01:00 [DBG] Creating Authorization Code Flow response.
+2022-03-14 21:03:05.464 +01:00 [INF] {"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":"http://localhost:4200","Endpoint":"Authorize","SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","Scopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","GrantType":"authorization_code","Tokens":[{"TokenType":"code","TokenValue":"****AA20","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HMG5UMGRN3VO:00000001","TimeStamp":"2022-03-14T20:03:05.0000000Z","ProcessId":8360,"LocalIpAddress":"::1:7000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2022-03-14 21:03:05.464 +01:00 [DBG] Authorize endpoint response
+{"SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","ClientId":"Tasky_App","RedirectUri":"http://localhost:4200","State":"Mk0wNmdTUEkzN20wVmJxamU2YklXd2RULmt1bTdIVUJnOGY1aE9oS3BIaWpR","Scope":"offline_access IdentityService AdministrationService SaasService role email openid profile","Error":null,"ErrorDescription":null,"$type":"AuthorizeResponseLog"}
+2022-03-14 21:03:05.627 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/connect/authorize?response_type=code&client_id=Tasky_App&state=Mk0wNmdTUEkzN20wVmJxamU2YklXd2RULmt1bTdIVUJnOGY1aE9oS3BIaWpR&redirect_uri=http%3A%2F%2Flocalhost%3A4200&scope=offline_access%20IdentityService%20AdministrationService%20SaasService%20role%20email%20openid%20profile&code_challenge=5-BSwVmo9t8bV3s8JxXvYU8Tqawl335_iWpeP83lQno&code_challenge_method=S256&nonce=Mk0wNmdTUEkzN20wVmJxamU2YklXd2RULmt1bTdIVUJnOGY1aE9oS3BIaWpR&culture=en&ui-culture=en - - - 302 0 - 1484.9212ms
+2022-03-14 21:03:06.658 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 21:03:06.658 +01:00 [INF] CORS policy execution successful.
+2022-03-14 21:03:06.659 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration from origin: http://localhost:4200
+2022-03-14 21:03:06.662 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 21:03:06.662 +01:00 [INF] CORS policy execution successful.
+2022-03-14 21:03:06.663 +01:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2022-03-14 21:03:06.666 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2022-03-14 21:03:06.666 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2022-03-14 21:03:06.666 +01:00 [DBG] Start discovery request
+2022-03-14 21:03:06.679 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration - - - 200 - application/json;+charset=UTF-8 20.4624ms
+2022-03-14 21:03:06.945 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 21:03:06.945 +01:00 [INF] CORS policy execution successful.
+2022-03-14 21:03:06.946 +01:00 [DBG] CORS request made for path: /.well-known/openid-configuration/jwks from origin: http://localhost:4200
+2022-03-14 21:03:06.948 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 21:03:06.948 +01:00 [INF] CORS policy execution successful.
+2022-03-14 21:03:06.948 +01:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2022-03-14 21:03:06.950 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2022-03-14 21:03:06.950 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2022-03-14 21:03:06.950 +01:00 [DBG] Start key discovery request
+2022-03-14 21:03:06.950 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7000/.well-known/openid-configuration/jwks - - - 200 - application/json;+charset=UTF-8 5.6200ms
+2022-03-14 21:03:07.147 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7000/connect/token application/x-www-form-urlencoded 237
+2022-03-14 21:03:07.147 +01:00 [INF] CORS policy execution successful.
+2022-03-14 21:03:07.151 +01:00 [DBG] CORS request made for path: /connect/token from origin: http://localhost:4200
+2022-03-14 21:03:07.153 +01:00 [DBG] CorsPolicyService allowed origin: http://localhost:4200
+2022-03-14 21:03:07.153 +01:00 [INF] CORS policy execution successful.
+2022-03-14 21:03:07.153 +01:00 [DBG] Request path /connect/token matched to endpoint type Token
+2022-03-14 21:03:07.182 +01:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2022-03-14 21:03:07.182 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2022-03-14 21:03:07.184 +01:00 [DBG] Start token request.
+2022-03-14 21:03:07.185 +01:00 [DBG] Start client validation
+2022-03-14 21:03:07.187 +01:00 [DBG] Start parsing Basic Authentication secret
+2022-03-14 21:03:07.188 +01:00 [DBG] Start parsing for secret in post body
+2022-03-14 21:03:07.188 +01:00 [DBG] client id without secret found
+2022-03-14 21:03:07.188 +01:00 [DBG] Parser found secret: PostBodySecretParser
+2022-03-14 21:03:07.188 +01:00 [DBG] Secret id found: Tasky_App
+2022-03-14 21:03:07.202 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 21:03:07.202 +01:00 [DBG] Public Client - skipping secret validation success
+2022-03-14 21:03:07.202 +01:00 [DBG] Client validation success
+2022-03-14 21:03:07.203 +01:00 [INF] {"ClientId":"Tasky_App","AuthenticationMethod":"NoSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HMG5UMGRN3VN:00000009","TimeStamp":"2022-03-14T20:03:07.0000000Z","ProcessId":8360,"LocalIpAddress":"::1:7000","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2022-03-14 21:03:07.204 +01:00 [DBG] Start token request validation
+2022-03-14 21:03:07.206 +01:00 [DBG] Start validation of authorization code token request
+2022-03-14 21:03:07.318 +01:00 [DBG] Client required a proof key for code exchange. Starting PKCE validation
+2022-03-14 21:03:07.373 +01:00 [DBG] Validation of authorization code token request success
+2022-03-14 21:03:07.375 +01:00 [INF] Token request validation success, {"ClientId":"Tasky_App","ClientName":"Tasky_App","GrantType":"authorization_code","Scopes":null,"AuthorizationCode":"****AA20","RefreshToken":"********","UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"authorization_code","code":"E5002163B181FF6BE5E6784502EE0BD585DC993DFB48076097CEA6F5AF86AA20","redirect_uri":"http://localhost:4200","code_verifier":"THBPa0xFLkotSF85MTJIS0dzbDNuQWZDUmZBaHhEMFY1b3daYkZaRkJHTUxu","client_id":"Tasky_App"},"$type":"TokenRequestValidationLog"}
+2022-03-14 21:03:07.389 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 21:03:07.522 +01:00 [DBG] Getting claims for access token for client: Tasky_App
+2022-03-14 21:03:07.523 +01:00 [DBG] Getting claims for access token for subject: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a
+2022-03-14 21:03:07.792 +01:00 [DBG] Creating refresh token
+2022-03-14 21:03:07.792 +01:00 [DBG] Setting an absolute lifetime: 31536000
+2022-03-14 21:03:07.848 +01:00 [DBG] client configuration validation for client Tasky_App succeeded.
+2022-03-14 21:03:07.952 +01:00 [DBG] Getting claims for identity token for subject: 3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a and client: Tasky_App
+2022-03-14 21:03:08.194 +01:00 [INF] {"ClientId":"Tasky_App","ClientName":"Tasky_App","RedirectUri":null,"Endpoint":"Token","SubjectId":"3a0291a6-6e4b-cf5b-864a-dd4b8d190f3a","Scopes":"offline_access IdentityService AdministrationService SaasService role email openid profile","GrantType":"authorization_code","Tokens":[{"TokenType":"id_token","TokenValue":"****lM1Q","$type":"Token"},{"TokenType":"refresh_token","TokenValue":"****19F5","$type":"Token"},{"TokenType":"access_token","TokenValue":"****33bw","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HMG5UMGRN3VN:00000009","TimeStamp":"2022-03-14T20:03:08.0000000Z","ProcessId":8360,"LocalIpAddress":"::1:7000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2022-03-14 21:03:08.194 +01:00 [DBG] Token request success.
+2022-03-14 21:03:08.263 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7000/connect/token application/x-www-form-urlencoded 237 - 200 - application/json;+charset=UTF-8 1115.7827ms
+2022-03-14 21:03:08.334 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 21:03:08.335 +01:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2022-03-14 21:03:08.336 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2022-03-14 21:03:08.336 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2022-03-14 21:03:08.336 +01:00 [DBG] Start discovery request
+2022-03-14 21:03:08.343 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration - - - 200 - application/json;+charset=UTF-8 8.1558ms
+2022-03-14 21:03:08.434 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 21:03:08.435 +01:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2022-03-14 21:03:08.436 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2022-03-14 21:03:08.436 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2022-03-14 21:03:08.436 +01:00 [DBG] Start key discovery request
+2022-03-14 21:03:08.437 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration/jwks - - - 200 - application/json;+charset=UTF-8 2.1364ms
+2022-03-14 21:03:13.098 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 21:03:13.099 +01:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2022-03-14 21:03:13.101 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2022-03-14 21:03:13.101 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2022-03-14 21:03:13.101 +01:00 [DBG] Start discovery request
+2022-03-14 21:03:13.107 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration - - - 200 - application/json;+charset=UTF-8 8.9478ms
+2022-03-14 21:03:13.130 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 21:03:13.131 +01:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2022-03-14 21:03:13.132 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2022-03-14 21:03:13.132 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2022-03-14 21:03:13.132 +01:00 [DBG] Start key discovery request
+2022-03-14 21:03:13.132 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration/jwks - - - 200 - application/json;+charset=UTF-8 2.6305ms
+2022-03-14 21:04:34.551 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration - -
+2022-03-14 21:04:34.552 +01:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2022-03-14 21:04:34.553 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2022-03-14 21:04:34.553 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2022-03-14 21:04:34.553 +01:00 [DBG] Start discovery request
+2022-03-14 21:04:34.560 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration - - - 200 - application/json;+charset=UTF-8 8.7528ms
+2022-03-14 21:04:34.660 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration/jwks - -
+2022-03-14 21:04:34.662 +01:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2022-03-14 21:04:34.664 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2022-03-14 21:04:34.664 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2022-03-14 21:04:34.664 +01:00 [DBG] Start key discovery request
+2022-03-14 21:04:34.665 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration/jwks - - - 200 - application/json;+charset=UTF-8 4.2341ms

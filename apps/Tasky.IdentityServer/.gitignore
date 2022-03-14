@@ -251,14 +251,5 @@ paket-files/
 .idea/
 *.sln.iml
 
-# Administration
-host/Tasky.Administration.IdentityServer/Logs/logs.txt
-host/Tasky.Administration.HttpApi.Host/Logs/logs.txt
-host/Tasky.Administration.Web.Host/Logs/logs.txt
-host/Tasky.Administration.Web.Unified/Logs/logs.txt
-host/Tasky.Administration.Blazor.Server.Host/Logs/logs.txt
-
-.tye
-shared/Tasky.DbMigrator/Logs/logs.txt
-apps/Tasky.IdentityServer/Logs/logs.txt
-apps/Tasky.IdentityServer/Logs/logs.txt
+# Logs
+Logs/logs.txt
