@@ -47,7 +47,7 @@ public class TaskyHostingModule : AbpModule
                 database.IsUsedByTenants = false;
             });
 
-            options.Databases.Configure("AdministrationService", database =>
+            options.Databases.Configure("Administration", database =>
             {
                 database.MappedConnections.Add("AbpAuditLogging");
                 database.MappedConnections.Add("AbpPermissionManagement");
