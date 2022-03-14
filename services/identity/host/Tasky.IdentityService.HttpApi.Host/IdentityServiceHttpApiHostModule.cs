@@ -12,35 +12,22 @@ using Tasky.IdentityService.EntityFrameworkCore;
 using StackExchange.Redis;
 using Microsoft.OpenApi.Models;
 using Volo.Abp;
-using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
-using Volo.Abp.AspNetCore.Serilog;
-using Volo.Abp.Autofac;
 using Volo.Abp.Caching;
-using Volo.Abp.Caching.StackExchangeRedis;
-using Volo.Abp.EntityFrameworkCore;
-using Volo.Abp.EntityFrameworkCore.PostgreSql;
 using Volo.Abp.Modularity;
-using Volo.Abp.Swashbuckle;
 using Volo.Abp.VirtualFileSystem;
 using Tasky.Administration.EntityFrameworkCore;
 using Tasky.SaaS.EntityFrameworkCore;
-using Tasky.Microservice.Shared;
+using Tasky.Hosting.Shared;
 
 namespace Tasky.IdentityService;
 
 [DependsOn(
+    typeof(TaskyHostingModule),
     typeof(IdentityServiceApplicationModule),
     typeof(IdentityServiceEntityFrameworkCoreModule),
     typeof(IdentityServiceHttpApiModule),
-    typeof(AbpAspNetCoreMvcUiMultiTenancyModule),
-    typeof(AbpAutofacModule),
-    typeof(AbpCachingStackExchangeRedisModule),
-    typeof(AbpEntityFrameworkCorePostgreSqlModule),
-    typeof(AbpAspNetCoreSerilogModule),
     typeof(AdministrationEntityFrameworkCoreModule),
-    typeof(SaaSEntityFrameworkCoreModule),
-    typeof(AbpSwashbuckleModule),
-    typeof(TaskyMicroserviceModule)
+    typeof(SaaSEntityFrameworkCoreModule)
     )]
 public class IdentityServiceHttpApiHostModule : AbpModule
 {
@@ -49,11 +36,6 @@ public class IdentityServiceHttpApiHostModule : AbpModule
     {
         var hostingEnvironment = context.Services.GetHostingEnvironment();
         var configuration = context.Services.GetConfiguration();
-
-        Configure<AbpDbContextOptions>(options =>
-        {
-            options.UseNpgsql();
-        });
 
         if (hostingEnvironment.IsDevelopment())
         {

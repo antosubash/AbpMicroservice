@@ -14248,3 +14248,5 @@ System.OperationCanceledException: The operation was canceled.
 2022-03-14 21:04:34.664 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
 2022-03-14 21:04:34.664 +01:00 [DBG] Start key discovery request
 2022-03-14 21:04:34.665 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7000/.well-known/openid-configuration/jwks - - - 200 - application/json;+charset=UTF-8 4.2341ms
+2022-03-14 21:56:15.852 +01:00 [INF] Application is shutting down...
+2022-03-14 21:56:15.999 +01:00 [DBG] Stopped background worker: Volo.Abp.IdentityServer.Tokens.TokenCleanupBackgroundWorker

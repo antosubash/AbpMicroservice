@@ -12,49 +12,30 @@ using Tasky.Administration.EntityFrameworkCore;
 using StackExchange.Redis;
 using Microsoft.OpenApi.Models;
 using Volo.Abp;
-using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
-using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
-using Volo.Abp.Autofac;
 using Volo.Abp.Caching;
-using Volo.Abp.Caching.StackExchangeRedis;
-using Volo.Abp.EntityFrameworkCore;
-using Volo.Abp.EntityFrameworkCore.PostgreSql;
 using Volo.Abp.Modularity;
-using Volo.Abp.MultiTenancy;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
-using Volo.Abp.Swashbuckle;
 using Volo.Abp.VirtualFileSystem;
-using Tasky.Microservice.Shared;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
-using Volo.Abp.Data;
 using Tasky.IdentityService;
 using Tasky.SaaS;
-using Volo.Abp.Http.Client.IdentityModel.Web;
-using Volo.Abp.Identity;
+using Tasky.Hosting.Shared;
 
 namespace Tasky.Administration;
 
 [DependsOn(
+    typeof(TaskyHostingModule),
     typeof(AdministrationApplicationModule),
     typeof(AdministrationEntityFrameworkCoreModule),
     typeof(AdministrationHttpApiModule),
-    typeof(AbpAspNetCoreMvcUiMultiTenancyModule),
-    typeof(AbpAutofacModule),
-    typeof(AbpCachingStackExchangeRedisModule),
-    typeof(AbpEntityFrameworkCorePostgreSqlModule),
     typeof(AbpAuditLoggingEntityFrameworkCoreModule),
     typeof(AbpPermissionManagementEntityFrameworkCoreModule),
     typeof(AbpSettingManagementEntityFrameworkCoreModule),
     typeof(AbpFeatureManagementEntityFrameworkCoreModule),
     typeof(IdentityServiceApplicationContractsModule),
-    typeof(AbpHttpClientIdentityModelWebModule),
-    typeof(AbpIdentityHttpApiClientModule),
-    typeof(SaaSApplicationContractsModule),
-    typeof(AbpAspNetCoreSerilogModule),
-    typeof(AbpSwashbuckleModule),
-    typeof(TaskyMicroserviceModule)
+    typeof(SaaSApplicationContractsModule)
     )]
 public class AdministrationHttpApiHostModule : AbpModule
 {
@@ -63,11 +44,6 @@ public class AdministrationHttpApiHostModule : AbpModule
     {
         var hostingEnvironment = context.Services.GetHostingEnvironment();
         var configuration = context.Services.GetConfiguration();
-
-        Configure<AbpDbContextOptions>(options =>
-        {
-            options.UseNpgsql();
-        });
 
         if (hostingEnvironment.IsDevelopment())
         {
@@ -88,7 +64,7 @@ public class AdministrationHttpApiHostModule : AbpModule
             },
             options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo {Title = "Administration API", Version = "v1"});
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Administration API", Version = "v1" });
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
             });
@@ -163,11 +139,9 @@ public class AdministrationHttpApiHostModule : AbpModule
         app.UseAbpSwaggerUI(options =>
         {
             options.SwaggerEndpoint("/swagger/v1/swagger.json", "Support APP API");
-
             var configuration = context.GetConfiguration();
             options.OAuthClientId(configuration["AuthServer:SwaggerClientId"]);
             options.OAuthClientSecret(configuration["AuthServer:SwaggerClientSecret"]);
-            options.OAuthScopes("Administration");
         });
         app.UseAuditing();
         app.UseAbpSerilogEnrichers();

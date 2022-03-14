@@ -89,6 +89,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasky.Microservice.Shared",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasky.Shared.Localization", "shared\Tasky.Shared.Localization\Tasky.Shared.Localization.csproj", "{302A05E7-A522-4565-8CC6-252AF6FE4D1D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasky.Hosting.Shared", "shared\Tasky.Hosting.Shared\Tasky.Hosting.Shared.csproj", "{14078787-9BEA-40B7-B9A6-C5FFE1DA55A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -239,6 +241,10 @@ Global
 		{302A05E7-A522-4565-8CC6-252AF6FE4D1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{302A05E7-A522-4565-8CC6-252AF6FE4D1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{302A05E7-A522-4565-8CC6-252AF6FE4D1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14078787-9BEA-40B7-B9A6-C5FFE1DA55A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14078787-9BEA-40B7-B9A6-C5FFE1DA55A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14078787-9BEA-40B7-B9A6-C5FFE1DA55A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14078787-9BEA-40B7-B9A6-C5FFE1DA55A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -284,6 +290,7 @@ Global
 		{77818554-DE25-4638-933A-C4C3FBFB8DE3} = {5F5DCA12-3FCD-4BCA-81A1-E0989757A660}
 		{142C264D-AA69-4AF5-B62B-C596282C2645} = {140ED621-3D93-4523-8B62-BE6850E04698}
 		{302A05E7-A522-4565-8CC6-252AF6FE4D1D} = {140ED621-3D93-4523-8B62-BE6850E04698}
+		{14078787-9BEA-40B7-B9A6-C5FFE1DA55A9} = {140ED621-3D93-4523-8B62-BE6850E04698}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ECFA44F4-824C-4405-82F5-F62F2DCBCD5E}
