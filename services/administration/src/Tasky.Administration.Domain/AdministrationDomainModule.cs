@@ -6,6 +6,8 @@ using Volo.Abp.AuditLogging;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.PermissionManagement.IdentityServer;
 using Volo.Abp.PermissionManagement.Identity;
+using Volo.Abp.Identity;
+
 namespace Tasky.Administration;
 
 [DependsOn(
@@ -14,8 +16,8 @@ namespace Tasky.Administration;
     typeof(AbpPermissionManagementDomainIdentityServerModule),
     typeof(AbpPermissionManagementDomainIdentityModule)
 )]
+[DependsOn(typeof(AbpIdentityDomainModule))]
 [DependsOn(typeof(AbpPermissionManagementDomainModule))]
-
 [DependsOn(typeof(AbpSettingManagementDomainModule))]
 [DependsOn(typeof(AbpAuditLoggingDomainModule))]
 [DependsOn(typeof(AbpFeatureManagementDomainModule))]
