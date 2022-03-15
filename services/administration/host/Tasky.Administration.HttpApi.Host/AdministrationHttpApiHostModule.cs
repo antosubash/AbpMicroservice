@@ -30,10 +30,6 @@ namespace Tasky.Administration;
     typeof(AdministrationApplicationModule),
     typeof(AdministrationEntityFrameworkCoreModule),
     typeof(AdministrationHttpApiModule),
-    typeof(AbpAuditLoggingEntityFrameworkCoreModule),
-    typeof(AbpPermissionManagementEntityFrameworkCoreModule),
-    typeof(AbpSettingManagementEntityFrameworkCoreModule),
-    typeof(AbpFeatureManagementEntityFrameworkCoreModule),
     typeof(IdentityServiceApplicationContractsModule),
     typeof(SaaSApplicationContractsModule)
     )]
