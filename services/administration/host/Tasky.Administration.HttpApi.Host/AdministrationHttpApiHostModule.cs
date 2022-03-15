@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -14,11 +13,12 @@ using StackExchange.Redis;
 using Tasky.Administration.EntityFrameworkCore;
 using Tasky.Hosting.Shared;
 using Tasky.IdentityService;
+using Tasky.IdentityService.EntityFrameworkCore;
 using Tasky.SaaS;
 using Volo.Abp;
 using Volo.Abp.Caching;
+using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
-using Volo.Abp.VirtualFileSystem;
 
 namespace Tasky.Administration;
 
@@ -28,6 +28,8 @@ namespace Tasky.Administration;
     typeof(AdministrationEntityFrameworkCoreModule),
     typeof(AdministrationHttpApiModule),
     typeof(IdentityServiceApplicationContractsModule),
+    typeof(IdentityServiceEntityFrameworkCoreModule),
+    typeof(AbpIdentityDomainModule),
     typeof(SaaSApplicationContractsModule)
 )]
 public class AdministrationHttpApiHostModule : AbpModule
@@ -36,28 +38,6 @@ public class AdministrationHttpApiHostModule : AbpModule
     {
         var hostingEnvironment = context.Services.GetHostingEnvironment();
         var configuration = context.Services.GetConfiguration();
-
-        if (hostingEnvironment.IsDevelopment())
-        {
-            Configure<AbpVirtualFileSystemOptions>(options =>
-            {
-                options.FileSets.ReplaceEmbeddedByPhysical<AdministrationDomainSharedModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}Tasky.Administration.Domain.Shared",
-                            Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<AdministrationDomainModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}Tasky.Administration.Domain", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<AdministrationApplicationContractsModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}Tasky.Administration.Application.Contracts",
-                            Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<AdministrationApplicationModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}Tasky.Administration.Application",
-                            Path.DirectorySeparatorChar)));
-            });
-        }
 
         context.Services.AddAbpSwaggerGenWithOAuth(
             configuration["AuthServer:Authority"],

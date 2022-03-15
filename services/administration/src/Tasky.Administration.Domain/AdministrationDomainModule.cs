@@ -1,7 +1,6 @@
 using Volo.Abp.AuditLogging;
 using Volo.Abp.Domain;
 using Volo.Abp.FeatureManagement;
-using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.PermissionManagement.Identity;
@@ -15,7 +14,6 @@ namespace Tasky.Administration;
     typeof(AdministrationDomainSharedModule),
     typeof(AbpPermissionManagementDomainIdentityModule),
     typeof(AbpPermissionManagementDomainIdentityServerModule),
-    typeof(AbpIdentityDomainModule),
     typeof(AbpPermissionManagementDomainModule),
     typeof(AbpSettingManagementDomainModule),
     typeof(AbpAuditLoggingDomainModule),

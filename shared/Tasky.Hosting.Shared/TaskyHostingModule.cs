@@ -1,4 +1,4 @@
-using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
+using Volo.Abp.AspNetCore.MultiTenancy;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
 using Volo.Abp.Caching.StackExchangeRedis;
@@ -6,8 +6,6 @@ using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.PostgreSql;
 using Volo.Abp.EventBus.RabbitMq;
-using Volo.Abp.Http.Client.IdentityModel.Web;
-using Volo.Abp.Identity;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
@@ -17,11 +15,10 @@ namespace Tasky.Hosting.Shared;
 
 [DependsOn(
     typeof(AbpAutofacModule),
-    typeof(AbpAspNetCoreMvcUiMultiTenancyModule),
+    typeof(AbpDataModule),
     typeof(AbpCachingStackExchangeRedisModule),
-    typeof(AbpHttpClientIdentityModelWebModule),
-    typeof(AbpIdentityHttpApiClientModule),
     typeof(AbpAspNetCoreSerilogModule),
+    typeof(AbpAspNetCoreMultiTenancyModule),
     typeof(AbpSwashbuckleModule),
     typeof(AbpEventBusRabbitMqModule),
     typeof(AbpEntityFrameworkCoreModule),

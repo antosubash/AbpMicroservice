@@ -35,26 +35,6 @@ public class SaaSHttpApiHostModule : AbpModule
         var hostingEnvironment = context.Services.GetHostingEnvironment();
         var configuration = context.Services.GetConfiguration();
 
-        if (hostingEnvironment.IsDevelopment())
-        {
-            Configure<AbpVirtualFileSystemOptions>(options =>
-            {
-                options.FileSets.ReplaceEmbeddedByPhysical<SaaSDomainSharedModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}Tasky.SaaS.Domain.Shared", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<SaaSDomainModule>(Path.Combine(
-                    hostingEnvironment.ContentRootPath,
-                    string.Format("..{0}..{0}src{0}Tasky.SaaS.Domain", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<SaaSApplicationContractsModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}Tasky.SaaS.Application.Contracts",
-                            Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<SaaSApplicationModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}Tasky.SaaS.Application", Path.DirectorySeparatorChar)));
-            });
-        }
-
         context.Services.AddAbpSwaggerGenWithOAuth(
             configuration["AuthServer:Authority"],
             new Dictionary<string, string> {
@@ -142,6 +122,7 @@ public class SaaSHttpApiHostModule : AbpModule
         });
         app.UseAuditing();
         app.UseAbpSerilogEnrichers();
+        app.UseUnitOfWork();
         app.UseConfiguredEndpoints();
     }
 }
