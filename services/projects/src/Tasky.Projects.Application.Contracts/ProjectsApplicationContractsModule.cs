@@ -1,6 +1,6 @@
 ﻿using Volo.Abp.Application;
-using Volo.Abp.Modularity;
 using Volo.Abp.Authorization;
+using Volo.Abp.Modularity;
 
 namespace Tasky.Projects;
 
@@ -8,8 +8,7 @@ namespace Tasky.Projects;
     typeof(ProjectsDomainSharedModule),
     typeof(AbpDddApplicationContractsModule),
     typeof(AbpAuthorizationModule)
-    )]
+)]
 public class ProjectsApplicationContractsModule : AbpModule
 {
-
 }

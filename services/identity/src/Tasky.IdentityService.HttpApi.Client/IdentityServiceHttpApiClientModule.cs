@@ -1,9 +1,9 @@
 using Microsoft.Extensions.DependencyInjection;
+using Volo.Abp.Account;
 using Volo.Abp.Http.Client;
+using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
 using Volo.Abp.VirtualFileSystem;
-using Volo.Abp.Identity;
-using Volo.Abp.Account;
 
 namespace Tasky.IdentityService;
 
@@ -11,8 +11,8 @@ namespace Tasky.IdentityService;
     typeof(IdentityServiceApplicationContractsModule),
     typeof(AbpHttpClientModule))]
 [DependsOn(typeof(AbpIdentityHttpApiClientModule))]
-    [DependsOn(typeof(AbpAccountHttpApiClientModule))]
-    public class IdentityServiceHttpApiClientModule : AbpModule
+[DependsOn(typeof(AbpAccountHttpApiClientModule))]
+public class IdentityServiceHttpApiClientModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
@@ -25,6 +25,5 @@ namespace Tasky.IdentityService;
         {
             options.FileSets.AddEmbedded<IdentityServiceHttpApiClientModule>();
         });
-
     }
 }

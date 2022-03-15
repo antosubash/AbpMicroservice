@@ -1,8 +1,9 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('just-compare')) :
-    typeof define === 'function' && define.amd ? define('@abp/utils', ['exports', 'just-compare'], factory) :
-    (global = global || self, factory((global.abp = global.abp || {}, global.abp.utils = global.abp.utils || {}, global.abp.utils.common = {}), global.compare));
-}(this, (function (exports, compare) { 'use strict';
+        typeof define === 'function' && define.amd ? define('@abp/utils', ['exports', 'just-compare'], factory) :
+            (global = global || self, factory((global.abp = global.abp || {}, global.abp.utils = global.abp.utils || {}, global.abp.utils.common = {}), global.compare));
+}(this, (function (exports, compare) {
+    'use strict';
 
     compare = compare && Object.prototype.hasOwnProperty.call(compare, 'default') ? compare['default'] : compare;
 
@@ -23,17 +24,27 @@
     /* global Reflect, Promise */
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b)
-                if (b.hasOwnProperty(p))
-                    d[p] = b[p]; };
+            ({__proto__: []} instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            }) ||
+            function (d, b) {
+                for (var p in b)
+                    if (b.hasOwnProperty(p))
+                        d[p] = b[p];
+            };
         return extendStatics(d, b);
     };
+
     function __extends(d, b) {
         extendStatics(d, b);
-        function __() { this.constructor = d; }
+
+        function __() {
+            this.constructor = d;
+        }
+
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     }
+
     var __assign = function () {
         __assign = Object.assign || function __assign(t) {
             for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -46,6 +57,7 @@
         };
         return __assign.apply(this, arguments);
     };
+
     function __rest(s, e) {
         var t = {};
         for (var p in s)
@@ -58,8 +70,10 @@
             }
         return t;
     }
+
     function __decorate(decorators, target, key, desc) {
-        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        var c = arguments.length,
+            r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
             r = Reflect.decorate(decorators, target, key, desc);
         else
@@ -68,37 +82,72 @@
                     r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     }
+
     function __param(paramIndex, decorator) {
-        return function (target, key) { decorator(target, key, paramIndex); };
+        return function (target, key) {
+            decorator(target, key, paramIndex);
+        };
     }
+
     function __metadata(metadataKey, metadataValue) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
             return Reflect.metadata(metadataKey, metadataValue);
     }
+
     function __awaiter(thisArg, _arguments, P, generator) {
-        function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+        function adopt(value) {
+            return value instanceof P ? value : new P(function (resolve) {
+                resolve(value);
+            });
+        }
+
         return new (P || (P = Promise))(function (resolve, reject) {
-            function fulfilled(value) { try {
-                step(generator.next(value));
+            function fulfilled(value) {
+                try {
+                    step(generator.next(value));
+                } catch (e) {
+                    reject(e);
+                }
             }
-            catch (e) {
-                reject(e);
-            } }
-            function rejected(value) { try {
-                step(generator["throw"](value));
+
+            function rejected(value) {
+                try {
+                    step(generator["throw"](value));
+                } catch (e) {
+                    reject(e);
+                }
             }
-            catch (e) {
-                reject(e);
-            } }
-            function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+
+            function step(result) {
+                result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+            }
+
             step((generator = generator.apply(thisArg, _arguments || [])).next());
         });
     }
+
     function __generator(thisArg, body) {
-        var _ = { label: 0, sent: function () { if (t[0] & 1)
-                throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-        return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function () { return this; }), g;
-        function verb(n) { return function (v) { return step([n, v]); }; }
+        var _ = {
+            label: 0, sent: function () {
+                if (t[0] & 1)
+                    throw t[1];
+                return t[1];
+            }, trys: [], ops: []
+        }, f, y, t, g;
+        return g = {
+            next: verb(0),
+            "throw": verb(1),
+            "return": verb(2)
+        }, typeof Symbol === "function" && (g[Symbol.iterator] = function () {
+            return this;
+        }), g;
+
+        function verb(n) {
+            return function (v) {
+                return step([n, v]);
+            };
+        }
+
         function step(op) {
             if (f)
                 throw new TypeError("Generator is already executing.");
@@ -115,7 +164,7 @@
                             break;
                         case 4:
                             _.label++;
-                            return { value: op[1], done: false };
+                            return {value: op[1], done: false};
                         case 5:
                             _.label++;
                             y = op[1];
@@ -150,33 +199,38 @@
                             continue;
                     }
                     op = body.call(thisArg, _);
-                }
-                catch (e) {
+                } catch (e) {
                     op = [6, e];
                     y = 0;
-                }
-                finally {
+                } finally {
                     f = t = 0;
                 }
             if (op[0] & 5)
                 throw op[1];
-            return { value: op[0] ? op[1] : void 0, done: true };
+            return {value: op[0] ? op[1] : void 0, done: true};
         }
     }
+
     var __createBinding = Object.create ? (function (o, m, k, k2) {
         if (k2 === undefined)
             k2 = k;
-        Object.defineProperty(o, k2, { enumerable: true, get: function () { return m[k]; } });
+        Object.defineProperty(o, k2, {
+            enumerable: true, get: function () {
+                return m[k];
+            }
+        });
     }) : (function (o, m, k, k2) {
         if (k2 === undefined)
             k2 = k;
         o[k2] = m[k];
     });
+
     function __exportStar(m, exports) {
         for (var p in m)
             if (p !== "default" && !exports.hasOwnProperty(p))
                 __createBinding(exports, m, p);
     }
+
     function __values(o) {
         var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
         if (m)
@@ -186,11 +240,12 @@
                 next: function () {
                     if (o && i >= o.length)
                         o = void 0;
-                    return { value: o && o[i++], done: !o };
+                    return {value: o && o[i++], done: !o};
                 }
             };
         throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
     }
+
     function __read(o, n) {
         var m = typeof Symbol === "function" && o[Symbol.iterator];
         if (!m)
@@ -199,27 +254,26 @@
         try {
             while ((n === void 0 || n-- > 0) && !(r = i.next()).done)
                 ar.push(r.value);
-        }
-        catch (error) {
-            e = { error: error };
-        }
-        finally {
+        } catch (error) {
+            e = {error: error};
+        } finally {
             try {
                 if (r && !r.done && (m = i["return"]))
                     m.call(i);
-            }
-            finally {
+            } finally {
                 if (e)
                     throw e.error;
             }
         }
         return ar;
     }
+
     function __spread() {
         for (var ar = [], i = 0; i < arguments.length; i++)
             ar = ar.concat(__read(arguments[i]));
         return ar;
     }
+
     function __spreadArrays() {
         for (var s = 0, i = 0, il = arguments.length; i < il; i++)
             s += arguments[i].length;
@@ -228,57 +282,107 @@
                 r[k] = a[j];
         return r;
     }
-    ;
+
     function __await(v) {
         return this instanceof __await ? (this.v = v, this) : new __await(v);
     }
+
     function __asyncGenerator(thisArg, _arguments, generator) {
         if (!Symbol.asyncIterator)
             throw new TypeError("Symbol.asyncIterator is not defined.");
         var g = generator.apply(thisArg, _arguments || []), i, q = [];
-        return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
-        function verb(n) { if (g[n])
-            i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
-        function resume(n, v) { try {
-            step(g[n](v));
+        return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () {
+            return this;
+        }, i;
+
+        function verb(n) {
+            if (g[n])
+                i[n] = function (v) {
+                    return new Promise(function (a, b) {
+                        q.push([n, v, a, b]) > 1 || resume(n, v);
+                    });
+                };
         }
-        catch (e) {
-            settle(q[0][3], e);
-        } }
-        function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
-        function fulfill(value) { resume("next", value); }
-        function reject(value) { resume("throw", value); }
-        function settle(f, v) { if (f(v), q.shift(), q.length)
-            resume(q[0][0], q[0][1]); }
+
+        function resume(n, v) {
+            try {
+                step(g[n](v));
+            } catch (e) {
+                settle(q[0][3], e);
+            }
+        }
+
+        function step(r) {
+            r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r);
+        }
+
+        function fulfill(value) {
+            resume("next", value);
+        }
+
+        function reject(value) {
+            resume("throw", value);
+        }
+
+        function settle(f, v) {
+            if (f(v), q.shift(), q.length)
+                resume(q[0][0], q[0][1]);
+        }
     }
+
     function __asyncDelegator(o) {
         var i, p;
-        return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
-        function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v; } : f; }
+        return i = {}, verb("next"), verb("throw", function (e) {
+            throw e;
+        }), verb("return"), i[Symbol.iterator] = function () {
+            return this;
+        }, i;
+
+        function verb(n, f) {
+            i[n] = o[n] ? function (v) {
+                return (p = !p) ? {value: __await(o[n](v)), done: n === "return"} : f ? f(v) : v;
+            } : f;
+        }
     }
+
     function __asyncValues(o) {
         if (!Symbol.asyncIterator)
             throw new TypeError("Symbol.asyncIterator is not defined.");
         var m = o[Symbol.asyncIterator], i;
-        return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
-        function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
-        function settle(resolve, reject, d, v) { Promise.resolve(v).then(function (v) { resolve({ value: v, done: d }); }, reject); }
+        return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () {
+            return this;
+        }, i);
+
+        function verb(n) {
+            i[n] = o[n] && function (v) {
+                return new Promise(function (resolve, reject) {
+                    v = o[n](v), settle(resolve, reject, v.done, v.value);
+                });
+            };
+        }
+
+        function settle(resolve, reject, d, v) {
+            Promise.resolve(v).then(function (v) {
+                resolve({value: v, done: d});
+            }, reject);
+        }
     }
+
     function __makeTemplateObject(cooked, raw) {
         if (Object.defineProperty) {
-            Object.defineProperty(cooked, "raw", { value: raw });
-        }
-        else {
+            Object.defineProperty(cooked, "raw", {value: raw});
+        } else {
             cooked.raw = raw;
         }
         return cooked;
     }
-    ;
+
     var __setModuleDefault = Object.create ? (function (o, v) {
-        Object.defineProperty(o, "default", { enumerable: true, value: v });
+        Object.defineProperty(o, "default", {enumerable: true, value: v});
     }) : function (o, v) {
         o["default"] = v;
     };
+
     function __importStar(mod) {
         if (mod && mod.__esModule)
             return mod;
@@ -290,15 +394,18 @@
         __setModuleDefault(result, mod);
         return result;
     }
+
     function __importDefault(mod) {
-        return (mod && mod.__esModule) ? mod : { default: mod };
+        return (mod && mod.__esModule) ? mod : {default: mod};
     }
+
     function __classPrivateFieldGet(receiver, privateMap) {
         if (!privateMap.has(receiver)) {
             throw new TypeError("attempted to get private field on non-instance");
         }
         return privateMap.get(receiver);
     }
+
     function __classPrivateFieldSet(receiver, privateMap, value) {
         if (!privateMap.has(receiver)) {
             throw new TypeError("attempted to set private field on non-instance");
@@ -311,12 +418,14 @@
         function ListNode(value) {
             this.value = value;
         }
+
         return ListNode;
     }());
     var LinkedList = /** @class */ (function () {
         function LinkedList() {
             this.size = 0;
         }
+
         Object.defineProperty(LinkedList.prototype, "head", {
             get: function () {
                 return this.first;
@@ -396,9 +505,15 @@
                     }
                     return (_a = _this.addBefore).call.apply(_a, __spread([_this, value], params));
                 },
-                byIndex: function (position) { return _this.addByIndex(value, position); },
-                head: function () { return _this.addHead(value); },
-                tail: function () { return _this.addTail(value); },
+                byIndex: function (position) {
+                    return _this.addByIndex(value, position);
+                },
+                head: function () {
+                    return _this.addHead(value);
+                },
+                tail: function () {
+                    return _this.addTail(value);
+                },
             };
         };
         LinkedList.prototype.addMany = function (values) {
@@ -420,19 +535,33 @@
                     }
                     return (_a = _this.addManyBefore).call.apply(_a, __spread([_this, values], params));
                 },
-                byIndex: function (position) { return _this.addManyByIndex(values, position); },
-                head: function () { return _this.addManyHead(values); },
-                tail: function () { return _this.addManyTail(values); },
+                byIndex: function (position) {
+                    return _this.addManyByIndex(values, position);
+                },
+                head: function () {
+                    return _this.addManyHead(values);
+                },
+                tail: function () {
+                    return _this.addManyTail(values);
+                },
             };
         };
         LinkedList.prototype.addAfter = function (value, previousValue, compareFn) {
-            if (compareFn === void 0) { compareFn = compare; }
-            var previous = this.find(function (node) { return compareFn(node.value, previousValue); });
+            if (compareFn === void 0) {
+                compareFn = compare;
+            }
+            var previous = this.find(function (node) {
+                return compareFn(node.value, previousValue);
+            });
             return previous ? this.attach(value, previous, previous.next) : this.addTail(value);
         };
         LinkedList.prototype.addBefore = function (value, nextValue, compareFn) {
-            if (compareFn === void 0) { compareFn = compare; }
-            var next = this.find(function (node) { return compareFn(node.value, nextValue); });
+            if (compareFn === void 0) {
+                compareFn = compare;
+            }
+            var next = this.find(function (node) {
+                return compareFn(node.value, nextValue);
+            });
             return next ? this.attach(value, next.previous, next) : this.addHead(value);
         };
         LinkedList.prototype.addByIndex = function (value, position) {
@@ -462,8 +591,7 @@
                 node.previous = this.last;
                 this.last.next = node;
                 this.last = node;
-            }
-            else {
+            } else {
                 this.first = node;
                 this.last = node;
             }
@@ -471,13 +599,21 @@
             return node;
         };
         LinkedList.prototype.addManyAfter = function (values, previousValue, compareFn) {
-            if (compareFn === void 0) { compareFn = compare; }
-            var previous = this.find(function (node) { return compareFn(node.value, previousValue); });
+            if (compareFn === void 0) {
+                compareFn = compare;
+            }
+            var previous = this.find(function (node) {
+                return compareFn(node.value, previousValue);
+            });
             return previous ? this.attachMany(values, previous, previous.next) : this.addManyTail(values);
         };
         LinkedList.prototype.addManyBefore = function (values, nextValue, compareFn) {
-            if (compareFn === void 0) { compareFn = compare; }
-            var next = this.find(function (node) { return compareFn(node.value, nextValue); });
+            if (compareFn === void 0) {
+                compareFn = compare;
+            }
+            var next = this.find(function (node) {
+                return compareFn(node.value, nextValue);
+            });
             return next ? this.attachMany(values, next.previous, next) : this.addManyHead(values);
         };
         LinkedList.prototype.addManyByIndex = function (values, position) {
@@ -499,12 +635,16 @@
         };
         LinkedList.prototype.addManyTail = function (values) {
             var _this = this;
-            return values.map(function (value) { return _this.addTail(value); });
+            return values.map(function (value) {
+                return _this.addTail(value);
+            });
         };
         LinkedList.prototype.drop = function () {
             var _this = this;
             return {
-                byIndex: function (position) { return _this.dropByIndex(position); },
+                byIndex: function (position) {
+                    return _this.dropByIndex(position);
+                },
                 byValue: function () {
                     var params = [];
                     for (var _i = 0; _i < arguments.length; _i++) {
@@ -519,16 +659,26 @@
                     }
                     return _this.dropByValueAll.apply(_this, params);
                 },
-                head: function () { return _this.dropHead(); },
-                tail: function () { return _this.dropTail(); },
+                head: function () {
+                    return _this.dropHead();
+                },
+                tail: function () {
+                    return _this.dropTail();
+                },
             };
         };
         LinkedList.prototype.dropMany = function (count) {
             var _this = this;
             return {
-                byIndex: function (position) { return _this.dropManyByIndex(count, position); },
-                head: function () { return _this.dropManyHead(count); },
-                tail: function () { return _this.dropManyTail(count); },
+                byIndex: function (position) {
+                    return _this.dropManyByIndex(count, position);
+                },
+                head: function () {
+                    return _this.dropManyHead(count);
+                },
+                tail: function () {
+                    return _this.dropManyTail(count);
+                },
             };
         };
         LinkedList.prototype.dropByIndex = function (position) {
@@ -538,12 +688,18 @@
             return current ? this.detach(current) : undefined;
         };
         LinkedList.prototype.dropByValue = function (value, compareFn) {
-            if (compareFn === void 0) { compareFn = compare; }
-            var position = this.findIndex(function (node) { return compareFn(node.value, value); });
+            if (compareFn === void 0) {
+                compareFn = compare;
+            }
+            var position = this.findIndex(function (node) {
+                return compareFn(node.value, value);
+            });
             return position < 0 ? undefined : this.dropByIndex(position);
         };
         LinkedList.prototype.dropByValueAll = function (value, compareFn) {
-            if (compareFn === void 0) { compareFn = compare; }
+            if (compareFn === void 0) {
+                compareFn = compare;
+            }
             var dropped = [];
             for (var current = this.first, position = 0; current; position++, current = current.next) {
                 if (compareFn(current.value, value)) {
@@ -631,26 +787,40 @@
             }
         };
         LinkedList.prototype.get = function (position) {
-            return this.find(function (_, index) { return position === index; });
+            return this.find(function (_, index) {
+                return position === index;
+            });
         };
         LinkedList.prototype.indexOf = function (value, compareFn) {
-            if (compareFn === void 0) { compareFn = compare; }
-            return this.findIndex(function (node) { return compareFn(node.value, value); });
+            if (compareFn === void 0) {
+                compareFn = compare;
+            }
+            return this.findIndex(function (node) {
+                return compareFn(node.value, value);
+            });
         };
         LinkedList.prototype.toArray = function () {
             var array = new Array(this.size);
-            this.forEach(function (node, index) { return (array[index] = node.value); });
+            this.forEach(function (node, index) {
+                return (array[index] = node.value);
+            });
             return array;
         };
         LinkedList.prototype.toNodeArray = function () {
             var array = new Array(this.size);
-            this.forEach(function (node, index) { return (array[index] = node); });
+            this.forEach(function (node, index) {
+                return (array[index] = node);
+            });
             return array;
         };
         LinkedList.prototype.toString = function (mapperFn) {
-            if (mapperFn === void 0) { mapperFn = JSON.stringify; }
+            if (mapperFn === void 0) {
+                mapperFn = JSON.stringify;
+            }
             return this.toArray()
-                .map(function (value) { return mapperFn(value); })
+                .map(function (value) {
+                    return mapperFn(value);
+                })
                 .join(' <-> ');
         };
         // Cannot use Generator type because of ng-packagr
@@ -670,7 +840,8 @@
                     case 3:
                         position++, node = node.next;
                         return [3 /*break*/, 1];
-                    case 4: return [2 /*return*/];
+                    case 4:
+                        return [2 /*return*/];
                 }
             });
         };
@@ -688,7 +859,7 @@
     exports.LinkedList = LinkedList;
     exports.ListNode = ListNode;
 
-    Object.defineProperty(exports, '__esModule', { value: true });
+    Object.defineProperty(exports, '__esModule', {value: true});
 
 })));
 //# sourceMappingURL=abp-utils.umd.js.map

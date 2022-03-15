@@ -5,30 +5,29 @@ using Volo.Abp.Validation;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
 
-namespace Tasky
+namespace Tasky;
+
+[DependsOn(
+    typeof(AbpValidationModule)
+)]
+public class TaskySharedLocalizationModule : AbpModule
 {
-    [DependsOn(
-        typeof(AbpValidationModule)
-    )]
-    public class TaskySharedLocalizationModule : AbpModule
+    public override void ConfigureServices(ServiceConfigurationContext context)
     {
-        public override void ConfigureServices(ServiceConfigurationContext context)
+        Configure<AbpVirtualFileSystemOptions>(options =>
         {
-            Configure<AbpVirtualFileSystemOptions>(options =>
-            {
-                options.FileSets.AddEmbedded<TaskySharedLocalizationModule>();
-            });
+            options.FileSets.AddEmbedded<TaskySharedLocalizationModule>();
+        });
 
-            Configure<AbpLocalizationOptions>(options =>
-            {
-                options.Resources
-                    .Add<TaskyResource>("en")
-                    .AddBaseTypes(
-                        typeof(AbpValidationResource)
-                    ).AddVirtualJson("/Localization/Tasky");
+        Configure<AbpLocalizationOptions>(options =>
+        {
+            options.Resources
+                .Add<TaskyResource>("en")
+                .AddBaseTypes(
+                    typeof(AbpValidationResource)
+                ).AddVirtualJson("/Localization/Tasky");
 
-                options.DefaultResourceType = typeof(TaskyResource);
-            });
-        }
+            options.DefaultResourceType = typeof(TaskyResource);
+        });
     }
 }

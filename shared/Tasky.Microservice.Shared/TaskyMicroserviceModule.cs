@@ -12,6 +12,5 @@ public class TaskyMicroserviceModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
-        
     }
 }

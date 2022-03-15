@@ -25,7 +25,6 @@ public class AdministrationDbContextFactory : IDesignTimeDbContextFactory<Admini
 
     private static IConfigurationRoot BuildConfiguration()
     {
-
         var builder = new ConfigurationBuilder()
             .SetBasePath(
                 Path.Combine(
@@ -33,7 +32,7 @@ public class AdministrationDbContextFactory : IDesignTimeDbContextFactory<Admini
                     $"host{Path.DirectorySeparatorChar}Tasky.Administration.HttpApi.Host"
                 )
             )
-            .AddJsonFile("appsettings.json", optional: false);
+            .AddJsonFile("appsettings.json", false);
 
         return builder.Build();
     }

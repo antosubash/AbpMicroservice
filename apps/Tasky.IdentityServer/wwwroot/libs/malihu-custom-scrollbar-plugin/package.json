@@ -28,7 +28,7 @@
   "jam": {
     "dependencies": {
       "jquery": ">=1.6",
-	    "jquery-mousewheel": ">=3.0.6"
+      "jquery-mousewheel": ">=3.0.6"
     }
   },
   "dependencies": {

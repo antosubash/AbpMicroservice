@@ -32,7 +32,7 @@ public class SaaSDbContextFactory : IDesignTimeDbContextFactory<SaaSDbContext>
                     $"host{Path.DirectorySeparatorChar}Tasky.SaaS.HttpApi.Host"
                 )
             )
-            .AddJsonFile("appsettings.json", optional: false);
+            .AddJsonFile("appsettings.json", false);
 
         return builder.Build();
     }

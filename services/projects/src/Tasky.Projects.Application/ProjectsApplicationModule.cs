@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Volo.Abp.Application;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
-using Volo.Abp.Application;
 
 namespace Tasky.Projects;
 
@@ -10,7 +10,7 @@ namespace Tasky.Projects;
     typeof(ProjectsApplicationContractsModule),
     typeof(AbpDddApplicationModule),
     typeof(AbpAutoMapperModule)
-    )]
+)]
 public class ProjectsApplicationModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
@@ -18,7 +18,7 @@ public class ProjectsApplicationModule : AbpModule
         context.Services.AddAutoMapperObjectMapper<ProjectsApplicationModule>();
         Configure<AbpAutoMapperOptions>(options =>
         {
-            options.AddMaps<ProjectsApplicationModule>(validate: true);
+            options.AddMaps<ProjectsApplicationModule>(true);
         });
     }
 }

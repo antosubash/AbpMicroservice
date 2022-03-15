@@ -1,6 +1,6 @@
 namespace Tasky.DbMigrator;
 
-public partial class ServiceClient
+public class ServiceClient
 {
     public string ClientId { get; set; }
     public string ClientSecret { get; set; }

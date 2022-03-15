@@ -21,6 +21,5 @@ public class ProjectsHttpApiClientModule : AbpModule
         {
             options.FileSets.AddEmbedded<ProjectsHttpApiClientModule>();
         });
-
     }
 }

@@ -19,7 +19,7 @@ namespace Tasky.DbMigrator;
     typeof(SaaSEntityFrameworkCoreModule),
     typeof(SaaSApplicationContractsModule),
     typeof(TaskyMicroserviceModule)
-    )]
+)]
 public class TaskyDbMigratorModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)

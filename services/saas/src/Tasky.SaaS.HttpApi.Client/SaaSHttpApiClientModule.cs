@@ -1,8 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Http.Client;
 using Volo.Abp.Modularity;
-using Volo.Abp.VirtualFileSystem;
 using Volo.Abp.TenantManagement;
+using Volo.Abp.VirtualFileSystem;
 
 namespace Tasky.SaaS;
 
@@ -23,6 +23,5 @@ public class SaaSHttpApiClientModule : AbpModule
         {
             options.FileSets.AddEmbedded<SaaSHttpApiClientModule>();
         });
-
     }
 }

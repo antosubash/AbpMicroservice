@@ -9,7 +9,6 @@ namespace Tasky.SaaS;
     typeof(SaaSDomainSharedModule)
 )]
 [DependsOn(typeof(AbpTenantManagementDomainModule))]
-    public class SaaSDomainModule : AbpModule
+public class SaaSDomainModule : AbpModule
 {
-
 }

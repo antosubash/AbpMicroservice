@@ -15,7 +15,7 @@ namespace Tasky.IdentityService.EntityFrameworkCore;
 
 [ConnectionStringName(IdentityServiceDbProperties.ConnectionStringName)]
 public class IdentityServiceDbContext : AbpDbContext<IdentityServiceDbContext>, IIdentityDbContext,
-        IIdentityServerDbContext, IIdentityServiceDbContext
+    IIdentityServerDbContext, IIdentityServiceDbContext
 {
     /* Add DbSet for each Aggregate Root here. Example:
      * public DbSet<Question> Questions { get; set; }
@@ -24,7 +24,6 @@ public class IdentityServiceDbContext : AbpDbContext<IdentityServiceDbContext>, 
     public IdentityServiceDbContext(DbContextOptions<IdentityServiceDbContext> options)
         : base(options)
     {
-
     }
 
     public DbSet<IdentityUser> Users { get; set; }

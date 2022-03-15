@@ -2,21 +2,20 @@ using System.Threading.Tasks;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
 
-namespace Tasky.DbMigrator
+namespace Tasky.DbMigrator;
+
+public class IdentityServerDataSeedContributor : IDataSeedContributor, ITransientDependency
 {
-    public class IdentityServerDataSeedContributor : IDataSeedContributor, ITransientDependency
+    private readonly IdentityServerDataSeeder _identityServerDataSeeder;
+
+    public IdentityServerDataSeedContributor(IdentityServerDataSeeder identityServerDataSeeder)
     {
-        private readonly IdentityServerDataSeeder _identityServerDataSeeder;
-
-        public IdentityServerDataSeedContributor(IdentityServerDataSeeder identityServerDataSeeder)
-        {
-            _identityServerDataSeeder = identityServerDataSeeder;
-        }
+        _identityServerDataSeeder = identityServerDataSeeder;
+    }
 
 
-        public async Task SeedAsync(DataSeedContext context)
-        {
-            await _identityServerDataSeeder.SeedAsync();
-        }
+    public async Task SeedAsync(DataSeedContext context)
+    {
+        await _identityServerDataSeeder.SeedAsync();
     }
 }

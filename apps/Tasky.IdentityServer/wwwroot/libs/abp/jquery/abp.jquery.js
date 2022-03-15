@@ -1,5 +1,5 @@
 var abp = abp || {};
-(function($) {
+(function ($) {
 
     if (!$) {
         throw "abp/jquery library requires the jquery library included to the page!";
@@ -79,7 +79,7 @@ var abp = abp || {};
         }
     };
 
-    $(function(){
+    $(function () {
         new MutationObserver(mutationObserverCallback).observe(
             $('body')[0],
             {
@@ -87,7 +87,7 @@ var abp = abp || {};
                 childList: true
             }
         );
-    });    
+    });
 
     // AJAX ///////////////////////////////////////////////////////////////////
 
@@ -106,7 +106,7 @@ var abp = abp || {};
                     $dfd.resolve(data);
                     userOptions.success && userOptions.success(data);
                 }).fail(function (jqXHR) {
-                    if(jqXHR.statusText === 'abort') {
+                    if (jqXHR.statusText === 'abort') {
                         //ajax request is abort, ignore error handle.
                         return;
                     }
@@ -374,13 +374,13 @@ var abp = abp || {};
                     url: url,
                     dataType: 'text'
                 })
-                .done(function (script) {
-                    $.globalEval(script);
-                    urlInfo.succeed();
-                })
-                .fail(function () {
-                    urlInfo.failed();
-                });
+                    .done(function (script) {
+                        $.globalEval(script);
+                        urlInfo.succeed();
+                    })
+                    .fail(function () {
+                        urlInfo.failed();
+                    });
             });
         };
 

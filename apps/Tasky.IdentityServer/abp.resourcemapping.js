@@ -1,11 +1,5 @@
 module.exports = {
-    aliases: {
-
-    },
-    clean: [
-
-    ],
-    mappings: {
-
-    }
+    aliases: {},
+    clean: [],
+    mappings: {}
 };

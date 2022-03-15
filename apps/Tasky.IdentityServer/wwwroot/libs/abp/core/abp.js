@@ -153,7 +153,7 @@ var abp = abp || {};
 
         for (var i = 0; i < packageMap.length; i++) {
             var map = packageMap[i];
-            if (map.name === language){
+            if (map.name === language) {
                 return map.value;
             }
         }
@@ -685,7 +685,7 @@ var abp = abp || {};
     }
 
     /**
-     * Escape HTML to help prevent XSS attacks. 
+     * Escape HTML to help prevent XSS attacks.
      */
     abp.utils.htmlEscape = function (html) {
         return typeof html === 'string' ? html.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;') : html;
@@ -757,14 +757,14 @@ var abp = abp || {};
             return toUtc(date);
         }
     };
-    
+
     /* FEATURES *************************************************/
 
     abp.features = abp.features || {};
 
     abp.features.values = abp.features.values || {};
 
-    abp.features.isEnabled = function(name){
+    abp.features.isEnabled = function (name) {
         var value = abp.features.get(name);
         return value == 'true' || value == 'True';
     }
@@ -772,5 +772,5 @@ var abp = abp || {};
     abp.features.get = function (name) {
         return abp.features.values[name];
     };
-    
+
 })();

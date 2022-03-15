@@ -8,7 +8,6 @@ public class ProjectsHttpApiHostMigrationsDbContext : AbpDbContext<ProjectsHttpA
     public ProjectsHttpApiHostMigrationsDbContext(DbContextOptions<ProjectsHttpApiHostMigrationsDbContext> options)
         : base(options)
     {
-
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

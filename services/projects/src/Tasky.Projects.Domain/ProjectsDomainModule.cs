@@ -9,5 +9,4 @@ namespace Tasky.Projects;
 )]
 public class ProjectsDomainModule : AbpModule
 {
-
 }

@@ -14,7 +14,6 @@ public class ProjectsDbContext : AbpDbContext<ProjectsDbContext>, IProjectsDbCon
     public ProjectsDbContext(DbContextOptions<ProjectsDbContext> options)
         : base(options)
     {
-
     }
 
     protected override void OnModelCreating(ModelBuilder builder)

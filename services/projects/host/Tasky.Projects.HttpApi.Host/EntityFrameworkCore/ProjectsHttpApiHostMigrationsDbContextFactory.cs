@@ -5,7 +5,8 @@ using Microsoft.Extensions.Configuration;
 
 namespace Tasky.Projects.EntityFrameworkCore;
 
-public class ProjectsHttpApiHostMigrationsDbContextFactory : IDesignTimeDbContextFactory<ProjectsHttpApiHostMigrationsDbContext>
+public class
+    ProjectsHttpApiHostMigrationsDbContextFactory : IDesignTimeDbContextFactory<ProjectsHttpApiHostMigrationsDbContext>
 {
     public ProjectsHttpApiHostMigrationsDbContext CreateDbContext(string[] args)
     {
@@ -21,7 +22,7 @@ public class ProjectsHttpApiHostMigrationsDbContextFactory : IDesignTimeDbContex
     {
         var builder = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", optional: false);
+            .AddJsonFile("appsettings.json", false);
 
         return builder.Build();
     }

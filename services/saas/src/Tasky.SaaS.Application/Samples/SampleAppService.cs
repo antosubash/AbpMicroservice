@@ -8,8 +8,7 @@ public class SampleAppService : SaaSAppService, ISampleAppService
     public Task<SampleDto> GetAsync()
     {
         return Task.FromResult(
-            new SampleDto
-            {
+            new SampleDto {
                 Value = 42
             }
         );
@@ -19,8 +18,7 @@ public class SampleAppService : SaaSAppService, ISampleAppService
     public Task<SampleDto> GetAuthorizedAsync()
     {
         return Task.FromResult(
-            new SampleDto
-            {
+            new SampleDto {
                 Value = 42
             }
         );

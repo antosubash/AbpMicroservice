@@ -32,7 +32,7 @@ public class IdentityServiceDbContextFactory : IDesignTimeDbContextFactory<Ident
                     $"host{Path.DirectorySeparatorChar}Tasky.IdentityService.HttpApi.Host"
                 )
             )
-            .AddJsonFile("appsettings.json", optional: false);
+            .AddJsonFile("appsettings.json", false);
 
         return builder.Build();
     }

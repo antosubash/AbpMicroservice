@@ -5,7 +5,12 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Logging;
 using StackExchange.Redis;
+using Tasky.Administration.EntityFrameworkCore;
+using Tasky.IdentityService.EntityFrameworkCore;
+using Tasky.Microservice.Shared;
+using Tasky.SaaS.EntityFrameworkCore;
 using Volo.Abp;
 using Volo.Abp.Account;
 using Volo.Abp.Account.Web;
@@ -19,15 +24,11 @@ using Volo.Abp.Autofac;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.Caching;
 using Volo.Abp.Caching.StackExchangeRedis;
-using Volo.Abp.Modularity;
-using Volo.Abp.UI.Navigation.Urls;
-using Tasky.SaaS.EntityFrameworkCore;
-using Tasky.Administration.EntityFrameworkCore;
-using Tasky.IdentityService.EntityFrameworkCore;
-using Tasky.Microservice.Shared;
-using Volo.Abp.MultiTenancy;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.PostgreSql;
+using Volo.Abp.Modularity;
+using Volo.Abp.MultiTenancy;
+using Volo.Abp.UI.Navigation.Urls;
 
 namespace Tasky;
 
@@ -44,7 +45,7 @@ namespace Tasky;
     typeof(SaaSEntityFrameworkCoreModule),
     typeof(IdentityServiceEntityFrameworkCoreModule),
     typeof(TaskyMicroserviceModule)
-    )]
+)]
 public class TaskyIdentityServerModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
@@ -128,7 +129,7 @@ public class TaskyIdentityServerModule : AbpModule
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
     {
-        Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;
+        IdentityModelEventSource.ShowPII = true;
         var app = context.GetApplicationBuilder();
         var env = context.GetEnvironment();
 

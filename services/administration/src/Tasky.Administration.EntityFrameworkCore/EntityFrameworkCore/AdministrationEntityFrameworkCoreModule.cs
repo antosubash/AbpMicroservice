@@ -1,11 +1,11 @@
+using System;
 using Microsoft.Extensions.DependencyInjection;
+using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
-using Volo.Abp.AuditLogging.EntityFrameworkCore;
-using Volo.Abp.FeatureManagement.EntityFrameworkCore;
-using System;
 
 namespace Tasky.Administration.EntityFrameworkCore;
 
@@ -21,7 +21,6 @@ public class AdministrationEntityFrameworkCoreModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
-
         Configure<AbpDbContextOptions>(options =>
         {
             options.UseNpgsql();
@@ -33,17 +32,17 @@ public class AdministrationEntityFrameworkCoreModule : AbpModule
              * options.AddRepository<Question, EfCoreQuestionRepository>();
              */
 
-            options.AddDefaultRepositories(includeAllEntities: true);
+            options.AddDefaultRepositories(true);
         });
 
         context.Services.AddAbpDbContext<AdministrationDbContext>(options =>
-            {
-                options.ReplaceDbContext<IPermissionManagementDbContext>();
-                options.ReplaceDbContext<ISettingManagementDbContext>();
-                options.ReplaceDbContext<IFeatureManagementDbContext>();
-                options.ReplaceDbContext<IAuditLoggingDbContext>();
+        {
+            options.ReplaceDbContext<IPermissionManagementDbContext>();
+            options.ReplaceDbContext<ISettingManagementDbContext>();
+            options.ReplaceDbContext<IFeatureManagementDbContext>();
+            options.ReplaceDbContext<IAuditLoggingDbContext>();
 
-                options.AddDefaultRepositories(includeAllEntities: true);
-            });
+            options.AddDefaultRepositories(true);
+        });
     }
 }
