@@ -13,8 +13,8 @@ namespace Tasky.Administration;
 [DependsOn(
     typeof(AbpDddDomainModule),
     typeof(AdministrationDomainSharedModule),
-    typeof(AbpPermissionManagementDomainIdentityServerModule),
     typeof(AbpPermissionManagementDomainIdentityModule),
+    typeof(AbpPermissionManagementDomainIdentityServerModule),
     typeof(AbpIdentityDomainModule),
     typeof(AbpPermissionManagementDomainModule),
     typeof(AbpSettingManagementDomainModule),
