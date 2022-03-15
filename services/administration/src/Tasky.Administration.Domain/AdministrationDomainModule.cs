@@ -14,13 +14,13 @@ namespace Tasky.Administration;
     typeof(AbpDddDomainModule),
     typeof(AdministrationDomainSharedModule),
     typeof(AbpPermissionManagementDomainIdentityServerModule),
-    typeof(AbpPermissionManagementDomainIdentityModule)
+    typeof(AbpPermissionManagementDomainIdentityModule),
+    typeof(AbpIdentityDomainModule),
+    typeof(AbpPermissionManagementDomainModule),
+    typeof(AbpSettingManagementDomainModule),
+    typeof(AbpAuditLoggingDomainModule),
+    typeof(AbpFeatureManagementDomainModule)
 )]
-[DependsOn(typeof(AbpIdentityDomainModule))]
-[DependsOn(typeof(AbpPermissionManagementDomainModule))]
-[DependsOn(typeof(AbpSettingManagementDomainModule))]
-[DependsOn(typeof(AbpAuditLoggingDomainModule))]
-[DependsOn(typeof(AbpFeatureManagementDomainModule))]
 public class AdministrationDomainModule : AbpModule
 {
 }
