@@ -86,7 +86,7 @@ public class TaskyDbMigrationService : ITransientDependency
         Guid? tenantId,
         CancellationToken cancellationToken)
     {
-        using (var uow = _unitOfWorkManager.Begin(true, false))
+        using (var uow = _unitOfWorkManager.Begin(true))
         {
             if (tenantId == null)
             {

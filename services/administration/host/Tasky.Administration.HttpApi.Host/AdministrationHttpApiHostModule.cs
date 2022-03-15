@@ -8,16 +8,17 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Tasky.Administration.EntityFrameworkCore;
-using StackExchange.Redis;
+using Microsoft.IdentityModel.Logging;
 using Microsoft.OpenApi.Models;
+using StackExchange.Redis;
+using Tasky.Administration.EntityFrameworkCore;
+using Tasky.Hosting.Shared;
+using Tasky.IdentityService;
+using Tasky.SaaS;
 using Volo.Abp;
 using Volo.Abp.Caching;
 using Volo.Abp.Modularity;
 using Volo.Abp.VirtualFileSystem;
-using Tasky.IdentityService;
-using Tasky.SaaS;
-using Tasky.Hosting.Shared;
 
 namespace Tasky.Administration;
 
@@ -28,10 +29,9 @@ namespace Tasky.Administration;
     typeof(AdministrationHttpApiModule),
     typeof(IdentityServiceApplicationContractsModule),
     typeof(SaaSApplicationContractsModule)
-    )]
+)]
 public class AdministrationHttpApiHostModule : AbpModule
 {
-
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         var hostingEnvironment = context.Services.GetHostingEnvironment();
@@ -41,22 +41,32 @@ public class AdministrationHttpApiHostModule : AbpModule
         {
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.ReplaceEmbeddedByPhysical<AdministrationDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}Tasky.Administration.Domain.Shared", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<AdministrationDomainModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}Tasky.Administration.Domain", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<AdministrationApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}Tasky.Administration.Application.Contracts", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<AdministrationApplicationModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}Tasky.Administration.Application", Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<AdministrationDomainSharedModule>(
+                    Path.Combine(hostingEnvironment.ContentRootPath,
+                        string.Format("..{0}..{0}src{0}Tasky.Administration.Domain.Shared",
+                            Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<AdministrationDomainModule>(
+                    Path.Combine(hostingEnvironment.ContentRootPath,
+                        string.Format("..{0}..{0}src{0}Tasky.Administration.Domain", Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<AdministrationApplicationContractsModule>(
+                    Path.Combine(hostingEnvironment.ContentRootPath,
+                        string.Format("..{0}..{0}src{0}Tasky.Administration.Application.Contracts",
+                            Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<AdministrationApplicationModule>(
+                    Path.Combine(hostingEnvironment.ContentRootPath,
+                        string.Format("..{0}..{0}src{0}Tasky.Administration.Application",
+                            Path.DirectorySeparatorChar)));
             });
         }
 
         context.Services.AddAbpSwaggerGenWithOAuth(
             configuration["AuthServer:Authority"],
-            new Dictionary<string, string>
-            {
+            new Dictionary<string, string> {
                 {"AdministrationService", "AdministrationService API"}
             },
             options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Administration API", Version = "v1" });
+                options.SwaggerDoc("v1", new OpenApiInfo {Title = "Administration API", Version = "v1"});
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
             });
@@ -104,7 +114,7 @@ public class AdministrationHttpApiHostModule : AbpModule
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
     {
-        Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;
+        IdentityModelEventSource.ShowPII = true;
         var app = context.GetApplicationBuilder();
         var env = context.GetEnvironment();
 

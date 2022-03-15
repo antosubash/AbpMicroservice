@@ -9,8 +9,6 @@ public class AdministrationDbContextFactory : IDesignTimeDbContextFactory<Admini
 {
     public AdministrationDbContext CreateDbContext(string[] args)
     {
-        var configuration = BuildConfiguration();
-
         var builder = new DbContextOptionsBuilder<AdministrationDbContext>()
             .UseNpgsql(GetConnectionStringFromConfiguration());
 
@@ -28,7 +26,7 @@ public class AdministrationDbContextFactory : IDesignTimeDbContextFactory<Admini
         var builder = new ConfigurationBuilder()
             .SetBasePath(
                 Path.Combine(
-                    Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName,
+                    Directory.GetParent(Directory.GetCurrentDirectory())?.Parent!.FullName!,
                     $"host{Path.DirectorySeparatorChar}Tasky.Administration.HttpApi.Host"
                 )
             )
