@@ -26,36 +26,36 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
     - uses: actions/checkout@v2
     - name: Build the Gateway Docker image
-      run: docker build . --file gateway/Tasky.Gateway/Dockerfile --tag Gateway:dev
+      run: docker build . --file gateway/Tasky.Gateway/Dockerfile --tag gateway:dev
     - name: Docker tag images
-      run: docker tag Gateway:dev registry.antosubash.com/Gateway:dev
+      run: docker tag gateway:dev registry.antosubash.com/gateway:dev
     - name: Push Gateway image
-      run: docker push registry.antosubash.com/Gateway:dev
+      run: docker push registry.antosubash.com/gateway:dev
       
     - name: Build the IdentityServer Docker image
-      run: docker build . --file apps/Tasky.IdentityServer/Dockerfile --tag IdentityServer:dev
+      run: docker build . --file apps/Tasky.IdentityServer/Dockerfile --tag identityserver:dev
     - name: Docker tag IdentityServer images
-      run: docker tag IdentityServer:dev registry.antosubash.com/IdentityServer:dev
+      run: docker tag identityserver:dev registry.antosubash.com/identityserver:dev
     - name: Push IdentityServer image
-      run: docker push registry.antosubash.com/IdentityServer:dev
+      run: docker push registry.antosubash.com/identityserver:dev
   
     - name: Build the Administration Docker image
-      run: docker build . --file services/administration/host/Tasky.Administration.HttpApi.Host/Dockerfile --tag Administration:dev
+      run: docker build . --file services/administration/host/Tasky.Administration.HttpApi.Host/Dockerfile --tag administration:dev
     - name: Docker tag Administration images
-      run: docker tag Administration:dev registry.antosubash.com/Administration:dev
+      run: docker tag administration:dev registry.antosubash.com/administration:dev
     - name: Push Administration image
-      run: docker push registry.antosubash.com/Administration:dev
+      run: docker push registry.antosubash.com/administration:dev
       
     - name: Build the IdentityService Docker image
-      run: docker build . --file services/identity/host/Tasky.IdentityService.HttpApi.Host/Dockerfile --tag IdentityService:dev
-    - name: Docker tag IdentityService images
-      run: docker tag IdentityService:dev registry.antosubash.com/IdentityService:dev
+      run: docker build . --file services/identity/host/Tasky.IdentityService.HttpApi.Host/Dockerfile --tag identityservice:dev
+    - name: Docker tag identityservice images
+      run: docker tag identityservice:dev registry.antosubash.com/identityservice:dev
     - name: Push IdentityService image
-      run: docker push registry.antosubash.com/IdentityService:dev
+      run: docker push registry.antosubash.com/identityservice:dev
     
     - name: Build the SaaS Docker image
-      run: docker build . --file services/saas/host/Tasky.SaaS.HttpApi.Host/Dockerfile --tag SaaS:dev
+      run: docker build . --file services/saas/host/Tasky.SaaS.HttpApi.Host/Dockerfile --tag saas:dev
     - name: Docker tag SaaS images
-      run: docker tag SaaS:dev registry.antosubash.com/SaaS:dev
+      run: docker tag saas:dev registry.antosubash.com/saas:dev
     - name: Push SaaS image
-      run: docker push registry.antosubash.com/SaaS:dev
+      run: docker push registry.antosubash.com/saas:dev
