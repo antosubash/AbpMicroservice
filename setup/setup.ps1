@@ -14,13 +14,13 @@ Move-Item -Path ".\temp\$name\angular\" -Destination .\apps\angular
 Move-Item -Path ".\temp\$name\aspnet-core\src\$name.DbMigrator" -Destination .\shared\ -Force
 Move-Item -Path ".\temp\$name\aspnet-core\src\$name.IdentityServer" -Destination .\apps\ -Force
 Remove-Item -Recurse -Force .\temp\ 
-dotnet sln .\Anto.sln remove (ls -r **/*.Installer.csproj)
-dotnet sln .\Anto.sln remove (ls -r **/*.Host.Shared.csproj)
-dotnet sln .\Anto.sln remove (ls -r **/*.MongoDB.csproj)
-dotnet sln .\Anto.sln remove (ls -r **/*.MongoDB.Tests.csproj)
-dotnet sln .\Anto.sln remove (ls -r **/*.AdministrationService.IdentityServer.csproj)
-dotnet sln .\Anto.sln remove (ls -r **/*.IdentityService.IdentityServer.csproj)
-dotnet sln .\Anto.sln remove (ls -r **/*.SaaSService.IdentityServer.csproj)
+dotnet sln ".\$name.sln" remove (ls -r **/*.Installer.csproj)
+dotnet sln ".\$name.sln" remove (ls -r **/*.Host.Shared.csproj)
+dotnet sln ".\$name.sln" remove (ls -r **/*.MongoDB.csproj)
+dotnet sln ".\$name.sln" remove (ls -r **/*.MongoDB.Tests.csproj)
+dotnet sln ".\$name.sln" remove (ls -r **/*.AdministrationService.IdentityServer.csproj)
+dotnet sln ".\$name.sln" remove (ls -r **/*.IdentityService.IdentityServer.csproj)
+dotnet sln ".\$name.sln" remove (ls -r **/*.SaaSService.IdentityServer.csproj)
 Remove-Item -Recurse -Force (ls -r **/*.SaaSService.IdentityServer)
 Remove-Item -Recurse -Force (ls -r **/*.IdentityService.IdentityServer)
 Remove-Item -Recurse -Force (ls -r **/*.AdministrationService.IdentityServer)
