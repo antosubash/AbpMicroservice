@@ -2,14 +2,33 @@
 
 This is document to setup a abp microservice application from the beginning.
 
-## 1. Creating folders
+## Easy way
+
+Copy the following command into a powershell file and run it.
 
 ```bash
-mkdir services
-mkdir gateway
-mkdir shared
-mkdir apps
-mkdir temp 
+dotnet new web -n Tasky.IdentityServer -o apps\Tasky.IdentityServer
+dotnet new web -n Tasky.Gateway -o gateway\Tasky.Gateway
+dotnet new classlib -n Tasky.Shared.Hosting -o shared\Tasky.Shared.Hosting
+dotnet new console -n Tasky.DbMigrator -o shared\Tasky.DbMigrator
+abp new Tasky.AdministrationService -t module --no-ui -o services\administration
+abp new Tasky.IdentityService -t module --no-ui -o services\identity
+abp new Tasky.SaaSService -t module --no-ui -o services\saas
+dotnet new sln -n Tasky
+dotnet sln .\Tasky.sln add (ls -r **/*.csproj)
+abp new Tasky -t app -u angular -dbms PostgreSQL -m none --separate-identity-server --database-provider ef -csf -o temp
+Move-Item -Path .\temp\Tasky\angular\ -Destination .\apps\angular
+Move-Item -Path .\temp\Tasky\aspnet-core\src\Tasky.DbMigrator -Destination .\shared\ -Force
+Move-Item -Path .\temp\Tasky\aspnet-core\src\Tasky.IdentityServer -Destination .\apps\ -Force
+Remove-Item -Recurse -Force .\temp\
+```
+
+## Hard way
+
+We can also create things manually
+
+```bash
+mkdir services, services\administration, services\identity, services\saas, gateway, apps, shared, temp 
 ```
 
 `services` folder is to store all our services
@@ -74,7 +93,7 @@ mkdir administration
 ```
 
 ```bash
-abp new Tasky.AdministrationService -t module --no-ui
+abp new Tasky.AdministrationService -t module --no-ui -o services\administration
 ```
 
 ### For creating Identity service
@@ -86,7 +105,7 @@ mkdir identity
 ```
 
 ```bash
-abp new Tasky.IdentityService -t module --no-ui
+abp new Tasky.IdentityService -t module --no-ui -o services\identity
 ```
 
 ### For creating SaaS service
@@ -98,7 +117,7 @@ mkdir saas
 ```
 
 ```bash
-abp new Tasky.SaaSService -t module --no-ui
+abp new Tasky.SaaSService -t module --no-ui -o services\saas
 ```
 
 ## 8. Adding projects to Tasky solution
