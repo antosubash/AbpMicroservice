@@ -1,4 +1,4 @@
-# Yarp
+# Yarp and Tye
 
 Yarp is our proxy server which will redirect the request to other services.
 

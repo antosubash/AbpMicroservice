@@ -104,7 +104,7 @@ public class TenantCreatedEventHandler : IDistributedEventHandler<TenantCreatedE
 
 ## Create Event handlers for Identity Service
 
-```xml
+```cs
 using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
