@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": ".NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/shared/Tasky.DbMigrator/bin/Debug/net6.0/Tasky.DbMigrator.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/shared/Tasky.DbMigrator",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        },
+        {
+            "name": "Docker .NET Core Launch",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug",
+            "netCore": {
+                "appProject": "${workspaceFolder}/shared/Tasky.DbMigrator/Tasky.DbMigrator.csproj"
+            }
+        }
+    ]
+}

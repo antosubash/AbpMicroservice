@@ -59,3 +59,10 @@ jobs:
       run: docker tag saas:dev registry.antosubash.com/saas:dev
     - name: Push SaaS image
       run: docker push registry.antosubash.com/saas:dev
+
+    - name: Build the DbMigrator Docker image
+      run: docker build . --file shared/Tasky.DbMigrator/Dockerfile --tag migrator:dev
+    - name: Docker tag DbMigrator images
+      run: docker tag migrator:dev registry.antosubash.com/migrator:dev
+    - name: Push DbMigrator image
+      run: docker push registry.antosubash.com/migrator:dev
