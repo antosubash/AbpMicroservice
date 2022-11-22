@@ -262,3 +262,4 @@ host/Tasky.Administration.Blazor.Server.Host/Logs/logs.txt
 shared/Tasky.DbMigrator/Logs/logs.txt
 apps/Tasky.IdentityServer/Logs/logs.txt
 apps/Tasky.IdentityServer/Logs/logs.txt
+apps/Tasky.AuthServer/Logs/logs.txt

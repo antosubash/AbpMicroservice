@@ -2684,3 +2684,6 @@ Volo.Abp.UserFriendlyException: Given tenant doesn't exist: test12
 2022-11-23 00:44:32.811 +01:00 [INF] Executed action Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc) in 32.4283ms
 2022-11-23 00:44:32.811 +01:00 [INF] Executed endpoint 'Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationScriptController.Get (Volo.Abp.AspNetCore.Mvc)'
 2022-11-23 00:44:32.811 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7600/Abp/ApplicationConfigurationScript - - - 200 79418 application/javascript 34.9118ms
+2022-11-23 00:45:13.352 +01:00 [INF] Application is shutting down...
+2022-11-23 00:45:13.367 +01:00 [DBG] Disposed channel pool with no channels in the pool.
+2022-11-23 00:45:13.391 +01:00 [DBG] Stopped background worker: Volo.Abp.OpenIddict.Tokens.TokenCleanupBackgroundWorker
