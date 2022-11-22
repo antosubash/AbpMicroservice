@@ -17,8 +17,7 @@ namespace Tasky.DbMigrator;
     typeof(IdentityServiceEntityFrameworkCoreModule),
     typeof(IdentityServiceApplicationContractsModule),
     typeof(SaaSEntityFrameworkCoreModule),
-    typeof(SaaSApplicationContractsModule),
-    typeof(TaskyMicroserviceModule)
+    typeof(SaaSApplicationContractsModule)
 )]
 public class TaskyDbMigratorModule : AbpModule
 {

@@ -2,53 +2,48 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using IdentityServer4.Models;
 using Microsoft.Extensions.Configuration;
+using OpenIddict.Abstractions;
 using Volo.Abp.Authorization.Permissions;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.Guids;
-using Volo.Abp.IdentityServer.ApiResources;
-using Volo.Abp.IdentityServer.ApiScopes;
-using Volo.Abp.IdentityServer.Clients;
-using Volo.Abp.IdentityServer.IdentityResources;
 using Volo.Abp.MultiTenancy;
+using Volo.Abp.OpenIddict.Applications;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.Uow;
-using ApiResource = Volo.Abp.IdentityServer.ApiResources.ApiResource;
-using ApiScope = Volo.Abp.IdentityServer.ApiScopes.ApiScope;
-using Client = Volo.Abp.IdentityServer.Clients.Client;
+using Microsoft.Extensions.Localization;
+using Volo.Abp;
+using IdentityModel;
+using JetBrains.Annotations;
 
 namespace Tasky.DbMigrator;
 
-public class IdentityServerDataSeeder : ITransientDependency
+public class OpenIddictDataSeeder : ITransientDependency
 {
-    private readonly IApiResourceRepository _apiResourceRepository;
-    private readonly IApiScopeRepository _apiScopeRepository;
-    private readonly IClientRepository _clientRepository;
     private readonly IConfiguration _configuration;
     private readonly ICurrentTenant _currentTenant;
     private readonly IGuidGenerator _guidGenerator;
-    private readonly IIdentityResourceDataSeeder _identityResourceDataSeeder;
+    private readonly IAbpApplicationManager _applicationManager;
+    private readonly IOpenIddictScopeManager _scopeManager;
     private readonly IPermissionDataSeeder _permissionDataSeeder;
+    private readonly IStringLocalizer<OpenIddictResponse> L;
 
-    public IdentityServerDataSeeder(
-        IClientRepository clientRepository,
-        IApiResourceRepository apiResourceRepository,
-        IApiScopeRepository apiScopeRepository,
-        IIdentityResourceDataSeeder identityResourceDataSeeder,
-        IGuidGenerator guidGenerator,
+    public OpenIddictDataSeeder(
+        IAbpApplicationManager applicationManager,
+        IOpenIddictScopeManager scopeManager,
         IPermissionDataSeeder permissionDataSeeder,
+        IStringLocalizer<OpenIddictResponse> l,
+        IGuidGenerator guidGenerator,
         IConfiguration configuration,
         ICurrentTenant currentTenant)
     {
-        _clientRepository = clientRepository;
-        _apiResourceRepository = apiResourceRepository;
-        _apiScopeRepository = apiScopeRepository;
-        _identityResourceDataSeeder = identityResourceDataSeeder;
-        _guidGenerator = guidGenerator;
-        _permissionDataSeeder = permissionDataSeeder;
         _configuration = configuration;
+        _applicationManager = applicationManager;
+        _scopeManager = scopeManager;
+        _permissionDataSeeder = permissionDataSeeder;
+        _guidGenerator = guidGenerator;
         _currentTenant = currentTenant;
+        L = l;
     }
 
     [UnitOfWork]
@@ -56,9 +51,7 @@ public class IdentityServerDataSeeder : ITransientDependency
     {
         using (_currentTenant.Change(null))
         {
-            await _identityResourceDataSeeder.CreateStandardResourcesAsync();
             await CreateApiResourcesAsync();
-            await CreateApiScopesAsync();
             await CreateClientsAsync();
         }
     }
@@ -67,201 +60,253 @@ public class IdentityServerDataSeeder : ITransientDependency
     {
         var clients = _configuration.GetSection("Clients").Get<List<ServiceClient>>();
         var commonScopes = new[] {
-            "email",
-            "openid",
-            "profile",
-            "role",
-            "phone",
-            "address"
+            OpenIddictConstants.Permissions.Scopes.Address,
+            OpenIddictConstants.Permissions.Scopes.Email,
+            OpenIddictConstants.Permissions.Scopes.Phone,
+            OpenIddictConstants.Permissions.Scopes.Profile,
+            OpenIddictConstants.Permissions.Scopes.Roles,
         };
 
         foreach (var client in clients)
         {
+            //await CreateClientAsync(
+            //    client.ClientId,
+            //    commonScopes.Union(client.Scopes),
+            //    client.GrantTypes,
+            //    client.ClientSecret.ToSha256(),
+            //    redirectUris: client.RedirectUris,
+            //    postLogoutRedirectUris: client.PostLogoutRedirectUris
+            //);
+
+            var isClientSecretAvailable = !string.IsNullOrEmpty(client.ClientSecret);
+
             await CreateClientAsync(
-                client.ClientId,
-                commonScopes.Union(client.Scopes),
-                client.GrantTypes,
-                client.ClientSecret.Sha256(),
-                requireClientSecret: false,
-                redirectUris: client.RedirectUris,
-                postLogoutRedirectUris: client.PostLogoutRedirectUris,
-                corsOrigins: client.AllowedCorsOrigins
-            );
+                    client.ClientId,
+                    displayName: client.ClientId,
+                    secret: isClientSecretAvailable ? client.ClientSecret.ToSha256() : null,
+                    type: isClientSecretAvailable ? OpenIddictConstants.ClientTypes.Confidential : OpenIddictConstants.ClientTypes.Public,
+                    scopes: commonScopes.Union(client.Scopes).ToList(),
+                    grantTypes: client.GrantTypes.ToList(),
+                    redirectUris: client.RedirectUris,
+                    postLogoutRedirectUris: client.PostLogoutRedirectUris,
+                    consentType: OpenIddictConstants.ConsentTypes.Implicit
+                );
         }
     }
 
 
     private async Task CreateApiResourcesAsync()
     {
-        var commonApiUserClaims = new[] {
-            "email",
-            "email_verified",
-            "name",
-            "phone_number",
-            "phone_number_verified",
-            "role"
-        };
-
         var apiResources = _configuration.GetSection("ApiResource").Get<string[]>();
 
         foreach (var item in apiResources)
         {
-            await CreateApiResourceAsync(item, commonApiUserClaims);
+            await CreateApiResourceAsync(item);
         }
     }
 
-    private async Task CreateApiScopesAsync()
+    private async Task CreateApiResourceAsync(string name)
     {
-        var apiScopes = _configuration.GetSection("ApiScope").Get<string[]>();
-        foreach (var item in apiScopes)
+        if (await _scopeManager.FindByNameAsync(name) == null)
         {
-            await CreateApiScopeAsync(item);
-        }
-    }
-
-    private async Task<ApiResource> CreateApiResourceAsync(string name, IEnumerable<string> claims)
-    {
-        var apiResource = await _apiResourceRepository.FindByNameAsync(name);
-        if (apiResource == null)
-        {
-            apiResource = await _apiResourceRepository.InsertAsync(
-                new ApiResource(
-                    _guidGenerator.Create(),
-                    name,
-                    name + " API"
-                ),
-                true
-            );
-        }
-
-        foreach (var claim in claims)
-        {
-            if (apiResource.FindClaim(claim) == null)
+            await _scopeManager.CreateAsync(new OpenIddictScopeDescriptor
             {
-                apiResource.AddUserClaim(claim);
-            }
+                Name = name,
+                DisplayName = name + " API",
+                Resources =
+                {
+                    name
+                }
+            });
         }
-
-        return await _apiResourceRepository.UpdateAsync(apiResource);
     }
 
-    private async Task<ApiScope> CreateApiScopeAsync(string name)
+    private async Task CreateClientAsync(
+        [NotNull] string name,
+        [NotNull] string type,
+        [NotNull] string consentType,
+        string displayName,
+        string secret,
+        List<string> grantTypes,
+        List<string> scopes,
+        string[] redirectUris = null,
+        string[] postLogoutRedirectUris = null,
+        List<string> permissions = null)
     {
-        var apiScope = await _apiScopeRepository.FindByNameAsync(name);
-        if (apiScope == null)
+        if (!string.IsNullOrEmpty(secret) && string.Equals(type, OpenIddictConstants.ClientTypes.Public, StringComparison.OrdinalIgnoreCase))
         {
-            apiScope = await _apiScopeRepository.InsertAsync(
-                new ApiScope(
-                    _guidGenerator.Create(),
-                    name,
-                    name + " API"
-                ),
-                true
-            );
+            throw new BusinessException(L["NoClientSecretCanBeSetForPublicApplications"]);
         }
 
-        return apiScope;
-    }
+        if (string.IsNullOrEmpty(secret) && string.Equals(type, OpenIddictConstants.ClientTypes.Confidential, StringComparison.OrdinalIgnoreCase))
+        {
+            throw new BusinessException(L["TheClientSecretIsRequiredForConfidentialApplications"]);
+        }
 
-    private async Task<Client> CreateClientAsync(
-        string name,
-        IEnumerable<string> scopes,
-        IEnumerable<string> grantTypes,
-        string secret = null,
-        IEnumerable<string> redirectUris = null,
-        IEnumerable<string> postLogoutRedirectUris = null,
-        string frontChannelLogoutUri = null,
-        bool requireClientSecret = true,
-        bool requirePkce = false,
-        IEnumerable<string> permissions = null,
-        IEnumerable<string> corsOrigins = null)
-    {
-        var client = await _clientRepository.FindByClientIdAsync(name);
+        if (!string.IsNullOrEmpty(name) && await _applicationManager.FindByClientIdAsync(name) != null)
+        {
+            return;
+            //throw new BusinessException(L["TheClientIdentifierIsAlreadyTakenByAnotherApplication"]);
+        }
+
+        var client = await _applicationManager.FindByClientIdAsync(name);
         if (client == null)
         {
-            client = await _clientRepository.InsertAsync(
-                new Client(
-                    _guidGenerator.Create(),
-                    name
-                ) {
-                    ClientName = name,
-                    ProtocolType = "oidc",
-                    Description = name,
-                    AlwaysIncludeUserClaimsInIdToken = true,
-                    AllowOfflineAccess = true,
-                    AbsoluteRefreshTokenLifetime = 31536000, //365 days
-                    AccessTokenLifetime = 31536000, //365 days
-                    AuthorizationCodeLifetime = 300,
-                    IdentityTokenLifetime = 300,
-                    RequireConsent = false,
-                    FrontChannelLogoutUri = frontChannelLogoutUri,
-                    RequireClientSecret = requireClientSecret,
-                    RequirePkce = requirePkce
-                },
-                true
-            );
-        }
-
-        foreach (var scope in scopes)
-        {
-            if (client.FindScope(scope) == null)
+            var application = new OpenIddictApplicationDescriptor
             {
-                client.AddScope(scope);
-            }
-        }
+                ClientId = name,
+                Type = type,
+                ClientSecret = secret,
+                ConsentType = consentType,
+                DisplayName = displayName
+            };
 
-        foreach (var grantType in grantTypes)
-        {
-            if (client.FindGrantType(grantType) == null)
+            Check.NotNullOrEmpty(grantTypes, nameof(grantTypes));
+            Check.NotNullOrEmpty(scopes, nameof(scopes));
+
+            if (new[] { OpenIddictConstants.GrantTypes.AuthorizationCode, OpenIddictConstants.GrantTypes.Implicit }.All(grantTypes.Contains))
             {
-                client.AddGrantType(grantType);
-            }
-        }
-
-        if (!secret.IsNullOrEmpty())
-        {
-            if (client.FindSecret(secret) == null)
-            {
-                client.AddSecret(secret);
-            }
-        }
-
-        foreach (var redirectUrl in redirectUris)
-        {
-            if (client.FindRedirectUri(redirectUrl) == null)
-            {
-                client.AddRedirectUri(redirectUrl);
-            }
-        }
-
-        foreach (var postLogoutRedirectUri in postLogoutRedirectUris)
-        {
-            if (client.FindPostLogoutRedirectUri(postLogoutRedirectUri) == null)
-            {
-                client.AddPostLogoutRedirectUri(postLogoutRedirectUri);
-            }
-        }
-
-        if (permissions != null)
-        {
-            await _permissionDataSeeder.SeedAsync(
-                ClientPermissionValueProvider.ProviderName,
-                name,
-                permissions
-            );
-        }
-
-        if (corsOrigins != null)
-        {
-            foreach (var origin in corsOrigins)
-            {
-                if (!origin.IsNullOrWhiteSpace() && client.FindCorsOrigin(origin) == null)
+                application.Permissions.Add(OpenIddictConstants.Permissions.ResponseTypes.CodeIdToken);
+                if (string.Equals(type, OpenIddictConstants.ClientTypes.Public, StringComparison.OrdinalIgnoreCase))
                 {
-                    client.AddCorsOrigin(origin);
+                    application.Permissions.Add(OpenIddictConstants.Permissions.ResponseTypes.CodeIdTokenToken);
+                    application.Permissions.Add(OpenIddictConstants.Permissions.ResponseTypes.CodeToken);
                 }
             }
-        }
+            application.Permissions.Add(OpenIddictConstants.Permissions.Endpoints.Logout);
 
-        return await _clientRepository.UpdateAsync(client);
+
+            foreach (var grantType in grantTypes)
+            {
+                if (grantType == OpenIddictConstants.GrantTypes.AuthorizationCode)
+                {
+                    application.Permissions.Add(OpenIddictConstants.Permissions.GrantTypes.AuthorizationCode);
+                    application.Permissions.Add(OpenIddictConstants.Permissions.ResponseTypes.Code);
+                }
+
+                if (grantType == OpenIddictConstants.GrantTypes.AuthorizationCode || grantType == OpenIddictConstants.GrantTypes.Implicit)
+                {
+                    application.Permissions.Add(OpenIddictConstants.Permissions.Endpoints.Authorization);
+                }
+
+                if (grantType == OpenIddictConstants.GrantTypes.AuthorizationCode ||
+                    grantType == OpenIddictConstants.GrantTypes.ClientCredentials ||
+                    grantType == OpenIddictConstants.GrantTypes.Password ||
+                    grantType == OpenIddictConstants.GrantTypes.RefreshToken ||
+                    grantType == OpenIddictConstants.GrantTypes.DeviceCode)
+                {
+                    application.Permissions.Add(OpenIddictConstants.Permissions.Endpoints.Token);
+                    application.Permissions.Add(OpenIddictConstants.Permissions.Endpoints.Revocation);
+                    application.Permissions.Add(OpenIddictConstants.Permissions.Endpoints.Introspection);
+                }
+
+                if (grantType == OpenIddictConstants.GrantTypes.ClientCredentials)
+                {
+                    application.Permissions.Add(OpenIddictConstants.Permissions.GrantTypes.ClientCredentials);
+                }
+
+                if (grantType == OpenIddictConstants.GrantTypes.Implicit)
+                {
+                    application.Permissions.Add(OpenIddictConstants.Permissions.GrantTypes.Implicit);
+                }
+
+                if (grantType == OpenIddictConstants.GrantTypes.Password)
+                {
+                    application.Permissions.Add(OpenIddictConstants.Permissions.GrantTypes.Password);
+                }
+
+                if (grantType == OpenIddictConstants.GrantTypes.RefreshToken)
+                {
+                    application.Permissions.Add(OpenIddictConstants.Permissions.GrantTypes.RefreshToken);
+                }
+
+                if (grantType == OpenIddictConstants.GrantTypes.DeviceCode)
+                {
+                    application.Permissions.Add(OpenIddictConstants.Permissions.GrantTypes.DeviceCode);
+                    application.Permissions.Add(OpenIddictConstants.Permissions.Endpoints.Device);
+                }
+
+                if (grantType == OpenIddictConstants.GrantTypes.Implicit)
+                {
+                    application.Permissions.Add(OpenIddictConstants.Permissions.ResponseTypes.IdToken);
+                    if (string.Equals(type, OpenIddictConstants.ClientTypes.Public, StringComparison.OrdinalIgnoreCase))
+                    {
+                        application.Permissions.Add(OpenIddictConstants.Permissions.ResponseTypes.IdTokenToken);
+                        application.Permissions.Add(OpenIddictConstants.Permissions.ResponseTypes.Token);
+                    }
+                }
+            }
+
+            var buildInScopes = new[]
+            {
+                OpenIddictConstants.Permissions.Scopes.Address,
+                OpenIddictConstants.Permissions.Scopes.Email,
+                OpenIddictConstants.Permissions.Scopes.Phone,
+                OpenIddictConstants.Permissions.Scopes.Profile,
+                OpenIddictConstants.Permissions.Scopes.Roles
+            };
+
+            foreach (var scope in scopes)
+            {
+                if (buildInScopes.Contains(scope))
+                {
+                    application.Permissions.Add(scope);
+                }
+                else
+                {
+                    application.Permissions.Add(OpenIddictConstants.Permissions.Prefixes.Scope + scope);
+                }
+            }
+
+            if (redirectUris != null)
+            {
+                foreach (var redirectUri in redirectUris)
+                {
+                    if (!redirectUri.IsNullOrEmpty())
+                    {
+                        if (!Uri.TryCreate(redirectUri, UriKind.Absolute, out var uri) || !uri.IsWellFormedOriginalString())
+                        {
+                            throw new BusinessException(L["InvalidRedirectUri", redirectUri]);
+                        }
+
+                        if (application.RedirectUris.All(x => x != uri))
+                        {
+                            application.RedirectUris.Add(uri);
+                        }
+                    }
+                }
+            }
+
+            if (postLogoutRedirectUris != null)
+            {
+                foreach (var postLogoutRedirectUri in postLogoutRedirectUris)
+                {
+                    if (!postLogoutRedirectUri.IsNullOrEmpty())
+                    {
+                        if (!Uri.TryCreate(postLogoutRedirectUri, UriKind.Absolute, out var uri) || !uri.IsWellFormedOriginalString())
+                        {
+                            throw new BusinessException(L["InvalidPostLogoutRedirectUri", postLogoutRedirectUri]);
+                        }
+
+                        if (application.PostLogoutRedirectUris.All(x => x != uri))
+                        {
+                            application.PostLogoutRedirectUris.Add(uri);
+                        }
+                    }
+                }
+            }
+
+            if (permissions != null)
+            {
+                await _permissionDataSeeder.SeedAsync(
+                    ClientPermissionValueProvider.ProviderName,
+                    name,
+                    permissions,
+                    null
+                );
+            }
+
+            await _applicationManager.CreateAsync(application);
+        }
     }
 }

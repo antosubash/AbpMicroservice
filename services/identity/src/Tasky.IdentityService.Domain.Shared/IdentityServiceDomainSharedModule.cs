@@ -1,6 +1,6 @@
 using Tasky.IdentityService.Localization;
 using Volo.Abp.Identity;
-using Volo.Abp.IdentityServer;
+using Volo.Abp.OpenIddict;
 using Volo.Abp.Localization;
 using Volo.Abp.Localization.ExceptionHandling;
 using Volo.Abp.Modularity;
@@ -14,7 +14,7 @@ namespace Tasky.IdentityService;
     typeof(AbpValidationModule)
 )]
 [DependsOn(typeof(AbpIdentityDomainSharedModule))]
-[DependsOn(typeof(AbpIdentityServerDomainSharedModule))]
+[DependsOn(typeof(AbpOpenIddictDomainSharedModule))]
 public class IdentityServiceDomainSharedModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
