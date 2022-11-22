@@ -1,6 +1,6 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <Import Project="..\..\common.props"/>
+    <Import Project="..\..\common.props" />
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
@@ -8,8 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="5.1.4"/>
-        <ProjectReference Include="..\Tasky.Projects.Application.Contracts\Tasky.Projects.Application.Contracts.csproj"/>
+        <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="6.0.1" />
+        <ProjectReference Include="..\Tasky.Projects.Application.Contracts\Tasky.Projects.Application.Contracts.csproj" />
     </ItemGroup>
 
 </Project>

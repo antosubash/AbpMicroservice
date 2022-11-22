@@ -1,0 +1,39 @@
+2022-11-20 18:53:25.491 +01:00 [INF] Starting Tasky.AuthServer.
+2022-11-20 18:53:32.595 +01:00 [FTL] Tasky.AuthServer terminated unexpectedly!
+Volo.Abp.AbpInitializationException: An error occurred during ConfigureServicesAsync phase of the module Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Volo.Abp.EntityFrameworkCore, Version=5.1.4.0, Culture=neutral, PublicKeyToken=null. See the inner exception for details.
+ ---> System.TypeLoadException: Method 'DeleteManyAsync' in type 'Volo.Abp.EntityFrameworkCore.DistributedEvents.DbContextEventOutbox`1' from assembly 'Volo.Abp.EntityFrameworkCore, Version=5.1.4.0, Culture=neutral, PublicKeyToken=null' does not have an implementation.
+   at Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule.ConfigureServices(ServiceConfigurationContext context)
+   at Volo.Abp.Modularity.AbpModule.ConfigureServicesAsync(ServiceConfigurationContext context)
+   at Volo.Abp.AbpApplicationBase.ConfigureServicesAsync()
+   --- End of inner exception stack trace ---
+   at Volo.Abp.AbpApplicationBase.ConfigureServicesAsync()
+   at Volo.Abp.AbpApplicationFactory.CreateAsync[TStartupModule](IServiceCollection services, Action`1 optionsAction)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionApplicationExtensions.AddApplicationAsync[TStartupModule](IServiceCollection services, Action`1 optionsAction)
+   at Microsoft.Extensions.DependencyInjection.WebApplicationBuilderExtensions.AddApplicationAsync[TStartupModule](WebApplicationBuilder builder, Action`1 optionsAction)
+   at Tasky.Program.Main(String[] args) in C:\repos\GitHub\AbpMicroservice\apps\Tasky.AuthServer\Program.cs:line 35
+2022-11-20 18:55:50.854 +01:00 [INF] Starting Tasky.AuthServer.
+2022-11-20 18:55:51.345 +01:00 [FTL] Tasky.AuthServer terminated unexpectedly!
+Volo.Abp.AbpInitializationException: An error occurred during ConfigureServicesAsync phase of the module Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Volo.Abp.EntityFrameworkCore, Version=5.1.4.0, Culture=neutral, PublicKeyToken=null. See the inner exception for details.
+ ---> System.TypeLoadException: Method 'DeleteManyAsync' in type 'Volo.Abp.EntityFrameworkCore.DistributedEvents.DbContextEventOutbox`1' from assembly 'Volo.Abp.EntityFrameworkCore, Version=5.1.4.0, Culture=neutral, PublicKeyToken=null' does not have an implementation.
+   at Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule.ConfigureServices(ServiceConfigurationContext context)
+   at Volo.Abp.Modularity.AbpModule.ConfigureServicesAsync(ServiceConfigurationContext context)
+   at Volo.Abp.AbpApplicationBase.ConfigureServicesAsync()
+   --- End of inner exception stack trace ---
+   at Volo.Abp.AbpApplicationBase.ConfigureServicesAsync()
+   at Volo.Abp.AbpApplicationFactory.CreateAsync[TStartupModule](IServiceCollection services, Action`1 optionsAction)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionApplicationExtensions.AddApplicationAsync[TStartupModule](IServiceCollection services, Action`1 optionsAction)
+   at Microsoft.Extensions.DependencyInjection.WebApplicationBuilderExtensions.AddApplicationAsync[TStartupModule](WebApplicationBuilder builder, Action`1 optionsAction)
+   at Tasky.Program.Main(String[] args) in C:\repos\GitHub\AbpMicroservice\apps\Tasky.AuthServer\Program.cs:line 35
+2022-11-20 18:56:46.198 +01:00 [INF] Starting Tasky.AuthServer.
+2022-11-20 18:56:47.072 +01:00 [FTL] Tasky.AuthServer terminated unexpectedly!
+Volo.Abp.AbpInitializationException: An error occurred during ConfigureServicesAsync phase of the module Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Volo.Abp.EntityFrameworkCore, Version=5.1.4.0, Culture=neutral, PublicKeyToken=null. See the inner exception for details.
+ ---> System.TypeLoadException: Method 'DeleteManyAsync' in type 'Volo.Abp.EntityFrameworkCore.DistributedEvents.DbContextEventOutbox`1' from assembly 'Volo.Abp.EntityFrameworkCore, Version=5.1.4.0, Culture=neutral, PublicKeyToken=null' does not have an implementation.
+   at Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule.ConfigureServices(ServiceConfigurationContext context)
+   at Volo.Abp.Modularity.AbpModule.ConfigureServicesAsync(ServiceConfigurationContext context)
+   at Volo.Abp.AbpApplicationBase.ConfigureServicesAsync()
+   --- End of inner exception stack trace ---
+   at Volo.Abp.AbpApplicationBase.ConfigureServicesAsync()
+   at Volo.Abp.AbpApplicationFactory.CreateAsync[TStartupModule](IServiceCollection services, Action`1 optionsAction)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionApplicationExtensions.AddApplicationAsync[TStartupModule](IServiceCollection services, Action`1 optionsAction)
+   at Microsoft.Extensions.DependencyInjection.WebApplicationBuilderExtensions.AddApplicationAsync[TStartupModule](WebApplicationBuilder builder, Action`1 optionsAction)
+   at Tasky.Program.Main(String[] args) in C:\repos\GitHub\AbpMicroservice\apps\Tasky.AuthServer\Program.cs:line 35
