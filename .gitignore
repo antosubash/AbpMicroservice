@@ -253,3 +253,4 @@ paket-files/
 
 .tye
 **/logs.txt
+apps/Tasky.AuthServer/Logs/logs.txt

@@ -10,7 +10,7 @@ export const environment = {
     logoUrl: '',
   },
   oAuthConfig: {
-    issuer: 'https://localhost:7000',
+    issuer: 'https://localhost:7600',
     redirectUri: baseUrl,
     clientId: 'Tasky_App',
     responseType: 'code',
