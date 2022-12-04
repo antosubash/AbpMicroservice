@@ -83,7 +83,7 @@ public class OpenIddictDataSeeder : ITransientDependency
             await CreateClientAsync(
                     client.ClientId,
                     displayName: client.ClientId,
-                    secret: isClientSecretAvailable ? client.ClientSecret.ToSha256() : null,
+                    secret: isClientSecretAvailable ? client.ClientSecret : null,
                     type: isClientSecretAvailable ? OpenIddictConstants.ClientTypes.Confidential : OpenIddictConstants.ClientTypes.Public,
                     scopes: commonScopes.Union(client.Scopes).ToList(),
                     grantTypes: client.GrantTypes.ToList(),

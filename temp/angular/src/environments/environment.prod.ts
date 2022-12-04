@@ -10,16 +10,17 @@ export const environment = {
     logoUrl: '',
   },
   oAuthConfig: {
-    issuer: 'https://localhost:44348/',
+    issuer: 'https://localhost:7600/',
     redirectUri: baseUrl,
     clientId: 'Tasky_App',
+    clientSecret: '1q2w3e*',
     responseType: 'code',
-    scope: 'offline_access Tasky',
-    requireHttps: true
+    scope: 'offline_access IdentityService AdministrationService SaasService',
+    requireHttps: true,
   },
   apis: {
     default: {
-      url: 'https://localhost:44331',
+      url: 'https://localhost:7500',
       rootNamespace: 'Tasky',
     },
   },
