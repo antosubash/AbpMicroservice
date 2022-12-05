@@ -21,11 +21,6 @@ services:
   bindings:
     - protocol: https
       port: 7003
-- name: tasky-identityserver
-  project: apps/Tasky.IdentityServer/Tasky.IdentityServer.csproj
-  bindings:
-    - protocol: https
-      port: 7000
 - name: tasky-auth-server
   project: apps/Tasky.AuthServer/Tasky.AuthServer.csproj
   bindings:
