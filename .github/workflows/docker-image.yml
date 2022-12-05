@@ -31,13 +31,14 @@ jobs:
       run: docker tag gateway:dev registry.antosubash.com/gateway:dev
     - name: Push Gateway image
       run: docker push registry.antosubash.com/gateway:dev
-      
-    - name: Build the IdentityServer Docker image
-      run: docker build . --file apps/Tasky.IdentityServer/Dockerfile --tag identityserver:dev
-    - name: Docker tag IdentityServer images
-      run: docker tag identityserver:dev registry.antosubash.com/identityserver:dev
-    - name: Push IdentityServer image
-      run: docker push registry.antosubash.com/identityserver:dev
+
+    - name: Build the AuthServer Docker image
+      run: docker build . --file apps/Tasky.AuthServer/Dockerfile --tag authserver:dev
+    - name: Docker tag AuthServer images
+      run: docker tag authserver:dev registry.antosubash.com/authserver:dev
+    - name: Push AuthServer image
+      run: docker push registry.antosubash.com/authserver:dev
+
   
     - name: Build the Administration Docker image
       run: docker build . --file services/administration/host/Tasky.Administration.HttpApi.Host/Dockerfile --tag administration:dev
