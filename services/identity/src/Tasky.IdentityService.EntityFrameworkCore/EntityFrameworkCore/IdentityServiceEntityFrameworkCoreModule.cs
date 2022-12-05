@@ -2,7 +2,7 @@ using System;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Identity.EntityFrameworkCore;
-using Volo.Abp.IdentityServer.EntityFrameworkCore;
+using Volo.Abp.OpenIddict.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 
 namespace Tasky.IdentityService.EntityFrameworkCore;
@@ -11,7 +11,7 @@ namespace Tasky.IdentityService.EntityFrameworkCore;
     typeof(IdentityServiceDomainModule),
     typeof(AbpEntityFrameworkCoreModule),
     typeof(AbpIdentityEntityFrameworkCoreModule),
-    typeof(AbpIdentityServerEntityFrameworkCoreModule)
+    typeof(AbpOpenIddictEntityFrameworkCoreModule)
 )]
 public class IdentityServiceEntityFrameworkCoreModule : AbpModule
 {
@@ -25,7 +25,7 @@ public class IdentityServiceEntityFrameworkCoreModule : AbpModule
         context.Services.AddAbpDbContext<IdentityServiceDbContext>(options =>
         {
             options.ReplaceDbContext<IIdentityDbContext>();
-            options.ReplaceDbContext<IIdentityServerDbContext>();
+            options.ReplaceDbContext<IOpenIddictDbContext>();
 
             options.AddDefaultRepositories(true);
         });

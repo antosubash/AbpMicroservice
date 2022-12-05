@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <Import Project="..\..\common.props" />
 
@@ -19,16 +19,16 @@
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" Version="6.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0" />
-        <PackageReference Include="Volo.Abp.Autofac" Version="5.1.4" />
-        <PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="5.1.4" />
-        <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy" Version="5.1.4" />
-        <PackageReference Include="Volo.Abp.EntityFrameworkCore.PostgreSql" Version="5.1.4" />
-        <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="5.1.4" />
-        <PackageReference Include="Volo.Abp.Swashbuckle" Version="5.1.4" />
-        <PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="5.1.4" />
-        <PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="5.1.4" />
-        <PackageReference Include="Volo.Abp.AuditLogging.EntityFrameworkCore" Version="5.1.4" />
-        <PackageReference Include="Volo.Abp.TenantManagement.EntityFrameworkCore" Version="5.1.4" />
+        <PackageReference Include="Volo.Abp.Autofac" Version="6.0.1" />
+        <PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="6.0.1" />
+        <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy" Version="6.0.1" />
+        <PackageReference Include="Volo.Abp.EntityFrameworkCore.PostgreSql" Version="6.0.1" />
+        <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="6.0.1" />
+        <PackageReference Include="Volo.Abp.Swashbuckle" Version="6.0.1" />
+        <PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="6.0.1" />
+        <PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="6.0.1" />
+        <PackageReference Include="Volo.Abp.AuditLogging.EntityFrameworkCore" Version="6.0.1" />
+        <PackageReference Include="Volo.Abp.TenantManagement.EntityFrameworkCore" Version="6.0.1" />
     </ItemGroup>
 
     <ItemGroup>

@@ -1,15 +1,24 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "extends": "./tsconfig.prod.json",
+  "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2020",
+    "module": "es2020",
+    "lib": ["es2018", "dom"],
     "paths": {
-      "@tasky": [
-        "projects/tasky/src/public-api.ts"
-      ],
-      "@tasky/config": [
-        "projects/tasky/config/src/public-api.ts"
-      ],
-      "@proxy": ["projects/tasky/src/lib/proxy/index.ts"],
-      "@proxy/*": ["projects/tasky/src/lib/proxy/*"]
+      "@proxy": ["src/app/proxy/index.ts"],
+      "@proxy/*": ["src/app/proxy/*"]
     }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false
   }
 }

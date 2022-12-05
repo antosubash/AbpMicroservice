@@ -57,7 +57,7 @@ public class TaskyHostingModule : AbpModule
             options.Databases.Configure("IdentityService", database =>
             {
                 database.MappedConnections.Add("AbpIdentity");
-                database.MappedConnections.Add("AbpIdentityServer");
+                database.MappedConnections.Add("AbpOpenIddict");
             });
         });
 

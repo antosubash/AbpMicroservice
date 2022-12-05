@@ -1,15 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <Import Project="..\..\common.props"/>
+    <Import Project="..\..\common.props" />
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <RootNamespace>Tasky.Projects</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Volo.Abp.Ddd.Domain" Version="5.1.4"/>
-        <ProjectReference Include="..\Tasky.Projects.Domain.Shared\Tasky.Projects.Domain.Shared.csproj"/>
+        <PackageReference Include="Volo.Abp.Ddd.Domain" Version="6.0.1" />
+        <ProjectReference Include="..\Tasky.Projects.Domain.Shared\Tasky.Projects.Domain.Shared.csproj" />
     </ItemGroup>
 
 </Project>

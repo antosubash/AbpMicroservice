@@ -4,18 +4,18 @@ using Volo.Abp.DependencyInjection;
 
 namespace Tasky.DbMigrator;
 
-public class IdentityServerDataSeedContributor : IDataSeedContributor, ITransientDependency
+public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDependency
 {
-    private readonly IdentityServerDataSeeder _identityServerDataSeeder;
+    private readonly OpenIddictDataSeeder _OpenIddictDataSeeder;
 
-    public IdentityServerDataSeedContributor(IdentityServerDataSeeder identityServerDataSeeder)
+    public OpenIddictDataSeedContributor(OpenIddictDataSeeder OpenIddictDataSeeder)
     {
-        _identityServerDataSeeder = identityServerDataSeeder;
+        _OpenIddictDataSeeder = OpenIddictDataSeeder;
     }
 
 
     public async Task SeedAsync(DataSeedContext context)
     {
-        await _identityServerDataSeeder.SeedAsync();
+        await _OpenIddictDataSeeder.SeedAsync();
     }
 }
