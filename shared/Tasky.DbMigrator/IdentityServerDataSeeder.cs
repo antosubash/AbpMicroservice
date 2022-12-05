@@ -65,6 +65,7 @@ public class OpenIddictDataSeeder : ITransientDependency
             OpenIddictConstants.Permissions.Scopes.Phone,
             OpenIddictConstants.Permissions.Scopes.Profile,
             OpenIddictConstants.Permissions.Scopes.Roles,
+            "offline_access"
         };
 
         foreach (var client in clients)
@@ -243,7 +244,8 @@ public class OpenIddictDataSeeder : ITransientDependency
                 OpenIddictConstants.Permissions.Scopes.Email,
                 OpenIddictConstants.Permissions.Scopes.Phone,
                 OpenIddictConstants.Permissions.Scopes.Profile,
-                OpenIddictConstants.Permissions.Scopes.Roles
+                OpenIddictConstants.Permissions.Scopes.Roles,
+                "offline_access"
             };
 
             foreach (var scope in scopes)
