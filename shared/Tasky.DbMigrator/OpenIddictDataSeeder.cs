@@ -13,7 +13,6 @@ using Volo.Abp.PermissionManagement;
 using Volo.Abp.Uow;
 using Microsoft.Extensions.Localization;
 using Volo.Abp;
-using IdentityModel;
 using JetBrains.Annotations;
 
 namespace Tasky.DbMigrator;
