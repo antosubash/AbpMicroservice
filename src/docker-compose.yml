@@ -1,0 +1,13 @@
+
+version: '3.4'
+
+services:
+  taskydbmigrator:
+    image: registry.antosubash.com/migrator:dev
+    container_name: taskydbmigrator
+    environment:
+      ConnectionStrings__SaaS:  "User ID=postgres;Password=postgres;Host=localhost;Port=5432;Database=SaasService;Pooling=false;"
+      ConnectionStrings__IdentityService:  "User ID=postgres;Password=postgres;Host=localhost;Port=5432;Database=IdentityService;Pooling=false;"
+      ConnectionStrings__Administration:  "User ID=postgres;Password=postgres;Host=localhost;Port=5432;Database=AdministrationService;Pooling=false;"
+      
+

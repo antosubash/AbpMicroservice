@@ -1,0 +1,33 @@
+# tye application configuration file
+# read all about it at https://github.com/dotnet/tye
+#
+# when you've given us a try, we'd love to know what you think:
+#    https://aka.ms/AA7q20u
+#
+name: tasky
+services:
+- name: tasky-administration-httpapi-host
+  project: services/administration/host/Tasky.Administration.HttpApi.Host/Tasky.Administration.HttpApi.Host.csproj
+  bindings:
+    - protocol: https
+      port: 7001
+- name: tasky-identityservice-httpapi-host
+  project: services/identity/host/Tasky.IdentityService.HttpApi.Host/Tasky.IdentityService.HttpApi.Host.csproj
+  bindings:
+    - protocol: https
+      port: 7002
+- name: tasky-saas-httpapi-host
+  project: services/saas/host/Tasky.SaaS.HttpApi.Host/Tasky.SaaS.HttpApi.Host.csproj
+  bindings:
+    - protocol: https
+      port: 7003
+- name: tasky-auth-server
+  project: apps/Tasky.AuthServer/Tasky.AuthServer.csproj
+  bindings:
+    - protocol: https
+      port: 7600
+- name: tasky-gateway
+  project: gateway/Tasky.Gateway/Tasky.Gateway.csproj
+  bindings:
+    - protocol: https
+      port: 7500

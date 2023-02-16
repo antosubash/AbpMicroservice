@@ -1,7 +1,0 @@
-{
-  "modules": {
-    "Tasky.Projects": {
-      "path": "Tasky.Projects.abpmdl.json"
-    }
-  }
-}
