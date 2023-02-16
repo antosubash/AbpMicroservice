@@ -254,3 +254,6 @@ paket-files/
 .tye
 **/logs.txt
 apps/Tasky.AuthServer/Logs/logs.txt
+
+# Use abp install-libs to restore.
+**/wwwroot/libs/*
