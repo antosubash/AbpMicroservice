@@ -33,7 +33,7 @@ jobs:
       run: docker push registry.antosubash.com/gateway:dev
 
     - name: Build the AuthServer Docker image
-      run: docker build . --file apps/Tasky.AuthServer/Dockerfile --tag authserver:dev
+      run: docker build . --file src/apps/Tasky.AuthServer/Dockerfile --tag authserver:dev
     - name: Docker tag AuthServer images
       run: docker tag authserver:dev registry.antosubash.com/authserver:dev
     - name: Push AuthServer image
@@ -41,28 +41,28 @@ jobs:
 
   
     - name: Build the Administration Docker image
-      run: docker build . --file services/administration/host/Tasky.Administration.HttpApi.Host/Dockerfile --tag administration:dev
+      run: docker build . --file src/services/administration/host/Tasky.Administration.HttpApi.Host/Dockerfile --tag administration:dev
     - name: Docker tag Administration images
       run: docker tag administration:dev registry.antosubash.com/administration:dev
     - name: Push Administration image
       run: docker push registry.antosubash.com/administration:dev
       
     - name: Build the IdentityService Docker image
-      run: docker build . --file services/identity/host/Tasky.IdentityService.HttpApi.Host/Dockerfile --tag identityservice:dev
+      run: docker build . --file src/services/identity/host/Tasky.IdentityService.HttpApi.Host/Dockerfile --tag identityservice:dev
     - name: Docker tag identityservice images
       run: docker tag identityservice:dev registry.antosubash.com/identityservice:dev
     - name: Push IdentityService image
       run: docker push registry.antosubash.com/identityservice:dev
     
     - name: Build the SaaS Docker image
-      run: docker build . --file services/saas/host/Tasky.SaaS.HttpApi.Host/Dockerfile --tag saas:dev
+      run: docker build . --file src/services/saas/host/Tasky.SaaS.HttpApi.Host/Dockerfile --tag saas:dev
     - name: Docker tag SaaS images
       run: docker tag saas:dev registry.antosubash.com/saas:dev
     - name: Push SaaS image
       run: docker push registry.antosubash.com/saas:dev
 
     - name: Build the DbMigrator Docker image
-      run: docker build . --file shared/Tasky.DbMigrator/Dockerfile --tag migrator:dev
+      run: docker build . --file src/shared/Tasky.DbMigrator/Dockerfile --tag migrator:dev
     - name: Docker tag DbMigrator images
       run: docker tag migrator:dev registry.antosubash.com/migrator:dev
     - name: Push DbMigrator image

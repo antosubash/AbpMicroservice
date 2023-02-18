@@ -2,13 +2,13 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "Anto Subash",
   "classifications": ["Microservice", "ABP", "C#"],
-  "identity": "Abp.Microservice.Template",
+  "identity": "Anto.Abp.Microservice.Template",
   "sourceName": "Tasky",
   "name": "An ABP Microservice Template",
   "description": "An ABP Microservice Template",
   "tags": {
     "language": "C#",
-    "type": "project"
+    "type": "solution"
   },
   "shortName": "abp-ms",
   "preferNameDirectory": true

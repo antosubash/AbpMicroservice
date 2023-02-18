@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageType>Template</PackageType>
+        <PackageVersion>1.0</PackageVersion>
+        <TargetFramework>net6.0</TargetFramework>
+        <PackageId>Anto.Abp.Microservice.Template</PackageId>
+        <Title>Abp Microservice Template</Title>
+        <Authors>Anto Subash</Authors>
+        <Description>Abp Microservice Template</Description>
+        <PackageTags>abp;microservice;template;yarp;tye</PackageTags>
+        <IncludeContentInPack>true</IncludeContentInPack>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <NoDefaultExcludes>true</NoDefaultExcludes>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/antosubash/AbpMicroservice</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/antosubash/AbpMicroservice</RepositoryUrl>
+        <PackageReadmeFile>readme.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Remove="**\*" />
+        <Content Include="src\**\*" Exclude="src\**\bin\**;src\**\obj\**" />
+    </ItemGroup>
+
+</Project>
