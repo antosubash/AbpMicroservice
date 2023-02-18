@@ -26,7 +26,7 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
     - uses: actions/checkout@v2
     - name: Build the Gateway Docker image
-      run: docker build . --file gateway/Tasky.Gateway/Dockerfile --tag gateway:dev
+      run: docker build . --file src/gateway/Tasky.Gateway/Dockerfile --tag gateway:dev
     - name: Docker tag images
       run: docker tag gateway:dev registry.antosubash.com/gateway:dev
     - name: Push Gateway image
