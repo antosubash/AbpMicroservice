@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.0.0"></a>
+## [1.0.0](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v1.0.0) (2023-2-18)
+
+### Features
+
+* basic template working ([2f337d6](https://www.github.com/antosubash/AbpMicroservice/commit/2f337d6704da0ec4c0eb351387f95f1273a73d09))
+
+### Breaking Changes
+
+* basic template working ([2f337d6](https://www.github.com/antosubash/AbpMicroservice/commit/2f337d6704da0ec4c0eb351387f95f1273a73d09))
+
+### Other
+
+* Merge pull request #56 from antosubash/template ([cc8a606](https://www.github.com/antosubash/AbpMicroservice/commit/cc8a606439b9875307697d4b638019edda9290e6))
+
 <a name="0.1.4"></a>
 ## [0.1.4](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v0.1.4) (2023-2-18)
 
