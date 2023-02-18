@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="0.1.2"></a>
+## [0.1.2](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v0.1.2) (2023-2-18)
+
+### Bug Fixes
+
+* updated the gateway path ([293a253](https://www.github.com/antosubash/AbpMicroservice/commit/293a2530497302533f32e920e31dbf5df061db54))
+
 <a name="0.1.1"></a>
 ## [0.1.1](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v0.1.1) (2023-2-18)
 
