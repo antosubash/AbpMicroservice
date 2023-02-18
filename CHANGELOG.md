@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="0.1.4"></a>
+## [0.1.4](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v0.1.4) (2023-2-18)
+
+### Bug Fixes
+
+* added the nuget upgrade to the release ([9a313e4](https://www.github.com/antosubash/AbpMicroservice/commit/9a313e48f0d0ef7098675199936e417950c50e4b))
+* changed the pack order ([2fb6dd6](https://www.github.com/antosubash/AbpMicroservice/commit/2fb6dd6a86b67fb2571eb579b6692f9e803c4436))
+* updated the nuget pack ([03def96](https://www.github.com/antosubash/AbpMicroservice/commit/03def961f7adec4c710871339a00f69ec3d782bc))
+
 <a name="0.1.3"></a>
 ## [0.1.3](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v0.1.3) (2023-2-18)
 
