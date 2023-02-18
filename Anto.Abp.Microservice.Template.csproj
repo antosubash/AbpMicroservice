@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <PackageType>Template</PackageType>
-        <Version>0.1.0</Version>
+        <Version>0.1.1</Version>
         <TargetFramework>net6.0</TargetFramework>
         <PackageId>Anto.Abp.Microservice.Template</PackageId>
         <Title>Abp Microservice Template</Title>
