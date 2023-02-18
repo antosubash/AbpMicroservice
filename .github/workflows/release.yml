@@ -95,12 +95,6 @@ jobs:
     - name: Versionize Release
       id: versionize
       run: versionize --changelog-all --exit-insignificant-commits
-    - name: Build Package
-      if: steps.versionize.outcome == 'success'
-      run: dotnet pack --output nupkgs --configuration Release
-    - name: Push to Nuget
-      if: steps.versionize.outcome == 'success'
-      run: dotnet nuget push "nupkgs/*.nupkg" -s https://api.nuget.org/v3/index.json -k ${{secrets.NUGET_API_KEY}}
     - name: Push changes to GitHub
       if: steps.versionize.outcome == 'success'
       uses: ad-m/github-push-action@master
@@ -130,3 +124,9 @@ jobs:
           } catch (error) {
             core.setFailed(error.message);
           }
+    - name: Build Package
+      if: steps.versionize.outcome == 'success'
+      run: dotnet pack --output nupkgs --configuration Release
+    - name: Push to Nuget
+      if: steps.versionize.outcome == 'success'
+      run: dotnet nuget push "nupkgs/*.nupkg" -s https://api.nuget.org/v3/index.json -k ${{secrets.NUGET_API_KEY}} --skip-duplicate
