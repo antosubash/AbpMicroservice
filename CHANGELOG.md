@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.1.0"></a>
+## [1.1.0](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v1.1.0) (2023-2-21)
+
+### Features
+
+* added blazor app ([497a0f6](https://www.github.com/antosubash/AbpMicroservice/commit/497a0f6deb5666b449a387dd7335ae45f6b94d03))
+
+### Other
+
+* abp package updated ([b08bc31](https://www.github.com/antosubash/AbpMicroservice/commit/b08bc3176bc6733ab131db47240d64ac6609a436))
+* Merge pull request #57 from antosubash/template ([7b821f7](https://www.github.com/antosubash/AbpMicroservice/commit/7b821f7849e6218d05aaeb56b7efe9263ef5d717))
+* Merge pull request #58 from antosubash/template ([e91900e](https://www.github.com/antosubash/AbpMicroservice/commit/e91900ef5fbf3654eb724ee1fc9c5b9e5f5595fe))
+* Merge pull request #59 from antosubash/abp7 ([209f001](https://www.github.com/antosubash/AbpMicroservice/commit/209f00170bb1d5d19559f0def5b7478e2106541a))
+* update still in progress ([995d641](https://www.github.com/antosubash/AbpMicroservice/commit/995d641b7ba52fc614fbb02f3a282efa4a7b41d5))
+* updated readme ([5e59994](https://www.github.com/antosubash/AbpMicroservice/commit/5e5999444a8db929b5df75dc18991b57ac198e1d))
+* updated the readme ([b9a4969](https://www.github.com/antosubash/AbpMicroservice/commit/b9a49699225de8c6356cf33cc73002913eef7cdd))
+
 <a name="1.0.0"></a>
 ## [1.0.0](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v1.0.0) (2023-2-18)
 
