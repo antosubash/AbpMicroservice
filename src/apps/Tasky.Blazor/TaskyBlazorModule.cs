@@ -73,7 +73,8 @@ public class TaskyBlazorModule : AbpModule
             builder.Configuration.Bind("AuthServer", options.ProviderOptions);
             options.UserOptions.NameClaim = OpenIddictConstants.Claims.Name;
             options.UserOptions.RoleClaim = OpenIddictConstants.Claims.Role;
-
+            options.ProviderOptions.DefaultScopes.Add("openid");
+            options.ProviderOptions.DefaultScopes.Add("profile");
             options.ProviderOptions.DefaultScopes.Add("roles");
             options.ProviderOptions.DefaultScopes.Add("email");
             options.ProviderOptions.DefaultScopes.Add("phone");

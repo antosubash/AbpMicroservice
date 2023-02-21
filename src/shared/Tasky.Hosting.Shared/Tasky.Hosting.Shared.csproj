@@ -12,11 +12,11 @@
         <PackageReference Include="Volo.Abp.Localization" Version="7.0.2" />
         <PackageReference Include="Volo.Abp.MultiTenancy" Version="7.0.2" />
         <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy" Version="7.0.2" />
-        <PackageReference Include="Serilog.AspNetCore" Version="6.0.1" />
+        <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
         <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
         <PackageReference Include="IdentityModel" Version="6.0.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
-        <PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" Version="6.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.3" />
+        <PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" Version="7.0.3" />
         <PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="7.0.2" />
         <PackageReference Include="Volo.Abp.Http.Client.IdentityModel.Web" Version="7.0.2" />
         <PackageReference Include="Volo.Abp.Identity.HttpApi.Client" Version="7.0.2" />
