@@ -90,6 +90,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8D0555B6-9418-4373-AAD5-74BC25768D9D}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		tye.yaml = tye.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gateway", "gateway", "{0F209705-7D2E-4697-8C1D-37D5AAE94CBB}"
@@ -97,6 +98,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasky.Gateway", "gateway\Tasky.Gateway\Tasky.Gateway.csproj", "{05D77D8B-31E7-49BA-B683-2FF54F9B1BB6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasky.AuthServer", "apps\Tasky.AuthServer\Tasky.AuthServer.csproj", "{5AC9119B-D456-45F6-80FA-D48B51BAEAED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasky.Blazor", "apps\Tasky.Blazor\Tasky.Blazor.csproj", "{56A6B29B-646F-4104-B389-0709DE9FC041}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -252,6 +255,10 @@ Global
 		{5AC9119B-D456-45F6-80FA-D48B51BAEAED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AC9119B-D456-45F6-80FA-D48B51BAEAED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AC9119B-D456-45F6-80FA-D48B51BAEAED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56A6B29B-646F-4104-B389-0709DE9FC041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56A6B29B-646F-4104-B389-0709DE9FC041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56A6B29B-646F-4104-B389-0709DE9FC041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56A6B29B-646F-4104-B389-0709DE9FC041}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -298,6 +305,7 @@ Global
 		{14078787-9BEA-40B7-B9A6-C5FFE1DA55A9} = {140ED621-3D93-4523-8B62-BE6850E04698}
 		{05D77D8B-31E7-49BA-B683-2FF54F9B1BB6} = {0F209705-7D2E-4697-8C1D-37D5AAE94CBB}
 		{5AC9119B-D456-45F6-80FA-D48B51BAEAED} = {79065DE8-D7FB-40A5-980B-A0841A208B38}
+		{56A6B29B-646F-4104-B389-0709DE9FC041} = {79065DE8-D7FB-40A5-980B-A0841A208B38}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ECFA44F4-824C-4405-82F5-F62F2DCBCD5E}

@@ -13,15 +13,16 @@ using Volo.Abp.EntityFrameworkCore;
 namespace Tasky.IdentityService.Migrations
 {
     [DbContext(typeof(IdentityServiceDbContext))]
-    [Migration("20221122232748_Changed_to_openiddict")]
-    partial class Changed_to_openiddict
+    [Migration("20230221182207_Init")]
+    partial class Init
     {
+        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("_Abp_DatabaseProvider", EfCoreDatabaseProvider.PostgreSql)
-                .HasAnnotation("ProductVersion", "6.0.5")
+                .HasAnnotation("ProductVersion", "7.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
