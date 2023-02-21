@@ -29,8 +29,8 @@ You can find the everything in this repo explained [here](https://blog.antosubas
 - [x] Frontend with Angular
 - [x] Swagger UI
 - [x] Authentication and Authorization
-- [ ] ABP 7.0 support
-- [ ] Blazor UI
+- [x] ABP 7.0 support
+- [x] Blazor UI
 - [ ] Any suggestions? Create an issue or a pull request.
 
 ## License
@@ -64,7 +64,6 @@ You can find the changelog [here](CHANGELOG.md).
 
 ## TODO
 
-- [ ] Add support for ABP 7.0
 - [ ] Create a template for creating a new microservice.
 - [ ] Getting started guide.
 - [ ] Add new service guide.
