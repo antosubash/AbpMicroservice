@@ -1,0 +1,132 @@
+name: Release CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+
+  build:
+    name: Build and Push Docker images
+    runs-on: ubuntu-latest
+    if: ${{ always() && contains(join(needs.*.result, ','), 'success') }}
+    defaults:
+      run:
+        working-directory: src
+    needs: [version]
+    
+    steps:
+    - name: Docker Login
+      # You may pin to the exact commit or the version.
+      # uses: docker/login-action@dd4fa0671be5250ee6f50aedf4cb05514abda2c7
+      uses: docker/login-action@v1.14.1
+      with:
+        # Server address of Docker registry. If not set then will default to Docker Hub
+        registry: registry.antosubash.com
+        # Username used to log against the Docker registry
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        # Password or personal access token used to log against the Docker registry
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+    - uses: actions/checkout@v2
+    - name: Build the Gateway Docker image
+      run: docker build . --file gateway/Tasky.Gateway/Dockerfile --tag gateway:dev
+    - name: Docker tag images
+      run: docker tag gateway:dev registry.antosubash.com/gateway:dev
+    - name: Push Gateway image
+      run: docker push registry.antosubash.com/gateway:dev
+
+    - name: Build the AuthServer Docker image
+      run: docker build . --file apps/Tasky.AuthServer/Dockerfile --tag authserver:dev
+    - name: Docker tag AuthServer images
+      run: docker tag authserver:dev registry.antosubash.com/authserver:dev
+    - name: Push AuthServer image
+      run: docker push registry.antosubash.com/authserver:dev
+
+  
+    - name: Build the Administration Docker image
+      run: docker build . --file services/administration/host/Tasky.Administration.HttpApi.Host/Dockerfile --tag administration:dev
+    - name: Docker tag Administration images
+      run: docker tag administration:dev registry.antosubash.com/administration:dev
+    - name: Push Administration image
+      run: docker push registry.antosubash.com/administration:dev
+      
+    - name: Build the IdentityService Docker image
+      run: docker build . --file services/identity/host/Tasky.IdentityService.HttpApi.Host/Dockerfile --tag identityservice:dev
+    - name: Docker tag identityservice images
+      run: docker tag identityservice:dev registry.antosubash.com/identityservice:dev
+    - name: Push IdentityService image
+      run: docker push registry.antosubash.com/identityservice:dev
+    
+    - name: Build the SaaS Docker image
+      run: docker build . --file services/saas/host/Tasky.SaaS.HttpApi.Host/Dockerfile --tag saas:dev
+    - name: Docker tag SaaS images
+      run: docker tag saas:dev registry.antosubash.com/saas:dev
+    - name: Push SaaS image
+      run: docker push registry.antosubash.com/saas:dev
+
+    - name: Build the DbMigrator Docker image
+      run: docker build . --file shared/Tasky.DbMigrator/Dockerfile --tag migrator:dev
+    - name: Docker tag DbMigrator images
+      run: docker tag migrator:dev registry.antosubash.com/migrator:dev
+    - name: Push DbMigrator image
+      run: docker push registry.antosubash.com/migrator:dev
+
+  version: 
+    name: Versionize Release
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      run: dotnet restore src
+    - name: Build
+      run: dotnet build src --no-restore
+    - name: Install Versionize
+      run: dotnet tool install --global Versionize
+    - name: Setup git
+      run: |
+        git config --local user.email "antosubash@live.com"
+        git config --local user.name "Anto Subash"
+    - name: Versionize Release
+      id: versionize
+      run: versionize --changelog-all --exit-insignificant-commits
+    - name: Push changes to GitHub
+      if: steps.versionize.outcome == 'success'
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
+        tags: true
+    - name: "Create release"
+      if: steps.versionize.outcome == 'success'
+      uses: "actions/github-script@v5"
+      with:
+        github-token: "${{ secrets.GITHUB_TOKEN }}"
+        script: |
+          try {
+            const tags_url = context.payload.repository.tags_url + "?per_page=1"
+            const result = await github.request(tags_url)
+            const current_tag = result.data[0].name
+            await github.rest.repos.createRelease({
+              draft: false,
+              generate_release_notes: true,
+              name: current_tag,
+              owner: context.repo.owner,
+              prerelease: false,
+              repo: context.repo.repo,
+              tag_name: current_tag,
+            });
+          } catch (error) {
+            core.setFailed(error.message);
+          }
+    - name: Build Package
+      if: steps.versionize.outcome == 'success'
+      run: dotnet pack --output nupkgs --configuration Release
+    - name: Push to Nuget
+      if: steps.versionize.outcome == 'success'
+      run: dotnet nuget push "nupkgs/*.nupkg" -s https://api.nuget.org/v3/index.json -k ${{secrets.NUGET_API_KEY}} --skip-duplicate

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Tasky.DbMigrator": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
