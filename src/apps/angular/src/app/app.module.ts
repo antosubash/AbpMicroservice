@@ -14,7 +14,7 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { APP_ROUTE_PROVIDER } from './route.provider';
-
+import { AbpOAuthModule } from "@abp/ng.oauth";
 @NgModule({
   imports: [
     BrowserModule,
@@ -24,6 +24,7 @@ import { APP_ROUTE_PROVIDER } from './route.provider';
       environment,
       registerLocaleFn: registerLocale(),
     }),
+    AbpOAuthModule.forRoot(),
     ThemeSharedModule.forRoot(),
     AccountConfigModule.forRoot(),
     IdentityConfigModule.forRoot(),
