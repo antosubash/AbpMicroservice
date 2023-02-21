@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.1.1"></a>
+## [1.1.1](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v1.1.1) (2023-2-21)
+
+### Bug Fixes
+
+* updated the database name to append the project name ([b73991e](https://www.github.com/antosubash/AbpMicroservice/commit/b73991e1b7f560e77b63ba2922615c3ff94209b5))
+
+### Other
+
+* Merge pull request #60 from antosubash/abp7 ([809ea4a](https://www.github.com/antosubash/AbpMicroservice/commit/809ea4afa23fa40f14d9ae63ba142f3f2424ba62))
+* Merge pull request #61 from antosubash/database-name-change ([365476e](https://www.github.com/antosubash/AbpMicroservice/commit/365476e916de5714a67688d2d5f21e6aa3a57ca4))
+* updated read me and added licence ([1acbb47](https://www.github.com/antosubash/AbpMicroservice/commit/1acbb478f5cb63bf083818efcd0b5117b0e37ce2))
+
 <a name="1.1.0"></a>
 ## [1.1.0](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v1.1.0) (2023-2-21)
 
