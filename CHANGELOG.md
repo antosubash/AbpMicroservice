@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.1.2"></a>
+## [1.1.2](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v1.1.2) (2023-2-21)
+
+### Bug Fixes
+
+* updated the docker files ([70bdc96](https://www.github.com/antosubash/AbpMicroservice/commit/70bdc96b184f2189619ffd6bf5ddf8bf6f292b05))
+
+### Other
+
+* Merge pull request #62 from antosubash/database-name-change ([865d5f8](https://www.github.com/antosubash/AbpMicroservice/commit/865d5f8fa22f22602bf5ffa791ee72150fb41576))
+* Update readme.md ([1f1f042](https://www.github.com/antosubash/AbpMicroservice/commit/1f1f0428a149f1c9986c2d448233db631e0be33d))
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v1.1.1) (2023-2-21)
 
