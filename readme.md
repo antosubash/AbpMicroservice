@@ -9,7 +9,7 @@ This is a template for creating a microservice with ABP using the dotnet. This t
 ### Install the template
 
 ```bash
-dotnet new install Anto.Abp.Microservice.Template::1.0.0
+dotnet new install Anto.Abp.Microservice.Template::1.1.2
 ```
 
 ### Create a new project
@@ -79,7 +79,3 @@ You can find the changelog [here](CHANGELOG.md).
 - If you are new to Angular, you can find the documentation [here](https://angular.io/docs).
 - If you are new to Swagger, you can find the documentation [here](https://swagger.io/docs/).
 - If you are new to Openiddict, you can find the documentation [here](https://documentation.openiddict.com/guides/getting-started.html/).
-
-## Support
-
-If you need any help, you can create an issue or contact me on [Twitter](https://twitter.com/antosubash).
