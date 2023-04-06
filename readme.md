@@ -9,7 +9,7 @@ This is a template for creating a microservice with ABP using the dotnet. This t
 ### Install the template
 
 ```bash
-dotnet new install Anto.Abp.Microservice.Template::1.1.2
+dotnet new install Anto.Abp.Microservice.Template
 ```
 
 ### Create a new project
