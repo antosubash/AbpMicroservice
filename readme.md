@@ -1,8 +1,10 @@
 # ABP Microservice Template
-[![NuGet Badge](https://buildstats.info/nuget/Anto.Abp.Microservice.Template)](https://www.nuget.org/packages/Anto.Abp.Microservice.Template)
-## Why?
 
-This is a template for creating a microservice with ABP using the dotnet. This template is created to make it easier to create a new microservice project with ABP. It is based on the blog post [.NET Microservice with ABP](https://blog.antosubash.com/posts/abp-microservice-series) series I have made earlier. It is created using the [dotnet new template engine](https://docs.microsoft.com/en-us/dotnet/core/tools/custom-templates) and it is available on [NuGet](https://www.nuget.org/packages/Anto.Abp.Microservice.Template/).
+[![NuGet Badge](https://buildstats.info/nuget/Anto.Abp.Microservice.Template)](https://www.nuget.org/packages/Anto.Abp.Microservice.Template)
+
+## Why this template?
+
+This is a template for creating a microservice with ABP using dotnet. This template is created to make it easier to create a new microservice project with ABP. It is based on the blog post, [.NET Microservice with ABP](https://blog.antosubash.com/posts/abp-microservice-series) series I made earlier. It is created using the [dotnet new template engine](https://docs.microsoft.com/en-us/dotnet/core/tools/custom-templates) and it is available on [NuGet](https://www.nuget.org/packages/Anto.Abp.Microservice.Template/).
 
 ## Usage
 
@@ -20,7 +22,7 @@ dotnet new abp-ms -n MyProjectName
 
 ## Documentation
 
-You can find the everything in this repo explained [here](https://blog.antosubash.com/posts/abp-microservice-series). There is also a [YouTube Video](https://www.youtube.com/watch?v=PFFNHQUn74A) for this project.
+You can find everything in this repo explained [here](https://blog.antosubash.com/posts/abp-microservice-series). There is also a [YouTube Video](https://www.youtube.com/watch?v=PFFNHQUn74A) for this project.
 
 ## Features
 
@@ -41,7 +43,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 If you have any suggestions or improvements, please feel free to create an issue or a pull request.
 
-## Acknowledgements
+## Acknowledgments
 
 - [ABP Framework](https://abp.io/)
 - [eShopOnAbp](https://github.com/abpframework/eShopOnAbp)
@@ -65,8 +67,8 @@ You can find the changelog [here](CHANGELOG.md).
 ## TODO
 
 - [ ] Create a template for creating a new microservice.
-- [ ] Getting started guide.
-- [ ] Add new service guide.
+- [ ] Getting Started guide.
+- [ ] Add a new service guide.
 - [ ] Any suggestions? Create an issue or a pull request.
 
 ## Resources
