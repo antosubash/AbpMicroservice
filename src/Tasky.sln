@@ -101,6 +101,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasky.AuthServer", "apps\Ta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasky.Blazor", "apps\Tasky.Blazor\Tasky.Blazor.csproj", "{56A6B29B-646F-4104-B389-0709DE9FC041}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasky.Blazor.Server", "apps\Tasky.Blazor.Server\Tasky.Blazor.Server.csproj", "{EB163A6D-3FE6-4C7D-9A7E-7F7044F7130F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -259,6 +261,10 @@ Global
 		{56A6B29B-646F-4104-B389-0709DE9FC041}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56A6B29B-646F-4104-B389-0709DE9FC041}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56A6B29B-646F-4104-B389-0709DE9FC041}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB163A6D-3FE6-4C7D-9A7E-7F7044F7130F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB163A6D-3FE6-4C7D-9A7E-7F7044F7130F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB163A6D-3FE6-4C7D-9A7E-7F7044F7130F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB163A6D-3FE6-4C7D-9A7E-7F7044F7130F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -306,6 +312,7 @@ Global
 		{05D77D8B-31E7-49BA-B683-2FF54F9B1BB6} = {0F209705-7D2E-4697-8C1D-37D5AAE94CBB}
 		{5AC9119B-D456-45F6-80FA-D48B51BAEAED} = {79065DE8-D7FB-40A5-980B-A0841A208B38}
 		{56A6B29B-646F-4104-B389-0709DE9FC041} = {79065DE8-D7FB-40A5-980B-A0841A208B38}
+		{EB163A6D-3FE6-4C7D-9A7E-7F7044F7130F} = {79065DE8-D7FB-40A5-980B-A0841A208B38}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ECFA44F4-824C-4405-82F5-F62F2DCBCD5E}

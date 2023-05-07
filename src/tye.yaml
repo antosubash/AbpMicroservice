@@ -1,9 +1,3 @@
-# tye application configuration file
-# read all about it at https://github.com/dotnet/tye
-#
-# when you've given us a try, we'd love to know what you think:
-#    https://aka.ms/AA7q20u
-#
 name: tasky
 services:
 - name: tasky-administration-httpapi-host
@@ -36,3 +30,8 @@ services:
   bindings:
     - protocol: https
       port: 5000
+- name: tasky-blazor-server
+  project: apps/Tasky.Blazor.Server/Tasky.Blazor.Server.csproj
+  bindings:
+    - protocol: https
+      port: 5001
