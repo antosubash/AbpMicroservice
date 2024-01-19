@@ -165,15 +165,19 @@ public class TaskyServerBlazorModule : AbpModule
                 options.ResponseType = OpenIdConnectResponseType.CodeIdToken;
 
                 options.ClientId = configuration["AuthServer:ClientId"];
-                options.ClientSecret = configuration["AuthServer:ClientSecret"];
+                // options.ClientSecret = configuration["AuthServer:ClientSecret"];
 
                 options.SaveTokens = true;
                 options.GetClaimsFromUserInfoEndpoint = true;
 
+                options.Scope.Add("openid");
+                options.Scope.Add("profile");
                 options.Scope.Add("roles");
                 options.Scope.Add("email");
                 options.Scope.Add("phone");
-                options.Scope.Add("Tasky");
+                options.Scope.Add("SaasService");
+                options.Scope.Add("IdentityService");
+                options.Scope.Add("AdministrationService");
             });
     }
 

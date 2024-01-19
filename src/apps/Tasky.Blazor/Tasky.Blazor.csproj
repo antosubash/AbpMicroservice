@@ -1,23 +1,24 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
     <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
-    <UserSecretsId>542122a3-33dc-4ba5-b115-1ec20694b784</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Blazorise.Bootstrap5" Version="1.1.4.1" />
-    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.1.4.1" />
+    <PackageReference Include="Blazorise.Bootstrap5" Version="1.4.1" />
+    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.4.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.1" />
     <PackageReference Include="OpenIddict.Abstractions" Version="5.1.0" />
+
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXLiteTheme" Version="3.0.2" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXLiteTheme" Version="3.0.*-*" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +30,5 @@
     <PackageReference Include="Volo.Abp.TenantManagement.Blazor.WebAssembly" Version="8.0.2" />
     <PackageReference Include="Volo.Abp.SettingManagement.Blazor.WebAssembly" Version="8.0.2" />
   </ItemGroup>
-
 
 </Project>
