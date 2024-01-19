@@ -12,7 +12,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.0" />
     <ProjectReference Include="..\..\src\Tasky.IdentityService.EntityFrameworkCore\Tasky.IdentityService.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\Tasky.IdentityService.TestBase\Tasky.IdentityService.TestBase.csproj" />
-    <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="7.0.2" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="8.0.2" />
   </ItemGroup>
 
 </Project>
