@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.2.0"></a>
+## [1.2.0](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v1.2.0) (2024-01-19)
+
+### Features
+
+* abp 8 ([6d2eebe](https://www.github.com/antosubash/AbpMicroservice/commit/6d2eebe3feab331aae172936d265483860981b4a))
+
+### Other
+
+* .net 8 package update ([0387387](https://www.github.com/antosubash/AbpMicroservice/commit/038738741f2bb4b421ec691e12340bfae811fa5e))
+* added blazor server ([8733954](https://www.github.com/antosubash/AbpMicroservice/commit/87339541cdf4192a84680c8bf47a9b384c7049b0))
+* Create FUNDING.yml ([1dc462b](https://www.github.com/antosubash/AbpMicroservice/commit/1dc462b1bb46fc8f26351e93d28fcd3646046879))
+* Merge branch 'main' of https://github.com/antosubash/AbpMicroservice ([b07a60b](https://www.github.com/antosubash/AbpMicroservice/commit/b07a60ba743d459560a3ec53cf458d4101b3e87b))
+* Update readme.md ([21ca385](https://www.github.com/antosubash/AbpMicroservice/commit/21ca385fb01d69118a50752027ed4310abd4a2f1))
+* Update readme.md ([ded5921](https://www.github.com/antosubash/AbpMicroservice/commit/ded5921aee58eb34f8032db764e80e489e11d0dc))
+* Update yarn.lock ([e713f67](https://www.github.com/antosubash/AbpMicroservice/commit/e713f67799c15b735b40c30cd454612b19275566))
+* updated the angular project ([529f032](https://www.github.com/antosubash/AbpMicroservice/commit/529f0326b6bab775e576dad489c7ecd335bbb4da))
+* updated the blazor ([686c699](https://www.github.com/antosubash/AbpMicroservice/commit/686c6999003bc2b7312741ef6b2e68236bb5c25d))
+* updated the packages ([be83c07](https://www.github.com/antosubash/AbpMicroservice/commit/be83c07ea2b092a8d8fa8efa61cd50e93bed4434))
+* wip ([3cf3731](https://www.github.com/antosubash/AbpMicroservice/commit/3cf37316883bcef03503dd718c240df00814b0ac))
+
 <a name="1.1.3"></a>
 ## [1.1.3](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v1.1.3) (2023-2-21)
 
