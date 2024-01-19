@@ -32,7 +32,7 @@ public class Program
             builder.Host.AddAppSettingsSecretsJson()
                 .UseAutofac()
                 .UseSerilog();
-            await builder.AddApplicationAsync<TaskyBlazorModule>();
+            await builder.AddApplicationAsync<TaskyServerBlazorModule>();
             var app = builder.Build();
             await app.InitializeApplicationAsync();
             await app.RunAsync();

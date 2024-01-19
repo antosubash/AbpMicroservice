@@ -14,8 +14,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.OpenApi.Models;
 using Tasky.Blazor.Server.Menus;
-using Tasky.Localization;
-using Tasky.MultiTenancy;
 using StackExchange.Redis;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Authentication.OpenIdConnect;
@@ -54,7 +52,6 @@ using Volo.Abp.VirtualFileSystem;
 namespace Tasky.Blazor.Server;
 
 [DependsOn(
-    typeof(TaskyHttpApiClientModule),
     typeof(AbpCachingStackExchangeRedisModule),
     typeof(AbpDistributedLockingModule),
     typeof(AbpAspNetCoreMvcClientModule),
@@ -75,12 +72,7 @@ public class TaskyServerBlazorModule : AbpModule
     {
         context.Services.PreConfigure<AbpMvcDataAnnotationsLocalizationOptions>(options =>
         {
-            options.AddAssemblyResource(
-                typeof(TaskyResource),
-                typeof(TaskyDomainSharedModule).Assembly,
-                typeof(TaskyApplicationContractsModule).Assembly,
-                typeof(TaskyBlazorModule).Assembly
-            );
+
         });
     }
 
@@ -150,7 +142,7 @@ public class TaskyServerBlazorModule : AbpModule
     {
         Configure<AbpMultiTenancyOptions>(options =>
         {
-            options.IsEnabled = MultiTenancyConsts.IsEnabled;
+            options.IsEnabled = true;
         });
     }
 
@@ -187,15 +179,7 @@ public class TaskyServerBlazorModule : AbpModule
 
     private void ConfigureVirtualFileSystem(IWebHostEnvironment hostingEnvironment)
     {
-        if (hostingEnvironment.IsDevelopment())
-        {
-            Configure<AbpVirtualFileSystemOptions>(options =>
-            {
-                options.FileSets.ReplaceEmbeddedByPhysical<TaskyDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}Tasky.Domain.Shared"));
-                options.FileSets.ReplaceEmbeddedByPhysical<TaskyApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}Tasky.Application.Contracts"));
-                options.FileSets.ReplaceEmbeddedByPhysical<TaskyBlazorModule>(hostingEnvironment.ContentRootPath);
-            });
-        }
+
     }
 
     private void ConfigureBlazorise(ServiceConfigurationContext context)
@@ -222,7 +206,7 @@ public class TaskyServerBlazorModule : AbpModule
     {
         Configure<AbpRouterOptions>(options =>
         {
-            options.AppAssembly = typeof(TaskyBlazorModule).Assembly;
+            options.AppAssembly = typeof(TaskyServerBlazorModule).Assembly;
         });
     }
 
@@ -230,7 +214,7 @@ public class TaskyServerBlazorModule : AbpModule
     {
         Configure<AbpAutoMapperOptions>(options =>
         {
-            options.AddMaps<TaskyBlazorModule>();
+            options.AddMaps<TaskyServerBlazorModule>();
         });
     }
 
@@ -293,10 +277,7 @@ public class TaskyServerBlazorModule : AbpModule
         app.UseRouting();
         app.UseAuthentication();
 
-        if (MultiTenancyConsts.IsEnabled)
-        {
-            app.UseMultiTenancy();
-        }
+        app.UseMultiTenancy();
 
         app.UseAuthorization();
         app.UseSwagger();
