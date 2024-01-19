@@ -37,8 +37,8 @@ namespace Tasky.Administration.Migrations
                     Exceptions = table.Column<string>(type: "text", nullable: true),
                     Comments = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     HttpStatusCode = table.Column<int>(type: "integer", nullable: true),
-                    ExtraProperties = table.Column<string>(type: "text", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "character varying(40)", maxLength: 40, nullable: true)
+                    ExtraProperties = table.Column<string>(type: "text", nullable: false),
+                    ConcurrencyStamp = table.Column<string>(type: "character varying(40)", maxLength: 40, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -146,6 +146,26 @@ namespace Tasky.Administration.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AbpSettingDefinitions",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Name = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
+                    DisplayName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: false),
+                    Description = table.Column<string>(type: "character varying(512)", maxLength: 512, nullable: true),
+                    DefaultValue = table.Column<string>(type: "character varying(2048)", maxLength: 2048, nullable: true),
+                    IsVisibleToClients = table.Column<bool>(type: "boolean", nullable: false),
+                    Providers = table.Column<string>(type: "character varying(1024)", maxLength: 1024, nullable: true),
+                    IsInherited = table.Column<bool>(type: "boolean", nullable: false),
+                    IsEncrypted = table.Column<bool>(type: "boolean", nullable: false),
+                    ExtraProperties = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AbpSettingDefinitions", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AbpSettings",
                 columns: table => new
                 {
@@ -195,7 +215,7 @@ namespace Tasky.Administration.Migrations
                     ChangeTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     ChangeType = table.Column<byte>(type: "smallint", nullable: false),
                     EntityTenantId = table.Column<Guid>(type: "uuid", nullable: true),
-                    EntityId = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
+                    EntityId = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: true),
                     EntityTypeFullName = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
                     ExtraProperties = table.Column<string>(type: "text", nullable: true)
                 },
@@ -315,6 +335,12 @@ namespace Tasky.Administration.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_AbpSettingDefinitions_Name",
+                table: "AbpSettingDefinitions",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AbpSettings_Name_ProviderName_ProviderKey",
                 table: "AbpSettings",
                 columns: new[] { "Name", "ProviderName", "ProviderKey" },
@@ -347,6 +373,9 @@ namespace Tasky.Administration.Migrations
 
             migrationBuilder.DropTable(
                 name: "AbpPermissions");
+
+            migrationBuilder.DropTable(
+                name: "AbpSettingDefinitions");
 
             migrationBuilder.DropTable(
                 name: "AbpSettings");

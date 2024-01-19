@@ -155,7 +155,7 @@ public class OpenIddictDataSeeder : ITransientDependency
             var application = new OpenIddictApplicationDescriptor
             {
                 ClientId = name,
-                Type = type,
+                ApplicationType = type,
                 ClientSecret = secret,
                 ConsentType = consentType,
                 DisplayName = displayName

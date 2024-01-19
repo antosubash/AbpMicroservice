@@ -34,6 +34,7 @@ public class IdentityServiceDbContext : AbpDbContext<IdentityServiceDbContext>, 
     public DbSet<OpenIddictAuthorization> Authorizations { get; set; }
     public DbSet<OpenIddictScope> Scopes { get; set; }
     public DbSet<OpenIddictToken> Tokens { get; set; }
+    public DbSet<IdentityUserDelegation> UserDelegations { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

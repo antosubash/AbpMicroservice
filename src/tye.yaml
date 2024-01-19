@@ -25,13 +25,13 @@ services:
   bindings:
     - protocol: https
       port: 7500
-- name: tasky-blazor
-  project: apps/Tasky.Blazor/Tasky.Blazor.csproj
-  bindings:
-    - protocol: https
-      port: 5000
-- name: tasky-blazor-server
-  project: apps/Tasky.Blazor.Server/Tasky.Blazor.Server.csproj
-  bindings:
-    - protocol: https
-      port: 5001
+# - name: tasky-blazor
+#   project: apps/Tasky.Blazor/Tasky.Blazor.csproj
+#   bindings:
+#     - protocol: https
+#       port: 5000
+# - name: tasky-blazor-server
+#   project: apps/Tasky.Blazor.Server/Tasky.Blazor.Server.csproj
+#   bindings:
+#     - protocol: https
+#       port: 5001
