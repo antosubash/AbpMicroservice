@@ -56,6 +56,7 @@
     <ProjectReference Include="..\..\services\identity\src\Tasky.IdentityService.EntityFrameworkCore\Tasky.IdentityService.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\services\saas\src\Tasky.SaaS.EntityFrameworkCore\Tasky.SaaS.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\shared\Tasky.Microservice.Shared\Tasky.Microservice.Shared.csproj" />
+    <ProjectReference Include="..\..\Tasky.ServiceDefaults\Tasky.ServiceDefaults.csproj" />
   </ItemGroup>
 
 </Project>

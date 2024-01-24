@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,11 +29,13 @@ public class Program
         {
             Log.Information("Starting Tasky.AuthServer.");
             var builder = WebApplication.CreateBuilder(args);
+            builder.AddServiceDefaults();
             builder.Host.AddAppSettingsSecretsJson()
                 .UseAutofac()
                 .UseSerilog();
             await builder.AddApplicationAsync<TaskyAuthServerModule>();
             var app = builder.Build();
+            app.MapDefaultEndpoints();
             await app.InitializeApplicationAsync();
             await app.RunAsync();
             return 0;
