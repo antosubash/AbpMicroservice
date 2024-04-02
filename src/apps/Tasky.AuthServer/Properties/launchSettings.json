@@ -5,7 +5,8 @@
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "applicationUrl": "https://localhost:7600"
     },
     "Tasky.AuthServer": {
       "commandName": "Project",
@@ -13,7 +14,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:7600"
+      "applicationUrl": "https://localhost:7600;http://localhost:7601"
     },
     "Docker": {
       "commandName": "Docker",
