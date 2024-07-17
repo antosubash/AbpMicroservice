@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Tasky.Projects.DemoApp": {
+    "Tasky.Projects.Host": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>0aae16e2-bc34-40f6-b9c4-10379cc46b10</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\services\administration\host\Tasky.Administration.HttpApi.Host\Tasky.Administration.HttpApi.Host.csproj" />
+    <ProjectReference Include="..\services\identity\host\Tasky.IdentityService.HttpApi.Host\Tasky.IdentityService.HttpApi.Host.csproj" />
+    <ProjectReference Include="..\services\projects\host\Tasky.Projects.HttpApi.Host\Tasky.Projects.HttpApi.Host.csproj" />
+    <ProjectReference Include="..\services\saas\host\Tasky.SaaS.HttpApi.Host\Tasky.SaaS.HttpApi.Host.csproj" />
+    <ProjectReference Include="..\apps\Tasky.AuthServer\Tasky.AuthServer.csproj" />
+    <ProjectReference Include="..\apps\Tasky.Blazor\Tasky.Blazor.csproj" />
+    <ProjectReference Include="..\apps\Tasky.Blazor.Server\Tasky.Blazor.Server.csproj" />
+    <ProjectReference Include="..\gateway\Tasky.Gateway\Tasky.Gateway.csproj" />
+  </ItemGroup>
+
+</Project>

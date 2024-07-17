@@ -58,4 +58,8 @@
     <ProjectReference Include="..\..\shared\Tasky.Microservice.Shared\Tasky.Microservice.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\Tasky.ServiceDefaults\Tasky.ServiceDefaults.csproj" />
+  </ItemGroup>
+
 </Project>

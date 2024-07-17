@@ -29,6 +29,7 @@ public class Program
         {
             Log.Information("Starting Tasky.AuthServer.");
             var builder = WebApplication.CreateBuilder(args);
+            builder.AddServiceDefaults();
             builder.Host.AddAppSettingsSecretsJson()
                 .UseAutofac()
                 .UseSerilog();
