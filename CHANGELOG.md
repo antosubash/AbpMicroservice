@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.3.1"></a>
+## [1.3.1](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v1.3.1) (2024-07-17)
+
+### Bug Fixes
+
+* updated the nuget api ([798fcd1](https://www.github.com/antosubash/AbpMicroservice/commit/798fcd1c2d66919b062ceef4683c8d7f4a6b4229))
+
+### Other
+
+* Merge branch 'main' of https://github.com/antosubash/AbpMicroservice ([8b6493c](https://www.github.com/antosubash/AbpMicroservice/commit/8b6493cda03ae7b4d53f061e518adfcb53534d29))
+
 <a name="1.3.0"></a>
 ## [1.3.0](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v1.3.0) (2024-07-17)
 
