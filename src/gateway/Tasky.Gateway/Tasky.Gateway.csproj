@@ -14,4 +14,8 @@
     <PackageReference Include="Yarp.ReverseProxy" Version="2.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\Tasky.ServiceDefaults\Tasky.ServiceDefaults.csproj" />
+  </ItemGroup>
+
 </Project>

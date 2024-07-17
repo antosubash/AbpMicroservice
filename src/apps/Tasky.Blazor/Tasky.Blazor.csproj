@@ -30,5 +30,4 @@
     <PackageReference Include="Volo.Abp.TenantManagement.Blazor.WebAssembly" Version="8.0.2" />
     <PackageReference Include="Volo.Abp.SettingManagement.Blazor.WebAssembly" Version="8.0.2" />
   </ItemGroup>
-
 </Project>

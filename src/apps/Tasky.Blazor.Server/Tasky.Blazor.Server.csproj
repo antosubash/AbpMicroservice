@@ -60,4 +60,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\Tasky.ServiceDefaults\Tasky.ServiceDefaults.csproj" />
+  </ItemGroup>
+
 </Project>
