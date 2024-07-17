@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.3.0"></a>
+## [1.3.0](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v1.3.0) (2024-07-17)
+
+### Features
+
+* added .net aspire ([b5270da](https://www.github.com/antosubash/AbpMicroservice/commit/b5270da7da9a15a4f6e49c06b8e28c0fee9c41ec))
+
+### Other
+
+* aspire working ([54137da](https://www.github.com/antosubash/AbpMicroservice/commit/54137daa56fa32a6201b7740e5deb9ea924e2f16))
+* Merge pull request #74 from antosubash/aspire-youtube ([e72138f](https://www.github.com/antosubash/AbpMicroservice/commit/e72138f758d19b281613155fce70008b2de94b6f))
+* install Aspire workload ([fdbc8d3](https://www.github.com/antosubash/AbpMicroservice/commit/fdbc8d3c2027294086892481e8f7a09b232335f3))
+* update .NET version to 8.0.x ([039cc35](https://www.github.com/antosubash/AbpMicroservice/commit/039cc35c03696f7b5e6b6d8a7a11193692adf5a9))
+* update .NET version to 8.0.x ([b5c2974](https://www.github.com/antosubash/AbpMicroservice/commit/b5c29746dac04d57aa4fd65d6f36f3dba8caf97b))
+
 <a name="1.2.0"></a>
 ## [1.2.0](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v1.2.0) (2024-01-19)
 
