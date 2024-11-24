@@ -6,9 +6,8 @@ using Volo.Abp.VirtualFileSystem;
 
 namespace Tasky.SaaS;
 
-[DependsOn(
-    typeof(SaaSApplicationContractsModule),
-    typeof(AbpHttpClientModule))]
+[DependsOn(typeof(SaaSApplicationContractsModule))]
+[DependsOn(typeof(AbpHttpClientModule))]
 [DependsOn(typeof(AbpTenantManagementHttpApiClientModule))]
 public class SaaSHttpApiClientModule : AbpModule
 {

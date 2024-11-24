@@ -1,4 +1,4 @@
-﻿using Tasky.IdentityService.EntityFrameworkCore;
+using Tasky.IdentityService.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 
 namespace Tasky.IdentityService;
@@ -7,9 +7,7 @@ namespace Tasky.IdentityService;
  * You can switch to MongoDB, however your domain tests should be
  * database independent anyway.
  */
-[DependsOn(
-    typeof(IdentityServiceEntityFrameworkCoreTestModule)
-    )]
+[DependsOn(typeof(IdentityServiceEntityFrameworkCoreTestModule))]
 public class IdentityServiceDomainTestModule : AbpModule
 {
 

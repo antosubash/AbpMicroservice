@@ -7,14 +7,9 @@ using Volo.Abp;
 
 namespace Tasky.SaaS.HttpApi.Client.ConsoleTestApp;
 
-public class ConsoleTestAppHostedService : IHostedService
+public class ConsoleTestAppHostedService(IConfiguration configuration) : IHostedService
 {
-    private readonly IConfiguration _configuration;
-
-    public ConsoleTestAppHostedService(IConfiguration configuration)
-    {
-        _configuration = configuration;
-    }
+    private readonly IConfiguration _configuration = configuration;
 
     public async Task StartAsync(CancellationToken cancellationToken)
     {

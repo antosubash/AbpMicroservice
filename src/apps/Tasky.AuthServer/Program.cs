@@ -4,39 +4,53 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using Serilog.Events;
+using Tasky.Administration.EntityFrameworkCore;
+using Tasky.SaaS.EntityFrameworkCore;
+using Volo.Abp.Identity.EntityFrameworkCore;
 
 namespace Tasky;
 
 public class Program
 {
-    public async static Task<int> Main(string[] args)
+    public static async Task<int> Main(string[] args)
     {
         Log.Logger = new LoggerConfiguration()
 #if DEBUG
             .MinimumLevel.Debug()
+            .WriteTo.Async(c => c.Console())
 #else
             .MinimumLevel.Information()
-#endif
-            .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+            .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
             .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
-            .Enrich.FromLogContext()
             .WriteTo.Async(c => c.File("Logs/logs.txt"))
-            .WriteTo.Async(c => c.Console())
+#endif
+            .Enrich.FromLogContext()
             .CreateLogger();
 
         try
         {
             Log.Information("Starting Tasky.AuthServer.");
+
             var builder = WebApplication.CreateBuilder(args);
             builder.AddServiceDefaults();
+            builder.AddSharedEndpoints();
+
+            builder.AddNpgsqlDbContext<AdministrationDbContext>(connectionName: TaskyNames.AdministrationDb, configure => configure.DisableRetry = true);
+            builder.AddNpgsqlDbContext<IdentityDbContext>(connectionName: TaskyNames.IdentityServiceDb, configure => configure.DisableRetry = true);
+            builder.AddNpgsqlDbContext<SaaSDbContext>(connectionName: TaskyNames.SaaSDb, configure => configure.DisableRetry = true);
+
             builder.Host.AddAppSettingsSecretsJson()
                 .UseAutofac()
                 .UseSerilog();
+
             await builder.AddApplicationAsync<TaskyAuthServerModule>();
+
             var app = builder.Build();
+
             await app.InitializeApplicationAsync();
+
             await app.RunAsync();
+
             return 0;
         }
         catch (Exception ex)

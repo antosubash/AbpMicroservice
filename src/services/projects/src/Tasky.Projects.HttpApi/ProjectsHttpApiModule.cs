@@ -1,4 +1,4 @@
-﻿using Localization.Resources.AbpUi;
+using Localization.Resources.AbpUi;
 using Microsoft.Extensions.DependencyInjection;
 using Tasky.Projects.Localization;
 using Volo.Abp.AspNetCore.Mvc;
@@ -7,9 +7,8 @@ using Volo.Abp.Modularity;
 
 namespace Tasky.Projects;
 
-[DependsOn(
-    typeof(ProjectsApplicationContractsModule),
-    typeof(AbpAspNetCoreMvcModule))]
+[DependsOn(typeof(ProjectsApplicationContractsModule))]
+[DependsOn(typeof(AbpAspNetCoreMvcModule))]
 public class ProjectsHttpApiModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)

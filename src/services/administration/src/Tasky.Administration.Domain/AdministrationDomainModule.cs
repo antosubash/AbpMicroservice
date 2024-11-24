@@ -9,16 +9,14 @@ using Volo.Abp.SettingManagement;
 
 namespace Tasky.Administration;
 
-[DependsOn(
-    typeof(AbpDddDomainModule),
-    typeof(AdministrationDomainSharedModule),
-    typeof(AbpPermissionManagementDomainIdentityModule),
-    typeof(AbpPermissionManagementDomainOpenIddictModule),
-    typeof(AbpPermissionManagementDomainModule),
-    typeof(AbpSettingManagementDomainModule),
-    typeof(AbpAuditLoggingDomainModule),
-    typeof(AbpFeatureManagementDomainModule)
-)]
+[DependsOn(typeof(AbpDddDomainModule))]
+[DependsOn(typeof(AdministrationDomainSharedModule))]
+[DependsOn(typeof(AbpPermissionManagementDomainIdentityModule))]
+[DependsOn(typeof(AbpPermissionManagementDomainOpenIddictModule))]
+[DependsOn(typeof(AbpPermissionManagementDomainModule))]
+[DependsOn(typeof(AbpSettingManagementDomainModule))]
+[DependsOn(typeof(AbpAuditLoggingDomainModule))]
+[DependsOn(typeof(AbpFeatureManagementDomainModule))]
 public class AdministrationDomainModule : AbpModule
 {
 }

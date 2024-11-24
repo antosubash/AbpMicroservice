@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp;
 using Volo.Abp.Authorization;
 using Volo.Abp.Autofac;
@@ -8,12 +8,10 @@ using Volo.Abp.Threading;
 
 namespace Tasky.Projects;
 
-[DependsOn(
-    typeof(AbpAutofacModule),
-    typeof(AbpTestBaseModule),
-    typeof(AbpAuthorizationModule),
-    typeof(ProjectsDomainModule)
-    )]
+[DependsOn(typeof(AbpAutofacModule))]
+[DependsOn(typeof(AbpTestBaseModule))]
+[DependsOn(typeof(AbpAuthorizationModule))]
+[DependsOn(typeof(ProjectsDomainModule))]
 public class ProjectsTestBaseModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)

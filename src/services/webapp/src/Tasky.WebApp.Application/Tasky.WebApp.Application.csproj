@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Tasky.WebApp</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.Account.Application" Version="9.0.0" />
+        <PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="9.0.0" />
+        <PackageReference Include="Volo.Abp.Identity.Application" Version="9.0.0" />
+        <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="9.0.0" />
+        <PackageReference Include="Volo.Abp.SettingManagement.Application" Version="9.0.0" />
+        <PackageReference Include="Volo.Abp.TenantManagement.Application" Version="9.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Tasky.WebApp.Domain\Tasky.WebApp.Domain.csproj" />
+        <ProjectReference Include="..\Tasky.WebApp.Application.Contracts\Tasky.WebApp.Application.Contracts.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -8,37 +8,30 @@ using Volo.Abp;
 
 namespace Tasky.DbMigrator;
 
-public class DbMigratorHostedService : IHostedService
+public class DbMigratorHostedService(IHostApplicationLifetime hostApplicationLifetime, IConfiguration configuration) : IHostedService
 {
-    private readonly IConfiguration _configuration;
-    private readonly IHostApplicationLifetime _hostApplicationLifetime;
-
-    public DbMigratorHostedService(IHostApplicationLifetime hostApplicationLifetime, IConfiguration configuration)
-    {
-        _hostApplicationLifetime = hostApplicationLifetime;
-        _configuration = configuration;
-    }
+    private readonly IConfiguration _configuration = configuration;
+    private readonly IHostApplicationLifetime _hostApplicationLifetime = hostApplicationLifetime;
 
     public async Task StartAsync(CancellationToken cancellationToken)
     {
-        using (var application = await AbpApplicationFactory.CreateAsync<TaskyDbMigratorModule>(options =>
-               {
-                   options.Services.ReplaceConfiguration(_configuration);
-                   options.UseAutofac();
-                   options.Services.AddLogging(c => c.AddSerilog());
-               }))
+        using var application = await AbpApplicationFactory.CreateAsync<TaskyDbMigratorModule>(options =>
         {
-            await application.InitializeAsync();
+            options.Services.ReplaceConfiguration(_configuration);
+            options.UseAutofac();
+            options.Services.AddLogging(c => c.AddSerilog());
+        });
 
-            await application
-                .ServiceProvider
-                .GetRequiredService<TaskyDbMigrationService>()
-                .MigrateAsync(cancellationToken);
+        await application.InitializeAsync();
 
-            await application.ShutdownAsync();
+        await application
+            .ServiceProvider
+            .GetRequiredService<TaskyDbMigrationService>()
+            .MigrateAsync(cancellationToken);
 
-            _hostApplicationLifetime.StopApplication();
-        }
+        await application.ShutdownAsync();
+
+        _hostApplicationLifetime.StopApplication();
     }
 
     public Task StopAsync(CancellationToken cancellationToken)

@@ -1,41 +1,47 @@
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Serilog;
-using Serilog.Events;
+using Tasky.Administration.EntityFrameworkCore;
+using Tasky.Projects.EntityFrameworkCore;
+using Tasky.SaaS.EntityFrameworkCore;
+using Tasky.WebApp.EntityFrameworkCore;
+using Volo.Abp.Identity.EntityFrameworkCore;
 
 namespace Tasky.DbMigrator;
 
 internal class Program
 {
-    private async static Task Main(string[] args)
+    private static async Task Main(string[] args)
     {
         Log.Logger = new LoggerConfiguration()
+#if DEBUG
+            .MinimumLevel.Debug()
+            .WriteTo.Async(c => c.Console())
+#else
             .MinimumLevel.Information()
             .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
-            .MinimumLevel.Override("Volo.Abp", LogEventLevel.Warning)
-#if DEBUG
-            .MinimumLevel.Override("Tasky", LogEventLevel.Debug)
-#else
-                .MinimumLevel.Override("Tasky", LogEventLevel.Information)
+            .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
+            .WriteTo.Async(c => c.File("Logs/logs.txt"))
 #endif
             .Enrich.FromLogContext()
-            .WriteTo.Async(c => c.File("Logs/logs.txt"))
-            .WriteTo.Async(c => c.Console())
             .CreateLogger();
 
-        await CreateHostBuilder(args).RunConsoleAsync();
-    }
+        var builder = Host.CreateApplicationBuilder(args);
 
-    public static IHostBuilder CreateHostBuilder(string[] args)
-    {
-        return Host.CreateDefaultBuilder(args)
-            .AddAppSettingsSecretsJson()
-            .ConfigureLogging((context, logging) => logging.ClearProviders())
-            .ConfigureServices((hostContext, services) =>
-            {
-                services.AddHostedService<DbMigratorHostedService>();
-            });
+        builder.AddServiceDefaults();
+
+        builder.AddNpgsqlDbContext<AdministrationDbContext>(connectionName: TaskyNames.AdministrationDb);
+        builder.AddNpgsqlDbContext<IdentityDbContext>(connectionName: TaskyNames.IdentityServiceDb);
+        builder.AddNpgsqlDbContext<SaaSDbContext>(connectionName: TaskyNames.SaaSDb);
+        builder.AddNpgsqlDbContext<ProjectsDbContext>(connectionName: TaskyNames.ProjectsDb);
+        builder.AddNpgsqlDbContext<WebAppDbContext>(connectionName: TaskyNames.WebAppDb);
+
+        builder.Configuration.AddAppSettingsSecretsJson();
+
+        builder.Logging.AddSerilog();
+
+        builder.Services.AddHostedService<DbMigratorHostedService>();
+
+        var host = builder.Build();
+
+        await host.RunAsync();
     }
 }

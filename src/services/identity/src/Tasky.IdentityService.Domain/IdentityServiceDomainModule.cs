@@ -7,10 +7,8 @@ using Volo.Abp.PermissionManagement.OpenIddict;
 
 namespace Tasky.IdentityService;
 
-[DependsOn(
-    typeof(AbpDddDomainModule),
-    typeof(IdentityServiceDomainSharedModule)
-)]
+[DependsOn(typeof(AbpDddDomainModule))]
+[DependsOn(typeof(IdentityServiceDomainSharedModule))]
 [DependsOn(typeof(AbpIdentityDomainModule))]
 [DependsOn(typeof(AbpPermissionManagementDomainIdentityModule))]
 [DependsOn(typeof(AbpOpenIddictDomainModule))]

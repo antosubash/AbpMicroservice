@@ -1,4 +1,4 @@
-﻿using Tasky.Projects.EntityFrameworkCore;
+using Tasky.Projects.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 
 namespace Tasky.Projects;
@@ -7,9 +7,7 @@ namespace Tasky.Projects;
  * You can switch to MongoDB, however your domain tests should be
  * database independent anyway.
  */
-[DependsOn(
-    typeof(ProjectsEntityFrameworkCoreTestModule)
-    )]
+[DependsOn(typeof(ProjectsEntityFrameworkCoreTestModule))]
 public class ProjectsDomainTestModule : AbpModule
 {
 

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Identity;
@@ -11,19 +12,10 @@ using Volo.Abp.OpenIddict.Tokens;
 
 namespace Tasky.IdentityService.EntityFrameworkCore;
 
-[ConnectionStringName(IdentityServiceDbProperties.ConnectionStringName)]
-public class IdentityServiceDbContext : AbpDbContext<IdentityServiceDbContext>, IIdentityDbContext,
+[ConnectionStringName(TaskyNames.IdentityServiceDb)]
+public class IdentityServiceDbContext(DbContextOptions<IdentityServiceDbContext> options) : AbpDbContext<IdentityServiceDbContext>(options), IIdentityDbContext,
     IOpenIddictDbContext, IIdentityServiceDbContext
 {
-    /* Add DbSet for each Aggregate Root here. Example:
-     * public DbSet<Question> Questions { get; set; }
-     */
-
-    public IdentityServiceDbContext(DbContextOptions<IdentityServiceDbContext> options)
-        : base(options)
-    {
-    }
-
     public DbSet<IdentityUser> Users { get; set; }
     public DbSet<IdentityRole> Roles { get; set; }
     public DbSet<IdentityClaimType> ClaimTypes { get; set; }
@@ -35,6 +27,7 @@ public class IdentityServiceDbContext : AbpDbContext<IdentityServiceDbContext>, 
     public DbSet<OpenIddictScope> Scopes { get; set; }
     public DbSet<OpenIddictToken> Tokens { get; set; }
     public DbSet<IdentityUserDelegation> UserDelegations { get; set; }
+    public DbSet<IdentitySession> Sessions { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

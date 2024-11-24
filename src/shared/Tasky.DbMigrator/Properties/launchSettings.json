@@ -1,10 +1,14 @@
 {
-  "profiles": {
-    "Tasky.DbMigrator": {
-      "commandName": "Project"
-    },
-    "Docker": {
-      "commandName": "Docker"
+    "$schema": "https://json.schemastore.org/launchsettings.json",
+    "profiles": {
+        "Aspire": {
+            "commandName": "Project"
+        },
+        "Tasky.DbMigrator": {
+            "commandName": "Project"
+        },
+        "Docker": {
+            "commandName": "Docker"
+        }
     }
-  }
 }

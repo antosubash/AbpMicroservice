@@ -9,9 +9,7 @@ using Volo.Abp.VirtualFileSystem;
 
 namespace Tasky.SaaS;
 
-[DependsOn(
-    typeof(AbpValidationModule)
-)]
+[DependsOn(typeof(AbpValidationModule))]
 [DependsOn(typeof(AbpTenantManagementDomainSharedModule))]
 public class SaaSDomainSharedModule : AbpModule
 {

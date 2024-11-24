@@ -1,9 +1,10 @@
-﻿using Volo.Abp.Data;
+﻿using Microsoft.Extensions.Hosting;
+using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 
 namespace Tasky.SaaS.EntityFrameworkCore;
 
-[ConnectionStringName(SaaSDbProperties.ConnectionStringName)]
+[ConnectionStringName(TaskyNames.SaaSDb)]
 public interface ISaaSDbContext : IEfCoreDbContext
 {
     /* Add DbSet for each Aggregate Root here. Example:

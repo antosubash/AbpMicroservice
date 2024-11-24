@@ -1,11 +1,9 @@
-﻿using Volo.Abp.Modularity;
+using Volo.Abp.Modularity;
 
 namespace Tasky.Projects;
 
-[DependsOn(
-    typeof(ProjectsApplicationModule),
-    typeof(ProjectsDomainTestModule)
-    )]
+[DependsOn(typeof(ProjectsApplicationModule))]
+[DependsOn(typeof(ProjectsDomainTestModule))]
 public class ProjectsApplicationTestModule : AbpModule
 {
 

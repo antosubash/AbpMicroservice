@@ -10,9 +10,8 @@ using Volo.Abp.SettingManagement;
 
 namespace Tasky.Administration;
 
-[DependsOn(
-    typeof(AdministrationApplicationContractsModule),
-    typeof(AbpAspNetCoreMvcModule))]
+[DependsOn(typeof(AdministrationApplicationContractsModule))]
+[DependsOn(typeof(AbpAspNetCoreMvcModule))]
 [DependsOn(typeof(AbpPermissionManagementHttpApiModule))]
 [DependsOn(typeof(AbpSettingManagementHttpApiModule))]
 [DependsOn(typeof(AbpFeatureManagementHttpApiModule))]

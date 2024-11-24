@@ -4,10 +4,8 @@ using Volo.Abp.TenantManagement;
 
 namespace Tasky.SaaS;
 
-[DependsOn(
-    typeof(AbpDddDomainModule),
-    typeof(SaaSDomainSharedModule)
-)]
+[DependsOn(typeof(AbpDddDomainModule))]
+[DependsOn(typeof(SaaSDomainSharedModule))]
 [DependsOn(typeof(AbpTenantManagementDomainModule))]
 public class SaaSDomainModule : AbpModule
 {

@@ -7,11 +7,9 @@ using Volo.Abp.SettingManagement;
 
 namespace Tasky.Administration;
 
-[DependsOn(
-    typeof(AdministrationDomainSharedModule),
-    typeof(AbpDddApplicationContractsModule),
-    typeof(AbpAuthorizationModule)
-)]
+[DependsOn(typeof(AdministrationDomainSharedModule))]
+[DependsOn(typeof(AbpDddApplicationContractsModule))]
+[DependsOn(typeof(AbpAuthorizationModule))]
 [DependsOn(typeof(AbpPermissionManagementApplicationContractsModule))]
 [DependsOn(typeof(AbpSettingManagementApplicationContractsModule))]
 [DependsOn(typeof(AbpFeatureManagementApplicationContractsModule))]

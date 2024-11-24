@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.TenantManagement;
@@ -6,18 +7,9 @@ using Volo.Abp.TenantManagement.EntityFrameworkCore;
 
 namespace Tasky.SaaS.EntityFrameworkCore;
 
-[ConnectionStringName(SaaSDbProperties.ConnectionStringName)]
-public class SaaSDbContext : AbpDbContext<SaaSDbContext>, ITenantManagementDbContext, ISaaSDbContext
+[ConnectionStringName(TaskyNames.SaaSDb)]
+public class SaaSDbContext(DbContextOptions<SaaSDbContext> options) : AbpDbContext<SaaSDbContext>(options), ITenantManagementDbContext, ISaaSDbContext
 {
-    /* Add DbSet for each Aggregate Root here. Example:
-     * public DbSet<Question> Questions { get; set; }
-     */
-
-    public SaaSDbContext(DbContextOptions<SaaSDbContext> options)
-        : base(options)
-    {
-    }
-
     public DbSet<Tenant> Tenants { get; set; }
 
     public DbSet<TenantConnectionString> TenantConnectionStrings { get; set; }

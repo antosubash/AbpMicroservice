@@ -12,9 +12,7 @@ using Volo.Abp.VirtualFileSystem;
 
 namespace Tasky.Administration;
 
-[DependsOn(
-    typeof(AbpValidationModule)
-)]
+[DependsOn(typeof(AbpValidationModule))]
 [DependsOn(typeof(AbpPermissionManagementDomainSharedModule))]
 [DependsOn(typeof(AbpSettingManagementDomainSharedModule))]
 [DependsOn(typeof(AbpAuditLoggingDomainSharedModule))]

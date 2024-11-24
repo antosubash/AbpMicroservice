@@ -7,23 +7,16 @@ using Tasky.IdentityService.Samples;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.IdentityModel;
 
-namespace Tasky.IdentityService;
+namespace Tasky.IdentityService.HttpApi.Client.ConsoleTestApp;
 
-public class ClientDemoService : ITransientDependency
+public class ClientDemoService(
+    ISampleAppService sampleAppService,
+    IIdentityModelAuthenticationService authenticationService,
+    IConfiguration configuration) : ITransientDependency
 {
-    private readonly ISampleAppService _sampleAppService;
-    private readonly IIdentityModelAuthenticationService _authenticationService;
-    private readonly IConfiguration _configuration;
-
-    public ClientDemoService(
-        ISampleAppService sampleAppService,
-        IIdentityModelAuthenticationService authenticationService,
-        IConfiguration configuration)
-    {
-        _sampleAppService = sampleAppService;
-        _authenticationService = authenticationService;
-        _configuration = configuration;
-    }
+    private readonly ISampleAppService _sampleAppService = sampleAppService;
+    private readonly IIdentityModelAuthenticationService _authenticationService = authenticationService;
+    private readonly IConfiguration _configuration = configuration;
 
     public async Task RunAsync()
     {

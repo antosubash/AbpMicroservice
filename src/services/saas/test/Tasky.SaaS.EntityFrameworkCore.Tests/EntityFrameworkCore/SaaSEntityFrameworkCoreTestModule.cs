@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.Sqlite;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -8,11 +8,9 @@ using Volo.Abp.Modularity;
 
 namespace Tasky.SaaS.EntityFrameworkCore;
 
-[DependsOn(
-    typeof(SaaSTestBaseModule),
-    typeof(SaaSEntityFrameworkCoreModule),
-    typeof(AbpEntityFrameworkCoreSqliteModule)
-    )]
+[DependsOn(typeof(SaaSTestBaseModule))]
+[DependsOn(typeof(SaaSEntityFrameworkCoreModule))]
+[DependsOn(typeof(AbpEntityFrameworkCoreSqliteModule))]
 public class SaaSEntityFrameworkCoreTestModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)

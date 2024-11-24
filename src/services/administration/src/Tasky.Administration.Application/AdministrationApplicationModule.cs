@@ -8,15 +8,13 @@ using Volo.Abp.SettingManagement;
 
 namespace Tasky.Administration;
 
-[DependsOn(
-    typeof(AdministrationDomainModule),
-    typeof(AdministrationApplicationContractsModule),
-    typeof(AbpDddApplicationModule),
-    typeof(AbpAutoMapperModule)
-)]
+[DependsOn(typeof(AbpAutoMapperModule))]
+[DependsOn(typeof(AbpDddApplicationModule))]
+[DependsOn(typeof(AbpFeatureManagementApplicationModule))]
 [DependsOn(typeof(AbpPermissionManagementApplicationModule))]
 [DependsOn(typeof(AbpSettingManagementApplicationModule))]
-[DependsOn(typeof(AbpFeatureManagementApplicationModule))]
+[DependsOn(typeof(AdministrationApplicationContractsModule))]
+[DependsOn(typeof(AdministrationDomainModule))]
 public class AdministrationApplicationModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)

@@ -1,37 +1,31 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Logging;
-using Microsoft.OpenApi.Models;
-using StackExchange.Redis;
 using Tasky.Administration.EntityFrameworkCore;
-using Tasky.Hosting.Shared;
 using Tasky.IdentityService;
 using Tasky.IdentityService.EntityFrameworkCore;
+using Tasky.MultiTenancy;
 using Tasky.SaaS;
 using Volo.Abp;
-using Volo.Abp.Caching;
+using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
 using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
+using Volo.Abp.VirtualFileSystem;
 
 namespace Tasky.Administration;
 
-[DependsOn(
-    typeof(TaskyHostingModule),
-    typeof(AdministrationApplicationModule),
-    typeof(AdministrationEntityFrameworkCoreModule),
-    typeof(AdministrationHttpApiModule),
-    typeof(IdentityServiceApplicationContractsModule),
-    typeof(IdentityServiceEntityFrameworkCoreModule),
-    typeof(AbpIdentityDomainModule),
-    typeof(SaaSApplicationContractsModule)
-)]
+[DependsOn(typeof(AbpAspNetCoreMvcUiMultiTenancyModule))]
+[DependsOn(typeof(AbpIdentityDomainModule))]
+[DependsOn(typeof(AdministrationApplicationModule))]
+[DependsOn(typeof(AdministrationEntityFrameworkCoreModule))]
+[DependsOn(typeof(AdministrationHttpApiModule))]
+[DependsOn(typeof(IdentityServiceApplicationContractsModule))]
+[DependsOn(typeof(IdentityServiceEntityFrameworkCoreModule))]
+[DependsOn(typeof(SaaSApplicationContractsModule))]
+[DependsOn(typeof(TaskyMicroserviceModule))]
+[DependsOn(typeof(TaskyServiceDefaultsModule))]
 public class AdministrationHttpApiHostModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
@@ -39,57 +33,29 @@ public class AdministrationHttpApiHostModule : AbpModule
         var hostingEnvironment = context.Services.GetHostingEnvironment();
         var configuration = context.Services.GetConfiguration();
 
-        context.Services.AddAbpSwaggerGenWithOAuth(
-            configuration["AuthServer:Authority"],
-            new Dictionary<string, string> {
-                {"AdministrationService", "AdministrationService API"}
-            },
-            options =>
-            {
-                options.SwaggerDoc("v1", new OpenApiInfo {Title = "Administration API", Version = "v1"});
-                options.DocInclusionPredicate((docName, description) => true);
-                options.CustomSchemaIds(type => type.FullName);
-            });
+        context.ConfigureMicroservice(TaskyNames.AdministrationApi);
 
-
-        context.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(options =>
-            {
-                options.Authority = configuration["AuthServer:Authority"];
-                options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
-                options.Audience = "AdministrationService";
-            });
-
-        Configure<AbpDistributedCacheOptions>(options =>
+        if (hostingEnvironment.IsDevelopment())
         {
-            options.KeyPrefix = "Administration:";
-        });
-
-        var dataProtectionBuilder = context.Services.AddDataProtection().SetApplicationName("Administration");
-        if (!hostingEnvironment.IsDevelopment())
-        {
-            var redis = ConnectionMultiplexer.Connect(configuration["Redis:Configuration"]);
-            dataProtectionBuilder.PersistKeysToStackExchangeRedis(redis, "Administration-Protection-Keys");
+            Configure<AbpVirtualFileSystemOptions>(options =>
+            {
+                options.FileSets.ReplaceEmbeddedByPhysical<AdministrationDomainSharedModule>(
+                    Path.Combine(hostingEnvironment.ContentRootPath,
+                        string.Format("..{0}..{0}src{0}Tasky.Administration.Domain.Shared",
+                            Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<AdministrationDomainModule>(
+                    Path.Combine(hostingEnvironment.ContentRootPath,
+                        string.Format("..{0}..{0}src{0}Tasky.Administration.Domain", Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<AdministrationApplicationContractsModule>(
+                    Path.Combine(hostingEnvironment.ContentRootPath,
+                        string.Format("..{0}..{0}src{0}Tasky.Administration.Application.Contracts",
+                            Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<AdministrationApplicationModule>(
+                    Path.Combine(hostingEnvironment.ContentRootPath,
+                        string.Format("..{0}..{0}src{0}Tasky.Administration.Application",
+                            Path.DirectorySeparatorChar)));
+            });
         }
-
-        context.Services.AddCors(options =>
-        {
-            options.AddDefaultPolicy(builder =>
-            {
-                builder
-                    .WithOrigins(
-                        configuration["App:CorsOrigins"]
-                            .Split(",", StringSplitOptions.RemoveEmptyEntries)
-                            .Select(o => o.RemovePostFix("/"))
-                            .ToArray()
-                    )
-                    .WithAbpExposedHeaders()
-                    .SetIsOriginAllowedToAllowWildcardSubdomains()
-                    .AllowAnyHeader()
-                    .AllowAnyMethod()
-                    .AllowCredentials();
-            });
-        });
     }
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
@@ -102,10 +68,6 @@ public class AdministrationHttpApiHostModule : AbpModule
         {
             app.UseDeveloperExceptionPage();
         }
-        else
-        {
-            app.UseHsts();
-        }
 
         app.UseHttpsRedirection();
         app.UseCorrelationId();
@@ -113,14 +75,18 @@ public class AdministrationHttpApiHostModule : AbpModule
         app.UseRouting();
         app.UseCors();
         app.UseAuthentication();
-        app.UseMultiTenancy();
+
+        if (MultiTenancyConsts.IsEnabled)
+        {
+            app.UseMultiTenancy();
+        }
 
         app.UseAbpRequestLocalization();
         app.UseAuthorization();
         app.UseSwagger();
         app.UseAbpSwaggerUI(options =>
         {
-            options.SwaggerEndpoint("/swagger/v1/swagger.json", "Support APP API");
+            options.SwaggerEndpoint("/swagger/v1/swagger.json", "Administration API");
             var configuration = context.GetConfiguration();
             options.OAuthClientId(configuration["AuthServer:SwaggerClientId"]);
             options.OAuthClientSecret(configuration["AuthServer:SwaggerClientSecret"]);

@@ -8,9 +8,8 @@ using Volo.Abp.TenantManagement;
 
 namespace Tasky.SaaS;
 
-[DependsOn(
-    typeof(SaaSApplicationContractsModule),
-    typeof(AbpAspNetCoreMvcModule))]
+[DependsOn(typeof(SaaSApplicationContractsModule))]
+[DependsOn(typeof(AbpAspNetCoreMvcModule))]
 [DependsOn(typeof(AbpTenantManagementHttpApiModule))]
 public class SaaSHttpApiModule : AbpModule
 {

@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Tasky.WebApp</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="**\*generate-proxy.json" />
+        <Content Remove="**\*generate-proxy.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.Account.HttpApi.Client" Version="9.0.0" />
+        <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi.Client" Version="9.0.0" />
+        <PackageReference Include="Volo.Abp.Identity.HttpApi.Client" Version="9.0.0" />
+        <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi.Client" Version="9.0.0" />
+        <PackageReference Include="Volo.Abp.SettingManagement.HttpApi.Client" Version="9.0.0" />
+        <PackageReference Include="Volo.Abp.TenantManagement.HttpApi.Client" Version="9.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Tasky.WebApp.Application.Contracts\Tasky.WebApp.Application.Contracts.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -10,9 +10,7 @@ using Volo.Abp.VirtualFileSystem;
 
 namespace Tasky.IdentityService;
 
-[DependsOn(
-    typeof(AbpValidationModule)
-)]
+[DependsOn(typeof(AbpValidationModule))]
 [DependsOn(typeof(AbpIdentityDomainSharedModule))]
 [DependsOn(typeof(AbpOpenIddictDomainSharedModule))]
 public class IdentityServiceDomainSharedModule : AbpModule

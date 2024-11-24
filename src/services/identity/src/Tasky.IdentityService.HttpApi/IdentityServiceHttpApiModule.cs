@@ -9,9 +9,8 @@ using Volo.Abp.Modularity;
 
 namespace Tasky.IdentityService;
 
-[DependsOn(
-    typeof(IdentityServiceApplicationContractsModule),
-    typeof(AbpAspNetCoreMvcModule))]
+[DependsOn(typeof(IdentityServiceApplicationContractsModule))]
+[DependsOn(typeof(AbpAspNetCoreMvcModule))]
 [DependsOn(typeof(AbpIdentityHttpApiModule))]
 [DependsOn(typeof(AbpAccountHttpApiModule))]
 public class IdentityServiceHttpApiModule : AbpModule

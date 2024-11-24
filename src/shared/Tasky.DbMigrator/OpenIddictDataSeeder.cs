@@ -1,52 +1,35 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
+using JetBrains.Annotations;
+using Microsoft.Extensions.Localization;
 using OpenIddict.Abstractions;
+using Tasky.DbMigrator.Model;
+using Volo.Abp;
 using Volo.Abp.Authorization.Permissions;
 using Volo.Abp.DependencyInjection;
-using Volo.Abp.Guids;
 using Volo.Abp.MultiTenancy;
 using Volo.Abp.OpenIddict.Applications;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.Uow;
-using Microsoft.Extensions.Localization;
-using Volo.Abp;
-using JetBrains.Annotations;
 
 namespace Tasky.DbMigrator;
 
-public class OpenIddictDataSeeder : ITransientDependency
+public class OpenIddictDataSeeder(
+    IAbpApplicationManager applicationManager,
+    IOpenIddictScopeManager scopeManager,
+    IPermissionDataSeeder permissionDataSeeder,
+    IStringLocalizer<OpenIddictResponse> l,
+    IConfiguration configuration,
+    ICurrentTenant currentTenant
+    ) : ITransientDependency
 {
-    private readonly IConfiguration _configuration;
-    private readonly ICurrentTenant _currentTenant;
-    private readonly IGuidGenerator _guidGenerator;
-    private readonly IAbpApplicationManager _applicationManager;
-    private readonly IOpenIddictScopeManager _scopeManager;
-    private readonly IPermissionDataSeeder _permissionDataSeeder;
-    private readonly IStringLocalizer<OpenIddictResponse> L;
-
-    public OpenIddictDataSeeder(
-        IAbpApplicationManager applicationManager,
-        IOpenIddictScopeManager scopeManager,
-        IPermissionDataSeeder permissionDataSeeder,
-        IStringLocalizer<OpenIddictResponse> l,
-        IGuidGenerator guidGenerator,
-        IConfiguration configuration,
-        ICurrentTenant currentTenant)
-    {
-        _configuration = configuration;
-        _applicationManager = applicationManager;
-        _scopeManager = scopeManager;
-        _permissionDataSeeder = permissionDataSeeder;
-        _guidGenerator = guidGenerator;
-        _currentTenant = currentTenant;
-        L = l;
-    }
+    private readonly IConfiguration _configuration = configuration;
+    private readonly ICurrentTenant _currentTenant = currentTenant;
+    private readonly IAbpApplicationManager _applicationManager = applicationManager;
+    private readonly IOpenIddictScopeManager _scopeManager = scopeManager;
+    private readonly IPermissionDataSeeder _permissionDataSeeder = permissionDataSeeder;
+    private readonly IStringLocalizer<OpenIddictResponse> L = l;
 
     [UnitOfWork]
-    public async virtual Task SeedAsync()
+    public virtual async Task SeedAsync()
     {
         using (_currentTenant.Change(null))
         {
@@ -57,7 +40,7 @@ public class OpenIddictDataSeeder : ITransientDependency
 
     private async Task CreateClientsAsync()
     {
-        var clients = _configuration.GetSection("Clients").Get<List<ServiceClient>>();
+        var clients = _configuration.GetSection("Clients").Get<List<ServiceClient>>() ?? [];
         var commonScopes = new[] {
             OpenIddictConstants.Permissions.Scopes.Address,
             OpenIddictConstants.Permissions.Scopes.Email,
@@ -69,24 +52,12 @@ public class OpenIddictDataSeeder : ITransientDependency
 
         foreach (var client in clients)
         {
-            //await CreateClientAsync(
-            //    client.ClientId,
-            //    commonScopes.Union(client.Scopes),
-            //    client.GrantTypes,
-            //    client.ClientSecret.ToSha256(),
-            //    redirectUris: client.RedirectUris,
-            //    postLogoutRedirectUris: client.PostLogoutRedirectUris
-            //);
-
-            var isClientSecretAvailable = !string.IsNullOrEmpty(client.ClientSecret);
-
             await CreateClientAsync(
                     client.ClientId,
                     displayName: client.ClientId,
-                    secret: isClientSecretAvailable ? client.ClientSecret : null,
-                    type: isClientSecretAvailable ? OpenIddictConstants.ClientTypes.Confidential : OpenIddictConstants.ClientTypes.Public,
+                    secret: client.ClientSecret,
                     scopes: commonScopes.Union(client.Scopes).ToList(),
-                    grantTypes: client.GrantTypes.ToList(),
+                    grantTypes: [.. client.GrantTypes],
                     redirectUris: client.RedirectUris,
                     postLogoutRedirectUris: client.PostLogoutRedirectUris,
                     consentType: OpenIddictConstants.ConsentTypes.Implicit
@@ -94,10 +65,9 @@ public class OpenIddictDataSeeder : ITransientDependency
         }
     }
 
-
     private async Task CreateApiResourcesAsync()
     {
-        var apiResources = _configuration.GetSection("ApiResource").Get<string[]>();
+        var apiResources = _configuration.GetSection("ApiResource").Get<string[]>() ?? [];
 
         foreach (var item in apiResources)
         {
@@ -123,16 +93,17 @@ public class OpenIddictDataSeeder : ITransientDependency
 
     private async Task CreateClientAsync(
         [NotNull] string name,
-        [NotNull] string type,
         [NotNull] string consentType,
         string displayName,
-        string secret,
+        string? secret,
         List<string> grantTypes,
         List<string> scopes,
-        string[] redirectUris = null,
-        string[] postLogoutRedirectUris = null,
-        List<string> permissions = null)
+        string[]? redirectUris = null,
+        string[]? postLogoutRedirectUris = null,
+        List<string>? permissions = null)
     {
+        var type = string.IsNullOrWhiteSpace(secret) ? OpenIddictConstants.ClientTypes.Public : OpenIddictConstants.ClientTypes.Confidential;
+
         if (!string.IsNullOrEmpty(secret) && string.Equals(type, OpenIddictConstants.ClientTypes.Public, StringComparison.OrdinalIgnoreCase))
         {
             throw new BusinessException(L["NoClientSecretCanBeSetForPublicApplications"]);
@@ -173,8 +144,8 @@ public class OpenIddictDataSeeder : ITransientDependency
                     application.Permissions.Add(OpenIddictConstants.Permissions.ResponseTypes.CodeToken);
                 }
             }
-            application.Permissions.Add(OpenIddictConstants.Permissions.Endpoints.Logout);
 
+            application.Permissions.Add(OpenIddictConstants.Permissions.Endpoints.Logout);
 
             foreach (var grantType in grantTypes)
             {
@@ -184,16 +155,16 @@ public class OpenIddictDataSeeder : ITransientDependency
                     application.Permissions.Add(OpenIddictConstants.Permissions.ResponseTypes.Code);
                 }
 
-                if (grantType == OpenIddictConstants.GrantTypes.AuthorizationCode || grantType == OpenIddictConstants.GrantTypes.Implicit)
+                if (grantType is OpenIddictConstants.GrantTypes.AuthorizationCode or OpenIddictConstants.GrantTypes.Implicit)
                 {
                     application.Permissions.Add(OpenIddictConstants.Permissions.Endpoints.Authorization);
                 }
 
-                if (grantType == OpenIddictConstants.GrantTypes.AuthorizationCode ||
-                    grantType == OpenIddictConstants.GrantTypes.ClientCredentials ||
-                    grantType == OpenIddictConstants.GrantTypes.Password ||
-                    grantType == OpenIddictConstants.GrantTypes.RefreshToken ||
-                    grantType == OpenIddictConstants.GrantTypes.DeviceCode)
+                if (grantType is OpenIddictConstants.GrantTypes.AuthorizationCode or
+                    OpenIddictConstants.GrantTypes.ClientCredentials or
+                    OpenIddictConstants.GrantTypes.Password or
+                    OpenIddictConstants.GrantTypes.RefreshToken or
+                    OpenIddictConstants.GrantTypes.DeviceCode)
                 {
                     application.Permissions.Add(OpenIddictConstants.Permissions.Endpoints.Token);
                     application.Permissions.Add(OpenIddictConstants.Permissions.Endpoints.Revocation);

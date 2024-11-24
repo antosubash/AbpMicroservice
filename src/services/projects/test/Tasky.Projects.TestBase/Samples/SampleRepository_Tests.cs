@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Volo.Abp.Modularity;
+﻿using Volo.Abp.Modularity;
 using Xunit;
 
 namespace Tasky.Projects.Samples;
@@ -19,8 +18,8 @@ public abstract class SampleRepository_Tests<TStartupModule> : ProjectsTestBase<
     }
 
     [Fact]
-    public async Task Method1Async()
+    public void Method1()
     {
-
+        Assert.Fail("Not implemented!");
     }
 }
