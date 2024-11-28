@@ -10,10 +10,10 @@ internal class Program
         const string LaunchProfileName = "Aspire";
         var builder = DistributedApplication.CreateBuilder(args);
 
-        var postgres = builder.AddPostgres(TaskyNames.Postgres).WithPgAdmin();
+        var postgres = builder.AddPostgres(TaskyNames.Postgres).WithPgWeb(); //.WithDataVolume(TaskyNames.Postgres);
         var rabbitMq = builder.AddRabbitMQ(TaskyNames.RabbitMq).WithManagementPlugin();
         var redis = builder.AddRedis(TaskyNames.Redis).WithRedisCommander();
-        var seq = builder.AddSeq(TaskyNames.Seq).WithDataVolume();
+        var seq = builder.AddSeq(TaskyNames.Seq);
 
         var adminDb = postgres.AddDatabase(TaskyNames.AdministrationDb);
         var identityDb = postgres.AddDatabase(TaskyNames.IdentityServiceDb);
@@ -31,7 +31,7 @@ internal class Program
                .WaitFor(postgres)
                ;
 
-        var auth = builder.AddProject<Tasky_AuthServer>(TaskyNames.AuthServer, launchProfileName: LaunchProfileName)
+        builder.AddProject<Tasky_AuthServer>(TaskyNames.AuthServer, launchProfileName: LaunchProfileName)
                .WithExternalHttpEndpoints()
                .WithReference(adminDb)
                .WithReference(identityDb)
@@ -50,7 +50,6 @@ internal class Program
                .WithReference(redis)
                .WithReference(seq)
                .WaitForCompletion(migrator)
-               .WaitFor(auth)
                ;
 
         var identity = builder.AddProject<Tasky_IdentityService_HttpApi_Host>(TaskyNames.IdentityServiceApi, launchProfileName: LaunchProfileName)
@@ -62,7 +61,6 @@ internal class Program
                .WithReference(redis)
                .WithReference(seq)
                .WaitForCompletion(migrator)
-               .WaitFor(auth)
                ;
 
         var saas = builder.AddProject<Tasky_SaaS_HttpApi_Host>(TaskyNames.SaaSApi, launchProfileName: LaunchProfileName)
@@ -73,7 +71,6 @@ internal class Program
                .WithReference(redis)
                .WithReference(seq)
                .WaitForCompletion(migrator)
-               .WaitFor(auth)
                ;
 
         builder.AddProject<Tasky_Projects_HttpApi_Host>(TaskyNames.ProjectsApi, launchProfileName: LaunchProfileName)
@@ -84,7 +81,6 @@ internal class Program
                .WithReference(redis)
                .WithReference(seq)
                .WaitForCompletion(migrator)
-               .WaitFor(auth)
                ;
 
         var gateway = builder.AddProject<Tasky_Gateway>(TaskyNames.Gateway, launchProfileName: LaunchProfileName)
@@ -110,7 +106,6 @@ internal class Program
                .WithExternalHttpEndpoints()
                .WithReference(seq)
                .WaitForCompletion(migrator)
-               .WaitFor(auth)
                .WaitFor(gateway)
                ;
 
