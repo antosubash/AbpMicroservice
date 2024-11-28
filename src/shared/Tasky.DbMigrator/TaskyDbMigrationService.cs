@@ -170,8 +170,8 @@ public class TaskyDbMigrationService(
 
         await _dataSeeder.SeedAsync(
             new DataSeedContext(tenant?.Id)
-                .WithProperty(IdentityDataSeedContributor.AdminEmailPropertyName, "admin@abp.io")
-                .WithProperty(IdentityDataSeedContributor.AdminPasswordPropertyName, "1q2w3E*")
+                .WithProperty(IdentityDataSeedContributor.AdminEmailPropertyName, IdentityDataSeedContributor.AdminEmailDefaultValue)
+                .WithProperty(IdentityDataSeedContributor.AdminPasswordPropertyName, IdentityDataSeedContributor.AdminPasswordDefaultValue)
         );
     }
 }
