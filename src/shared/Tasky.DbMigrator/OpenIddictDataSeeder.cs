@@ -93,8 +93,8 @@ public class OpenIddictDataSeeder(
 
     private async Task CreateClientAsync(
         [NotNull] string name,
-        [NotNull] string consentType,
         string displayName,
+        [NotNull] string consentType,
         string? secret,
         List<string> grantTypes,
         List<string> scopes,
@@ -117,7 +117,6 @@ public class OpenIddictDataSeeder(
         if (!string.IsNullOrEmpty(name) && await _applicationManager.FindByClientIdAsync(name) != null)
         {
             return;
-            //throw new BusinessException(L["TheClientIdentifierIsAlreadyTakenByAnotherApplication"]);
         }
 
         var client = await _applicationManager.FindByClientIdAsync(name);
