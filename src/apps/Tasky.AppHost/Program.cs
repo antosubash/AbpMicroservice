@@ -80,7 +80,7 @@ internal class Program
                .WaitFor(saas)
                ;
 
-        builder.AddProject<Tasky_AuthServer>(TaskyNames.AuthServer, launchProfileName: LaunchProfileName)
+        var authserver = builder.AddProject<Tasky_AuthServer>(TaskyNames.AuthServer, launchProfileName: LaunchProfileName)
                .WithExternalHttpEndpoints()
                .WithReference(adminDb)
                .WithReference(identityDb)
@@ -104,6 +104,7 @@ internal class Program
         builder.AddProject<Tasky_WebApp_Blazor>(TaskyNames.WebAppClient, launchProfileName: LaunchProfileName)
                .WithExternalHttpEndpoints()
                .WithReference(seq)
+               .WaitFor(authserver)
                .WaitFor(gateway)
                ;
 
