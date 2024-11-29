@@ -23,6 +23,8 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\apps\Tasky.WebApp\src\Tasky.WebApp.Application.Contracts\Tasky.WebApp.Application.Contracts.csproj" />
+        <ProjectReference Include="..\..\apps\Tasky.WebApp\src\Tasky.WebApp.EntityFrameworkCore\Tasky.WebApp.EntityFrameworkCore.csproj" />
         <ProjectReference Include="..\..\services\administration\src\Tasky.Administration.Application.Contracts\Tasky.Administration.Application.Contracts.csproj" />
         <ProjectReference Include="..\..\services\administration\src\Tasky.Administration.EntityFrameworkCore\Tasky.Administration.EntityFrameworkCore.csproj" />
         <ProjectReference Include="..\..\services\identity\src\Tasky.IdentityService.Application.Contracts\Tasky.IdentityService.Application.Contracts.csproj" />
@@ -31,7 +33,6 @@
         <ProjectReference Include="..\..\services\projects\src\Tasky.Projects.EntityFrameworkCore\Tasky.Projects.EntityFrameworkCore.csproj" />
         <ProjectReference Include="..\..\services\saas\src\Tasky.SaaS.Application.Contracts\Tasky.SaaS.Application.Contracts.csproj" />
         <ProjectReference Include="..\..\services\saas\src\Tasky.SaaS.EntityFrameworkCore\Tasky.SaaS.EntityFrameworkCore.csproj" />
-        <ProjectReference Include="..\..\services\webapp\src\Tasky.WebApp.EntityFrameworkCore\Tasky.WebApp.EntityFrameworkCore.csproj" />
         <ProjectReference Include="..\Tasky.Microservice.Shared\Tasky.Microservice.Shared.csproj" />
         <ProjectReference Include="..\Tasky.ServiceDefaults\Tasky.ServiceDefaults.csproj" />
         <ProjectReference Include="..\Tasky.Shared\Tasky.Shared.csproj" />
