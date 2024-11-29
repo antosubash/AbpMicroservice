@@ -11,18 +11,7 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
-        Log.Logger = new LoggerConfiguration()
-#if DEBUG
-            .MinimumLevel.Debug()
-            .WriteTo.Async(c => c.Console())
-#else
-            .MinimumLevel.Information()
-            .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
-            .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
-            .WriteTo.Async(c => c.File("Logs/logs.txt"))
-#endif
-            .Enrich.FromLogContext()
-            .CreateLogger();
+        TaskyLogging.Initialize();
 
         var builder = Host.CreateApplicationBuilder(args);
 

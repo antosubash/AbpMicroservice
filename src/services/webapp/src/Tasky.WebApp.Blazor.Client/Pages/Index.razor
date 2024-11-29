@@ -1,7 +1,7 @@
 @page "/"
 @inherits WebAppComponentBase
 
-@if (User == null)
+@if (User == null || User.Identity == null)
 {
     <p><em>Loading...</em></p>
 }

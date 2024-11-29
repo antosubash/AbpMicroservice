@@ -39,6 +39,7 @@ namespace Tasky.WebApp;
 [DependsOn(typeof(AbpCachingStackExchangeRedisModule))]
 [DependsOn(typeof(AbpDistributedLockingModule))]
 [DependsOn(typeof(AbpSwashbuckleModule))]
+[DependsOn(typeof(TaskyHostingModule))]
 [DependsOn(typeof(WebAppApplicationModule))]
 [DependsOn(typeof(WebAppEntityFrameworkCoreModule))]
 [DependsOn(typeof(WebAppHttpApiModule))]

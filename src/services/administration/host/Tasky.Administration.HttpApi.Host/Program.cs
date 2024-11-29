@@ -13,18 +13,7 @@ public class Program
 {
     public static async Task<int> Main(string[] args)
     {
-        Log.Logger = new LoggerConfiguration()
-#if DEBUG
-            .MinimumLevel.Debug()
-            .WriteTo.Async(c => c.Console())
-#else
-            .MinimumLevel.Information()
-            .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
-            .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
-            .WriteTo.Async(c => c.File("Logs/logs.txt"))
-#endif
-            .Enrich.FromLogContext()
-            .CreateLogger();
+        TaskyLogging.Initialize();
 
         try
         {

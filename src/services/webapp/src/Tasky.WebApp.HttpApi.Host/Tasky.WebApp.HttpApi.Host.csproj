@@ -24,6 +24,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\..\..\shared\Tasky.Hosting.Shared\Tasky.Hosting.Shared.csproj" />
         <ProjectReference Include="..\Tasky.WebApp.Application\Tasky.WebApp.Application.csproj" />
         <ProjectReference Include="..\Tasky.WebApp.EntityFrameworkCore\Tasky.WebApp.EntityFrameworkCore.csproj" />
         <ProjectReference Include="..\Tasky.WebApp.HttpApi\Tasky.WebApp.HttpApi.csproj" />
