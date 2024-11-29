@@ -31,17 +31,6 @@ internal class Program
                .WaitFor(postgres)
                ;
 
-        builder.AddProject<Tasky_AuthServer>(TaskyNames.AuthServer, launchProfileName: LaunchProfileName)
-               .WithExternalHttpEndpoints()
-               .WithReference(adminDb)
-               .WithReference(identityDb)
-               .WithReference(saasDb)
-               .WithReference(rabbitMq)
-               .WithReference(redis)
-               .WithReference(seq)
-               .WaitForCompletion(migrator)
-               ;
-
         var admin = builder.AddProject<Tasky_Administration_HttpApi_Host>(TaskyNames.AdministrationApi, launchProfileName: LaunchProfileName)
                .WithExternalHttpEndpoints()
                .WithReference(adminDb)
@@ -86,10 +75,20 @@ internal class Program
         var gateway = builder.AddProject<Tasky_Gateway>(TaskyNames.Gateway, launchProfileName: LaunchProfileName)
                .WithExternalHttpEndpoints()
                .WithReference(seq)
-               .WaitForCompletion(migrator)
                .WaitFor(admin)
                .WaitFor(identity)
                .WaitFor(saas)
+               ;
+
+        builder.AddProject<Tasky_AuthServer>(TaskyNames.AuthServer, launchProfileName: LaunchProfileName)
+               .WithExternalHttpEndpoints()
+               .WithReference(adminDb)
+               .WithReference(identityDb)
+               .WithReference(saasDb)
+               .WithReference(rabbitMq)
+               .WithReference(redis)
+               .WithReference(seq)
+               .WaitForCompletion(migrator)
                ;
 
         //builder.AddProject<Tasky_WebApp_HttpApi_Host>(TaskyNames.WebAppApi, launchProfileName: LaunchProfileName)
@@ -105,7 +104,6 @@ internal class Program
         builder.AddProject<Tasky_WebApp_Blazor>(TaskyNames.WebAppClient, launchProfileName: LaunchProfileName)
                .WithExternalHttpEndpoints()
                .WithReference(seq)
-               .WaitForCompletion(migrator)
                .WaitFor(gateway)
                ;
 

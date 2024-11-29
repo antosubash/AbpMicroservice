@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Medallion.Threading;
 using Medallion.Threading.Redis;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -10,10 +14,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using StackExchange.Redis;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using Tasky.WebApp.EntityFrameworkCore;
 using Tasky.WebApp.MultiTenancy;
 using Volo.Abp;
@@ -32,16 +32,16 @@ using Volo.Abp.VirtualFileSystem;
 
 namespace Tasky.WebApp;
 
-[DependsOn(typeof(WebAppHttpApiModule))]
+[DependsOn(typeof(AbpAspNetCoreAuthenticationJwtBearerModule))]
+[DependsOn(typeof(AbpAspNetCoreMvcUiMultiTenancyModule))]
+[DependsOn(typeof(AbpAspNetCoreSerilogModule))]
 [DependsOn(typeof(AbpAutofacModule))]
 [DependsOn(typeof(AbpCachingStackExchangeRedisModule))]
 [DependsOn(typeof(AbpDistributedLockingModule))]
-[DependsOn(typeof(AbpAspNetCoreMvcUiMultiTenancyModule))]
-[DependsOn(typeof(AbpAspNetCoreAuthenticationJwtBearerModule))]
+[DependsOn(typeof(AbpSwashbuckleModule))]
 [DependsOn(typeof(WebAppApplicationModule))]
 [DependsOn(typeof(WebAppEntityFrameworkCoreModule))]
-[DependsOn(typeof(AbpAspNetCoreSerilogModule))]
-[DependsOn(typeof(AbpSwashbuckleModule))]
+[DependsOn(typeof(WebAppHttpApiModule))]
 public class WebAppHttpApiHostModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)

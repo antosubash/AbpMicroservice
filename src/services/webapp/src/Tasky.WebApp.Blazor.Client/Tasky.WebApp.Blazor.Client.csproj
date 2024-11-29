@@ -2,13 +2,17 @@
 
     <PropertyGroup>
         <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Blazorise.Bootstrap5" Version="1.7.0" />
-        <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.7.0" />
+        <PackageReference Include="Blazorise.Bootstrap5" Version="1.6.2" />
+        <PackageReference Include="Blazorise.Components" Version="1.6.2" />
+        <PackageReference Include="Blazorise.DataGrid" Version="1.6.2" />
+        <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.6.2" />
+        <PackageReference Include="Blazorise.Snackbar" Version="1.6.2" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.0.0" />
         <PackageReference Include="System.Private.Uri" Version="4.3.2" />
@@ -20,6 +24,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\..\..\shared\Tasky.Shared\Tasky.Shared.csproj" />
         <ProjectReference Include="..\..\src\Tasky.WebApp.HttpApi.Client\Tasky.WebApp.HttpApi.Client.csproj" />
     </ItemGroup>
 

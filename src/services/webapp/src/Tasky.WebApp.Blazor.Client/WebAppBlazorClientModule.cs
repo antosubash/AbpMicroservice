@@ -1,10 +1,7 @@
-using System;
-using System.Net.Http;
 using Blazorise.Bootstrap5;
 using Blazorise.Icons.FontAwesome;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using OpenIddict.Abstractions;
 using Tasky.WebApp.Blazor.Client.Menus;
 using Volo.Abp.AspNetCore.Components.Web.Theming.Routing;
@@ -19,12 +16,13 @@ using Volo.Abp.UI.Navigation;
 
 namespace Tasky.WebApp.Blazor.Client;
 
-[DependsOn(typeof(AbpAutofacWebAssemblyModule))]
-[DependsOn(typeof(WebAppHttpApiClientModule))]
 [DependsOn(typeof(AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeModule))]
+[DependsOn(typeof(AbpAutofacWebAssemblyModule))]
 [DependsOn(typeof(AbpIdentityBlazorWebAssemblyModule))]
-[DependsOn(typeof(AbpTenantManagementBlazorWebAssemblyModule))]
 [DependsOn(typeof(AbpSettingManagementBlazorWebAssemblyModule))]
+[DependsOn(typeof(AbpTenantManagementBlazorWebAssemblyModule))]
+[DependsOn(typeof(TaskySharedModule))]
+[DependsOn(typeof(WebAppHttpApiClientModule))]
 public class WebAppBlazorClientModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
@@ -52,10 +50,10 @@ public class WebAppBlazorClientModule : AbpModule
             options.ProviderOptions.DefaultScopes.Add("roles");
             options.ProviderOptions.DefaultScopes.Add("email");
             options.ProviderOptions.DefaultScopes.Add("phone");
-            options.ProviderOptions.DefaultScopes.Add("AdministrationService");
-            options.ProviderOptions.DefaultScopes.Add("IdentityService");
-            options.ProviderOptions.DefaultScopes.Add("SaasService");
-            options.ProviderOptions.DefaultScopes.Add("WebApp");
+            options.ProviderOptions.DefaultScopes.Add(TaskyNames.AdministrationApi);
+            options.ProviderOptions.DefaultScopes.Add(TaskyNames.IdentityServiceApi);
+            options.ProviderOptions.DefaultScopes.Add(TaskyNames.SaaSApi);
+            options.ProviderOptions.DefaultScopes.Add(TaskyNames.WebAppApi);
         });
     }
 
