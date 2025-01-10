@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.Sqlite;
 using Volo.Abp.Modularity;
+using Volo.Abp.Uow;
 
 namespace Tasky.SaaS.EntityFrameworkCore;
 
@@ -24,6 +25,8 @@ public class SaaSEntityFrameworkCoreTestModule : AbpModule
                 abpDbContextConfigurationContext.DbContextOptions.UseSqlite(sqliteConnection);
             });
         });
+
+        context.Services.AddAlwaysDisableUnitOfWorkTransaction();
     }
 
     private static SqliteConnection CreateDatabaseAndGetConnection()

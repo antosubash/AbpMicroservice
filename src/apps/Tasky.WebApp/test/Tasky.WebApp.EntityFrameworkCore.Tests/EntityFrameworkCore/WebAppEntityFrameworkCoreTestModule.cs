@@ -36,6 +36,8 @@ public class WebAppEntityFrameworkCoreTestModule : AbpModule
                 context.DbContextOptions.UseSqlite(_sqliteConnection);
             });
         });
+
+        services.AddAlwaysDisableUnitOfWorkTransaction();
     }
 
     public override void OnApplicationShutdown(ApplicationShutdownContext context)
