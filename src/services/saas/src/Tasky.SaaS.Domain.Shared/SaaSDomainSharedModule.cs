@@ -22,8 +22,8 @@ public class SaaSDomainSharedModule : AbpModule
 
         Configure<AbpLocalizationOptions>(options =>
         {
-            options.Resources
-                .Add<SaaSResource>("en")
+            options
+                .Resources.Add<SaaSResource>("en")
                 .AddBaseTypes(typeof(AbpValidationResource))
                 .AddVirtualJson("/Localization/SaaS");
         });

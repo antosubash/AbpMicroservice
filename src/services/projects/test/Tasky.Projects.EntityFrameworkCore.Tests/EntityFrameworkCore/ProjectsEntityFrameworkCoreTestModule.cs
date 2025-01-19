@@ -36,7 +36,9 @@ public class ProjectsEntityFrameworkCoreTestModule : AbpModule
 
         new ProjectsDbContext(
             new DbContextOptionsBuilder<ProjectsDbContext>().UseSqlite(connection).Options
-        ).GetService<IRelationalDatabaseCreator>().CreateTables();
+        )
+            .GetService<IRelationalDatabaseCreator>()
+            .CreateTables();
 
         return connection;
     }

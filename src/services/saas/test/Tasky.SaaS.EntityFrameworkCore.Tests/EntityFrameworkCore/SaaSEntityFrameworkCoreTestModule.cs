@@ -36,7 +36,9 @@ public class SaaSEntityFrameworkCoreTestModule : AbpModule
 
         new SaaSDbContext(
             new DbContextOptionsBuilder<SaaSDbContext>().UseSqlite(connection).Options
-        ).GetService<IRelationalDatabaseCreator>().CreateTables();
+        )
+            .GetService<IRelationalDatabaseCreator>()
+            .CreateTables();
 
         return connection;
     }

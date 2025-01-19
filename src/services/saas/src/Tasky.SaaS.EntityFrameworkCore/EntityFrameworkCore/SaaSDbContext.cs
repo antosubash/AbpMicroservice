@@ -8,7 +8,10 @@ using Volo.Abp.TenantManagement.EntityFrameworkCore;
 namespace Tasky.SaaS.EntityFrameworkCore;
 
 [ConnectionStringName(TaskyNames.SaaSDb)]
-public class SaaSDbContext(DbContextOptions<SaaSDbContext> options) : AbpDbContext<SaaSDbContext>(options), ITenantManagementDbContext, ISaaSDbContext
+public class SaaSDbContext(DbContextOptions<SaaSDbContext> options)
+    : AbpDbContext<SaaSDbContext>(options),
+        ITenantManagementDbContext,
+        ISaaSDbContext
 {
     public DbSet<Tenant> Tenants { get; set; }
 

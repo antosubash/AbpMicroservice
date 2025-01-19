@@ -40,20 +40,41 @@ public class AdministrationHttpApiHostModule : AbpModule
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
                 options.FileSets.ReplaceEmbeddedByPhysical<AdministrationDomainSharedModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}Tasky.Administration.Domain.Shared",
-                            Path.DirectorySeparatorChar)));
+                    Path.Combine(
+                        hostingEnvironment.ContentRootPath,
+                        string.Format(
+                            "..{0}..{0}src{0}Tasky.Administration.Domain.Shared",
+                            Path.DirectorySeparatorChar
+                        )
+                    )
+                );
                 options.FileSets.ReplaceEmbeddedByPhysical<AdministrationDomainModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}Tasky.Administration.Domain", Path.DirectorySeparatorChar)));
+                    Path.Combine(
+                        hostingEnvironment.ContentRootPath,
+                        string.Format(
+                            "..{0}..{0}src{0}Tasky.Administration.Domain",
+                            Path.DirectorySeparatorChar
+                        )
+                    )
+                );
                 options.FileSets.ReplaceEmbeddedByPhysical<AdministrationApplicationContractsModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}Tasky.Administration.Application.Contracts",
-                            Path.DirectorySeparatorChar)));
+                    Path.Combine(
+                        hostingEnvironment.ContentRootPath,
+                        string.Format(
+                            "..{0}..{0}src{0}Tasky.Administration.Application.Contracts",
+                            Path.DirectorySeparatorChar
+                        )
+                    )
+                );
                 options.FileSets.ReplaceEmbeddedByPhysical<AdministrationApplicationModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}Tasky.Administration.Application",
-                            Path.DirectorySeparatorChar)));
+                    Path.Combine(
+                        hostingEnvironment.ContentRootPath,
+                        string.Format(
+                            "..{0}..{0}src{0}Tasky.Administration.Application",
+                            Path.DirectorySeparatorChar
+                        )
+                    )
+                );
             });
         }
     }

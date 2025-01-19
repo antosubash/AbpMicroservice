@@ -7,7 +7,10 @@ using Volo.Abp.OpenIddict.Applications;
 
 namespace Tasky.Pages;
 
-public class IndexModel(IOpenIddictApplicationRepository openIdApplicationRepository, ILanguageProvider languageProvider) : AbpPageModel
+public class IndexModel(
+    IOpenIddictApplicationRepository openIdApplicationRepository,
+    ILanguageProvider languageProvider
+) : AbpPageModel
 {
     public List<OpenIddictApplication> Applications { get; protected set; }
 
@@ -15,7 +18,8 @@ public class IndexModel(IOpenIddictApplicationRepository openIdApplicationReposi
 
     public string CurrentLanguage { get; protected set; }
 
-    protected IOpenIddictApplicationRepository OpenIdApplicationRepository { get; } = openIdApplicationRepository;
+    protected IOpenIddictApplicationRepository OpenIdApplicationRepository { get; } =
+        openIdApplicationRepository;
 
     protected ILanguageProvider LanguageProvider { get; } = languageProvider;
 

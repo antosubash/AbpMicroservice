@@ -22,10 +22,13 @@ public class SaaSEntityFrameworkCoreModule : AbpModule
 
         Configure<AbpDbConnectionOptions>(options =>
         {
-            options.Databases.Configure(TaskyNames.SaaSDb, db =>
-            {
-                db.MappedConnections.Add("AbpTenantManagement");
-            });
+            options.Databases.Configure(
+                TaskyNames.SaaSDb,
+                db =>
+                {
+                    db.MappedConnections.Add("AbpTenantManagement");
+                }
+            );
         });
 
         Configure<AbpDbContextOptions>(options =>

@@ -24,11 +24,14 @@ public class IdentityServiceEntityFrameworkCoreModule : AbpModule
 
         Configure<AbpDbConnectionOptions>(options =>
         {
-            options.Databases.Configure(TaskyNames.IdentityServiceDb, db =>
-            {
-                db.MappedConnections.Add("AbpIdentity");
-                db.MappedConnections.Add("AbpOpenIddict");
-            });
+            options.Databases.Configure(
+                TaskyNames.IdentityServiceDb,
+                db =>
+                {
+                    db.MappedConnections.Add("AbpIdentity");
+                    db.MappedConnections.Add("AbpOpenIddict");
+                }
+            );
         });
 
         Configure<AbpDbContextOptions>(options =>

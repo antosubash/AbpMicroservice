@@ -8,7 +8,9 @@ namespace Tasky.IdentityService.Samples;
 [Area(IdentityServiceRemoteServiceConsts.ModuleName)]
 [RemoteService(Name = IdentityServiceRemoteServiceConsts.RemoteServiceName)]
 [Route("api/IdentityService/sample")]
-public class SampleController(ISampleAppService sampleAppService) : IdentityServiceController, ISampleAppService
+public class SampleController(ISampleAppService sampleAppService)
+    : IdentityServiceController,
+        ISampleAppService
 {
     private readonly ISampleAppService _sampleAppService = sampleAppService;
 

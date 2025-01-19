@@ -67,16 +67,17 @@ public class WebAppBlazorClientModule : AbpModule
 
     private static void ConfigureBlazorise(ServiceConfigurationContext context)
     {
-        context.Services
-            .AddBootstrap5Providers()
-            .AddFontAwesomeIcons();
+        context.Services.AddBootstrap5Providers().AddFontAwesomeIcons();
     }
 
-    private static void ConfigureHttpClient(ServiceConfigurationContext context, IWebAssemblyHostEnvironment environment)
+    private static void ConfigureHttpClient(
+        ServiceConfigurationContext context,
+        IWebAssemblyHostEnvironment environment
+    )
     {
         context.Services.AddTransient(sp => new HttpClient
         {
-            BaseAddress = new Uri(environment.BaseAddress)
+            BaseAddress = new Uri(environment.BaseAddress),
         });
     }
 

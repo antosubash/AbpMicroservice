@@ -23,12 +23,16 @@ public class Program
             builder.AddServiceDefaults();
             builder.AddSharedEndpoints();
 
-            builder.AddNpgsqlDbContext<AdministrationDbContext>(connectionName: TaskyNames.AdministrationDb, configure => configure.DisableRetry = true);
-            builder.AddNpgsqlDbContext<SaaSDbContext>(connectionName: TaskyNames.SaaSDb, configure => configure.DisableRetry = true);
+            builder.AddNpgsqlDbContext<AdministrationDbContext>(
+                connectionName: TaskyNames.AdministrationDb,
+                configure => configure.DisableRetry = true
+            );
+            builder.AddNpgsqlDbContext<SaaSDbContext>(
+                connectionName: TaskyNames.SaaSDb,
+                configure => configure.DisableRetry = true
+            );
 
-            builder.Host.AddAppSettingsSecretsJson()
-                .UseAutofac()
-                .UseSerilog();
+            builder.Host.AddAppSettingsSecretsJson().UseAutofac().UseSerilog();
 
             await builder.AddApplicationAsync<SaaSHttpApiHostModule>();
 

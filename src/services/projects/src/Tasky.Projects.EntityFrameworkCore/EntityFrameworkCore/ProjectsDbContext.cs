@@ -6,7 +6,9 @@ using Volo.Abp.EntityFrameworkCore;
 namespace Tasky.Projects.EntityFrameworkCore;
 
 [ConnectionStringName(TaskyNames.ProjectsDb)]
-public class ProjectsDbContext(DbContextOptions<ProjectsDbContext> options) : AbpDbContext<ProjectsDbContext>(options), IProjectsDbContext
+public class ProjectsDbContext(DbContextOptions<ProjectsDbContext> options)
+    : AbpDbContext<ProjectsDbContext>(options),
+        IProjectsDbContext
 {
     protected override void OnModelCreating(ModelBuilder builder)
     {

@@ -12,7 +12,8 @@ namespace Tasky.IdentityService.EventHandler;
 public class TenantCreatedEventHandler(
     ICurrentTenant currentTenant,
     IIdentityDataSeeder identityDataSeeder,
-    ILogger<TenantCreatedEventHandler> logger) : IDistributedEventHandler<TenantCreatedEto>, ITransientDependency
+    ILogger<TenantCreatedEventHandler> logger
+) : IDistributedEventHandler<TenantCreatedEto>, ITransientDependency
 {
     private readonly ICurrentTenant _currentTenant = currentTenant;
     private readonly ILogger<TenantCreatedEventHandler> _logger = logger;
@@ -24,11 +25,17 @@ public class TenantCreatedEventHandler(
         {
             using (_currentTenant.Change(eventData.Id))
             {
-
-                _logger.LogInformation("Creating admin user for tenant {TenantId}...", eventData.Id);
+                _logger.LogInformation(
+                    "Creating admin user for tenant {TenantId}...",
+                    eventData.Id
+                );
                 await _identityDataSeeder.SeedAsync(
-                    eventData.Properties.GetOrDefault(IdentityDataSeedContributor.AdminEmailPropertyName) ?? "admin@antosubash.com",
-                    eventData.Properties.GetOrDefault(IdentityDataSeedContributor.AdminPasswordPropertyName) ?? "1q2w3E*",
+                    eventData.Properties.GetOrDefault(
+                        IdentityDataSeedContributor.AdminEmailPropertyName
+                    ) ?? "admin@antosubash.com",
+                    eventData.Properties.GetOrDefault(
+                        IdentityDataSeedContributor.AdminPasswordPropertyName
+                    ) ?? "1q2w3E*",
                     eventData.Id
                 );
             }

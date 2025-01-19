@@ -17,27 +17,38 @@ public static class OpenApiOptionsExtensions
             Reference = new OpenApiReference
             {
                 Type = ReferenceType.SecurityScheme,
-                Id = JwtBearerDefaults.AuthenticationScheme
-            }
+                Id = JwtBearerDefaults.AuthenticationScheme,
+            },
         };
 
-        options.AddDocumentTransformer((document, context, cancellationToken) =>
-        {
-            document.Components ??= new();
-            document.Components.SecuritySchemes.Add(JwtBearerDefaults.AuthenticationScheme, scheme);
-
-            return Task.CompletedTask;
-        });
-
-        options.AddOperationTransformer((operation, context, cancellationToken) =>
-        {
-            if (context.Description.ActionDescriptor.EndpointMetadata.OfType<IAuthorizeData>().Any())
+        options.AddDocumentTransformer(
+            (document, context, cancellationToken) =>
             {
-                operation.Security = [new() { [scheme] = [] }];
-            }
+                document.Components ??= new();
+                document.Components.SecuritySchemes.Add(
+                    JwtBearerDefaults.AuthenticationScheme,
+                    scheme
+                );
 
-            return Task.CompletedTask;
-        });
+                return Task.CompletedTask;
+            }
+        );
+
+        options.AddOperationTransformer(
+            (operation, context, cancellationToken) =>
+            {
+                if (
+                    context
+                        .Description.ActionDescriptor.EndpointMetadata.OfType<IAuthorizeData>()
+                        .Any()
+                )
+                {
+                    operation.Security = [new() { [scheme] = [] }];
+                }
+
+                return Task.CompletedTask;
+            }
+        );
 
         return options;
     }

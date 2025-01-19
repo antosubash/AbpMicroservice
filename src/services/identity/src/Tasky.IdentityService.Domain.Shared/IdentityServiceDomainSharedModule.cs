@@ -1,9 +1,9 @@
 using Tasky.IdentityService.Localization;
 using Volo.Abp.Identity;
-using Volo.Abp.OpenIddict;
 using Volo.Abp.Localization;
 using Volo.Abp.Localization.ExceptionHandling;
 using Volo.Abp.Modularity;
+using Volo.Abp.OpenIddict;
 using Volo.Abp.Validation;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
@@ -24,8 +24,8 @@ public class IdentityServiceDomainSharedModule : AbpModule
 
         Configure<AbpLocalizationOptions>(options =>
         {
-            options.Resources
-                .Add<IdentityServiceResource>("en")
+            options
+                .Resources.Add<IdentityServiceResource>("en")
                 .AddBaseTypes(typeof(AbpValidationResource))
                 .AddVirtualJson("/Localization/IdentityService");
         });

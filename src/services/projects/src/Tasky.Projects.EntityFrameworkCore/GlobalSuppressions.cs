@@ -5,5 +5,17 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-[assembly: SuppressMessage("Style", "IDE0300:Simplify collection initialization", Justification = "<augo-generated />", Scope = "NamespaceAndDescendants", Target = "~N:Tasky.Projects.Migrations")]
-[assembly: SuppressMessage("Performance", "CA1861:Avoid constant arrays as arguments", Justification = "<augo-generated />", Scope = "NamespaceAndDescendants", Target = "~N:Tasky.Projects.Migrations")]
+[assembly: SuppressMessage(
+    "Style",
+    "IDE0300:Simplify collection initialization",
+    Justification = "<augo-generated />",
+    Scope = "NamespaceAndDescendants",
+    Target = "~N:Tasky.Projects.Migrations"
+)]
+[assembly: SuppressMessage(
+    "Performance",
+    "CA1861:Avoid constant arrays as arguments",
+    Justification = "<augo-generated />",
+    Scope = "NamespaceAndDescendants",
+    Target = "~N:Tasky.Projects.Migrations"
+)]

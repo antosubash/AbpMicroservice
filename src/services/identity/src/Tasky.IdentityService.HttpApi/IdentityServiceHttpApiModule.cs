@@ -27,9 +27,7 @@ public class IdentityServiceHttpApiModule : AbpModule
     {
         Configure<AbpLocalizationOptions>(options =>
         {
-            options.Resources
-                .Get<IdentityServiceResource>()
-                .AddBaseTypes(typeof(AbpUiResource));
+            options.Resources.Get<IdentityServiceResource>().AddBaseTypes(typeof(AbpUiResource));
         });
     }
 }

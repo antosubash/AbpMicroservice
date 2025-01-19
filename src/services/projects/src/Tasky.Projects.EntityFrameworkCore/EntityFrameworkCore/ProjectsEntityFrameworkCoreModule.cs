@@ -20,9 +20,7 @@ public class ProjectsEntityFrameworkCoreModule : AbpModule
 
         Configure<AbpDbConnectionOptions>(options =>
         {
-            options.Databases.Configure(TaskyNames.ProjectsDb, db =>
-            {
-            });
+            options.Databases.Configure(TaskyNames.ProjectsDb, db => { });
         });
 
         Configure<AbpDbContextOptions>(options =>

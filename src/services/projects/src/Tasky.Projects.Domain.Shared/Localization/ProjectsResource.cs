@@ -3,6 +3,4 @@
 namespace Tasky.Projects.Localization;
 
 [LocalizationResourceName("Projects")]
-public class ProjectsResource
-{
-}
+public class ProjectsResource { }

@@ -6,7 +6,8 @@ using Volo.Abp.Ui.Branding;
 namespace Tasky.WebApp.Blazor.Client;
 
 [Dependency(ReplaceServices = true)]
-public class WebAppBrandingProvider(IStringLocalizer<WebAppResource> localizer) : DefaultBrandingProvider
+public class WebAppBrandingProvider(IStringLocalizer<WebAppResource> localizer)
+    : DefaultBrandingProvider
 {
     private readonly IStringLocalizer<WebAppResource> _localizer = localizer;
 

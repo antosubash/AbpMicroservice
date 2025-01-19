@@ -7,10 +7,7 @@ namespace Tasky.WebApp.Blazor.Client;
  */
 public class WebAppBundleContributor : IBundleContributor
 {
-    public void AddScripts(BundleContext context)
-    {
-
-    }
+    public void AddScripts(BundleContext context) { }
 
     public void AddStyles(BundleContext context)
     {

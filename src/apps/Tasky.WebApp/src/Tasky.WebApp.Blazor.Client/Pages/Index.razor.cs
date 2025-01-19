@@ -6,7 +6,8 @@ namespace Tasky.WebApp.Blazor.Client.Pages;
 
 public partial class Index
 {
-    [Inject] private AuthenticationStateProvider AuthenticationStateProvider { get; set; } = default!;
+    [Inject]
+    private AuthenticationStateProvider AuthenticationStateProvider { get; set; } = default!;
 
     private ClaimsPrincipal? User { get; set; }
 

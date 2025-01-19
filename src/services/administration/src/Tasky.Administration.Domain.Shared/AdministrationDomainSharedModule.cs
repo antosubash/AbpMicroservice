@@ -28,8 +28,8 @@ public class AdministrationDomainSharedModule : AbpModule
 
         Configure<AbpLocalizationOptions>(options =>
         {
-            options.Resources
-                .Add<AdministrationResource>("en")
+            options
+                .Resources.Add<AdministrationResource>("en")
                 .AddBaseTypes(typeof(AbpValidationResource))
                 .AddVirtualJson("/Localization/Administration");
         });

@@ -11,16 +11,16 @@ public class ProjectsDbContextFactory : IDesignTimeDbContextFactory<ProjectsDbCo
     {
         var configuration = BuildConfiguration();
 
-        var builder = new DbContextOptionsBuilder<ProjectsDbContext>()
-            .UseNpgsql(GetConnectionStringFromConfiguration());
+        var builder = new DbContextOptionsBuilder<ProjectsDbContext>().UseNpgsql(
+            GetConnectionStringFromConfiguration()
+        );
 
         return new ProjectsDbContext(builder.Options);
     }
 
     private static string GetConnectionStringFromConfiguration()
     {
-        return BuildConfiguration()
-            .GetConnectionString(ProjectsDbProperties.ConnectionStringName);
+        return BuildConfiguration().GetConnectionString(ProjectsDbProperties.ConnectionStringName);
     }
 
     private static IConfigurationRoot BuildConfiguration()

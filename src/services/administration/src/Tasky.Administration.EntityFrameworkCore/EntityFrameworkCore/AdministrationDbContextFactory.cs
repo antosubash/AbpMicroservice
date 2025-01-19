@@ -9,8 +9,9 @@ public class AdministrationDbContextFactory : IDesignTimeDbContextFactory<Admini
 {
     public AdministrationDbContext CreateDbContext(string[] args)
     {
-        var builder = new DbContextOptionsBuilder<AdministrationDbContext>()
-            .UseNpgsql(GetConnectionStringFromConfiguration());
+        var builder = new DbContextOptionsBuilder<AdministrationDbContext>().UseNpgsql(
+            GetConnectionStringFromConfiguration()
+        );
 
         return new AdministrationDbContext(builder.Options);
     }

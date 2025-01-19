@@ -11,6 +11,4 @@ namespace Tasky.SaaS;
 [DependsOn(typeof(AbpDddApplicationContractsModule))]
 [DependsOn(typeof(AbpAuthorizationModule))]
 [DependsOn(typeof(AbpTenantManagementApplicationContractsModule))]
-public class SaaSApplicationContractsModule : AbpModule
-{
-}
+public class SaaSApplicationContractsModule : AbpModule { }

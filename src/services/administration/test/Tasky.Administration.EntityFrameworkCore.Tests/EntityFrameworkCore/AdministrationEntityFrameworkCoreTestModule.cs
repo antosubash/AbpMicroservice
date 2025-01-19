@@ -36,7 +36,9 @@ public class AdministrationEntityFrameworkCoreTestModule : AbpModule
 
         new AdministrationDbContext(
             new DbContextOptionsBuilder<AdministrationDbContext>().UseSqlite(connection).Options
-        ).GetService<IRelationalDatabaseCreator>().CreateTables();
+        )
+            .GetService<IRelationalDatabaseCreator>()
+            .CreateTables();
 
         return connection;
     }

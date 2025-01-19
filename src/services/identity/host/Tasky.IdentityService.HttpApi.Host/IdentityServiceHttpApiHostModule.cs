@@ -36,20 +36,41 @@ public class IdentityServiceHttpApiHostModule : AbpModule
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
                 options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceDomainSharedModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}Tasky.IdentityService.Domain.Shared",
-                            Path.DirectorySeparatorChar)));
+                    Path.Combine(
+                        hostingEnvironment.ContentRootPath,
+                        string.Format(
+                            "..{0}..{0}src{0}Tasky.IdentityService.Domain.Shared",
+                            Path.DirectorySeparatorChar
+                        )
+                    )
+                );
                 options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceDomainModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}Tasky.IdentityService.Domain", Path.DirectorySeparatorChar)));
+                    Path.Combine(
+                        hostingEnvironment.ContentRootPath,
+                        string.Format(
+                            "..{0}..{0}src{0}Tasky.IdentityService.Domain",
+                            Path.DirectorySeparatorChar
+                        )
+                    )
+                );
                 options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceApplicationContractsModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}Tasky.IdentityService.Application.Contracts",
-                            Path.DirectorySeparatorChar)));
+                    Path.Combine(
+                        hostingEnvironment.ContentRootPath,
+                        string.Format(
+                            "..{0}..{0}src{0}Tasky.IdentityService.Application.Contracts",
+                            Path.DirectorySeparatorChar
+                        )
+                    )
+                );
                 options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceApplicationModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}Tasky.IdentityService.Application",
-                            Path.DirectorySeparatorChar)));
+                    Path.Combine(
+                        hostingEnvironment.ContentRootPath,
+                        string.Format(
+                            "..{0}..{0}src{0}Tasky.IdentityService.Application",
+                            Path.DirectorySeparatorChar
+                        )
+                    )
+                );
             });
         }
     }

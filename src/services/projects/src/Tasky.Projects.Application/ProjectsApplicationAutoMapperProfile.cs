@@ -2,6 +2,4 @@
 
 namespace Tasky.Projects;
 
-public class ProjectsApplicationAutoMapperProfile : Profile
-{
-}
+public class ProjectsApplicationAutoMapperProfile : Profile { }

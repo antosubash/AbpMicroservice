@@ -7,7 +7,4 @@ namespace Tasky.Administration.HttpApi.Client.ConsoleTestApp;
 [DependsOn(typeof(AbpAutofacModule))]
 [DependsOn(typeof(AdministrationHttpApiClientModule))]
 [DependsOn(typeof(AbpHttpClientIdentityModelModule))]
-public class AdministrationConsoleApiClientModule : AbpModule
-{
-
-}
+public class AdministrationConsoleApiClientModule : AbpModule { }

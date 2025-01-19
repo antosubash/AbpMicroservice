@@ -13,8 +13,11 @@ using Volo.Abp.OpenIddict.Tokens;
 namespace Tasky.IdentityService.EntityFrameworkCore;
 
 [ConnectionStringName(TaskyNames.IdentityServiceDb)]
-public class IdentityServiceDbContext(DbContextOptions<IdentityServiceDbContext> options) : AbpDbContext<IdentityServiceDbContext>(options), IIdentityDbContext,
-    IOpenIddictDbContext, IIdentityServiceDbContext
+public class IdentityServiceDbContext(DbContextOptions<IdentityServiceDbContext> options)
+    : AbpDbContext<IdentityServiceDbContext>(options),
+        IIdentityDbContext,
+        IOpenIddictDbContext,
+        IIdentityServiceDbContext
 {
     public DbSet<IdentityUser> Users { get; set; }
     public DbSet<IdentityRole> Roles { get; set; }

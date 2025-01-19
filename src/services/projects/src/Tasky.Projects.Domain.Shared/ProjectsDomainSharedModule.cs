@@ -20,8 +20,8 @@ public class ProjectsDomainSharedModule : AbpModule
 
         Configure<AbpLocalizationOptions>(options =>
         {
-            options.Resources
-                .Add<ProjectsResource>("en")
+            options
+                .Resources.Add<ProjectsResource>("en")
                 .AddBaseTypes(typeof(AbpValidationResource))
                 .AddVirtualJson("/Localization/Projects");
         });

@@ -21,9 +21,7 @@ internal class Program
         });
 
         // Add services to the container.
-        builder.Services
-            .AddRazorComponents()
-            .AddInteractiveWebAssemblyComponents();
+        builder.Services.AddRazorComponents().AddInteractiveWebAssemblyComponents();
 
         var app = builder.Build();
 
@@ -38,8 +36,10 @@ internal class Program
         //app.UseAntiforgery();
 
         app.MapRazorComponents<App>()
-           .AddInteractiveWebAssemblyRenderMode()
-           .AddAdditionalAssemblies(WebAppAdditionalAssembliesHelper.GetAssemblies<WebAppBlazorClientModule>());
+            .AddInteractiveWebAssemblyRenderMode()
+            .AddAdditionalAssemblies(
+                WebAppAdditionalAssembliesHelper.GetAssemblies<WebAppBlazorClientModule>()
+            );
 
         await app.RunAsync();
     }

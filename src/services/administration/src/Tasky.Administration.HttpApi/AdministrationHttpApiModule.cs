@@ -29,9 +29,7 @@ public class AdministrationHttpApiModule : AbpModule
     {
         Configure<AbpLocalizationOptions>(options =>
         {
-            options.Resources
-                .Get<AdministrationResource>()
-                .AddBaseTypes(typeof(AbpUiResource));
+            options.Resources.Get<AdministrationResource>().AddBaseTypes(typeof(AbpUiResource));
         });
     }
 }

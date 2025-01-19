@@ -36,7 +36,9 @@ public class IdentityServiceEntityFrameworkCoreTestModule : AbpModule
 
         new IdentityServiceDbContext(
             new DbContextOptionsBuilder<IdentityServiceDbContext>().UseSqlite(connection).Options
-        ).GetService<IRelationalDatabaseCreator>().CreateTables();
+        )
+            .GetService<IRelationalDatabaseCreator>()
+            .CreateTables();
 
         return connection;
     }

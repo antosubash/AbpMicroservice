@@ -8,7 +8,9 @@ namespace Tasky.SaaS.Samples;
 [Area(SaaSRemoteServiceConsts.ModuleName)]
 [RemoteService(Name = SaaSRemoteServiceConsts.RemoteServiceName)]
 [Route("api/SaaS/sample")]
-public class SampleController(ISampleAppService sampleAppService) : SaaSController, ISampleAppService
+public class SampleController(ISampleAppService sampleAppService)
+    : SaaSController,
+        ISampleAppService
 {
     private readonly ISampleAppService _sampleAppService = sampleAppService;
 

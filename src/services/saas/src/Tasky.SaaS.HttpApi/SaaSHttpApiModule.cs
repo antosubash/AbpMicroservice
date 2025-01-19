@@ -25,9 +25,7 @@ public class SaaSHttpApiModule : AbpModule
     {
         Configure<AbpLocalizationOptions>(options =>
         {
-            options.Resources
-                .Get<SaaSResource>()
-                .AddBaseTypes(typeof(AbpUiResource));
+            options.Resources.Get<SaaSResource>().AddBaseTypes(typeof(AbpUiResource));
         });
     }
 }

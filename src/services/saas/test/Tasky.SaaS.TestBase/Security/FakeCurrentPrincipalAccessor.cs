@@ -22,12 +22,15 @@ public class FakeCurrentPrincipalAccessor : ThreadCurrentPrincipalAccessor
             {
                 if (_principal == null)
                 {
-                    _principal ??= new ClaimsPrincipal(new ClaimsIdentity(
-                    [
-                        new(AbpClaimTypes.UserId,"2e701e62-0953-4dd3-910b-dc6cc93ccb0d"),
-                        new(AbpClaimTypes.UserName,"admin"),
-                        new(AbpClaimTypes.Email,"admin@abp.io")
-                    ]));
+                    _principal ??= new ClaimsPrincipal(
+                        new ClaimsIdentity(
+                            [
+                                new(AbpClaimTypes.UserId, "2e701e62-0953-4dd3-910b-dc6cc93ccb0d"),
+                                new(AbpClaimTypes.UserName, "admin"),
+                                new(AbpClaimTypes.Email, "admin@abp.io"),
+                            ]
+                        )
+                    );
                 }
             }
         }

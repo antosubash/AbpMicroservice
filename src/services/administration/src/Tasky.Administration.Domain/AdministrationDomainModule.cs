@@ -17,6 +17,4 @@ namespace Tasky.Administration;
 [DependsOn(typeof(AbpSettingManagementDomainModule))]
 [DependsOn(typeof(AbpAuditLoggingDomainModule))]
 [DependsOn(typeof(AbpFeatureManagementDomainModule))]
-public class AdministrationDomainModule : AbpModule
-{
-}
+public class AdministrationDomainModule : AbpModule { }

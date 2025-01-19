@@ -30,9 +30,7 @@ public class ProjectsTestBaseModule : AbpModule
         {
             using (var scope = context.ServiceProvider.CreateScope())
             {
-                await scope.ServiceProvider
-                    .GetRequiredService<IDataSeeder>()
-                    .SeedAsync();
+                await scope.ServiceProvider.GetRequiredService<IDataSeeder>().SeedAsync();
             }
         });
     }

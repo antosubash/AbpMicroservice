@@ -5,7 +5,9 @@ using Volo.Abp.MultiTenancy;
 
 namespace Tasky.IdentityService;
 
-public class IdentityServiceDataSeedContributor(ICurrentTenant currentTenant) : IDataSeedContributor, ITransientDependency
+public class IdentityServiceDataSeedContributor(ICurrentTenant currentTenant)
+    : IDataSeedContributor,
+        ITransientDependency
 {
     private readonly ICurrentTenant _currentTenant = currentTenant;
 

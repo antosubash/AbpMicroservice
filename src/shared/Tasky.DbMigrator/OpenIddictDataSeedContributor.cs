@@ -4,7 +4,9 @@ using Volo.Abp.DependencyInjection;
 
 namespace Tasky.DbMigrator;
 
-public class OpenIddictDataSeedContributor(OpenIddictDataSeeder OpenIddictDataSeeder) : IDataSeedContributor, ITransientDependency
+public class OpenIddictDataSeedContributor(OpenIddictDataSeeder OpenIddictDataSeeder)
+    : IDataSeedContributor,
+        ITransientDependency
 {
     private readonly OpenIddictDataSeeder _OpenIddictDataSeeder = OpenIddictDataSeeder;
 

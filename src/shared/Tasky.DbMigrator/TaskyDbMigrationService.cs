@@ -20,7 +20,8 @@ public class TaskyDbMigrationService(
     ITenantRepository tenantRepository,
     IDataSeeder dataSeeder,
     ICurrentTenant currentTenant,
-    IUnitOfWorkManager unitOfWorkManager) : ITransientDependency
+    IUnitOfWorkManager unitOfWorkManager
+) : ITransientDependency
 {
     private readonly ICurrentTenant _currentTenant = currentTenant;
     private readonly IDataSeeder _dataSeeder = dataSeeder;
@@ -61,7 +62,10 @@ public class TaskyDbMigrationService(
     {
         _logger.LogInformation("Migrating tenants ...");
 
-        var tenants = await _tenantRepository.GetListAsync(includeDetails: true, cancellationToken: cancellationToken);
+        var tenants = await _tenantRepository.GetListAsync(
+            includeDetails: true,
+            cancellationToken: cancellationToken
+        );
         var migratedDatabaseSchemas = new HashSet<string>();
 
         foreach (var tenant in tenants)
@@ -70,10 +74,17 @@ public class TaskyDbMigrationService(
             {
                 // Database schema migration
                 var connectionString = tenant.FindDefaultConnectionString();
-                if (!connectionString.IsNullOrWhiteSpace() && //tenant has a separate database
-                    !migratedDatabaseSchemas.Contains(connectionString)) //the database was not migrated yet
+                if (
+                    !connectionString.IsNullOrWhiteSpace()
+                    && //tenant has a separate database
+                    !migratedDatabaseSchemas.Contains(connectionString)
+                ) //the database was not migrated yet
                 {
-                    _logger.LogInformation("Migrating Tenant: {Name} ({TenantId})", tenant.Name, tenant.Id);
+                    _logger.LogInformation(
+                        "Migrating Tenant: {Name} ({TenantId})",
+                        tenant.Name,
+                        tenant.Id
+                    );
 
                     await MigrateDatabasesAsync(tenant, cancellationToken);
                     migratedDatabaseSchemas.AddIfNotContains(connectionString);
@@ -90,8 +101,8 @@ public class TaskyDbMigrationService(
     private async Task EnsureDatabaseAsync<TDbContext>(CancellationToken cancellationToken)
         where TDbContext : DbContext, IEfCoreDbContext
     {
-        var dbContext = await _unitOfWorkManager.Current!.ServiceProvider
-            .GetRequiredService<IDbContextProvider<TDbContext>>()
+        var dbContext = await _unitOfWorkManager
+            .Current!.ServiceProvider.GetRequiredService<IDbContextProvider<TDbContext>>()
             .GetDbContextAsync();
 
         var strategy = dbContext.Database.CreateExecutionStrategy();
@@ -134,8 +145,8 @@ public class TaskyDbMigrationService(
 
         _logger.LogInformation("Migrating {Name} database ...", name);
 
-        var dbContext = await _unitOfWorkManager.Current!.ServiceProvider
-            .GetRequiredService<IDbContextProvider<TDbContext>>()
+        var dbContext = await _unitOfWorkManager
+            .Current!.ServiceProvider.GetRequiredService<IDbContextProvider<TDbContext>>()
             .GetDbContextAsync();
 
         await ApplyMigrationAsync(dbContext, cancellationToken);
@@ -143,7 +154,10 @@ public class TaskyDbMigrationService(
         _logger.LogInformation("Completed migrating ({Name}).", name);
     }
 
-    private static async Task ApplyMigrationAsync<TDbContext>(TDbContext dbContext, CancellationToken cancellationToken)
+    private static async Task ApplyMigrationAsync<TDbContext>(
+        TDbContext dbContext,
+        CancellationToken cancellationToken
+    )
         where TDbContext : DbContext, IEfCoreDbContext
     {
         var strategy = dbContext.Database.CreateExecutionStrategy();
@@ -167,8 +181,14 @@ public class TaskyDbMigrationService(
 
         await _dataSeeder.SeedAsync(
             new DataSeedContext(tenant?.Id)
-                .WithProperty(IdentityDataSeedContributor.AdminEmailPropertyName, IdentityDataSeedContributor.AdminEmailDefaultValue)
-                .WithProperty(IdentityDataSeedContributor.AdminPasswordPropertyName, IdentityDataSeedContributor.AdminPasswordDefaultValue)
+                .WithProperty(
+                    IdentityDataSeedContributor.AdminEmailPropertyName,
+                    IdentityDataSeedContributor.AdminEmailDefaultValue
+                )
+                .WithProperty(
+                    IdentityDataSeedContributor.AdminPasswordPropertyName,
+                    IdentityDataSeedContributor.AdminPasswordDefaultValue
+                )
         );
     }
 }

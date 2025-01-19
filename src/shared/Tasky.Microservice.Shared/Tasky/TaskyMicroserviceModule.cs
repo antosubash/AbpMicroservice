@@ -30,7 +30,10 @@ public class TaskyMicroserviceModule : AbpModule
         ConfigureCors(context, configuration);
     }
 
-    private static void ConfigureCors(ServiceConfigurationContext context, IConfiguration configuration)
+    private static void ConfigureCors(
+        ServiceConfigurationContext context,
+        IConfiguration configuration
+    )
     {
         context.Services.AddCors(options =>
         {
@@ -55,7 +58,10 @@ public class TaskyMicroserviceModule : AbpModule
 
 public static class MicroserviceExtensions
 {
-    public static ServiceConfigurationContext ConfigureMicroservice(this ServiceConfigurationContext context, string name)
+    public static ServiceConfigurationContext ConfigureMicroservice(
+        this ServiceConfigurationContext context,
+        string name
+    )
     {
         var configuration = context.Services.GetConfiguration();
         var hostingEnvironment = context.Services.GetHostingEnvironment();
@@ -68,13 +74,20 @@ public static class MicroserviceExtensions
         return context;
     }
 
-    public static ServiceConfigurationContext ConfigureAuthentication(this ServiceConfigurationContext context, IConfiguration configuration, string audience)
+    public static ServiceConfigurationContext ConfigureAuthentication(
+        this ServiceConfigurationContext context,
+        IConfiguration configuration,
+        string audience
+    )
     {
-        context.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        context
+            .Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddAbpJwtBearer(options =>
             {
                 options.Authority = configuration["AuthServer:Authority"];
-                options.RequireHttpsMetadata = configuration.GetValue<bool>("AuthServer:RequireHttpsMetadata");
+                options.RequireHttpsMetadata = configuration.GetValue<bool>(
+                    "AuthServer:RequireHttpsMetadata"
+                );
                 options.Audience = audience;
             });
 
@@ -86,7 +99,10 @@ public static class MicroserviceExtensions
         return context;
     }
 
-    public static ServiceConfigurationContext ConfigureCache(this ServiceConfigurationContext context, string keyPrefix)
+    public static ServiceConfigurationContext ConfigureCache(
+        this ServiceConfigurationContext context,
+        string keyPrefix
+    )
     {
         context.Services.Configure<AbpDistributedCacheOptions>(options =>
         {
@@ -96,19 +112,26 @@ public static class MicroserviceExtensions
         return context;
     }
 
-    public static ServiceConfigurationContext ConfigureSwaggerServices(this ServiceConfigurationContext context, IConfiguration configuration, string name, string version = "v1")
+    public static ServiceConfigurationContext ConfigureSwaggerServices(
+        this ServiceConfigurationContext context,
+        IConfiguration configuration,
+        string name,
+        string version = "v1"
+    )
     {
         context.Services.AddAbpSwaggerGenWithOAuth(
             configuration["AuthServer:Authority"]!,
-            new Dictionary<string, string> {
-                {name, $"{name} API"}
-            },
+            new Dictionary<string, string> { { name, $"{name} API" } },
             options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = $"{name} API", Version = version });
+                options.SwaggerDoc(
+                    "v1",
+                    new OpenApiInfo { Title = $"{name} API", Version = version }
+                );
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
-            });
+            }
+        );
 
         return context;
     }

@@ -28,13 +28,16 @@ public class AdministrationEntityFrameworkCoreModule : AbpModule
 
         Configure<AbpDbConnectionOptions>(options =>
         {
-            options.Databases.Configure(TaskyNames.AdministrationDb, db =>
-            {
-                db.MappedConnections.Add("AbpAuditLogging");
-                db.MappedConnections.Add("AbpFeatureManagement");
-                db.MappedConnections.Add("AbpPermissionManagement");
-                db.MappedConnections.Add("AbpSettingManagement");
-            });
+            options.Databases.Configure(
+                TaskyNames.AdministrationDb,
+                db =>
+                {
+                    db.MappedConnections.Add("AbpAuditLogging");
+                    db.MappedConnections.Add("AbpFeatureManagement");
+                    db.MappedConnections.Add("AbpPermissionManagement");
+                    db.MappedConnections.Add("AbpSettingManagement");
+                }
+            );
         });
 
         Configure<AbpDbContextOptions>(options =>

@@ -38,18 +38,41 @@ public class ProjectsHttpApiHostModule : AbpModule
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
                 options.FileSets.ReplaceEmbeddedByPhysical<ProjectsDomainSharedModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}Tasky.Projects.Domain.Shared", Path.DirectorySeparatorChar)));
+                    Path.Combine(
+                        hostingEnvironment.ContentRootPath,
+                        string.Format(
+                            "..{0}..{0}src{0}Tasky.Projects.Domain.Shared",
+                            Path.DirectorySeparatorChar
+                        )
+                    )
+                );
                 options.FileSets.ReplaceEmbeddedByPhysical<ProjectsDomainModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}Tasky.Projects.Domain", Path.DirectorySeparatorChar)));
+                    Path.Combine(
+                        hostingEnvironment.ContentRootPath,
+                        string.Format(
+                            "..{0}..{0}src{0}Tasky.Projects.Domain",
+                            Path.DirectorySeparatorChar
+                        )
+                    )
+                );
                 options.FileSets.ReplaceEmbeddedByPhysical<ProjectsApplicationContractsModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}Tasky.Projects.Application.Contracts",
-                            Path.DirectorySeparatorChar)));
+                    Path.Combine(
+                        hostingEnvironment.ContentRootPath,
+                        string.Format(
+                            "..{0}..{0}src{0}Tasky.Projects.Application.Contracts",
+                            Path.DirectorySeparatorChar
+                        )
+                    )
+                );
                 options.FileSets.ReplaceEmbeddedByPhysical<ProjectsApplicationModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}Tasky.Projects.Application", Path.DirectorySeparatorChar)));
+                    Path.Combine(
+                        hostingEnvironment.ContentRootPath,
+                        string.Format(
+                            "..{0}..{0}src{0}Tasky.Projects.Application",
+                            Path.DirectorySeparatorChar
+                        )
+                    )
+                );
             });
         }
     }

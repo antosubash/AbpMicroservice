@@ -14,12 +14,13 @@ using Volo.Abp.SettingManagement.EntityFrameworkCore;
 namespace Tasky.Administration.EntityFrameworkCore;
 
 [ConnectionStringName(TaskyNames.AdministrationDb)]
-public class AdministrationDbContext(DbContextOptions<AdministrationDbContext> options) : AbpDbContext<AdministrationDbContext>(options),
-    IAdministrationDbContext,
-    IAuditLoggingDbContext,
-    IFeatureManagementDbContext,
-    IPermissionManagementDbContext,
-    ISettingManagementDbContext
+public class AdministrationDbContext(DbContextOptions<AdministrationDbContext> options)
+    : AbpDbContext<AdministrationDbContext>(options),
+        IAdministrationDbContext,
+        IAuditLoggingDbContext,
+        IFeatureManagementDbContext,
+        IPermissionManagementDbContext,
+        ISettingManagementDbContext
 {
     public DbSet<AuditLog> AuditLogs { get; set; }
     public DbSet<FeatureDefinitionRecord> Features { get; set; }

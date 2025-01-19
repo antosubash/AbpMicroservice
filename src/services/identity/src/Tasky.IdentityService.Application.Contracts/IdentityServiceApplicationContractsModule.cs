@@ -11,6 +11,4 @@ namespace Tasky.IdentityService;
 [DependsOn(typeof(AbpAuthorizationModule))]
 [DependsOn(typeof(AbpIdentityApplicationContractsModule))]
 [DependsOn(typeof(AbpAccountApplicationContractsModule))]
-public class IdentityServiceApplicationContractsModule : AbpModule
-{
-}
+public class IdentityServiceApplicationContractsModule : AbpModule { }

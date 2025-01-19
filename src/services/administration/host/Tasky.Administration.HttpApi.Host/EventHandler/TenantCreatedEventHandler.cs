@@ -16,12 +16,14 @@ public class TenantCreatedEventHandler(
     IUnitOfWorkManager unitOfWorkManager,
     IPermissionDefinitionManager permissionDefinitionManager,
     IPermissionDataSeeder permissionDataSeeder,
-    ILogger<TenantCreatedEventHandler> logger) : IDistributedEventHandler<TenantCreatedEto>, ITransientDependency
+    ILogger<TenantCreatedEventHandler> logger
+) : IDistributedEventHandler<TenantCreatedEto>, ITransientDependency
 {
     private readonly ICurrentTenant _currentTenant = currentTenant;
     private readonly ILogger<TenantCreatedEventHandler> _logger = logger;
     private readonly IPermissionDataSeeder _permissionDataSeeder = permissionDataSeeder;
-    private readonly IPermissionDefinitionManager _permissionDefinitionManager = permissionDefinitionManager;
+    private readonly IPermissionDefinitionManager _permissionDefinitionManager =
+        permissionDefinitionManager;
     private readonly IUnitOfWorkManager _unitOfWorkManager = unitOfWorkManager;
 
     public async Task HandleEventAsync(TenantCreatedEto eventData)
@@ -56,7 +58,10 @@ public class TenantCreatedEventHandler(
 
             var permissionNames = permissions
                 .Where(p => p.MultiTenancySide.HasFlag(multiTenancySide))
-                .Where(p => p.Providers.Count == 0 || p.Providers.Contains(RolePermissionValueProvider.ProviderName))
+                .Where(p =>
+                    p.Providers.Count == 0
+                    || p.Providers.Contains(RolePermissionValueProvider.ProviderName)
+                )
                 .Select(p => p.Name)
                 .ToArray();
 

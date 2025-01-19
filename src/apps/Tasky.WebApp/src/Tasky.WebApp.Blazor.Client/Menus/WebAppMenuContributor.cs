@@ -23,12 +23,7 @@ public class WebAppMenuContributor : IMenuContributor
 
         context.Menu.Items.Insert(
             0,
-            new ApplicationMenuItem(
-                WebAppMenus.Home,
-                l["Menu:Home"],
-                "/",
-                icon: "fas fa-home"
-            )
+            new ApplicationMenuItem(WebAppMenus.Home, l["Menu:Home"], "/", icon: "fas fa-home")
         );
 
         var administration = context.Menu.GetAdministration();

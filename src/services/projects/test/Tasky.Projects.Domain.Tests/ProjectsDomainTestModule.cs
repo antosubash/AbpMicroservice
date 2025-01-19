@@ -8,7 +8,4 @@ namespace Tasky.Projects;
  * database independent anyway.
  */
 [DependsOn(typeof(ProjectsEntityFrameworkCoreTestModule))]
-public class ProjectsDomainTestModule : AbpModule
-{
-
-}
+public class ProjectsDomainTestModule : AbpModule { }

@@ -13,6 +13,4 @@ namespace Tasky.Administration;
 [DependsOn(typeof(AbpPermissionManagementApplicationContractsModule))]
 [DependsOn(typeof(AbpSettingManagementApplicationContractsModule))]
 [DependsOn(typeof(AbpFeatureManagementApplicationContractsModule))]
-public class AdministrationApplicationContractsModule : AbpModule
-{
-}
+public class AdministrationApplicationContractsModule : AbpModule { }

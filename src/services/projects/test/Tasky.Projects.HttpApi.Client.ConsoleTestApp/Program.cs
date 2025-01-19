@@ -15,10 +15,12 @@ internal class Program
     public static IHostBuilder CreateHostBuilder(string[] args)
     {
         return Host.CreateDefaultBuilder(args)
-                .AddAppSettingsSecretsJson()
-                .ConfigureServices((hostContext, services) =>
+            .AddAppSettingsSecretsJson()
+            .ConfigureServices(
+                (hostContext, services) =>
                 {
                     services.AddHostedService<ConsoleTestAppHostedService>();
-                });
+                }
+            );
     }
 }

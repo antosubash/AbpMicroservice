@@ -8,7 +8,4 @@ namespace Tasky.Administration;
  * database independent anyway.
  */
 [DependsOn(typeof(AdministrationEntityFrameworkCoreTestModule))]
-public class AdministrationDomainTestModule : AbpModule
-{
-
-}
+public class AdministrationDomainTestModule : AbpModule { }

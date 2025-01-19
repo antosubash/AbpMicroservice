@@ -74,10 +74,7 @@ public class TaskyHostingModule : AbpModule
         Configure<AbpRabbitMqOptions>(options =>
         {
             var cstr = configuration.GetConnectionString(TaskyNames.RabbitMq);
-            options.Connections.Default = new ConnectionFactory()
-            {
-                Uri = new Uri(cstr!),
-            };
+            options.Connections.Default = new ConnectionFactory() { Uri = new Uri(cstr!) };
         });
 
         Configure<AbpRabbitMqEventBusOptions>(options =>
@@ -87,11 +84,16 @@ public class TaskyHostingModule : AbpModule
         });
     }
 
-    private static void ConfigureDistributedLocking(ServiceConfigurationContext context, IConfiguration configuration)
+    private static void ConfigureDistributedLocking(
+        ServiceConfigurationContext context,
+        IConfiguration configuration
+    )
     {
         context.Services.AddSingleton<IDistributedLockProvider>(sp =>
         {
-            var connection = ConnectionMultiplexer.Connect(configuration.GetConnectionString(TaskyNames.Redis)!);
+            var connection = ConnectionMultiplexer.Connect(
+                configuration.GetConnectionString(TaskyNames.Redis)!
+            );
 
             return new RedisDistributedSynchronizationProvider(connection.GetDatabase());
         });
@@ -100,12 +102,21 @@ public class TaskyHostingModule : AbpModule
 
 public static class HostingExtensions
 {
-    public static ServiceConfigurationContext ConfigureDataProtection(this ServiceConfigurationContext context, IWebHostEnvironment hostingEnvironment, IConfiguration configuration, string name)
+    public static ServiceConfigurationContext ConfigureDataProtection(
+        this ServiceConfigurationContext context,
+        IWebHostEnvironment hostingEnvironment,
+        IConfiguration configuration,
+        string name
+    )
     {
-        var dataProtectionBuilder = context.Services.AddDataProtection().SetApplicationName(TaskyNames.Tasky);
+        var dataProtectionBuilder = context
+            .Services.AddDataProtection()
+            .SetApplicationName(TaskyNames.Tasky);
         if (!hostingEnvironment.IsDevelopment())
         {
-            var redis = ConnectionMultiplexer.Connect(configuration.GetConnectionString(TaskyNames.Redis)!);
+            var redis = ConnectionMultiplexer.Connect(
+                configuration.GetConnectionString(TaskyNames.Redis)!
+            );
             dataProtectionBuilder.PersistKeysToStackExchangeRedis(redis, $"{name}-Keys");
         }
 

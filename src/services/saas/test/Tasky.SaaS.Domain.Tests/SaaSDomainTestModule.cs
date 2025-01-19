@@ -8,7 +8,4 @@ namespace Tasky.SaaS;
  * database independent anyway.
  */
 [DependsOn(typeof(SaaSEntityFrameworkCoreTestModule))]
-public class SaaSDomainTestModule : AbpModule
-{
-
-}
+public class SaaSDomainTestModule : AbpModule { }

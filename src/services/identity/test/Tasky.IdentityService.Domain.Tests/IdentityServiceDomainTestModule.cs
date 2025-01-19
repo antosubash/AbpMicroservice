@@ -8,7 +8,4 @@ namespace Tasky.IdentityService;
  * database independent anyway.
  */
 [DependsOn(typeof(IdentityServiceEntityFrameworkCoreTestModule))]
-public class IdentityServiceDomainTestModule : AbpModule
-{
-
-}
+public class IdentityServiceDomainTestModule : AbpModule { }

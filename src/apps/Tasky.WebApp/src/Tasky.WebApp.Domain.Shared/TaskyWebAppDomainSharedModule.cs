@@ -34,8 +34,8 @@ public class TaskyWebAppDomainSharedModule : AbpModule
 
         Configure<AbpLocalizationOptions>(options =>
         {
-            options.Resources
-                .Add<WebAppResource>("en")
+            options
+                .Resources.Add<WebAppResource>("en")
                 .AddBaseTypes(typeof(AbpValidationResource))
                 .AddVirtualJson("/Localization/WebApp");
 

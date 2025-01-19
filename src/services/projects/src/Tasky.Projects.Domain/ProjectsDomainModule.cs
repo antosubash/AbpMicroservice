@@ -5,6 +5,4 @@ namespace Tasky.Projects;
 
 [DependsOn(typeof(AbpDddDomainModule))]
 [DependsOn(typeof(ProjectsDomainSharedModule))]
-public class ProjectsDomainModule : AbpModule
-{
-}
+public class ProjectsDomainModule : AbpModule { }
