@@ -2,7 +2,6 @@ using Serilog;
 using Tasky.Administration.EntityFrameworkCore;
 using Tasky.Projects.EntityFrameworkCore;
 using Tasky.SaaS.EntityFrameworkCore;
-using Tasky.WebApp.EntityFrameworkCore;
 using Volo.Abp.Identity.EntityFrameworkCore;
 
 namespace Tasky.DbMigrator;
@@ -21,7 +20,6 @@ internal class Program
         builder.AddNpgsqlDbContext<IdentityDbContext>(connectionName: TaskyNames.IdentityServiceDb);
         builder.AddNpgsqlDbContext<SaaSDbContext>(connectionName: TaskyNames.SaaSDb);
         builder.AddNpgsqlDbContext<ProjectsDbContext>(connectionName: TaskyNames.ProjectsDb);
-        builder.AddNpgsqlDbContext<WebAppDbContext>(connectionName: TaskyNames.WebAppDb);
 
         builder.Configuration.AddAppSettingsSecretsJson();
 

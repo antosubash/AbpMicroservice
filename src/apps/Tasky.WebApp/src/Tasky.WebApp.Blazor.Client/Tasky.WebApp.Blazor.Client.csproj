@@ -25,7 +25,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\..\..\shared\Tasky.Shared\Tasky.Shared.csproj" />
-        <ProjectReference Include="..\..\src\Tasky.WebApp.HttpApi.Client\Tasky.WebApp.HttpApi.Client.csproj" />
+        <ProjectReference Include="..\Tasky.WebApp.Domain.Shared\Tasky.WebApp.Domain.Shared.csproj" />
     </ItemGroup>
 
 </Project>

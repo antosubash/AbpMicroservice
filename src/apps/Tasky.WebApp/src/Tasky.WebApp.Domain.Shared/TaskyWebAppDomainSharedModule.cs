@@ -23,19 +23,13 @@ namespace Tasky.WebApp;
 [DependsOn(typeof(AbpPermissionManagementDomainSharedModule))]
 [DependsOn(typeof(AbpSettingManagementDomainSharedModule))]
 [DependsOn(typeof(AbpTenantManagementDomainSharedModule))]
-public class WebAppDomainSharedModule : AbpModule
+public class TaskyWebAppDomainSharedModule : AbpModule
 {
-    public override void PreConfigureServices(ServiceConfigurationContext context)
-    {
-        WebAppGlobalFeatureConfigurator.Configure();
-        WebAppModuleExtensionConfigurator.Configure();
-    }
-
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         Configure<AbpVirtualFileSystemOptions>(options =>
         {
-            options.FileSets.AddEmbedded<WebAppDomainSharedModule>();
+            options.FileSets.AddEmbedded<TaskyWebAppDomainSharedModule>();
         });
 
         Configure<AbpLocalizationOptions>(options =>

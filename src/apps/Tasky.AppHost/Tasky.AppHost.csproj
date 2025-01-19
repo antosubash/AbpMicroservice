@@ -28,7 +28,6 @@
         <ProjectReference Include="..\..\services\projects\host\Tasky.Projects.HttpApi.Host\Tasky.Projects.HttpApi.Host.csproj" />
         <ProjectReference Include="..\..\services\saas\host\Tasky.SaaS.HttpApi.Host\Tasky.SaaS.HttpApi.Host.csproj" />
         <ProjectReference Include="..\Tasky.WebApp\src\Tasky.WebApp.Blazor\Tasky.WebApp.Blazor.csproj" />
-        <ProjectReference Include="..\Tasky.WebApp\src\Tasky.WebApp.HttpApi.Host\Tasky.WebApp.HttpApi.Host.csproj" />
         <ProjectReference Include="..\..\shared\Tasky.DbMigrator\Tasky.DbMigrator.csproj" />
         <ProjectReference Include="..\..\shared\Tasky.Shared\Tasky.Shared.csproj" IsAspireProjectResource="false" />
     </ItemGroup>

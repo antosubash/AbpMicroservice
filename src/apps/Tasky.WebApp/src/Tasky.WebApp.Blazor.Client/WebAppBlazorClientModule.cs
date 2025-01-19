@@ -21,8 +21,8 @@ namespace Tasky.WebApp.Blazor.Client;
 [DependsOn(typeof(AbpIdentityBlazorWebAssemblyModule))]
 [DependsOn(typeof(AbpSettingManagementBlazorWebAssemblyModule))]
 [DependsOn(typeof(AbpTenantManagementBlazorWebAssemblyModule))]
+[DependsOn(typeof(TaskyWebAppDomainSharedModule))]
 [DependsOn(typeof(TaskySharedModule))]
-[DependsOn(typeof(WebAppHttpApiClientModule))]
 public class WebAppBlazorClientModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
@@ -34,7 +34,7 @@ public class WebAppBlazorClientModule : AbpModule
         ConfigureAutoMapper();
         ConfigureBlazorise(context);
         ConfigureHttpClient(context, environment);
-        ConfigureMenu(context);
+        ConfigureMenu();
         ConfigureRouter();
     }
 
@@ -80,11 +80,11 @@ public class WebAppBlazorClientModule : AbpModule
         });
     }
 
-    private void ConfigureMenu(ServiceConfigurationContext context)
+    private void ConfigureMenu()
     {
         Configure<AbpNavigationOptions>(options =>
         {
-            options.MenuContributors.Add(new WebAppMenuContributor(context.Services.GetConfiguration()));
+            options.MenuContributors.Add(new WebAppMenuContributor());
         });
     }
 

@@ -10,7 +10,7 @@ internal class Program
         const string LaunchProfileName = "Aspire";
         var builder = DistributedApplication.CreateBuilder(args);
 
-        var postgres = builder.AddPostgres(TaskyNames.Postgres).WithPgWeb(); //.WithDataVolume(TaskyNames.Postgres);
+        var postgres = builder.AddPostgres(TaskyNames.Postgres).WithPgWeb();
         var rabbitMq = builder.AddRabbitMQ(TaskyNames.RabbitMq).WithManagementPlugin();
         var redis = builder.AddRedis(TaskyNames.Redis).WithRedisCommander();
         var seq = builder.AddSeq(TaskyNames.Seq);
@@ -19,14 +19,12 @@ internal class Program
         var identityDb = postgres.AddDatabase(TaskyNames.IdentityServiceDb);
         var projectsDb = postgres.AddDatabase(TaskyNames.ProjectsDb);
         var saasDb = postgres.AddDatabase(TaskyNames.SaaSDb);
-        var webAppDb = postgres.AddDatabase(TaskyNames.WebAppDb);
 
         var migrator = builder.AddProject<Tasky_DbMigrator>(TaskyNames.DbMigrator, launchProfileName: LaunchProfileName)
                .WithReference(adminDb)
                .WithReference(identityDb)
                .WithReference(projectsDb)
                .WithReference(saasDb)
-               .WithReference(webAppDb)
                .WithReference(seq)
                .WaitFor(postgres)
                ;
@@ -90,16 +88,6 @@ internal class Program
                .WithReference(seq)
                .WaitForCompletion(migrator)
                ;
-
-        //builder.AddProject<Tasky_WebApp_HttpApi_Host>(TaskyNames.WebAppApi, launchProfileName: LaunchProfileName)
-        //       .WithExternalHttpEndpoints()
-        //       .WithReference(projectsDb)
-        //       .WithReference(rabbitMq)
-        //       .WithReference(redis)
-        //       .WithReference(seq)
-        //       .WaitForCompletion(migrator)
-        //       .WaitFor(auth)
-        //       ;
 
         builder.AddProject<Tasky_WebApp_Blazor>(TaskyNames.WebAppClient, launchProfileName: LaunchProfileName)
                .WithExternalHttpEndpoints()
