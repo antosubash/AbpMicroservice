@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="2.0.0"></a>
+## [2.0.0](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v2.0.0) (2025-02-06)
+
+### Features
+
+* .net 9 ([97d4390](https://www.github.com/antosubash/AbpMicroservice/commit/97d4390db661e64e62e8fa03226474abfd8be553))
+* abp 8 ([6d2eebe](https://www.github.com/antosubash/AbpMicroservice/commit/6d2eebe3feab331aae172936d265483860981b4a))
+* added .net aspire ([b5270da](https://www.github.com/antosubash/AbpMicroservice/commit/b5270da7da9a15a4f6e49c06b8e28c0fee9c41ec))
+* added blazor app ([497a0f6](https://www.github.com/antosubash/AbpMicroservice/commit/497a0f6deb5666b449a387dd7335ae45f6b94d03))
+* basic template working ([2f337d6](https://www.github.com/antosubash/AbpMicroservice/commit/2f337d6704da0ec4c0eb351387f95f1273a73d09))
+
+### Bug Fixes
+
+* added the nuget upgrade to the release ([9a313e4](https://www.github.com/antosubash/AbpMicroservice/commit/9a313e48f0d0ef7098675199936e417950c50e4b))
+* changed the pack order ([2fb6dd6](https://www.github.com/antosubash/AbpMicroservice/commit/2fb6dd6a86b67fb2571eb579b6692f9e803c4436))
+* Refactor ProjectsDbContextFactory and fix IdentityServiceDb naming ([094a475](https://www.github.com/antosubash/AbpMicroservice/commit/094a475efc697163dfd09c87c248be225d478540))
+* remove version number from Diretory.Build.props ([ded9662](https://www.github.com/antosubash/AbpMicroservice/commit/ded9662a7963be46e7d2535dadfba57eea4250e3))
+* removed the redirect url from appsettings ([97c4321](https://www.github.com/antosubash/AbpMicroservice/commit/97c43219c159b948a3e6037dabf7e0ffb28bcb5e))
+* simplify versionize command in release workflow ([6737d7a](https://www.github.com/antosubash/AbpMicroservice/commit/6737d7a6052bf1bd4a3fa12b052625cedd170535))
+* update Docker registry to GitHub Container Registry in release workflow ([c7f3320](https://www.github.com/antosubash/AbpMicroservice/commit/c7f3320f746c790d6cbce78a8b867d403c9a3ed6))
+* update versionize command to remove exit-insignificant-commits flag ([971ce23](https://www.github.com/antosubash/AbpMicroservice/commit/971ce23d7ca163c8865b459d4eda7bb15c64b686))
+* updated the csproj with common.props ([a755aaa](https://www.github.com/antosubash/AbpMicroservice/commit/a755aaab20a977bcbae93cf364917317d69a02d4))
+* updated the database name to append the project name ([b73991e](https://www.github.com/antosubash/AbpMicroservice/commit/b73991e1b7f560e77b63ba2922615c3ff94209b5))
+* updated the docker file for Migrator ([b81d8a4](https://www.github.com/antosubash/AbpMicroservice/commit/b81d8a4167e6bf5ec36c3da329c039737628d6db))
+* updated the docker files ([70bdc96](https://www.github.com/antosubash/AbpMicroservice/commit/70bdc96b184f2189619ffd6bf5ddf8bf6f292b05))
+* updated the gateway path ([293a253](https://www.github.com/antosubash/AbpMicroservice/commit/293a2530497302533f32e920e31dbf5df061db54))
+* updated the nuget api ([798fcd1](https://www.github.com/antosubash/AbpMicroservice/commit/798fcd1c2d66919b062ceef4683c8d7f4a6b4229))
+* updated the nuget pack ([03def96](https://www.github.com/antosubash/AbpMicroservice/commit/03def961f7adec4c710871339a00f69ec3d782bc))
+
+### Breaking Changes
+
+* basic template working ([2f337d6](https://www.github.com/antosubash/AbpMicroservice/commit/2f337d6704da0ec4c0eb351387f95f1273a73d09))
+
 <a name="1.3.1"></a>
 ## [1.3.1](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v1.3.1) (2024-07-17)
 
