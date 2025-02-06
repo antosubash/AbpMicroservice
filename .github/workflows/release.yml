@@ -96,7 +96,7 @@ jobs:
         git config --local user.name "Anto Subash"
     - name: Versionize Release
       id: versionize
-      run: versionize --changelog-all
+      run: versionize
     - name: Push changes to GitHub
       if: steps.versionize.outcome == 'success'
       uses: ad-m/github-push-action@master
