@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="2.0.1"></a>
+## [2.0.1](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v2.0.1) (2025-02-06)
+
+### Bug Fixes
+
+* upgrade Dockerfiles to .NET 9 and improve build configurations ([24df205](https://www.github.com/antosubash/AbpMicroservice/commit/24df205ac2e2b260f336af8ce5d73e90de303a1d))
+
 <a name="2.0.0"></a>
 ## [2.0.0](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v2.0.0) (2025-02-06)
 
