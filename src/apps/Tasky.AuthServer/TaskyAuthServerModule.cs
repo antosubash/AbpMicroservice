@@ -1,13 +1,12 @@
 using System;
-using System.Linq;
-using Medallion.Threading;
-using Medallion.Threading.Redis;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using StackExchange.Redis;
+using Microsoft.IdentityModel.Logging;
+using Tasky.Administration.EntityFrameworkCore;
+using Tasky.IdentityService.EntityFrameworkCore;
+using Tasky.MultiTenancy;
+using Tasky.SaaS.EntityFrameworkCore;
 using Volo.Abp;
 using Volo.Abp.Account;
 using Volo.Abp.Account.Web;
@@ -22,36 +21,33 @@ using Volo.Abp.BackgroundJobs;
 using Volo.Abp.Caching;
 using Volo.Abp.Caching.StackExchangeRedis;
 using Volo.Abp.DistributedLocking;
+using Volo.Abp.EntityFrameworkCore.PostgreSql;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation.Urls;
-using Tasky.Administration.EntityFrameworkCore;
-using Tasky.IdentityService.EntityFrameworkCore;
-using Tasky.Microservice.Shared;
-using Tasky.SaaS.EntityFrameworkCore;
-using Volo.Abp.EntityFrameworkCore.PostgreSql;
-using Microsoft.IdentityModel.Logging;
 
 namespace Tasky;
 
-[DependsOn(
-    typeof(AbpAutofacModule),
-    typeof(AbpCachingStackExchangeRedisModule),
-    typeof(AbpDistributedLockingModule),
-    typeof(AbpAccountWebOpenIddictModule),
-    typeof(AbpAccountApplicationModule),
-    typeof(AbpAccountHttpApiModule),
-    typeof(AbpAspNetCoreMvcUiLeptonXLiteThemeModule),
-    typeof(AbpEntityFrameworkCorePostgreSqlModule),
-    typeof(AdministrationEntityFrameworkCoreModule),
-    typeof(SaaSEntityFrameworkCoreModule),
-    typeof(IdentityServiceEntityFrameworkCoreModule),
-    typeof(TaskyMicroserviceModule),
-    typeof(AbpAspNetCoreSerilogModule)
-    )]
+[DependsOn(typeof(AbpAccountApplicationModule))]
+[DependsOn(typeof(AbpAccountHttpApiModule))]
+[DependsOn(typeof(AbpAccountWebOpenIddictModule))]
+[DependsOn(typeof(AbpAspNetCoreMvcUiLeptonXLiteThemeModule))]
+[DependsOn(typeof(AbpAspNetCoreSerilogModule))]
+[DependsOn(typeof(AbpAutofacModule))]
+[DependsOn(typeof(AbpCachingStackExchangeRedisModule))]
+[DependsOn(typeof(AbpDistributedLockingModule))]
+[DependsOn(typeof(AbpEntityFrameworkCorePostgreSqlModule))]
+[DependsOn(typeof(AdministrationEntityFrameworkCoreModule))]
+[DependsOn(typeof(IdentityServiceEntityFrameworkCoreModule))]
+[DependsOn(typeof(SaaSEntityFrameworkCoreModule))]
+[DependsOn(typeof(TaskyMicroserviceModule))]
+[DependsOn(typeof(TaskyServiceDefaultsModule))]
 public class TaskyAuthServerModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
+        // https://www.npgsql.org/efcore/release-notes/6.0.html#opting-out-of-the-new-timestamp-mapping-logic
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
         PreConfigure<OpenIddictBuilder>(builder =>
         {
             builder.AddValidation(options =>
@@ -81,17 +77,20 @@ public class TaskyAuthServerModule : AbpModule
 
         Configure<AbpAuditingOptions>(options =>
         {
-                //options.IsEnabledForGetRequests = true;
-                options.ApplicationName = "AuthServer";
+            //options.IsEnabledForGetRequests = true;
+            options.ApplicationName = "AuthServer";
         });
 
         Configure<AppUrlOptions>(options =>
         {
             options.Applications["MVC"].RootUrl = configuration["App:SelfUrl"];
-            options.RedirectAllowedUrls.AddRange(configuration["App:RedirectAllowedUrls"].Split(','));
+            options.RedirectAllowedUrls.AddRange(
+                configuration["App:RedirectAllowedUrls"].Split(',')
+            );
 
             options.Applications["Angular"].RootUrl = configuration["App:ClientUrl"];
-            options.Applications["Angular"].Urls[AccountUrlNames.PasswordReset] = "account/reset-password";
+            options.Applications["Angular"].Urls[AccountUrlNames.PasswordReset] =
+                "account/reset-password";
         });
 
         Configure<AbpBackgroundJobOptions>(options =>
@@ -102,39 +101,6 @@ public class TaskyAuthServerModule : AbpModule
         Configure<AbpDistributedCacheOptions>(options =>
         {
             options.KeyPrefix = "Tasky:";
-        });
-
-        var dataProtectionBuilder = context.Services.AddDataProtection().SetApplicationName("Tasky");
-        if (!hostingEnvironment.IsDevelopment())
-        {
-            var redis = ConnectionMultiplexer.Connect(configuration["Redis:Configuration"]);
-            dataProtectionBuilder.PersistKeysToStackExchangeRedis(redis, "Tasky-Protection-Keys");
-        }
-        
-        context.Services.AddSingleton<IDistributedLockProvider>(sp =>
-        {
-            var connection = ConnectionMultiplexer
-                .Connect(configuration["Redis:Configuration"]);
-            return new RedisDistributedSynchronizationProvider(connection.GetDatabase());
-        });
-
-        context.Services.AddCors(options =>
-        {
-            options.AddDefaultPolicy(builder =>
-            {
-                builder
-                    .WithOrigins(
-                        configuration["App:CorsOrigins"]
-                            .Split(",", StringSplitOptions.RemoveEmptyEntries)
-                            .Select(o => o.RemovePostFix("/"))
-                            .ToArray()
-                    )
-                    .WithAbpExposedHeaders()
-                    .SetIsOriginAllowedToAllowWildcardSubdomains()
-                    .AllowAnyHeader()
-                    .AllowAnyMethod()
-                    .AllowCredentials();
-            });
         });
     }
 
@@ -163,7 +129,10 @@ public class TaskyAuthServerModule : AbpModule
         app.UseAuthentication();
         app.UseAbpOpenIddictValidation();
 
-        app.UseMultiTenancy();
+        if (MultiTenancyConsts.IsEnabled)
+        {
+            app.UseMultiTenancy();
+        }
 
         app.UseUnitOfWork();
         app.UseAuthorization();

@@ -1,21 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 
 namespace Tasky.Projects.EntityFrameworkCore;
 
-[ConnectionStringName(ProjectsDbProperties.ConnectionStringName)]
-public class ProjectsDbContext : AbpDbContext<ProjectsDbContext>, IProjectsDbContext
+[ConnectionStringName(TaskyNames.ProjectsDb)]
+public class ProjectsDbContext(DbContextOptions<ProjectsDbContext> options)
+    : AbpDbContext<ProjectsDbContext>(options),
+        IProjectsDbContext
 {
-    /* Add DbSet for each Aggregate Root here. Example:
-     * public DbSet<Question> Questions { get; set; }
-     */
-
-    public ProjectsDbContext(DbContextOptions<ProjectsDbContext> options)
-        : base(options)
-    {
-    }
-
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);

@@ -1,13 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-    <Import Project="..\..\common.props" />
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <RootNamespace />
+        <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.0" />
+        <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+        <PackageReference Include="Volo.Abp.AspNetCore" Version="9.0.0" />
+        <PackageReference Include="Volo.Abp.AspNetCore.Authentication.JwtBearer" Version="9.0.0" />
+    </ItemGroup>
+    
     <ItemGroup>
         <ProjectReference Include="..\..\services\administration\src\Tasky.Administration.EntityFrameworkCore\Tasky.Administration.EntityFrameworkCore.csproj" />
         <ProjectReference Include="..\Tasky.Hosting.Shared\Tasky.Hosting.Shared.csproj" />
     </ItemGroup>
+    
 </Project>

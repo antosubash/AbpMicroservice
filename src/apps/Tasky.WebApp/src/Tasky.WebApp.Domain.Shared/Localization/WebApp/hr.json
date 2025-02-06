@@ -1,0 +1,9 @@
+{
+    "culture": "hr",
+    "texts": {
+        "AppName": "WebApp",
+        "Menu:Home": "Početna",
+        "Welcome": "Dobrodošli",
+        "LongWelcomeMessage": "Dobrodošli u aplikaciju. Ovo je startup projekt temeljen na ABP framework-u. Za više informacija posjetite abp.io."
+    }
+}

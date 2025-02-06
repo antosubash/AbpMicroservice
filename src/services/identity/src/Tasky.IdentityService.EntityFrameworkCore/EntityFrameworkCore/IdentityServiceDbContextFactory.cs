@@ -11,8 +11,9 @@ public class IdentityServiceDbContextFactory : IDesignTimeDbContextFactory<Ident
     {
         var configuration = BuildConfiguration();
 
-        var builder = new DbContextOptionsBuilder<IdentityServiceDbContext>()
-            .UseNpgsql(GetConnectionStringFromConfiguration());
+        var builder = new DbContextOptionsBuilder<IdentityServiceDbContext>().UseNpgsql(
+            GetConnectionStringFromConfiguration()
+        );
 
         return new IdentityServiceDbContext(builder.Options);
     }

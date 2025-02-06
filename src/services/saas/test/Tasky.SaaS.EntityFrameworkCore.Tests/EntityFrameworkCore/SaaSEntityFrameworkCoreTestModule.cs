@@ -1,18 +1,17 @@
-﻿using Microsoft.Data.Sqlite;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.Sqlite;
 using Volo.Abp.Modularity;
+using Volo.Abp.Uow;
 
 namespace Tasky.SaaS.EntityFrameworkCore;
 
-[DependsOn(
-    typeof(SaaSTestBaseModule),
-    typeof(SaaSEntityFrameworkCoreModule),
-    typeof(AbpEntityFrameworkCoreSqliteModule)
-    )]
+[DependsOn(typeof(SaaSTestBaseModule))]
+[DependsOn(typeof(SaaSEntityFrameworkCoreModule))]
+[DependsOn(typeof(AbpEntityFrameworkCoreSqliteModule))]
 public class SaaSEntityFrameworkCoreTestModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
@@ -26,6 +25,8 @@ public class SaaSEntityFrameworkCoreTestModule : AbpModule
                 abpDbContextConfigurationContext.DbContextOptions.UseSqlite(sqliteConnection);
             });
         });
+
+        context.Services.AddAlwaysDisableUnitOfWorkTransaction();
     }
 
     private static SqliteConnection CreateDatabaseAndGetConnection()
@@ -35,7 +36,9 @@ public class SaaSEntityFrameworkCoreTestModule : AbpModule
 
         new SaaSDbContext(
             new DbContextOptionsBuilder<SaaSDbContext>().UseSqlite(connection).Options
-        ).GetService<IRelationalDatabaseCreator>().CreateTables();
+        )
+            .GetService<IRelationalDatabaseCreator>()
+            .CreateTables();
 
         return connection;
     }

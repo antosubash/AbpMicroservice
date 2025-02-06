@@ -3,6 +3,4 @@
 namespace Tasky.IdentityService.Localization;
 
 [LocalizationResourceName("IdentityService")]
-public class IdentityServiceResource
-{
-}
+public class IdentityServiceResource { }

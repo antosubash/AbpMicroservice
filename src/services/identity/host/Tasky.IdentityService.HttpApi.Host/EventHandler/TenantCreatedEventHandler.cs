@@ -1,28 +1,23 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.EventBus.Distributed;
-using Volo.Abp.MultiTenancy;
 using Volo.Abp.Identity;
-using System.Collections.Generic;
+using Volo.Abp.MultiTenancy;
 
 namespace Tasky.IdentityService.EventHandler;
 
-public class TenantCreatedEventHandler : IDistributedEventHandler<TenantCreatedEto>, ITransientDependency
+public class TenantCreatedEventHandler(
+    ICurrentTenant currentTenant,
+    IIdentityDataSeeder identityDataSeeder,
+    ILogger<TenantCreatedEventHandler> logger
+) : IDistributedEventHandler<TenantCreatedEto>, ITransientDependency
 {
-    private readonly ICurrentTenant _currentTenant;
-    private readonly ILogger<TenantCreatedEventHandler> _logger;
-    private readonly IIdentityDataSeeder _identityDataSeeder;
-    public TenantCreatedEventHandler(
-        ICurrentTenant currentTenant,
-        IIdentityDataSeeder identityDataSeeder,
-        ILogger<TenantCreatedEventHandler> logger)
-    {
-        _currentTenant = currentTenant;
-        _identityDataSeeder = identityDataSeeder;
-        _logger = logger;
-    }
+    private readonly ICurrentTenant _currentTenant = currentTenant;
+    private readonly ILogger<TenantCreatedEventHandler> _logger = logger;
+    private readonly IIdentityDataSeeder _identityDataSeeder = identityDataSeeder;
 
     public async Task HandleEventAsync(TenantCreatedEto eventData)
     {
@@ -30,11 +25,17 @@ public class TenantCreatedEventHandler : IDistributedEventHandler<TenantCreatedE
         {
             using (_currentTenant.Change(eventData.Id))
             {
-                
-                _logger.LogInformation($"Creating admin user for tenant {eventData.Id}...");
+                _logger.LogInformation(
+                    "Creating admin user for tenant {TenantId}...",
+                    eventData.Id
+                );
                 await _identityDataSeeder.SeedAsync(
-                    eventData.Properties.GetOrDefault(IdentityDataSeedContributor.AdminEmailPropertyName) ?? "admin@antosubash.com",
-                    eventData.Properties.GetOrDefault(IdentityDataSeedContributor.AdminPasswordPropertyName) ?? "1q2w3E*",
+                    eventData.Properties.GetOrDefault(
+                        IdentityDataSeedContributor.AdminEmailPropertyName
+                    ) ?? "admin@antosubash.com",
+                    eventData.Properties.GetOrDefault(
+                        IdentityDataSeedContributor.AdminPasswordPropertyName
+                    ) ?? "1q2w3E*",
                     eventData.Id
                 );
             }

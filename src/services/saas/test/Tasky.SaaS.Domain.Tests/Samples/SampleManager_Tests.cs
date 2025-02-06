@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Xunit;
+﻿using Xunit;
 
 namespace Tasky.SaaS.Samples;
 
@@ -13,8 +12,8 @@ public class SampleManager_Tests : SaaSDomainTestBase
     }
 
     [Fact]
-    public async Task Method1Async()
+    public void Method1()
     {
-
+        Assert.Fail("Not implemented!");
     }
 }

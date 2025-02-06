@@ -2,6 +2,4 @@
 
 namespace Tasky.IdentityService;
 
-public class IdentityServiceApplicationAutoMapperProfile : Profile
-{
-}
+public class IdentityServiceApplicationAutoMapperProfile : Profile { }

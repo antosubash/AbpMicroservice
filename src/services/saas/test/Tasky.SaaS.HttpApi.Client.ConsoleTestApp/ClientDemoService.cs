@@ -7,23 +7,18 @@ using Tasky.SaaS.Samples;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.IdentityModel;
 
-namespace Tasky.SaaS;
+namespace Tasky.SaaS.HttpApi.Client.ConsoleTestApp;
 
-public class ClientDemoService : ITransientDependency
+public class ClientDemoService(
+    ISampleAppService sampleAppService,
+    IIdentityModelAuthenticationService authenticationService,
+    IConfiguration configuration
+) : ITransientDependency
 {
-    private readonly ISampleAppService _sampleAppService;
-    private readonly IIdentityModelAuthenticationService _authenticationService;
-    private readonly IConfiguration _configuration;
-
-    public ClientDemoService(
-        ISampleAppService sampleAppService,
-        IIdentityModelAuthenticationService authenticationService,
-        IConfiguration configuration)
-    {
-        _sampleAppService = sampleAppService;
-        _authenticationService = authenticationService;
-        _configuration = configuration;
-    }
+    private readonly ISampleAppService _sampleAppService = sampleAppService;
+    private readonly IIdentityModelAuthenticationService _authenticationService =
+        authenticationService;
+    private readonly IConfiguration _configuration = configuration;
 
     public async Task RunAsync()
     {
@@ -54,7 +49,9 @@ public class ClientDemoService : ITransientDependency
     private async Task TestWithHttpClientAndIdentityModelAuthenticationServiceAsync()
     {
         Console.WriteLine();
-        Console.WriteLine($"***** {nameof(TestWithHttpClientAndIdentityModelAuthenticationServiceAsync)} *****");
+        Console.WriteLine(
+            $"***** {nameof(TestWithHttpClientAndIdentityModelAuthenticationServiceAsync)} *****"
+        );
 
         //Get access token using ABP's IIdentityModelAuthenticationService
 
@@ -76,8 +73,7 @@ public class ClientDemoService : ITransientDependency
         {
             httpClient.SetBearerToken(accessToken);
 
-            var url = _configuration["RemoteServices:SaaS:BaseUrl"] +
-                      "api/SaaS/sample/authorized";
+            var url = _configuration["RemoteServices:SaaS:BaseUrl"] + "api/SaaS/sample/authorized";
 
             var responseMessage = await httpClient.GetAsync(url);
             if (responseMessage.IsSuccessStatusCode)
@@ -87,7 +83,9 @@ public class ClientDemoService : ITransientDependency
             }
             else
             {
-                throw new Exception("Remote server returns error code: " + responseMessage.StatusCode);
+                throw new Exception(
+                    "Remote server returns error code: " + responseMessage.StatusCode
+                );
             }
         }
     }
@@ -105,7 +103,9 @@ public class ClientDemoService : ITransientDependency
 
         // discover endpoints from metadata
         var client = new HttpClient();
-        var disco = await client.GetDiscoveryDocumentAsync(_configuration["IdentityClients:Default:Authority"]);
+        var disco = await client.GetDiscoveryDocumentAsync(
+            _configuration["IdentityClients:Default:Authority"]
+        );
         if (disco.IsError)
         {
             Console.WriteLine(disco.Error);
@@ -113,15 +113,17 @@ public class ClientDemoService : ITransientDependency
         }
 
         // request token
-        var tokenResponse = await client.RequestPasswordTokenAsync(new PasswordTokenRequest
-        {
-            Address = disco.TokenEndpoint,
-            ClientId = _configuration["IdentityClients:Default:ClientId"],
-            ClientSecret = _configuration["IdentityClients:Default:ClientSecret"],
-            UserName = _configuration["IdentityClients:Default:UserName"],
-            Password = _configuration["IdentityClients:Default:UserPassword"],
-            Scope = _configuration["IdentityClients:Default:Scope"]
-        });
+        var tokenResponse = await client.RequestPasswordTokenAsync(
+            new PasswordTokenRequest
+            {
+                Address = disco.TokenEndpoint,
+                ClientId = _configuration["IdentityClients:Default:ClientId"],
+                ClientSecret = _configuration["IdentityClients:Default:ClientSecret"],
+                UserName = _configuration["IdentityClients:Default:UserName"],
+                Password = _configuration["IdentityClients:Default:UserPassword"],
+                Scope = _configuration["IdentityClients:Default:Scope"],
+            }
+        );
 
         if (tokenResponse.IsError)
         {
@@ -137,8 +139,7 @@ public class ClientDemoService : ITransientDependency
         {
             httpClient.SetBearerToken(tokenResponse.AccessToken);
 
-            var url = _configuration["RemoteServices:SaaS:BaseUrl"] +
-                      "api/SaaS/sample/authorized";
+            var url = _configuration["RemoteServices:SaaS:BaseUrl"] + "api/SaaS/sample/authorized";
 
             var responseMessage = await httpClient.GetAsync(url);
             if (responseMessage.IsSuccessStatusCode)
@@ -148,7 +149,9 @@ public class ClientDemoService : ITransientDependency
             }
             else
             {
-                throw new Exception("Remote server returns error code: " + responseMessage.StatusCode);
+                throw new Exception(
+                    "Remote server returns error code: " + responseMessage.StatusCode
+                );
             }
         }
     }

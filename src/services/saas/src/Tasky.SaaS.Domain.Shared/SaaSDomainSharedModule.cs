@@ -9,9 +9,7 @@ using Volo.Abp.VirtualFileSystem;
 
 namespace Tasky.SaaS;
 
-[DependsOn(
-    typeof(AbpValidationModule)
-)]
+[DependsOn(typeof(AbpValidationModule))]
 [DependsOn(typeof(AbpTenantManagementDomainSharedModule))]
 public class SaaSDomainSharedModule : AbpModule
 {
@@ -24,8 +22,8 @@ public class SaaSDomainSharedModule : AbpModule
 
         Configure<AbpLocalizationOptions>(options =>
         {
-            options.Resources
-                .Add<SaaSResource>("en")
+            options
+                .Resources.Add<SaaSResource>("en")
                 .AddBaseTypes(typeof(AbpValidationResource))
                 .AddVirtualJson("/Localization/SaaS");
         });

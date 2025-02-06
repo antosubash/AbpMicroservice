@@ -1,22 +1,15 @@
 ﻿using System.Threading.Tasks;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
-using Volo.Abp.Guids;
 using Volo.Abp.MultiTenancy;
 
 namespace Tasky.Administration;
 
-public class AdministrationDataSeedContributor : IDataSeedContributor, ITransientDependency
+public class AdministrationDataSeedContributor(ICurrentTenant currentTenant)
+    : IDataSeedContributor,
+        ITransientDependency
 {
-    private readonly IGuidGenerator _guidGenerator;
-    private readonly ICurrentTenant _currentTenant;
-
-    public AdministrationDataSeedContributor(
-        IGuidGenerator guidGenerator, ICurrentTenant currentTenant)
-    {
-        _guidGenerator = guidGenerator;
-        _currentTenant = currentTenant;
-    }
+    private readonly ICurrentTenant _currentTenant = currentTenant;
 
     public Task SeedAsync(DataSeedContext context)
     {

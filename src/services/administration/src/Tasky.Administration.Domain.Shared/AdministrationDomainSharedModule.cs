@@ -12,9 +12,7 @@ using Volo.Abp.VirtualFileSystem;
 
 namespace Tasky.Administration;
 
-[DependsOn(
-    typeof(AbpValidationModule)
-)]
+[DependsOn(typeof(AbpValidationModule))]
 [DependsOn(typeof(AbpPermissionManagementDomainSharedModule))]
 [DependsOn(typeof(AbpSettingManagementDomainSharedModule))]
 [DependsOn(typeof(AbpAuditLoggingDomainSharedModule))]
@@ -30,8 +28,8 @@ public class AdministrationDomainSharedModule : AbpModule
 
         Configure<AbpLocalizationOptions>(options =>
         {
-            options.Resources
-                .Add<AdministrationResource>("en")
+            options
+                .Resources.Add<AdministrationResource>("en")
                 .AddBaseTypes(typeof(AbpValidationResource))
                 .AddVirtualJson("/Localization/Administration");
         });

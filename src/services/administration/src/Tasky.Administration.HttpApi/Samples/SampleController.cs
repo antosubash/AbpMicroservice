@@ -8,14 +8,11 @@ namespace Tasky.Administration.Samples;
 [Area(AdministrationRemoteServiceConsts.ModuleName)]
 [RemoteService(Name = AdministrationRemoteServiceConsts.RemoteServiceName)]
 [Route("api/Administration/sample")]
-public class SampleController : AdministrationController, ISampleAppService
+public class SampleController(ISampleAppService sampleAppService)
+    : AdministrationController,
+        ISampleAppService
 {
-    private readonly ISampleAppService _sampleAppService;
-
-    public SampleController(ISampleAppService sampleAppService)
-    {
-        _sampleAppService = sampleAppService;
-    }
+    private readonly ISampleAppService _sampleAppService = sampleAppService;
 
     [HttpGet]
     public async Task<SampleDto> GetAsync()

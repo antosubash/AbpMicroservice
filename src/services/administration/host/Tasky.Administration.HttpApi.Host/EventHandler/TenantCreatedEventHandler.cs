@@ -11,27 +11,20 @@ using Volo.Abp.Uow;
 
 namespace Tasky.Administration.EventHandler;
 
-public class TenantCreatedEventHandler : IDistributedEventHandler<TenantCreatedEto>, ITransientDependency
+public class TenantCreatedEventHandler(
+    ICurrentTenant currentTenant,
+    IUnitOfWorkManager unitOfWorkManager,
+    IPermissionDefinitionManager permissionDefinitionManager,
+    IPermissionDataSeeder permissionDataSeeder,
+    ILogger<TenantCreatedEventHandler> logger
+) : IDistributedEventHandler<TenantCreatedEto>, ITransientDependency
 {
-    private readonly ICurrentTenant _currentTenant;
-    private readonly ILogger<TenantCreatedEventHandler> _logger;
-    private readonly IPermissionDataSeeder _permissionDataSeeder;
-    private readonly IPermissionDefinitionManager _permissionDefinitionManager;
-    private readonly IUnitOfWorkManager _unitOfWorkManager;
-
-    public TenantCreatedEventHandler(
-        ICurrentTenant currentTenant,
-        IUnitOfWorkManager unitOfWorkManager,
-        IPermissionDefinitionManager permissionDefinitionManager,
-        IPermissionDataSeeder permissionDataSeeder,
-        ILogger<TenantCreatedEventHandler> logger)
-    {
-        _currentTenant = currentTenant;
-        _unitOfWorkManager = unitOfWorkManager;
-        _permissionDefinitionManager = permissionDefinitionManager;
-        _permissionDataSeeder = permissionDataSeeder;
-        _logger = logger;
-    }
+    private readonly ICurrentTenant _currentTenant = currentTenant;
+    private readonly ILogger<TenantCreatedEventHandler> _logger = logger;
+    private readonly IPermissionDataSeeder _permissionDataSeeder = permissionDataSeeder;
+    private readonly IPermissionDefinitionManager _permissionDefinitionManager =
+        permissionDefinitionManager;
+    private readonly IUnitOfWorkManager _unitOfWorkManager = unitOfWorkManager;
 
     public async Task HandleEventAsync(TenantCreatedEto eventData)
     {
@@ -52,10 +45,10 @@ public class TenantCreatedEventHandler : IDistributedEventHandler<TenantCreatedE
 
     private async Task SeedDataAsync(Guid? tenantId)
     {
-        _logger.LogInformation($"Seeding ${tenantId}");
+        _logger.LogInformation("Seeding ${TenantId}", tenantId);
         using (_currentTenant.Change(tenantId))
         {
-            var abpUnitOfWorkOptions = new AbpUnitOfWorkOptions {IsTransactional = true};
+            var abpUnitOfWorkOptions = new AbpUnitOfWorkOptions { IsTransactional = true };
             using var uow = _unitOfWorkManager.Begin(abpUnitOfWorkOptions, true);
             var multiTenancySide = tenantId is null
                 ? MultiTenancySides.Host
@@ -65,7 +58,10 @@ public class TenantCreatedEventHandler : IDistributedEventHandler<TenantCreatedE
 
             var permissionNames = permissions
                 .Where(p => p.MultiTenancySide.HasFlag(multiTenancySide))
-                .Where(p => !p.Providers.Any() || p.Providers.Contains(RolePermissionValueProvider.ProviderName))
+                .Where(p =>
+                    p.Providers.Count == 0
+                    || p.Providers.Contains(RolePermissionValueProvider.ProviderName)
+                )
                 .Select(p => p.Name)
                 .ToArray();
 

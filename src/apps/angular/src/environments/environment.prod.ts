@@ -12,7 +12,7 @@ export const environment = {
   oAuthConfig: {
     issuer: 'https://localhost:7600/',
     redirectUri: baseUrl,
-    clientId: 'Tasky_App',
+    clientId: 'Tasky_Angular',
     clientSecret: '1q2w3e*',
     responseType: 'code',
     scope: 'offline_access IdentityService AdministrationService SaasService',

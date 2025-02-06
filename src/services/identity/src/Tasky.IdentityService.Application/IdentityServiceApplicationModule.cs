@@ -7,12 +7,10 @@ using Volo.Abp.Modularity;
 
 namespace Tasky.IdentityService;
 
-[DependsOn(
-    typeof(IdentityServiceDomainModule),
-    typeof(IdentityServiceApplicationContractsModule),
-    typeof(AbpDddApplicationModule),
-    typeof(AbpAutoMapperModule)
-)]
+[DependsOn(typeof(IdentityServiceDomainModule))]
+[DependsOn(typeof(IdentityServiceApplicationContractsModule))]
+[DependsOn(typeof(AbpDddApplicationModule))]
+[DependsOn(typeof(AbpAutoMapperModule))]
 [DependsOn(typeof(AbpIdentityApplicationModule))]
 [DependsOn(typeof(AbpAccountApplicationModule))]
 public class IdentityServiceApplicationModule : AbpModule

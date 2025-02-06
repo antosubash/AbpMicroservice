@@ -8,10 +8,8 @@ using Volo.Abp.VirtualFileSystem;
 
 namespace Tasky.Administration;
 
-[DependsOn(
-    typeof(AdministrationApplicationContractsModule),
-    typeof(AbpHttpClientModule)
-)]
+[DependsOn(typeof(AdministrationApplicationContractsModule))]
+[DependsOn(typeof(AbpHttpClientModule))]
 [DependsOn(typeof(AbpPermissionManagementHttpApiClientModule))]
 [DependsOn(typeof(AbpSettingManagementHttpApiClientModule))]
 [DependsOn(typeof(AbpFeatureManagementHttpApiClientModule))]

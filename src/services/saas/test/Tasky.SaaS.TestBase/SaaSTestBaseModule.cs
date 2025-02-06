@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp;
 using Volo.Abp.Authorization;
 using Volo.Abp.Autofac;
@@ -8,12 +8,10 @@ using Volo.Abp.Threading;
 
 namespace Tasky.SaaS;
 
-[DependsOn(
-    typeof(AbpAutofacModule),
-    typeof(AbpTestBaseModule),
-    typeof(AbpAuthorizationModule),
-    typeof(SaaSDomainModule)
-    )]
+[DependsOn(typeof(AbpAutofacModule))]
+[DependsOn(typeof(AbpTestBaseModule))]
+[DependsOn(typeof(AbpAuthorizationModule))]
+[DependsOn(typeof(SaaSDomainModule))]
 public class SaaSTestBaseModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
@@ -32,9 +30,7 @@ public class SaaSTestBaseModule : AbpModule
         {
             using (var scope = context.ServiceProvider.CreateScope())
             {
-                await scope.ServiceProvider
-                    .GetRequiredService<IDataSeeder>()
-                    .SeedAsync();
+                await scope.ServiceProvider.GetRequiredService<IDataSeeder>().SeedAsync();
             }
         });
     }

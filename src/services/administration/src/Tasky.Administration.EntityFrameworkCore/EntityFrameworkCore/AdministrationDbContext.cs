@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.Data;
@@ -12,39 +13,23 @@ using Volo.Abp.SettingManagement.EntityFrameworkCore;
 
 namespace Tasky.Administration.EntityFrameworkCore;
 
-[ConnectionStringName(AdministrationDbProperties.ConnectionStringName)]
-public class AdministrationDbContext : AbpDbContext<AdministrationDbContext>,
-    IPermissionManagementDbContext,
-    ISettingManagementDbContext,
-    IFeatureManagementDbContext,
-    IAuditLoggingDbContext,
-    IAdministrationDbContext
+[ConnectionStringName(TaskyNames.AdministrationDb)]
+public class AdministrationDbContext(DbContextOptions<AdministrationDbContext> options)
+    : AbpDbContext<AdministrationDbContext>(options),
+        IAdministrationDbContext,
+        IAuditLoggingDbContext,
+        IFeatureManagementDbContext,
+        IPermissionManagementDbContext,
+        ISettingManagementDbContext
 {
-    /* Add DbSet for each Aggregate Root here. Example:
-     * public DbSet<Question> Questions { get; set; }
-     */
-
-    public AdministrationDbContext(DbContextOptions<AdministrationDbContext> options)
-        : base(options)
-    {
-    }
-
     public DbSet<AuditLog> AuditLogs { get; set; }
-
-    public DbSet<FeatureValue> FeatureValues { get; set; }
-
-    public DbSet<PermissionGrant> PermissionGrants { get; set; }
-
-    public DbSet<Setting> Settings { get; set; }
-
-    public DbSet<PermissionGroupDefinitionRecord> PermissionGroups { get; set; }
-
-    public DbSet<PermissionDefinitionRecord> Permissions { get; set; }
-
-    public DbSet<FeatureGroupDefinitionRecord> FeatureGroups { get; set; }
-
     public DbSet<FeatureDefinitionRecord> Features { get; set; }
-
+    public DbSet<FeatureGroupDefinitionRecord> FeatureGroups { get; set; }
+    public DbSet<FeatureValue> FeatureValues { get; set; }
+    public DbSet<PermissionDefinitionRecord> Permissions { get; set; }
+    public DbSet<PermissionGrant> PermissionGrants { get; set; }
+    public DbSet<PermissionGroupDefinitionRecord> PermissionGroups { get; set; }
+    public DbSet<Setting> Settings { get; set; }
     public DbSet<SettingDefinitionRecord> SettingDefinitionRecords { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
@@ -52,9 +37,9 @@ public class AdministrationDbContext : AbpDbContext<AdministrationDbContext>,
         base.OnModelCreating(builder);
 
         builder.ConfigureAdministration();
-        builder.ConfigurePermissionManagement();
-        builder.ConfigureSettingManagement();
         builder.ConfigureAuditLogging();
         builder.ConfigureFeatureManagement();
+        builder.ConfigurePermissionManagement();
+        builder.ConfigureSettingManagement();
     }
 }

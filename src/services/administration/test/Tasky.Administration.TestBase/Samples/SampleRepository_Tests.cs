@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Volo.Abp.Modularity;
+﻿using Volo.Abp.Modularity;
 using Xunit;
 
 namespace Tasky.Administration.Samples;
@@ -8,7 +7,8 @@ namespace Tasky.Administration.Samples;
  * Then inherit these abstract classes from EF Core & MongoDB test projects.
  * In this way, both database providers are tests with the same set tests.
  */
-public abstract class SampleRepository_Tests<TStartupModule> : AdministrationTestBase<TStartupModule>
+public abstract class SampleRepository_Tests<TStartupModule>
+    : AdministrationTestBase<TStartupModule>
     where TStartupModule : IAbpModule
 {
     //private readonly ISampleRepository _sampleRepository;
@@ -19,8 +19,8 @@ public abstract class SampleRepository_Tests<TStartupModule> : AdministrationTes
     }
 
     [Fact]
-    public async Task Method1Async()
+    public void Method1()
     {
-
+        Assert.Fail("Not implemented!");
     }
 }

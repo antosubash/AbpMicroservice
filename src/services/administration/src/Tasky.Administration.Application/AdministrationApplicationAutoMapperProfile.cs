@@ -2,6 +2,4 @@
 
 namespace Tasky.Administration;
 
-public class AdministrationApplicationAutoMapperProfile : Profile
-{
-}
+public class AdministrationApplicationAutoMapperProfile : Profile { }

@@ -11,16 +11,16 @@ public class SaaSDbContextFactory : IDesignTimeDbContextFactory<SaaSDbContext>
     {
         var configuration = BuildConfiguration();
 
-        var builder = new DbContextOptionsBuilder<SaaSDbContext>()
-            .UseNpgsql(GetConnectionStringFromConfiguration());
+        var builder = new DbContextOptionsBuilder<SaaSDbContext>().UseNpgsql(
+            GetConnectionStringFromConfiguration()
+        );
 
         return new SaaSDbContext(builder.Options);
     }
 
     private static string GetConnectionStringFromConfiguration()
     {
-        return BuildConfiguration()
-            .GetConnectionString(SaaSDbProperties.ConnectionStringName);
+        return BuildConfiguration().GetConnectionString(SaaSDbProperties.ConnectionStringName);
     }
 
     private static IConfigurationRoot BuildConfiguration()

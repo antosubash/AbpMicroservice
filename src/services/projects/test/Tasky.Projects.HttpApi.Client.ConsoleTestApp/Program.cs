@@ -5,18 +5,22 @@ using Microsoft.Extensions.Hosting;
 
 namespace Tasky.Projects.HttpApi.Client.ConsoleTestApp;
 
-class Program
+internal class Program
 {
-    static async Task Main(string[] args)
+    private static async Task Main(string[] args)
     {
         await CreateHostBuilder(args).RunConsoleAsync();
     }
 
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
+    public static IHostBuilder CreateHostBuilder(string[] args)
+    {
+        return Host.CreateDefaultBuilder(args)
             .AddAppSettingsSecretsJson()
-            .ConfigureServices((hostContext, services) =>
-            {
-                services.AddHostedService<ConsoleTestAppHostedService>();
-            });
+            .ConfigureServices(
+                (hostContext, services) =>
+                {
+                    services.AddHostedService<ConsoleTestAppHostedService>();
+                }
+            );
+    }
 }

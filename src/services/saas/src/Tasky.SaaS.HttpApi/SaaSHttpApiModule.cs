@@ -8,9 +8,8 @@ using Volo.Abp.TenantManagement;
 
 namespace Tasky.SaaS;
 
-[DependsOn(
-    typeof(SaaSApplicationContractsModule),
-    typeof(AbpAspNetCoreMvcModule))]
+[DependsOn(typeof(SaaSApplicationContractsModule))]
+[DependsOn(typeof(AbpAspNetCoreMvcModule))]
 [DependsOn(typeof(AbpTenantManagementHttpApiModule))]
 public class SaaSHttpApiModule : AbpModule
 {
@@ -26,9 +25,7 @@ public class SaaSHttpApiModule : AbpModule
     {
         Configure<AbpLocalizationOptions>(options =>
         {
-            options.Resources
-                .Get<SaaSResource>()
-                .AddBaseTypes(typeof(AbpUiResource));
+            options.Resources.Get<SaaSResource>().AddBaseTypes(typeof(AbpUiResource));
         });
     }
 }

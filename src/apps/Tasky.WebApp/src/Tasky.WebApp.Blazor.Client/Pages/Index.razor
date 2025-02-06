@@ -1,0 +1,17 @@
+@page "/"
+@inherits WebAppComponentBase
+
+@if (User == null || User.Identity == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <h1>Hello, @User.Identity.Name!</h1>
+    <ul>
+        @foreach (var claim in User.Claims)
+        {
+            <li><strong>@claim.Type:</strong> @claim.Value</li>
+        }
+    </ul>
+}

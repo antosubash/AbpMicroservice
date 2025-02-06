@@ -2,7 +2,8 @@
 
 namespace Tasky.IdentityService.EntityFrameworkCore.Samples;
 
-public class SampleRepository_Tests : SampleRepository_Tests<IdentityServiceEntityFrameworkCoreTestModule>
+public class SampleRepository_Tests
+    : SampleRepository_Tests<IdentityServiceEntityFrameworkCoreTestModule>
 {
     /* Don't write custom repository tests here, instead write to
      * the base class.

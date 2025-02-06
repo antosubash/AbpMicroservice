@@ -1,4 +1,4 @@
-﻿using Tasky.Projects.Localization;
+using Tasky.Projects.Localization;
 using Volo.Abp.Localization;
 using Volo.Abp.Localization.ExceptionHandling;
 using Volo.Abp.Modularity;
@@ -8,9 +8,7 @@ using Volo.Abp.VirtualFileSystem;
 
 namespace Tasky.Projects;
 
-[DependsOn(
-    typeof(AbpValidationModule)
-)]
+[DependsOn(typeof(AbpValidationModule))]
 public class ProjectsDomainSharedModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
@@ -22,8 +20,8 @@ public class ProjectsDomainSharedModule : AbpModule
 
         Configure<AbpLocalizationOptions>(options =>
         {
-            options.Resources
-                .Add<ProjectsResource>("en")
+            options
+                .Resources.Add<ProjectsResource>("en")
                 .AddBaseTypes(typeof(AbpValidationResource))
                 .AddVirtualJson("/Localization/Projects");
         });

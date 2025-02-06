@@ -2,6 +2,4 @@
 
 namespace Tasky.SaaS;
 
-public class SaaSApplicationAutoMapperProfile : Profile
-{
-}
+public class SaaSApplicationAutoMapperProfile : Profile { }

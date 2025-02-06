@@ -7,20 +7,12 @@ public class SampleAppService : ProjectsAppService, ISampleAppService
 {
     public Task<SampleDto> GetAsync()
     {
-        return Task.FromResult(
-            new SampleDto {
-                Value = 42
-            }
-        );
+        return Task.FromResult(new SampleDto { Value = 42 });
     }
 
     [Authorize]
     public Task<SampleDto> GetAuthorizedAsync()
     {
-        return Task.FromResult(
-            new SampleDto {
-                Value = 42
-            }
-        );
+        return Task.FromResult(new SampleDto { Value = 42 });
     }
 }
