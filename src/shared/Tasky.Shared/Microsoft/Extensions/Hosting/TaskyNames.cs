@@ -20,7 +20,7 @@ public static class TaskyNames
     public const string Gateway = "TaskyGateway";
 
     public const string IdentityServiceApi = "TaskyIdentityService";
-    public const string IdentityServiceDb = "TaskyIdentityserviceDb";
+    public const string IdentityServiceDb = "TaskyIdentityServiceDb";
 
     public const string ProjectsApi = "TaskyProjects";
     public const string ProjectsDb = "TaskyProjectsDb";
