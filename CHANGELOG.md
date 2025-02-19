@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="2.0.3"></a>
+## [2.0.3](https://www.github.com/antosubash/abp-microservice/releases/tag/v2.0.3) (2025-02-19)
+
 <a name="2.0.2"></a>
 ## [2.0.2](https://www.github.com/antosubash/AbpMicroservice/releases/tag/v2.0.2) (2025-02-06)
 
