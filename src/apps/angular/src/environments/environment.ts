@@ -14,7 +14,7 @@ export const environment = {
     redirectUri: baseUrl,
     clientId: 'Tasky_Angular',
     responseType: 'code',
-    scope: 'IdentityService AdministrationService SaasService',
+    scope: 'TaskyIdentityService TaskyAdministration TaskySaaS',
     requireHttps: false,
   },
   apis: {

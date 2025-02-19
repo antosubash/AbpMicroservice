@@ -15,7 +15,7 @@ export const environment = {
     clientId: 'Tasky_Angular',
     clientSecret: '1q2w3e*',
     responseType: 'code',
-    scope: 'offline_access IdentityService AdministrationService SaasService',
+    scope: 'offline_access TaskyIdentityService TaskyAdministration TaskySaaS',
     requireHttps: true,
   },
   apis: {
